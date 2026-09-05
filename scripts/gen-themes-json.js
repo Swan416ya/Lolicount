@@ -4,8 +4,10 @@
 // The frontend and API consume this manifest to list themes.
 import { readdir, readFile, writeFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const THEME_DIR = new URL('../assets/theme/', import.meta.url);
+const THEME_PATH = fileURLToPath(THEME_DIR);
 const OUT_FILE = new URL('../assets/themes.json', import.meta.url);
 
 const SUPPORTED = new Set(['.gif', '.png', '.webp']);
@@ -16,7 +18,7 @@ function frameIndex(stem) {
 }
 
 async function loadMeta(dir) {
-  const metaPath = join(THEME_DIR.pathname, dir, 'meta.json');
+  const metaPath = join(THEME_PATH, dir, 'meta.json');
   try {
     await stat(metaPath);
   } catch {
@@ -30,10 +32,10 @@ async function loadMeta(dir) {
 }
 
 const themes = [];
-const dirs = await readdir(THEME_DIR, { withFileTypes: true });
+const dirs = await readdir(THEME_PATH, { withFileTypes: true });
 for (const d of dirs) {
   if (!d.isDirectory()) continue;
-  const files = await readdir(join(THEME_DIR.pathname, d.name));
+  const files = await readdir(join(THEME_PATH, d.name));
   let count = 0;
   let ext = '';
   for (const f of files) {
