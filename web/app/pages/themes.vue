@@ -154,7 +154,7 @@ const generate = (e: MouseEvent) => {
   const preview = buildCounterUrl(params)
   generateKey.value += 1
   const sep = preview.includes('?') ? '&' : '?'
-  generatedPreviewUrl.value = `${D}{preview}${D}{sep}_=_${D}{generateKey.value}`
+  generatedPreviewUrl.value = `${preview}${sep}_=_${generateKey.value}`
 }
 
 onMounted(async () => {
