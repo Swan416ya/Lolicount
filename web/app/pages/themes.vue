@@ -109,7 +109,13 @@ const state = reactive<ParamState>({
   text: '{n}',
 })
 
-const onUpdate = (patch: Partial<ParamState>) => Object.assign(state, patch)
+const onUpdate = (patch: Partial<ParamState>) => {
+  Object.assign(state, patch)
+  if (patch.theme && patch.theme !== selectedTheme.value) {
+    selectedTheme.value = patch.theme
+    previewKey.value++
+  }
+}
 
 const nameEmpty = computed(() => !state.name.trim())
 
@@ -120,13 +126,30 @@ const generateKey = ref(0)
 
 const starBurst = ref<{ trigger: (x: number, y: number) => void } | null>(null)
 
+// Animated themes have no SVG endpoint: the result shows the live WebGL
+// preview and a widget snippet instead of image URL formats.
+const generatedAnimated = ref(false)
+const widgetSnippet = computed(() => {
+  if (!generatedAnimated.value || !generatedName.value) return ''
+  const origin = publicBase.value || (import.meta.client ? window.location.origin : '')
+  const tpl = state.text && state.text !== '{n}'
+    ? `
+  data-text="${state.text}"`
+    : ''
+  return `<div data-lolicount="${generatedName.value}"
+  data-model="${state.theme}"${tpl}>
+</div>
+<script src="${origin}/widget/widget.js" defer></` + 'script>'
+})
+
 const generate = (e: MouseEvent) => {
   const trimmed = state.name.trim()
   if (!trimmed) return
   starBurst.value?.trigger(e.clientX, e.clientY)
   const params: ParamState = { ...state }
   params.name = trimmed
-  generatedUrl.value = buildCounterUrl(params, publicBase.value)
+  generatedAnimated.value = themes.value.some((tth) => tth.name === params.theme && tth.animated)
+  generatedUrl.value = generatedAnimated.value ? '' : buildCounterUrl(params, publicBase.value)
   generatedName.value = trimmed
   const preview = buildCounterUrl(params)
   generateKey.value += 1
@@ -151,9 +174,105 @@ onMounted(async () => {
       <h1 class="text-3xl font-bold text-loli-pink mb-2">{{ t('themesGallery.title') }}</h1>
       <p class="text-sm text-gray-600">{{ t('themesGallery.desc') }}</p>
     </section>
+    <div class="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8">
+      <!-- Generator: first in DOM so mobile stacks it above the preview. -->
+      <div>
+        <!-- Playground -->
+        <section class="rounded-xl bg-loli-cream p-4">
+          <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
+            <img src="/images/lolicount-icon.png" alt="" class="h-5 w-5" />
+            {{ t('themesGallery.generateTitle') }}
+          </h2>
+          <ParamPanel
+            :state="state"
+            :themes="themes"
+            :fthemes="fthemes"
+            @update="onUpdate"
+          />
+          <div class="relative mt-4">
+            <StarBurst ref="starBurst" />
+            <button
+              :disabled="nameEmpty"
+              :class="cn(
+                'relative w-full py-2 rounded-lg font-medium transition',
+                nameEmpty
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-loli-pink text-white hover:bg-loli-pink/90'
+              )"
+              @click="generate($event)"
+            >
+              {{ nameEmpty ? t('param.nameEmpty') : t('playground.generate') }}
+            </button>
+          </div>
+          <div v-if="generatedUrl || generatedAnimated" class="mt-4 space-y-3">
+            <div class="rounded-xl bg-white p-3 flex justify-center">
+              <EmotePreview
+                v-if="generatedAnimated"
+                :key="generateKey"
+                :model="state.theme"
+                :name="generatedName"
+                :text="state.text || '{n}'"
+              />
+              <BgPreview v-else :url="generatedPreviewUrl" :width="400" />
+            </div>
+            <LinkOutput
+              :url="generatedAnimated ? '' : generatedUrl"
+              :name="generatedName"
+              :widget-snippet="generatedAnimated ? widgetSnippet : undefined"
+            />
+          </div>
+          <div v-else class="mt-4 rounded-xl bg-white p-3">
+            <div class="h-24 flex flex-col items-center justify-center text-center text-xs text-gray-400">
+              <p>{{ t('playground.emptyHint1') }}</p>
+              <p>{{ t('playground.emptyHint2') }}</p>
+            </div>
+          </div>
+        </section>
+      </div>
 
-    <div class="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8 items-start">
-      <!-- Left: filters + theme grid -->
+      <!-- Preview panel: second in DOM so mobile shows it right below
+           the generator. On desktop it spans both grid rows of the
+           right column and the inner rail is sticky, so scrolling moves
+           only the left column. -->
+      <div class="lg:row-span-2 lg:self-stretch">
+        <div class="preview-rail">
+        <!-- Preview panel -->
+        <section class="rounded-xl bg-loli-cream p-4">
+          <h2 class="text-lg font-semibold mb-3">{{ t('themesGallery.previewTitle') }}</h2>
+          <div
+            v-if="selectedTheme"
+            class="cursor-pointer relative flex justify-center"
+            :title="t('themes.reload')"
+            @click="reloadPreview"
+          >
+            <EmotePreview
+              v-if="selectedAnimated"
+              :key="previewKey"
+              :model="selectedTheme"
+              name="demo"
+              text="{n}"
+            />
+            <img
+              v-else
+              :src="previewUrl"
+              :alt="selectedTheme"
+              class="max-h-72 object-contain"
+            />
+          </div>
+          <div v-else class="h-40 flex items-center justify-center text-sm text-gray-400">
+            {{ t('loli.loading') }}
+          </div>
+          <div v-if="selectedMeta" class="mt-3 text-xs text-gray-500 space-y-1">
+            <p>{{ t('themesGallery.gameLabel') }}: {{ gameLabel(selectedMeta.gameKey) }}</p>
+            <p>{{ t('themesGallery.characterLabel') }}: {{ selectedMeta.character }}</p>
+          </div>
+          <p class="mt-2 text-xs text-gray-500">{{ t('themesGallery.previewHint') }}</p>
+        </section>
+        </div>
+      </div>
+
+      <!-- Filters + theme grid: last on mobile; on desktop grid
+           auto-placement puts it in the second row, left column. -->
       <div>
         <!-- Filter bar -->
         <section class="mb-6 rounded-xl bg-loli-cream p-4 space-y-3">
@@ -212,7 +331,9 @@ onMounted(async () => {
             >
               <div class="rounded-lg bg-loli-cream flex items-center justify-center overflow-hidden mb-2 h-28">
                 <img
-                  :src="buildCounterUrl({ name: 'demo', theme: tth.name, number: 0, unshowf: true })"
+                  :src="tth.animated
+                    ? `/images/emote-thumbs/${tth.name}.webp`
+                    : buildCounterUrl({ name: 'demo', theme: tth.name, number: 0, unshowf: true })"
                   :alt="tth.name"
                   class="max-h-24 object-contain"
                   loading="lazy"
@@ -229,86 +350,23 @@ onMounted(async () => {
           </div>
         </section>
       </div>
-
-      <!-- Right: preview + playground (sticky on desktop) -->
-      <div class="lg:sticky lg:top-20 space-y-6">
-        <!-- Preview panel -->
-        <section class="rounded-xl bg-loli-cream p-4">
-          <h2 class="text-lg font-semibold mb-3">{{ t('themesGallery.previewTitle') }}</h2>
-          <div
-            v-if="selectedTheme"
-            class="cursor-pointer relative flex justify-center"
-            :title="t('themes.reload')"
-            @click="reloadPreview"
-          >
-            <EmotePreview
-              v-if="selectedAnimated"
-              :key="previewKey"
-              :model="selectedTheme"
-              name="demo"
-              text="{n}"
-            />
-            <img
-              v-else
-              :src="previewUrl"
-              :alt="selectedTheme"
-              class="max-h-72 object-contain"
-            />
-          </div>
-          <div v-else class="h-40 flex items-center justify-center text-sm text-gray-400">
-            {{ t('loli.loading') }}
-          </div>
-          <div v-if="selectedMeta" class="mt-3 text-xs text-gray-500 space-y-1">
-            <p>{{ t('themesGallery.gameLabel') }}: {{ gameLabel(selectedMeta.gameKey) }}</p>
-            <p>{{ t('themesGallery.characterLabel') }}: {{ selectedMeta.character }}</p>
-          </div>
-          <p class="mt-2 text-xs text-gray-500">{{ t('themesGallery.previewHint') }}</p>
-        </section>
-
-        <!-- Playground -->
-        <section class="rounded-xl bg-loli-cream p-4">
-          <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
-            <img src="/images/lolicount-icon.png" alt="" class="h-5 w-5" />
-            {{ t('themesGallery.generateTitle') }}
-          </h2>
-          <ParamPanel
-            :state="state"
-            :themes="themes"
-            :fthemes="fthemes"
-            @update="onUpdate"
-          />
-          <div class="relative mt-4">
-            <StarBurst ref="starBurst" />
-            <button
-              :disabled="nameEmpty"
-              :class="cn(
-                'relative w-full py-2 rounded-lg font-medium transition',
-                nameEmpty
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-loli-pink text-white hover:bg-loli-pink/90'
-              )"
-              @click="generate($event)"
-            >
-              {{ nameEmpty ? t('param.nameEmpty') : t('playground.generate') }}
-            </button>
-          </div>
-          <div v-if="generatedUrl" class="mt-4 space-y-3">
-            <div class="rounded-xl bg-white p-3 flex justify-center">
-              <BgPreview :url="generatedPreviewUrl" :width="400" />
-            </div>
-            <LinkOutput :url="generatedUrl" :name="generatedName" />
-          </div>
-          <div v-else class="mt-4 rounded-xl bg-white p-3">
-            <div class="h-24 flex flex-col items-center justify-center text-center text-xs text-gray-400">
-              <p>{{ t('playground.emptyHint1') }}</p>
-              <p>{{ t('playground.emptyHint2') }}</p>
-            </div>
-          </div>
-        </section>
-      </div>
     </div>
 
     <Site-footer />
     <BackToTop />
   </main>
 </template>
+
+<style scoped>
+/* Desktop only: pin the preview rail to the viewport so scrolling moves
+ * just the left column (generator + theme picker). Below lg the rail is
+ * a plain block in the normal flow. */
+@media (min-width: 1024px) {
+  .preview-rail {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
+}
+</style>
