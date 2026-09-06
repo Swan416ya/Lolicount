@@ -1,0 +1,132 @@
+[
+  {
+    "name": "placeholder",
+    "left": 0,
+    "top": 0,
+    "width": 0,
+    "height": 0,
+    "visible": 1,
+    "layer_id": 0,
+    "group_layer_id": 0
+  },
+  {
+    "name": "lass_1",
+    "left": 248,
+    "top": 440,
+    "width": 634,
+    "height": 1040,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 1
+  },
+  {
+    "name": "eye_2",
+    "left": 343,
+    "top": 765,
+    "width": 261,
+    "height": 87,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 2
+  },
+  {
+    "name": "eye_3",
+    "left": 358,
+    "top": 753,
+    "width": 227,
+    "height": 106,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 3
+  },
+  {
+    "name": "eye_4",
+    "left": 405,
+    "top": 860,
+    "width": 123,
+    "height": 176,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 4
+  },
+  {
+    "name": "eye_5",
+    "left": 402,
+    "top": 885,
+    "width": 129,
+    "height": 151,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 5
+  },
+  {
+    "name": "eye_6",
+    "left": 404,
+    "top": 847,
+    "width": 125,
+    "height": 189,
+    "visible": 1,
+    "layer_id": 6,
+    "group_layer_id": 6
+  },
+  {
+    "name": "eye_7",
+    "left": 405,
+    "top": 885,
+    "width": 122,
+    "height": 151,
+    "visible": 1,
+    "layer_id": 7,
+    "group_layer_id": 7
+  },
+  {
+    "name": "eye_8",
+    "left": 406,
+    "top": 844,
+    "width": 124,
+    "height": 192,
+    "visible": 1,
+    "layer_id": 8,
+    "group_layer_id": 8
+  },
+  {
+    "name": "eye_9",
+    "left": 404,
+    "top": 844,
+    "width": 126,
+    "height": 192,
+    "visible": 1,
+    "layer_id": 9,
+    "group_layer_id": 9
+  },
+  {
+    "name": "eye_10",
+    "left": 400,
+    "top": 873,
+    "width": 141,
+    "height": 172,
+    "visible": 1,
+    "layer_id": 10,
+    "group_layer_id": 10
+  },
+  {
+    "name": "eye_11",
+    "left": 404,
+    "top": 873,
+    "width": 131,
+    "height": 165,
+    "visible": 1,
+    "layer_id": 11,
+    "group_layer_id": 11
+  },
+  {
+    "name": "eye_12",
+    "left": 404,
+    "top": 883,
+    "width": 125,
+    "height": 153,
+    "visible": 1,
+    "layer_id": 12,
+    "group_layer_id": 12
+  }
+]

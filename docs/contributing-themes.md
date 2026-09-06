@@ -92,6 +92,13 @@ go run ./cmd/gen-character nanami
 
 > 依赖 `cwebp`(macOS:`brew install webp`)。未安装时回退为直接复制 PNG。
 
+### 从 Yuzusoft 游戏提取(yuzusoft-tachie skill)
+
+如果想从柚子社游戏(魔女的夜宴 / 千恋＊万花等)的加密 xp3 里解包立绘素材,
+完整的静态解密 → 文件名还原 → TLG→PNG → 图层分类 → 主题生成流程见
+[`skills/yuzusoft-tachie/SKILL.md`](../skills/yuzusoft-tachie/SKILL.md)。
+`assets/theme/sanoba-*` 与 `assets/theme/senren-*` 主题即由该 skill 生成。
+
 ## meta.json
 
 可选,用于描述主题元信息:
