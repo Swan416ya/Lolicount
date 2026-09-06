@@ -17,7 +17,7 @@ let observer: IntersectionObserver | null = null
 const setupScrollSpy = () => {
   if (!import.meta.client) return
   observer?.disconnect()
-  const sections = ['quickstart']
+  const sections = ['howto', 'themes']
     .map(id => document.getElementById(id))
     .filter((el): el is HTMLElement => !!el)
   if (sections.length === 0) return
@@ -47,8 +47,9 @@ const isLinkActive = (href: string, isRoute?: boolean) => {
 }
 
 const navLinks = [
-  { href: '/#quickstart', label: 'nav.howto' },
-  { href: '/themes', label: 'nav.themes', isRoute: true },
+  { href: '/#howto', label: 'nav.howto' },
+  { href: '/#themes', label: 'nav.themes' },
+  { href: '/themes', label: 'nav.playground', isRoute: true },
   { href: '/editor', label: 'nav.editor', isRoute: true },
   { href: '/about', label: 'nav.more', isRoute: true },
 ] as const

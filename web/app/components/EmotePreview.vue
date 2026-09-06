@@ -174,7 +174,7 @@ const refreshCount = async () => {
   }
 }
 
-onMounted(async () => {
+const loadModel = async () => {
   const host = container.value
   if (!host || !props.model) return
   errorMsg.value = ''
@@ -208,7 +208,13 @@ onMounted(async () => {
   } catch (e: any) {
     errorMsg.value = e?.message || String(e)
   }
-})
+}
+
+// Re-load when the model prop changes: the component is kept alive across
+// card selections, and the shared singleton player would otherwise keep
+// showing the previously loaded model.
+watch(() => props.model, loadModel)
+onMounted(loadModel)
 </script>
 
 <template>
