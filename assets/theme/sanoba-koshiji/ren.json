@@ -1,0 +1,282 @@
+[
+  {
+    "name": "placeholder",
+    "left": 0,
+    "top": 0,
+    "width": 0,
+    "height": 0,
+    "visible": 1,
+    "layer_id": 0,
+    "group_layer_id": 0
+  },
+  {
+    "name": "lass_1",
+    "left": 711,
+    "top": 811,
+    "width": 486,
+    "height": 1667,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 1
+  },
+  {
+    "name": "lass_2",
+    "left": 727,
+    "top": 811,
+    "width": 353,
+    "height": 1667,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 2
+  },
+  {
+    "name": "eye_3",
+    "left": 829,
+    "top": 953,
+    "width": 176,
+    "height": 123,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 3
+  },
+  {
+    "name": "eye_4",
+    "left": 826,
+    "top": 955,
+    "width": 182,
+    "height": 118,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 4
+  },
+  {
+    "name": "eye_5",
+    "left": 826,
+    "top": 955,
+    "width": 182,
+    "height": 118,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 5
+  },
+  {
+    "name": "eye_6",
+    "left": 828,
+    "top": 963,
+    "width": 180,
+    "height": 109,
+    "visible": 1,
+    "layer_id": 6,
+    "group_layer_id": 6
+  },
+  {
+    "name": "eye_7",
+    "left": 829,
+    "top": 951,
+    "width": 177,
+    "height": 125,
+    "visible": 1,
+    "layer_id": 7,
+    "group_layer_id": 7
+  },
+  {
+    "name": "eye_8",
+    "left": 828,
+    "top": 951,
+    "width": 180,
+    "height": 122,
+    "visible": 1,
+    "layer_id": 8,
+    "group_layer_id": 8
+  },
+  {
+    "name": "eye_9",
+    "left": 831,
+    "top": 953,
+    "width": 172,
+    "height": 120,
+    "visible": 1,
+    "layer_id": 9,
+    "group_layer_id": 9
+  },
+  {
+    "name": "eye_10",
+    "left": 828,
+    "top": 956,
+    "width": 177,
+    "height": 117,
+    "visible": 1,
+    "layer_id": 10,
+    "group_layer_id": 10
+  },
+  {
+    "name": "eye_11",
+    "left": 828,
+    "top": 953,
+    "width": 179,
+    "height": 117,
+    "visible": 1,
+    "layer_id": 11,
+    "group_layer_id": 11
+  },
+  {
+    "name": "eye_12",
+    "left": 826,
+    "top": 955,
+    "width": 182,
+    "height": 115,
+    "visible": 1,
+    "layer_id": 12,
+    "group_layer_id": 12
+  },
+  {
+    "name": "eye_13",
+    "left": 828,
+    "top": 956,
+    "width": 177,
+    "height": 116,
+    "visible": 1,
+    "layer_id": 13,
+    "group_layer_id": 13
+  },
+  {
+    "name": "eye_14",
+    "left": 828,
+    "top": 958,
+    "width": 180,
+    "height": 115,
+    "visible": 1,
+    "layer_id": 14,
+    "group_layer_id": 14
+  },
+  {
+    "name": "eye_15",
+    "left": 742,
+    "top": 949,
+    "width": 381,
+    "height": 156,
+    "visible": 1,
+    "layer_id": 15,
+    "group_layer_id": 15
+  },
+  {
+    "name": "eye_16",
+    "left": 829,
+    "top": 956,
+    "width": 174,
+    "height": 120,
+    "visible": 1,
+    "layer_id": 16,
+    "group_layer_id": 16
+  },
+  {
+    "name": "eye_17",
+    "left": 829,
+    "top": 951,
+    "width": 177,
+    "height": 125,
+    "visible": 1,
+    "layer_id": 17,
+    "group_layer_id": 17
+  },
+  {
+    "name": "eye_18",
+    "left": 828,
+    "top": 952,
+    "width": 179,
+    "height": 123,
+    "visible": 1,
+    "layer_id": 18,
+    "group_layer_id": 18
+  },
+  {
+    "name": "eye_19",
+    "left": 828,
+    "top": 956,
+    "width": 178,
+    "height": 117,
+    "visible": 1,
+    "layer_id": 19,
+    "group_layer_id": 19
+  },
+  {
+    "name": "eye_20",
+    "left": 828,
+    "top": 956,
+    "width": 179,
+    "height": 117,
+    "visible": 1,
+    "layer_id": 20,
+    "group_layer_id": 20
+  },
+  {
+    "name": "eye_21",
+    "left": 828,
+    "top": 953,
+    "width": 180,
+    "height": 129,
+    "visible": 1,
+    "layer_id": 21,
+    "group_layer_id": 21
+  },
+  {
+    "name": "eye_22",
+    "left": 828,
+    "top": 955,
+    "width": 180,
+    "height": 118,
+    "visible": 1,
+    "layer_id": 22,
+    "group_layer_id": 22
+  },
+  {
+    "name": "eye_23",
+    "left": 828,
+    "top": 950,
+    "width": 180,
+    "height": 130,
+    "visible": 1,
+    "layer_id": 23,
+    "group_layer_id": 23
+  },
+  {
+    "name": "eye_24",
+    "left": 828,
+    "top": 956,
+    "width": 176,
+    "height": 117,
+    "visible": 1,
+    "layer_id": 24,
+    "group_layer_id": 24
+  },
+  {
+    "name": "eye_25",
+    "left": 826,
+    "top": 955,
+    "width": 182,
+    "height": 121,
+    "visible": 1,
+    "layer_id": 25,
+    "group_layer_id": 25
+  },
+  {
+    "name": "eye_26",
+    "left": 828,
+    "top": 957,
+    "width": 180,
+    "height": 114,
+    "visible": 1,
+    "layer_id": 26,
+    "group_layer_id": 26
+  },
+  {
+    "name": "face_27",
+    "left": 795,
+    "top": 987,
+    "width": 229,
+    "height": 108,
+    "visible": 1,
+    "layer_id": 27,
+    "group_layer_id": 27
+  }
+]
