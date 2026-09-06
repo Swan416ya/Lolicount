@@ -28,6 +28,7 @@ export type GameKey =
   | 'summer-pockets'
   | 'otome-domain'
   | 'sanoba-witch'
+  | 'senren-banka'
   | 'nekopara'
   | 'chunithm'
   | 'other'
@@ -41,6 +42,9 @@ export const gameMeta: Record<GameKey, { label: Record<'zh' | 'en' | 'jp', strin
   },
   'sanoba-witch': {
     label: { zh: '魔女的夜宴', en: 'Sabbat of the Witch', jp: 'サノバウィッチ' },
+  },
+  'senren-banka': {
+    label: { zh: '千恋＊万花', en: 'Senren Banka', jp: '千恋＊万花' },
   },
   'nekopara': {
     label: { zh: '猫娘乐园', en: 'NEKOPARA', jp: 'ネコぱら' },
@@ -86,6 +90,27 @@ export const themeMeta: ThemeMeta[] = [
   { name: 'sanoba-taichi', kind: 'character', gameKey: 'sanoba-witch', character: '太一', romaji: 'taichi', aliases: ['taichi', '太一'] },
   { name: 'sanoba-akagi', kind: 'character', gameKey: 'sanoba-witch', character: 'アカギ', romaji: 'akagi', aliases: ['akagi', 'アカギ'] },
   { name: 'sanoba-koshiji', kind: 'character', gameKey: 'sanoba-witch', character: '越路', romaji: 'koshiji', aliases: ['koshiji', '越路'] },
+
+  // Senren Banka (per-character multi-layer themes)
+  { name: 'senren-yoshino', kind: 'character', gameKey: 'senren-banka', character: '朝武芳乃', romaji: 'asatake yoshino', aliases: ['yoshino', '芳乃'] },
+  { name: 'senren-yoshino-b', kind: 'character', gameKey: 'senren-banka', character: '朝武芳乃', romaji: 'asatake yoshino', aliases: ['yoshino-b', '芳乃b'] },
+  { name: 'senren-mako', kind: 'character', gameKey: 'senren-banka', character: '常陸茉子', romaji: 'hitachi mako', aliases: ['mako', '茉子'] },
+  { name: 'senren-mako-b', kind: 'character', gameKey: 'senren-banka', character: '常陸茉子', romaji: 'hitachi mako', aliases: ['mako-b', '茉子b'] },
+  { name: 'senren-murasame', kind: 'character', gameKey: 'senren-banka', character: 'ムラサメ', romaji: 'murasame', aliases: ['murasame', '叢雲'] },
+  { name: 'senren-murasame-b', kind: 'character', gameKey: 'senren-banka', character: 'ムラサメ', romaji: 'murasame', aliases: ['murasame-b', '叢雲b'] },
+  { name: 'senren-rena', kind: 'character', gameKey: 'senren-banka', character: 'レナ', romaji: 'rena', aliases: ['rena', 'レナ'] },
+  { name: 'senren-rena-b', kind: 'character', gameKey: 'senren-banka', character: 'レナ', romaji: 'rena', aliases: ['rena-b', 'レナb'] },
+  { name: 'senren-roka', kind: 'character', gameKey: 'senren-banka', character: '朝武芦花', romaji: 'asatake roka', aliases: ['roka', '芦花'] },
+  { name: 'senren-roka-b', kind: 'character', gameKey: 'senren-banka', character: '朝武芦花', romaji: 'asatake roka', aliases: ['roka-b', '芦花b'] },
+  { name: 'senren-koharu', kind: 'character', gameKey: 'senren-banka', character: '小春', romaji: 'koharu', aliases: ['koharu', '小春'] },
+  { name: 'senren-koharu-b', kind: 'character', gameKey: 'senren-banka', character: '小春', romaji: 'koharu', aliases: ['koharu-b', '小春b'] },
+  { name: 'senren-hinami', kind: 'character', gameKey: 'senren-banka', character: '比奈実', romaji: 'hinami', aliases: ['hinami', '比奈実'] },
+  { name: 'senren-mizuha', kind: 'character', gameKey: 'senren-banka', character: 'みづは', romaji: 'mizuha', aliases: ['mizuha', 'みづは'] },
+  { name: 'senren-kokoro', kind: 'character', gameKey: 'senren-banka', character: '心子', romaji: 'kokoro', aliases: ['kokoro', '心子'] },
+  { name: 'senren-yasuharu', kind: 'character', gameKey: 'senren-banka', character: '安晴', romaji: 'yasuharu', aliases: ['yasuharu', '安晴'] },
+  { name: 'senren-rentaro', kind: 'character', gameKey: 'senren-banka', character: '廉太郎', romaji: 'rentaro', aliases: ['rentaro', '廉太郎'] },
+  { name: 'senren-genjiro', kind: 'character', gameKey: 'senren-banka', character: '玄十郎', romaji: 'genjiro', aliases: ['genjiro', '玄十郎'] },
+  { name: 'senren-haku', kind: 'character', gameKey: 'senren-banka', character: '白狗', romaji: 'haku', aliases: ['haku', '白狗'] },
 
   // Kun Galgame forum mascot (lian = card, lian-ren = character)
   { name: 'lian', kind: 'card', gameKey: 'other', character: '莲', romaji: 'lian', aliases: ['れん', 'ren'] },

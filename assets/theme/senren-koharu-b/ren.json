@@ -1,0 +1,242 @@
+[
+  {
+    "name": "placeholder",
+    "left": 0,
+    "top": 0,
+    "width": 0,
+    "height": 0,
+    "visible": 1,
+    "layer_id": 0,
+    "group_layer_id": 0
+  },
+  {
+    "name": "lass_1",
+    "left": 313,
+    "top": 761,
+    "width": 936,
+    "height": 1576,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 1
+  },
+  {
+    "name": "lass_2",
+    "left": 562,
+    "top": 737,
+    "width": 591,
+    "height": 1605,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 2
+  },
+  {
+    "name": "lass_3",
+    "left": 540,
+    "top": 761,
+    "width": 613,
+    "height": 1580,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 3
+  },
+  {
+    "name": "eye_4",
+    "left": 759,
+    "top": 917,
+    "width": 153,
+    "height": 101,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 4
+  },
+  {
+    "name": "eye_5",
+    "left": 757,
+    "top": 907,
+    "width": 151,
+    "height": 106,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 5
+  },
+  {
+    "name": "eye_6",
+    "left": 762,
+    "top": 910,
+    "width": 140,
+    "height": 103,
+    "visible": 1,
+    "layer_id": 6,
+    "group_layer_id": 6
+  },
+  {
+    "name": "eye_7",
+    "left": 757,
+    "top": 907,
+    "width": 151,
+    "height": 106,
+    "visible": 1,
+    "layer_id": 7,
+    "group_layer_id": 7
+  },
+  {
+    "name": "eye_8",
+    "left": 758,
+    "top": 910,
+    "width": 150,
+    "height": 103,
+    "visible": 1,
+    "layer_id": 8,
+    "group_layer_id": 8
+  },
+  {
+    "name": "eye_9",
+    "left": 760,
+    "top": 910,
+    "width": 144,
+    "height": 108,
+    "visible": 1,
+    "layer_id": 9,
+    "group_layer_id": 9
+  },
+  {
+    "name": "eye_10",
+    "left": 760,
+    "top": 898,
+    "width": 144,
+    "height": 115,
+    "visible": 1,
+    "layer_id": 10,
+    "group_layer_id": 10
+  },
+  {
+    "name": "eye_11",
+    "left": 760,
+    "top": 912,
+    "width": 146,
+    "height": 102,
+    "visible": 1,
+    "layer_id": 11,
+    "group_layer_id": 11
+  },
+  {
+    "name": "eye_12",
+    "left": 759,
+    "top": 907,
+    "width": 150,
+    "height": 112,
+    "visible": 1,
+    "layer_id": 12,
+    "group_layer_id": 12
+  },
+  {
+    "name": "eye_13",
+    "left": 755,
+    "top": 909,
+    "width": 153,
+    "height": 104,
+    "visible": 1,
+    "layer_id": 13,
+    "group_layer_id": 13
+  },
+  {
+    "name": "eye_14",
+    "left": 759,
+    "top": 917,
+    "width": 153,
+    "height": 101,
+    "visible": 1,
+    "layer_id": 14,
+    "group_layer_id": 14
+  },
+  {
+    "name": "eye_15",
+    "left": 758,
+    "top": 910,
+    "width": 150,
+    "height": 103,
+    "visible": 1,
+    "layer_id": 15,
+    "group_layer_id": 15
+  },
+  {
+    "name": "eye_16",
+    "left": 757,
+    "top": 907,
+    "width": 147,
+    "height": 111,
+    "visible": 1,
+    "layer_id": 16,
+    "group_layer_id": 16
+  },
+  {
+    "name": "eye_17",
+    "left": 757,
+    "top": 907,
+    "width": 151,
+    "height": 106,
+    "visible": 1,
+    "layer_id": 17,
+    "group_layer_id": 17
+  },
+  {
+    "name": "eye_18",
+    "left": 759,
+    "top": 904,
+    "width": 145,
+    "height": 111,
+    "visible": 1,
+    "layer_id": 18,
+    "group_layer_id": 18
+  },
+  {
+    "name": "eye_19",
+    "left": 762,
+    "top": 910,
+    "width": 140,
+    "height": 103,
+    "visible": 1,
+    "layer_id": 19,
+    "group_layer_id": 19
+  },
+  {
+    "name": "eye_20",
+    "left": 761,
+    "top": 898,
+    "width": 143,
+    "height": 122,
+    "visible": 1,
+    "layer_id": 20,
+    "group_layer_id": 20
+  },
+  {
+    "name": "eye_21",
+    "left": 758,
+    "top": 897,
+    "width": 148,
+    "height": 125,
+    "visible": 1,
+    "layer_id": 21,
+    "group_layer_id": 21
+  },
+  {
+    "name": "face_22",
+    "left": 737,
+    "top": 940,
+    "width": 191,
+    "height": 83,
+    "visible": 1,
+    "layer_id": 22,
+    "group_layer_id": 22
+  },
+  {
+    "name": "face_23",
+    "left": 764,
+    "top": 966,
+    "width": 135,
+    "height": 25,
+    "visible": 1,
+    "layer_id": 23,
+    "group_layer_id": 23
+  }
+]

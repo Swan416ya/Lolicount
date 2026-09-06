@@ -1,0 +1,18 @@
+{
+  "canvasW": 1800,
+  "canvasH": 2550,
+  "ranges": {
+    "lass": {
+      "first": 1,
+      "last": 2
+    },
+    "eye": {
+      "first": 3,
+      "last": 20
+    },
+    "face": {
+      "first": 21,
+      "last": 21
+    }
+  }
+}
