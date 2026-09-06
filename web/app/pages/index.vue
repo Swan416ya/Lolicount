@@ -10,7 +10,7 @@ const themes = ref<ThemeInfo[]>([])
 // Full theme browsing/filtering lives on the dedicated /themes page.
 const state = reactive<ParamState>({
   name: '',
-  theme: 'wenders',
+  theme: '',
   ftheme: '',
   fsize: 16,
   scale: 1,
@@ -27,8 +27,39 @@ const onUpdate = (patch: Partial<ParamState>) => Object.assign(state, patch)
 
 const nameEmpty = computed(() => !state.name.trim())
 
+// Random theme sample for the quick start: 10 themes per visit, always a
+// mix of static (SVG) and animated (emote) themes when both exist, so
+// the home page never needs the full dropdown list.
+const sampleSize = 10
+const sampledThemes = ref<ThemeInfo[]>([])
+
+const pickSample = (all: ThemeInfo[]): ThemeInfo[] => {
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const copy = [...arr]
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[copy[i], copy[j]] = [copy[j], copy[i]]
+    }
+    return copy
+  }
+  const animated = shuffle(all.filter((tth) => tth.animated))
+  const statics = shuffle(all.filter((tth) => !tth.animated))
+  const half = Math.floor(sampleSize / 2)
+  const animatedCount = all.length <= sampleSize
+    ? animated.length
+    : Math.min(animated.length, Math.max(1, Math.min(half, sampleSize - Math.min(statics.length, 1))))
+  const picked = [...animated.slice(0, animatedCount), ...statics.slice(0, sampleSize - animatedCount)]
+  return shuffle(picked)
+}
+
+const selectTheme = (name: string) => {
+  state.theme = name
+}
+
 onMounted(async () => {
   themes.value = await fetchThemes()
+  sampledThemes.value = pickSample(themes.value)
+  state.theme = sampledThemes.value[0]?.name ?? 'wenders'
   await fetchConfig()
 })
 
@@ -76,7 +107,7 @@ const howToUrl = computed(() =>
     </section>
 
     <!-- How to use -->
-    <section id="howto" class="mb-12 scroll-mt-20">
+    <section id="howto" class="mb-10 scroll-mt-20">
       <h2 class="text-2xl font-semibold mb-4">{{ t('howto.title') }}</h2>
       <p class="text-sm text-gray-600 mb-4">
         {{ t('howto.introPre') }}<a href="#quickstart" class="text-loli-pink underline">{{ t('howto.introLink') }}</a>{{ t('howto.introPost') }}
@@ -85,31 +116,50 @@ const howToUrl = computed(() =>
       <pre class="text-sm text-gray-500 mb-2"></pre>
     </section>
 
-    <!-- Quick start: name + theme + generate, plus a link to the full
-         theme gallery page for browsing/filtering all themes. -->
+    <!-- Quick start: name + random theme sample + generate, plus a link
+         to the full theme gallery page for browsing/filtering. -->
     <section id="quickstart" class="mb-12 scroll-mt-20">
       <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
         <img src="/images/lolicount-icon.png" alt="" class="h-7 w-7" />
         {{ t('themesGallery.quickStart') }}
       </h2>
       <p class="text-sm text-gray-500 mb-4">{{ t('themesGallery.quickStartDesc') }}</p>
-      <div class="rounded-xl bg-loli-cream p-4 space-y-4">
-        <div class="grid sm:grid-cols-[1fr_200px] gap-3">
-          <input
-            v-model="state.name"
-            type="text"
-            :placeholder="t('param.namePlaceholder')"
-            class="border-2 border-loli-pink rounded-lg px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-loli-pink/40"
-          />
-          <select
-            v-model="state.theme"
-            class="border rounded-lg px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-loli-pink/40 focus:border-loli-pink cursor-pointer transition"
-          >
-            <option v-for="tth in themes" :key="tth.name" :value="tth.name">
-              {{ tth.name }}{{ tth.variants ? ` (${tth.variants.toLocaleString()})` : '' }}
-            </option>
-          </select>
-        </div>
+
+      <!-- Theme sample: random 10 per visit, mix of static + animated. -->
+      <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-4">
+        <button
+          v-for="tth in sampledThemes"
+          :key="tth.name"
+          type="button"
+          :title="tth.name"
+          :class="cn(
+            'rounded-lg p-2 transition text-center bg-white border',
+            state.theme === tth.name
+              ? 'border-loli-pink'
+              : 'border-transparent hover:border-loli-pink/40'
+          )"
+          @click="selectTheme(tth.name)"
+        >
+          <div class="h-16 flex items-center justify-center overflow-hidden">
+            <img
+              :src="buildCounterUrl({ name: 'demo', theme: tth.name, number: 0, unshowf: true })"
+              :alt="tth.name"
+              class="max-h-14 object-contain"
+              loading="lazy"
+            />
+          </div>
+          <p class="text-[10px] text-gray-600 truncate mt-1">{{ tth.name }}</p>
+          <span v-if="tth.animated" class="text-[9px] text-loli-pink font-medium">{{ t('themesGallery.kindAnimated') }}</span>
+        </button>
+      </div>
+
+      <div class="rounded-xl border border-loli-cream bg-white p-4 space-y-4">
+        <input
+          v-model="state.name"
+          type="text"
+          :placeholder="t('param.namePlaceholder')"
+          class="w-full border border-gray-200 rounded-lg px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-loli-pink/40 focus:border-loli-pink"
+        />
         <div class="relative">
           <StarBurst ref="starBurst" />
           <button
@@ -127,7 +177,7 @@ const howToUrl = computed(() =>
         </div>
         <!-- Result: preview image + embed formats, shown after generation. -->
         <div v-if="generatedUrl" class="space-y-4">
-          <div class="rounded-xl bg-white p-4 flex justify-center">
+          <div class="rounded-xl bg-loli-cream p-4 flex justify-center">
             <BgPreview :url="generatedPreviewUrl" :width="400" />
           </div>
           <h3 class="text-lg font-medium flex items-center gap-2">
@@ -136,8 +186,8 @@ const howToUrl = computed(() =>
           </h3>
           <LinkOutput :url="generatedUrl" :name="generatedName" />
         </div>
-        <div v-else class="rounded-xl bg-white p-4">
-          <div class="h-32 flex flex-col items-center justify-center text-center text-sm text-gray-400">
+        <div v-else class="rounded-xl border border-loli-cream bg-loli-cream/50 p-4">
+          <div class="h-24 flex flex-col items-center justify-center text-center text-sm text-gray-400">
             <p>{{ t('playground.emptyHint1') }}</p>
             <p>{{ t('playground.emptyHint2') }}</p>
           </div>

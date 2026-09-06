@@ -7,6 +7,11 @@
 
 export type ThemeKind = 'card' | 'character'
 
+export type ThemeFrameInfo = {
+  character: string
+  romaji: string
+}
+
 export type ThemeMeta = {
   name: string
   kind: ThemeKind
@@ -14,6 +19,9 @@ export type ThemeMeta = {
   character: string
   romaji: string
   aliases: string[]
+  // Optional per-frame character mapping for multi-character card themes
+  // (e.g. sanoba mixes 11 characters in one frame set).
+  frames?: ThemeFrameInfo[]
 }
 
 export type GameKey =
@@ -34,7 +42,7 @@ export const gameMeta: Record<GameKey, { label: Record<'zh' | 'en' | 'jp', strin
     label: { zh: '魔女的夜宴', en: 'Sabbat of the Witch', jp: 'サノバウィッチ' },
   },
   'kun-forum': {
-    label: { zh: '鲲Galgame论坛', en: 'Kun Galgame Forum', jp: '鯤Galgameフォーラム' },
+    label: { zh: 'KUNgal', en: 'KUNgal', jp: 'KUNgal' },
   },
   other: {
     label: { zh: '其他来源', en: 'Other', jp: 'その他' },
@@ -63,7 +71,35 @@ export const themeMeta: ThemeMeta[] = [
   { name: 'furi', kind: 'character', gameKey: 'otome-domain', character: '西園寺風莉', romaji: 'saionji furi', aliases: ['furi'] },
 
   // Sabbat of the Witch (card theme)
-  { name: 'sanoba', kind: 'card', gameKey: 'sanoba-witch', character: '綾地寧々 等', romaji: 'ayachi nene', aliases: ['nene', 'sabbat'] },
+  {
+    name: 'sanoba',
+    kind: 'card',
+    gameKey: 'sanoba-witch',
+    character: '魔女的夜宴 全角色',
+    romaji: 'sanoba witch',
+    aliases: ['sabbat'],
+    frames: [
+      { character: '綾地寧々', romaji: 'ayachi nene' },
+      { character: '綾地寧々', romaji: 'ayachi nene' },
+      { character: '綾地寧々', romaji: 'ayachi nene' },
+      { character: '宍戸める', romaji: 'shishido meguru' },
+      { character: '宍戸める', romaji: 'shishido meguru' },
+      { character: '因幡めぐる', romaji: 'inaba meguru' },
+      { character: '因幡めぐる', romaji: 'inaba meguru' },
+      { character: '戸隠憧子', romaji: 'togakushi douko' },
+      { character: '戸隠憧子', romaji: 'togakushi douko' },
+      { character: '仮屋崎和奏', romaji: 'kariyazaki wakana' },
+      { character: '仮屋崎和奏', romaji: 'kariyazaki wakana' },
+      { character: '椎葉紬', romaji: 'shiiba tsumugi' },
+      { character: '椎葉紬', romaji: 'shiiba tsumugi' },
+      { character: '椎葉紬', romaji: 'shiiba tsumugi' },
+      { character: '綾地寧々（巫女服）', romaji: 'ayachi nene miko' },
+      { character: '戸隠憧子（体操服）', romaji: 'togakushi douko gym' },
+      { character: '友成七緒', romaji: 'tomonari nao' },
+      { character: '水瀬佳苗', romaji: 'minase kanae' },
+      { character: '仮屋崎和奏（外套）', romaji: 'kariyazaki wakana coat' },
+    ],
+  },
 
   // Kun Galgame forum mascot (lian = card, lian-ren = character)
   { name: 'lian', kind: 'card', gameKey: 'kun-forum', character: '莲', romaji: 'lian', aliases: ['れん', 'ren'] },
@@ -77,11 +113,13 @@ export const themeMeta: ThemeMeta[] = [
 // character name, romaji, aliases and the game name in all locales.
 export const buildSearchHaystack = (meta: ThemeMeta): string => {
   const game = gameMeta[meta.gameKey].label
+  const frameParts = (meta.frames ?? []).flatMap((f) => [f.character, f.romaji])
   return [
     meta.name,
     meta.character,
     meta.romaji,
     ...meta.aliases,
+    ...frameParts,
     game.zh,
     game.en,
     game.jp,

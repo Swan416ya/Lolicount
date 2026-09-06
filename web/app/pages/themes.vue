@@ -58,8 +58,14 @@ const resultCount = computed(() => filteredThemes.value.length)
 
 // Selected theme + preview with a cache-buster (same reload trick as the
 // home page showcase: the back-end picks a random frame per request).
+// Animated (emote) themes render through the shared WebGL preview instead
+// of the static SVG image endpoint.
 const selectedTheme = ref('')
 const previewKey = ref(0)
+
+const selectedAnimated = computed(() =>
+  themes.value.some((tth) => tth.name === selectedTheme.value && tth.animated),
+)
 
 const selectTheme = (name: string) => {
   selectedTheme.value = name
@@ -67,7 +73,7 @@ const selectTheme = (name: string) => {
 }
 
 const previewUrl = computed(() => {
-  if (!selectedTheme.value) return ''
+  if (!selectedTheme.value || selectedAnimated.value) return ''
   const base = buildCounterUrl({
     name: 'demo',
     theme: selectedTheme.value,
@@ -75,7 +81,7 @@ const previewUrl = computed(() => {
     unshowf: true,
   })
   const key = previewKey.value
-  return key > 0 ? `${D}{base}&_=${D}{key}` : base
+  return key > 0 ? `${base}&_=${key}` : base
 })
 
 const reloadPreview = () => {
@@ -235,7 +241,15 @@ onMounted(async () => {
             :title="t('themes.reload')"
             @click="reloadPreview"
           >
+            <EmotePreview
+              v-if="selectedAnimated"
+              :key="previewKey"
+              :model="selectedTheme"
+              name="demo"
+              text="{n}"
+            />
             <img
+              v-else
               :src="previewUrl"
               :alt="selectedTheme"
               class="max-h-72 object-contain"
@@ -255,7 +269,7 @@ onMounted(async () => {
         <section class="rounded-xl bg-loli-cream p-4">
           <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
             <img src="/images/lolicount-icon.png" alt="" class="h-5 w-5" />
-            {{ t('playground.title') }}
+            {{ t('themesGallery.generateTitle') }}
           </h2>
           <ParamPanel
             :state="state"
