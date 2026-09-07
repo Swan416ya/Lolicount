@@ -145,6 +145,10 @@ const howToUrl = computed(() =>
           </div>
         </div>
       </div>
+        <NuxtLink
+          to="/themes"
+          class="showcase-playground-link mt-4 flex w-full items-center justify-center rounded-lg bg-loli-pink px-4 py-3 text-center font-medium text-white transition hover:bg-loli-pink/90"
+        >{{ t('themesGallery.browseThemes') }}</NuxtLink>
       </div>
     </section>
 
@@ -158,5 +162,9 @@ const howToUrl = computed(() =>
   font-size: 0.9rem;
   color: var(--loli-pink);
   transition: transform 0.2s;
+}
+
+.showcase-playground-link {
+  box-sizing: border-box;
 }
 </style>
