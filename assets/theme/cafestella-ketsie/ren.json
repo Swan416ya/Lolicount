@@ -1,22 +1,72 @@
 [
   {
-    "name": "placeholder",
-    "left": 0,
-    "top": 0,
-    "width": 0,
-    "height": 0,
+    "name": "body_部屋着",
+    "left": 563,
+    "top": 953,
+    "width": 696,
+    "height": 1543,
     "visible": 1,
-    "layer_id": 0,
+    "layer_id": 1,
     "group_layer_id": 0
   },
   {
-    "name": "lass_1",
-    "left": 156,
-    "top": 250,
-    "width": 1687,
-    "height": 3499,
+    "name": "body_私服",
+    "left": 563,
+    "top": 966,
+    "width": 696,
+    "height": 1540,
     "visible": 1,
-    "layer_id": 1,
-    "group_layer_id": 1
+    "layer_id": 2,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_50　ドキドキしてるA眉口　驚き目",
+    "left": 807,
+    "top": 1091,
+    "width": 173,
+    "height": 150,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_48　?口　恥ずかしい眉　微笑み目",
+    "left": 804,
+    "top": 1095,
+    "width": 176,
+    "height": 137,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_47　恥ずかしい眉　驚き口　基本表情目",
+    "left": 804,
+    "top": 1095,
+    "width": 176,
+    "height": 140,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_39　真剣眉目　驚き口",
+    "left": 802,
+    "top": 1093,
+    "width": 178,
+    "height": 142,
+    "visible": 1,
+    "layer_id": 6,
+    "group_layer_id": 0
+  },
+  {
+    "name": "cheek_頬　弱",
+    "left": 800,
+    "top": 1150,
+    "width": 205,
+    "height": 105,
+    "visible": 1,
+    "layer_id": 7,
+    "group_layer_id": 0
   }
 ]
