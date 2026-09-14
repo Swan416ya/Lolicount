@@ -10,13 +10,33 @@
     "group_layer_id": 0
   },
   {
+    "name": "face_60　可愛い～よーしよしよし眉　＞＜目頬",
+    "left": 1689,
+    "top": 1799,
+    "width": 185,
+    "height": 228,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_54　ジト目口　照れる眉目頬",
+    "left": 1670,
+    "top": 1795,
+    "width": 188,
+    "height": 238,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  },
+  {
     "name": "face_48　めっちゃ照れる眉　考える口　照れる",
     "left": 1670,
     "top": 1786,
     "width": 192,
     "height": 240,
     "visible": 1,
-    "layer_id": 2,
+    "layer_id": 4,
     "group_layer_id": 0
   },
   {
@@ -26,37 +46,7 @@
     "width": 202,
     "height": 239,
     "visible": 1,
-    "layer_id": 3,
-    "group_layer_id": 0
-  },
-  {
-    "name": "face_39　ぷんすか眉目　照れる口",
-    "left": 1672,
-    "top": 1775,
-    "width": 197,
-    "height": 252,
-    "visible": 1,
-    "layer_id": 4,
-    "group_layer_id": 0
-  },
-  {
-    "name": "face_37　ぷんすか眉口　ジト目目",
-    "left": 1668,
-    "top": 1775,
-    "width": 205,
-    "height": 259,
-    "visible": 1,
     "layer_id": 5,
-    "group_layer_id": 0
-  },
-  {
-    "name": "cheek_60　可愛い～よーしよしよし眉　＞＜目頬",
-    "left": 1689,
-    "top": 1799,
-    "width": 185,
-    "height": 228,
-    "visible": 1,
-    "layer_id": 6,
     "group_layer_id": 0
   },
   {
@@ -66,7 +56,7 @@
     "width": 281,
     "height": 219,
     "visible": 1,
-    "layer_id": 7,
+    "layer_id": 6,
     "group_layer_id": 0
   }
 ]

@@ -10,7 +10,7 @@
     "group_layer_id": 0
   },
   {
-    "name": "body_私服",
+    "name": "body_上着",
     "left": 563,
     "top": 966,
     "width": 696,
@@ -20,13 +20,23 @@
     "group_layer_id": 0
   },
   {
+    "name": "face_57　ドキドキしてるB眉　納得顔目　こま",
+    "left": 807,
+    "top": 1093,
+    "width": 170,
+    "height": 138,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  },
+  {
     "name": "face_50　ドキドキしてるA眉口　驚き目",
     "left": 807,
     "top": 1091,
     "width": 173,
     "height": 150,
     "visible": 1,
-    "layer_id": 3,
+    "layer_id": 4,
     "group_layer_id": 0
   },
   {
@@ -36,7 +46,7 @@
     "width": 176,
     "height": 137,
     "visible": 1,
-    "layer_id": 4,
+    "layer_id": 5,
     "group_layer_id": 0
   },
   {
@@ -46,27 +56,7 @@
     "width": 176,
     "height": 140,
     "visible": 1,
-    "layer_id": 5,
-    "group_layer_id": 0
-  },
-  {
-    "name": "face_39　真剣眉目　驚き口",
-    "left": 802,
-    "top": 1093,
-    "width": 178,
-    "height": 142,
-    "visible": 1,
     "layer_id": 6,
-    "group_layer_id": 0
-  },
-  {
-    "name": "cheek_頬　弱",
-    "left": 800,
-    "top": 1150,
-    "width": 205,
-    "height": 105,
-    "visible": 1,
-    "layer_id": 7,
     "group_layer_id": 0
   }
 ]

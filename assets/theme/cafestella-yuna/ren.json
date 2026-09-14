@@ -30,13 +30,23 @@
     "group_layer_id": 0
   },
   {
+    "name": "face_57　25あたふたする目　10恥ずかしい",
+    "left": 1592,
+    "top": 1771,
+    "width": 346,
+    "height": 262,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 0
+  },
+  {
     "name": "face_47　23納得する目 12寂しい眉口",
     "left": 1590,
     "top": 1776,
     "width": 334,
     "height": 256,
     "visible": 1,
-    "layer_id": 4,
+    "layer_id": 5,
     "group_layer_id": 0
   },
   {
@@ -44,16 +54,6 @@
     "left": 1590,
     "top": 1776,
     "width": 343,
-    "height": 263,
-    "visible": 1,
-    "layer_id": 5,
-    "group_layer_id": 0
-  },
-  {
-    "name": "face_44　19訝しむ口 12寂しい眉目",
-    "left": 1590,
-    "top": 1776,
-    "width": 342,
     "height": 263,
     "visible": 1,
     "layer_id": 6,

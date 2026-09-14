@@ -4,11 +4,11 @@
   "ranges": {
     "lass": {
       "first": 0,
-      "last": 3
+      "last": 2
     },
     "face": {
-      "first": 4,
-      "last": 7
+      "first": 3,
+      "last": 6
     }
   }
 }

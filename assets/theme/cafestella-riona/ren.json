@@ -20,23 +20,13 @@
     "group_layer_id": 0
   },
   {
-    "name": "face_44　15困った眉目　13悲しい口",
-    "left": 1605,
-    "top": 1770,
-    "width": 360,
-    "height": 252,
-    "visible": 1,
-    "layer_id": 3,
-    "group_layer_id": 0
-  },
-  {
     "name": "face_42　15困った口　13悲しい眉目",
     "left": 1608,
     "top": 1781,
     "width": 359,
     "height": 240,
     "visible": 1,
-    "layer_id": 4,
+    "layer_id": 3,
     "group_layer_id": 0
   },
   {
@@ -45,6 +35,16 @@
     "top": 1767,
     "width": 341,
     "height": 251,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_7　32上目遣いで伺う口　13悲しい目　",
+    "left": 1599,
+    "top": 1770,
+    "width": 368,
+    "height": 248,
     "visible": 1,
     "layer_id": 5,
     "group_layer_id": 0
