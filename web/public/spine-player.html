@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spine 动态立绘计数器</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }
+  #wrap { position: relative; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; max-width: 100%; max-height: 100%; }
+  #count {
+    position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%);
+    font: 600 20px/1.2 system-ui, "Microsoft YaHei", sans-serif;
+    color: #2b2b33; text-shadow: 0 1px 0 #fff, 0 0 6px rgba(255,255,255,.8);
+    white-space: nowrap; pointer-events: none; letter-spacing: .5px;
+  }
+  #err { position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+    color: #b00; font: 14px system-ui; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="720" height="900"></canvas>
+  <div id="count"></div>
+  <div id="err"></div>
+</div>
+<script src="/spine/spine-3.8.js"></script>
+<script>
+(function () {
+  'use strict';
+  // Resolve the site root from this document's location so the page works
+  // both at the site root and under a basePath (Nuxt rewrites it).
+  var path = location.pathname.replace(/\/+$/, '');
+  var base = path.endsWith('/spine-player') ? path.substring(0, path.lastIndexOf('/spine-player')) + '/' : (path + '/');
+
+  var qs = new URLSearchParams(location.search);
+  var MODEL = qs.get('model');          // spine model dir name (assets/spine/<model>/)
+  var NAME  = qs.get('name') || 'demo'; // counter name
+  var TEXT  = qs.get('text') || '第 {n} 位访客';
+  var JSON_MODEL = qs.get('json') === '1'; // 1 => SkeletonJson (.json), else SkeletonBinary (.skel)
+
+  var canvas = document.getElementById('c');
+  var errEl = document.getElementById('err');
+  var countEl = document.getElementById('count');
+  var gl;
+  try { gl = canvas.getContext('webgl', { preserveDrawingBuffer: false }) || canvas.getContext('experimental-webgl'); } catch (e) {}
+  if (!gl) { errEl.style.display = 'flex'; errEl.textContent = '浏览器不支持 WebGL'; return; }
+  if (!MODEL) { errEl.style.display = 'flex'; errEl.textContent = '缺少 model 参数'; return; }
+
+  function fail(msg) { errEl.style.display = 'flex'; errEl.textContent = msg; }
+
+  var dir = base + 'spine/models/' + MODEL + '/';
+  var skelName = JSON_MODEL ? 'dyn.json' : 'dyn.skel';
+  var am = new spine.webgl.AssetManager(gl);
+  var skeleton, state, renderer;
+
+  function start() {
+    var sd = skeleton.getData();
+    var anims = sd.animations;
+    if (!anims.length) { fail('该模型没有动画'); return; }
+    // Pick a random animation for a livelier first impression.
+    var pick = anims[Math.floor(Math.random() * anims.length)];
+    state.setAnimation(0, pick.name, true);
+    // Fit: center the camera on the attachment bounding box, zoom so it fits.
+    // skeleton.getBounds() measures all region/mesh/path attachments
+    // (SkeletonBounds only measures hit-box attachments, which many models lack).
+    skeleton.updateWorldTransform();
+    var off = new spine.Vector2(), sz = new spine.Vector2();
+    skeleton.getBounds(off, sz);
+    if (!isFinite(off.x) || sz.x <= 0 || sz.y <= 0) { off.x = -300; off.y = -450; sz.x = 600; sz.y = 900; }
+    var m = 0.84;
+    renderer.camera.zoom = Math.min(canvas.width * m / sz.x, canvas.height * m / sz.y);
+    renderer.camera.position.x = off.x + sz.x / 2;
+    renderer.camera.position.y = off.y + sz.y / 2;
+
+    var last = performance.now();
+    function loop(now) {
+      var dt = (now - last) / 1000; last = now;
+      state.update(dt); state.apply(skeleton); skeleton.updateWorldTransform();
+      renderer.begin(); renderer.drawSkeleton(skeleton); renderer.end();
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  }
+
+  function loadSkeleton() {
+    var loader = new spine.AtlasAttachmentLoader(am.get(dir + 'dyn.atlas'));
+    var sd;
+    if (JSON_MODEL) {
+      sd = new spine.SkeletonJson(loader).readSkeletonData(am.get(dir + 'dyn.json'));
+    } else {
+      sd = new spine.SkeletonBinary(loader).readSkeletonData(am.get(dir + 'dyn.skel'));
+    }
+    skeleton = new spine.Skeleton(sd);
+    skeleton.setToSetupPose();
+    state = new spine.AnimationState(new spine.AnimationStateData(sd));
+    renderer = new spine.webgl.SceneRenderer(canvas, gl, false);
+    start();
+  }
+
+  // Load atlas + skeleton, then render. Both loaders decrement a shared
+  // counter; init runs once both are done (or on first error).
+  var pending = 2;
+  function done() {
+    if (pending > 0) return;
+    if (am.hasErrors()) { fail('加载模型失败: ' + JSON.stringify(am.getErrors())); return; }
+    try { loadSkeleton(); } catch (e) { fail('解析模型失败: ' + e); }
+  }
+  am.loadTextureAtlas(dir + 'dyn.atlas',
+    function () { pending--; done(); },
+    function () { pending--; done(); });
+  am.loadBinary(dir + skelName,
+    function () { pending--; done(); },
+    function () { pending--; done(); });
+
+  // Fetch the visit count and render it as a DOM overlay.
+  fetch(base + 'api/count/@' + encodeURIComponent(NAME), { credentials: 'omit' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      countEl.textContent = TEXT.replace(/\{n\}/g, d.num);
+    })
+    .catch(function () { countEl.textContent = ''; });
+})();
+</script>
+</body>
+</html>
