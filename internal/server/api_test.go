@@ -39,9 +39,15 @@ func TestAPIFThemesList(t *testing.T) {
 	}
 }
 
-// GET /api/themes returns theme names without kind (unified model).
-func TestAPIThemesListNoKind(t *testing.T) {
-	s := newCounterServer(t)
+// GET /api/themes: static imgcore themes carry no "kind"; only the animated
+// model entries (psb/spine/live2d) do. A stub server with no animated models
+// must therefore emit no "kind" at all.
+func TestAPIThemesListNoKindForStatic(t *testing.T) {
+	s := newCounterServer(t) // stub has "lian", no animated models
+	// Ensure no animated model FS is present so the response is static-only.
+	s.psbFS = nil
+	s.spineFS = nil
+	s.live2dFS = nil
 	req := httptest.NewRequest(http.MethodGet, "/api/themes", nil)
 	resp, err := s.app.Test(req)
 	if err != nil {
@@ -55,7 +61,7 @@ func TestAPIThemesListNoKind(t *testing.T) {
 		t.Errorf("themes list missing lian: %s", body)
 	}
 	if strings.Contains(body, "kind") {
-		t.Errorf("themes list should not contain kind: %s", body)
+		t.Errorf("static themes list should not contain kind: %s", body)
 	}
 }
 
@@ -107,10 +113,39 @@ func TestAPIThemesListAnimatedModels(t *testing.T) {
 		t.Fatalf("app.Test: %v", err)
 	}
 	body := readBody(t, resp)
-	if !strings.Contains(body, `{"animated":true,"name":"azuki"}`) {
+	// Animated entries carry the "kind" field (JSON map keys sort
+	// alphabetically: animated, kind, name).
+	if !strings.Contains(body, `{"animated":true,"kind":"psb","name":"azuki"}`) {
 		t.Errorf("themes list missing animated azuki entry: %s", body)
 	}
 	if !strings.Contains(body, `"lian"`) {
 		t.Errorf("imgcore themes should still be listed: %s", body)
+	}
+}
+
+// GET /api/themes appends spine and live2d models with their kinds, so the
+// front-end can route each animated model to the matching player page.
+func TestAPIThemesListSpineAndLive2DModels(t *testing.T) {
+	s := newCounterServer(t)
+	s.spineFS = fstest.MapFS{
+		"kalts/dyn.skel":  &fstest.MapFile{Data: []byte("s")},
+		"kalts/dyn.atlas": &fstest.MapFile{Data: []byte("a")},
+	}
+	s.live2dFS = fstest.MapFS{
+		"archchan/model3.json":  &fstest.MapFile{Data: []byte("{}")},
+		"archchan/archchan.moc3": &fstest.MapFile{Data: []byte("m")},
+	}
+
+	req := httptest.NewRequest(http.MethodGet, "/api/themes", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	body := readBody(t, resp)
+	if !strings.Contains(body, `{"animated":true,"kind":"spine","name":"kalts"}`) {
+		t.Errorf("themes list missing spine entry: %s", body)
+	}
+	if !strings.Contains(body, `{"animated":true,"kind":"live2d","name":"archchan"}`) {
+		t.Errorf("themes list missing live2d entry: %s", body)
 	}
 }

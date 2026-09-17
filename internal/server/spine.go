@@ -13,7 +13,6 @@
 package server
 
 import (
-	"fmt"
 	"io/fs"
 	"regexp"
 	"sort"
@@ -76,7 +75,7 @@ func (s *Server) spineModelHandler(c fiber.Ctx) error {
 	if err != nil {
 		return fiber.NewError(fiber.StatusNotFound, "file not found")
 	}
-	ctype, ok := spineContentTypes[extOf(file)]
+	ctype, ok := spineContentTypes["."+extOf(file)]
 	if !ok {
 		ctype = "application/octet-stream"
 	}
@@ -120,7 +119,8 @@ func spineHasSkeleton(fsys fs.FS, name string) bool {
 	return false
 }
 
-// extOf returns the lowercased file extension including the leading dot.
+// extOf returns the file extension without the leading dot, e.g. "png".
+// Callers prepend the dot when looking up extension-keyed maps.
 func extOf(file string) string {
 	i := len(file) - 1
 	for i >= 0 && file[i] != '.' {
@@ -129,7 +129,7 @@ func extOf(file string) string {
 	if i < 0 {
 		return ""
 	}
-	return fmt.Sprintf(".%s", file[i:])
+	return file[i+1:]
 }
 
 // spineAnimNameRe whitelists the pre-rendered no-JS animation file names.

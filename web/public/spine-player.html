@@ -28,10 +28,13 @@
 <script>
 (function () {
   'use strict';
-  // Resolve the site root from this document's location so the page works
-  // both at the site root and under a basePath (Nuxt rewrites it).
+  // All counter assets (SDK, models, API) are served from the site root, so
+  // base is "/" by default. When deployed under a basePath (Nuxt rewrites the
+  // public path), the player is a flat file at the root — anchor on the
+  // trailing segment, not the ".html" suffix, which would yield "/spine-player.html/".
   var path = location.pathname.replace(/\/+$/, '');
-  var base = path.endsWith('/spine-player') ? path.substring(0, path.lastIndexOf('/spine-player')) + '/' : (path + '/');
+  var seg = path.substring(path.lastIndexOf('/') + 1);
+  var base = (seg.indexOf('spine-player') === 0) ? (path.substring(0, path.lastIndexOf('/') + 1)) : (path + '/');
 
   var qs = new URLSearchParams(location.search);
   var MODEL = qs.get('model');          // spine model dir name (assets/spine/<model>/)

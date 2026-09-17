@@ -12,6 +12,10 @@ export type ThemeInfo = {
   name: string
   variants?: number
   animated?: boolean
+  // Which animated renderer an animated theme uses: "psb" (E-mote), "spine"
+  // or "live2d". Absent for static card/character themes. The front-end uses
+  // it to pick the matching player page for the widget embed flow.
+  kind?: 'psb' | 'spine' | 'live2d'
 }
 
 export type CounterParams = {

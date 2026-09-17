@@ -1,11 +1,14 @@
 // Static metadata for theme classification, filtering and search on the
 // theme gallery page. `kind` is the render type: card = single-layer
-// image frames, character = multi-layer PSB sprite composition.
-// `gameKey` links the theme to its source game below. `romaji` and
-// `aliases` feed the search haystack so users can find a theme by the
-// character's Japanese name, romaji or the game name in any locale.
+// image frames, character = multi-layer PSB sprite composition, emote =
+// E-mote PSB animated model, spine = Spine 3.8 WebGL model, live2d = Cubism 3
+// model. Animated kinds (emote/spine/live2d) are served dynamically from
+// assets/ and flagged `animated:true` by /api/themes; they are not listed in
+// the static array below. `gameKey` links the theme to its source game below.
+// `romaji` and `aliases` feed the search haystack so users can find a theme by
+// the character's Japanese name, romaji or the game name in any locale.
 
-export type ThemeKind = "card" | "character" | "emote";
+export type ThemeKind = "card" | "character" | "emote" | "spine" | "live2d";
 
 export type ThemeFrameInfo = {
   character: string;
@@ -34,6 +37,7 @@ export type GameKey =
   | "chunithm"
   | "majo-saiban"
   | "cafe-stella"
+  | "bangdream"
   | "other";
 
 export const gameMeta: Record<
@@ -78,6 +82,9 @@ export const gameMeta: Record<
       en: "Cafe Stella",
       jp: "スターライトカフェと死神の蝶",
     },
+  },
+  bangdream: {
+    label: { zh: "BanG Dream!", en: "BanG Dream!", jp: "バンドリ！" },
   },
   other: {
     label: { zh: "其他来源", en: "Other", jp: "その他" },
@@ -1369,6 +1376,147 @@ export const themeMeta: ThemeMeta[] = [
     character: "ユニ",
     romaji: "yuni",
     aliases: ["ユニ"],
+  },
+
+  // BanG Dream! (Live2D / Cubism 2 models, fan-extracted; local use only)
+  // 001-005 Poppin'Party, 006-010 Afterglow, 011-012 Hello, Happy World!
+  {
+    name: "kasumi",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "戸山香澄",
+    romaji: "toyama kasumi",
+    aliases: ["kasumi", "香澄", "户山香澄"],
+  },
+  {
+    name: "tae",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "花園たえ",
+    romaji: "hanazono tae",
+    aliases: ["tae", "たえ", "花园tate", "花园绫乃"],
+  },
+  {
+    name: "rimi",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "牛込りみ",
+    romaji: "ushiromi rimi",
+    aliases: ["rimi", "りみ", "牛込理美"],
+  },
+  {
+    name: "saya",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "山吹沙綾",
+    romaji: "yamabuki saya",
+    aliases: ["saya", "沙綾", "山吹沙绫"],
+  },
+  {
+    name: "arisa",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "市ヶ谷有咲",
+    romaji: "ichigaya arisa",
+    aliases: ["arisa", "有咲", "市谷有咲"],
+  },
+  {
+    name: "ran",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "美竹蘭",
+    romaji: "minami ran",
+    aliases: ["ran", "蘭", "美竹兰"],
+  },
+  {
+    name: "moca",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "青葉モカ",
+    romaji: "aoba moca",
+    aliases: ["moca", "モカ", "青叶摩卡"],
+  },
+  {
+    name: "himari",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "上原ひまり",
+    romaji: "uehara himari",
+    aliases: ["himari", "ひまり", "上原日茉里"],
+  },
+  {
+    name: "tomoe",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "宇田川巴",
+    romaji: "utada tomoe",
+    aliases: ["tomoe", "巴", "宇田川巴"],
+  },
+  {
+    name: "tsugumi",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "羽沢つぐみ",
+    romaji: "hazawa tsugumi",
+    aliases: ["tsugumi", "つぐみ", "羽泽冬海"],
+  },
+  {
+    name: "kokoro",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "弦巻こころ",
+    romaji: "tsurumaki kokoro",
+    aliases: ["kokoro", "こころ", "弦卷心"],
+  },
+  {
+    name: "kaoru",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "瀬田薫",
+    romaji: "sega kaoru",
+    aliases: ["kaoru", "薫", "濑田薰"],
+  },
+
+  // BanG Dream! MyGO!!!!! (live costumes, from bytehunter-official/mygo-live2d)
+  {
+    name: "tomori",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "高松燈",
+    romaji: "takamatsu tomori",
+    aliases: ["tomori", "燈", "灯", "高松灯"],
+  },
+  {
+    name: "anon",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "千早愛音",
+    romaji: "chihaya anon",
+    aliases: ["anon", "愛音", "爱音", "千早爱音"],
+  },
+  {
+    name: "rana",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "要楽奈",
+    romaji: "kaname rana",
+    aliases: ["rana", "楽奈", "乐奈", "要乐奈"],
+  },
+  {
+    name: "soyo",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "長崎そよ",
+    romaji: "nagasaki soyo",
+    aliases: ["soyo", "そよ", "长崎そよ"],
+  },
+  {
+    name: "taki",
+    kind: "live2d",
+    gameKey: "bangdream",
+    character: "椎名立希",
+    romaji: "shiina taki",
+    aliases: ["taki", "立希", "椎名立希"],
   },
 
   // Unconfirmed origin

@@ -67,6 +67,13 @@ const selectedAnimated = computed(() =>
   themes.value.some((tth) => tth.name === selectedTheme.value && tth.animated),
 )
 
+// Which animated renderer the selected theme uses: "psb" (E-mote), "spine" or
+// "live2d". Absent for static card/character themes. Drives the preview
+// component choice (EmotePreview for psb/spine, Live2DPreview for live2d).
+const selectedKind = computed(() =>
+  themes.value.find((tth) => tth.name === selectedTheme.value)?.kind ?? '',
+)
+
 const selectTheme = (name: string) => {
   selectedTheme.value = name
   state.theme = name
@@ -129,6 +136,7 @@ const starBurst = ref<{ trigger: (x: number, y: number) => void } | null>(null)
 // Animated themes have no SVG endpoint: the result shows the live WebGL
 // preview and a widget snippet instead of image URL formats.
 const generatedAnimated = ref(false)
+const generatedKind = ref('')
 const widgetSnippet = computed(() => {
   if (!generatedAnimated.value || !generatedName.value) return ''
   const origin = publicBase.value || (import.meta.client ? window.location.origin : '')
@@ -148,7 +156,9 @@ const generate = (e: MouseEvent) => {
   starBurst.value?.trigger(e.clientX, e.clientY)
   const params: ParamState = { ...state }
   params.name = trimmed
-  generatedAnimated.value = themes.value.some((tth) => tth.name === params.theme && tth.animated)
+  const generatedTheme = themes.value.find((tth) => tth.name === params.theme)
+  generatedAnimated.value = !!generatedTheme?.animated
+  generatedKind.value = generatedTheme?.kind ?? ''
   generatedUrl.value = generatedAnimated.value ? '' : buildCounterUrl(params, publicBase.value)
   generatedName.value = trimmed
   const preview = buildCounterUrl(params)
@@ -207,7 +217,14 @@ onMounted(async () => {
           <div v-if="generatedUrl || generatedAnimated" class="mt-4 space-y-3">
             <div class="rounded-xl bg-white p-3 flex justify-center">
               <EmotePreview
-                v-if="generatedAnimated"
+                v-if="generatedAnimated && generatedKind !== 'live2d'"
+                :key="generateKey"
+                :model="state.theme"
+                :name="generatedName"
+                :text="state.text || '{n}'"
+              />
+              <Live2DPreview
+                v-else-if="generatedAnimated && generatedKind === 'live2d'"
                 :key="generateKey"
                 :model="state.theme"
                 :name="generatedName"
@@ -246,7 +263,14 @@ onMounted(async () => {
             @click="reloadPreview"
           >
             <EmotePreview
-              v-if="selectedAnimated"
+              v-if="selectedAnimated && selectedKind !== 'live2d'"
+              :key="previewKey"
+              :model="selectedTheme"
+              name="demo"
+              text="{n}"
+            />
+            <Live2DPreview
+              v-else-if="selectedAnimated && selectedKind === 'live2d'"
               :key="previewKey"
               :model="selectedTheme"
               name="demo"
@@ -299,6 +323,7 @@ onMounted(async () => {
                 { value: 'all', label: t('themesGallery.allKinds') },
                 { value: 'card', label: t('themesGallery.kindCard') },
                 { value: 'character', label: t('themesGallery.kindCharacter') },
+                { value: 'live2d', label: t('themesGallery.kindLive2d') },
               ]"
               :key="opt.value"
               type="button"

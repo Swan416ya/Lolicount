@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live2D 动态立绘计数器</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: transparent; overflow: hidden; }
+  #wrap { position: relative; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; max-width: 100%; max-height: 100%; }
+  #count {
+    position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%);
+    font: 600 20px/1.2 system-ui, "Microsoft YaHei", sans-serif;
+    color: #2b2b33; text-shadow: 0 1px 0 #fff, 0 0 6px rgba(255,255,255,.8);
+    white-space: nowrap; pointer-events: none; letter-spacing: .5px;
+  }
+  #err { position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+    color: #b00; font: 14px system-ui; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="720" height="900"></canvas>
+  <div id="count"></div>
+  <div id="err"></div>
+</div>
+<script src="/live2d/pixi.min.js"></script>
+<script src="/live2d/live2dcubismcore.min.js"></script>
+<script src="/live2d/live2d-legacy.min.js"></script>
+<script src="/live2d/live2d-engine.js"></script>
+<script>
+(function () {
+  'use strict';
+  // All counter assets (SDK, models, API) are served from the site root, so
+  // base is "/" by default. When deployed under a basePath (Nuxt rewrites the
+  // public path), the document's own directory is the root — but the player is
+  // a flat file at the root, so we anchor on the trailing segment rather than
+  // the ".html" suffix, which would otherwise produce "/live2d-player.html/".
+  var path = location.pathname.replace(/\/+$/, '');
+  var seg = path.substring(path.lastIndexOf('/') + 1); // "live2d-player.html"
+  var base = (seg.indexOf('live2d-player') === 0) ? (path.substring(0, path.lastIndexOf('/') + 1)) : (path + '/');
+
+  var qs = new URLSearchParams(location.search);
+  var MODEL = qs.get('model');          // live2d model dir name (assets/live2d/<model>/)
+  var NAME  = qs.get('name') || 'demo'; // counter name
+  var TEXT  = qs.get('text') || '第 {n} 位访客';
+  var SCALE = parseFloat(qs.get('scale')) || 1; // optional explicit scale override
+
+  var canvas = document.getElementById('c');
+  var errEl = document.getElementById('err');
+  var countEl = document.getElementById('count');
+
+  function fail(msg) { errEl.style.display = 'flex'; errEl.textContent = msg; }
+  if (typeof PIXI === 'undefined') { fail('Live2D 运行库加载失败'); return; }
+  if (!PIXI.live2d || !PIXI.live2d.Live2DModel) { fail('Live2D 引擎未就绪'); return; }
+  if (!MODEL) { fail('缺少 model 参数'); return; }
+
+  var dir = base + 'live2d/models/' + MODEL + '/';
+
+  // Manifest discovery. Cubism 3 models use model3.json / <name>.model3.json;
+  // BanG Dream (Cubism 2) models use model.json / <name>.model.json. The engine
+  // (PIXI.live2d.Live2DModel.from) auto-detects which runtime the JSON belongs
+  // to, so the player only has to point at the right file. The server's listing
+  // returns dir names only (no file list), so we probe the candidates and use
+  // the first that resolves to a JSON manifest. We use GET (not HEAD): the
+  // backend model route is registered for GET only, so a HEAD falls through to
+  // the SPA catch-all and misreports. A GET to a real manifest returns 200 JSON;
+  // a non-existent candidate under /live2d/models/<name>/ returns 404.
+  var MANIFESTS = ['model.json', 'model3.json', MODEL + '.model.json', MODEL + '.model3.json'];
+  var manifestName = null;
+
+  function probe(name) {
+    return fetch(dir + name, { credentials: 'omit' })
+      .then(function (r) {
+        if (r.status !== 200) { return false; }
+        var ct = (r.headers.get('content-type') || '').toLowerCase();
+        if (ct.indexOf('json') !== -1) { return true; }
+        // Fall back to sniffing the body (the live2d route sets application/json
+        // for .json, but be resilient to a generic content-type).
+        return r.text().then(function (t) {
+          try { var o = JSON.parse(t); return !!(o && (o.model || o.textures)); }
+          catch (e) { return false; }
+        });
+      })
+      .catch(function () { return false; });
+  }
+  function discoverManifest() {
+    var chain = Promise.resolve(null);
+    MANIFESTS.forEach(function (name) {
+      chain = chain.then(function (found) {
+        if (found) { return found; }
+        return probe(name).then(function (ok) { return ok ? name : null; });
+      });
+    });
+    return chain.then(function (found) {
+      manifestName = found || MANIFESTS[0];
+    });
+  }
+  function manifestUrl() {
+    // Append an optional cache-buster so a stale cached model.json (same fixed
+    // filename across deployments) can't keep an old costume around. The moc /
+    // texture filenames differ per costume, so a fresh manifest cascades to
+    // fresh sub-resources.
+    var v = qs.get('v');
+    return dir + manifestName + (v ? ('?v=' + v) : '');
+  }
+
+  // Frame the model so the whole character fills the page canvas with a little
+  // padding, top-aligned so a bust (head+torso) sits head-to-margin and a
+  // full-body model shows head-to-feet alike, without per-model tuning.
+  //
+  // The frame is driven by the engine's own drawable bounds (the union of every
+  // drawn part's local quad, read via internalModel.getDrawableBounds), NOT by
+  // reading pixels back off the WebGL canvas — GL readback behaves differently
+  // across headless/GPU drivers and produced wrong frames on real browsers.
+  // The bounds are computed straight from the part quads via `localTransform`,
+  // so they are deterministic and identical everywhere.
+  //
+  // This runs AFTER the idle motion has settled (the loader waits ~800ms), so
+  // the skirt/legs have dangled to their true lowest point and the measured
+  // bottom already includes it — fitting at rest pose would crop the hem.
+  function fitModelToCanvas(app, model, frame) {
+    var cw = canvas.width, ch = canvas.height;
+    var MARGIN = 0.03; // padding, as a fraction of canvas, on the capped axes
+    // Foot-to-bottom portrait framing: the character's baseline (bottom of the
+    // part box) sits at the bottom margin, the head sits above it with a little
+    // sky left over. This is the standard standing-portrait composition and
+    // works for bust (waist at the bottom) and full-body (feet at the bottom)
+    // rigs alike. A big empty band above the head is what the old center-fit
+    // left on bust models, so we anchor to the bottom instead.
+    //
+    // BOTTOM is deliberately large: the drawable-bounds box ends at the skirt
+    // hem, but the thighs below the skirt and the idle sway dangle further
+    // down. Anchoring the box bottom at 75% of the canvas keeps the hem +
+    // thighs in the lower band instead of clipping them off the edge.
+    var BOTTOM = 0.25;
+
+    // Freeze the ticker before measuring. The idle physics swings the drawable
+    // QUADS (control points) far more than the visible pixels, so measuring
+    // bounds while the idle plays samples a random sway phase — the same model
+    // then frames differently (and sometimes crops its own head) on every
+    // load. With the ticker stopped the rig holds a stable pose and the
+    // measured bounds are identical every time. The BOTTOM margin above then
+    // absorbs the sway once the idle resumes.
+    var wasRunning = app.ticker && app.ticker.running;
+    if (wasRunning) { app.ticker.stop(); }
+
+    // Give part vertices a first pass before we measure (a fresh load may not
+    // have populated every drawable's vertices until it has been drawn once).
+    app.render();
+
+    // Aggregate the local bounding box of every drawn part. `model.automator.bounds`
+    // returns null in this Pixi build (the getter never initializes), so we read
+    // the parts directly: internalModel.getDrawableBounds(index, tmp). These are
+    // raw local coords — unaffected by the model's Pixi transform (the model
+    // stays neutral inside `frame`, and all display transforms go on `frame`).
+    var im = model.internalModel;
+    var mnX = Infinity, mnY = Infinity, mxX = -Infinity, mxY = -Infinity, n = 0;
+    if (im && im.getDrawableIDs && im.getDrawableIndex && im.getDrawableBounds) {
+      var ids = im.getDrawableIDs();
+      var tmp = { x: 0, y: 0, width: 0, height: 0 };
+      for (var i = 0; i < ids.length; i++) {
+        var di = im.getDrawableIndex(ids[i]);
+        if (di < 0) continue;
+        var db = im.getDrawableBounds(di, tmp);
+        if (!isFinite(db.x) || !isFinite(db.y) || !isFinite(db.width) || !isFinite(db.height)) continue;
+        if (db.x < mnX) mnX = db.x;
+        if (db.y < mnY) mnY = db.y;
+        if (db.x + db.width > mxX) mxX = db.x + db.width;
+        if (db.y + db.height > mxY) mxY = db.y + db.height;
+        n++;
+      }
+    }
+
+    var availW = cw * (1 - 2 * MARGIN);
+    var availH = ch * (1 - 2 * MARGIN);
+
+    // Fallback: no measurable parts (shouldn't happen for a loaded model), so
+    // center the logical canvas as before.
+    if (!n || !isFinite(mnX) || (mxX - mnX) <= 0 || (mxY - mnY) <= 0) {
+      var imW = im.originalWidth || im.width || cw;
+      var imH = im.originalHeight || im.height || ch;
+      var fs = Math.min(cw / imW, ch / imH) * 0.9;
+      frame.scale.set(fs);
+      frame.x = cw / 2 - (imW / 2) * fs;
+      frame.y = ch / 2 - (imH / 2) * fs;
+      if (wasRunning) { app.ticker.start(); }
+      return;
+    }
+
+    var bx = mnX, by = mnY, bw = mxX - mnX, bh = mxY - mnY;
+
+    if (SCALE !== 1) {
+      // Explicit override: honor the requested scale, centered on the canvas.
+      frame.scale.set(SCALE);
+      frame.x = cw / 2 - (bx + bw / 2) * SCALE;
+      frame.y = ch / 2 - (by + bh / 2) * SCALE;
+      if (wasRunning) { app.ticker.start(); }
+      return;
+    }
+
+    // Contain-fit the box. Height-limited for these tall standing rigs. The
+    // rest-pose bounds are SHORTER than the playing figure (the skirt/legs
+    // dangle further once the idle physics runs), so fitting the raw rest
+    // height would overscale and push the head off the top once the figure
+    // drops into its playing pose. Reserve 30% of vertical space for that
+    // dangle by fitting against bh*1.3 instead of bh.
+    var s = Math.min(availW / bw, availH / (bh * 1.3));
+    frame.scale.set(s);
+
+    // Bottom-align the box (feet at the bottom margin), centered horizontally.
+    // A local point (lx, ly) maps to canvas (frame.x + lx*s, frame.y + ly*s);
+    // we want the bottom edge (by + bh) at y = ch*(1 - BOTTOM) and the
+    // horizontal center at x = cw/2.
+    frame.x = cw / 2 - (bx + bw / 2) * s;
+    frame.y = ch * (1 - BOTTOM) - (by + bh) * s;
+
+    // Shrink 12% about the figure's own centre and nudge up. The bottom-
+    // anchored fit alone leaves the head low (big empty band above) AND lets
+    // the dangling legs touch the bottom edge (feet cropped). Scaling the whole
+    // figure down a touch around its centre pulls BOTH ends in: the head rises
+    // and the legs come fully into frame. Fixed + deterministic — identical on
+    // every model and every browser (measured-lift/rescale variants were
+    // dropped: the rigs' wispy hair tips vary too much per model and per GL
+    // driver, so measured framing kept cropping someone's head).
+    var ns = s * 0.88;
+    var cxl = bx + bw / 2, cyl = by + bh / 2;
+    var ccx = frame.x + cxl * s, ccy = frame.y + cyl * s;
+    frame.scale.set(ns);
+    frame.x = ccx - cxl * ns;
+    frame.y = ccy - cyl * ns - ch * 0.06;
+
+    if (wasRunning) { app.ticker.start(); }
+  }
+
+  // ---- Unified engine render (Cubism 2 + Cubism 3) -------------------------
+  // The Pixi live2d engine auto-detects the runtime from the manifest (Cubism 2
+  // legacy via live2d-legacy.min.js, Cubism 3 via live2dcubismcore.min.js), so
+  // both BanG Dream (Cubism 2) and modern models (Cubism 3) load through the
+  // same PIXI.live2d.Live2DModel path.
+  //
+  // The one gotcha: in the Pixi v8 build we vendor, `new PIXI.Application({
+  // canvas })` does NOT bind the passed canvas - Pixi creates its own detached
+  // canvas and renders into it, while the on-page <canvas id="c"> stays blank.
+  // So we let Pixi own its canvas and, once the model is loaded, swap that
+  // canvas into the page in place of the placeholder. The swap happens after
+  // load so the count/error overlays (DOM siblings) are untouched.
+  (async function () {
+    try {
+      var app = new PIXI.Application({
+        backgroundAlpha: 0, antialias: true, autoStart: true
+      });
+      await app.init({ backgroundAlpha: 0, antialias: true });
+      // Freeze the ticker for the whole load+frame sequence. The idle physics
+      // starts driving the model's vertices the moment it is added to the
+      // stage, and from() takes a variable amount of time — so measuring bounds
+      // afterwards samples a random sway phase and the SAME lift code frames
+      // differently on every build. Stopping the ticker up front keeps the rig
+      // in true rest pose, making the measured bounds (and framing) identical
+      // every single load. It is restarted just before the canvas swaps in.
+      app.ticker.stop();
+
+      await discoverManifest();
+      // Live2DModel.from can hit a load race on fast pages (a small model dir
+      // finishes fetching before the legacy Cubism-2 runtime is fully primed,
+      // rejecting with a bare "Live2DModel.from") — retry a few times with a
+      // short delay before giving up.
+      var model = null, lastErr = null;
+      // The legacy Cubism-2 runtime primes its texture pipeline slightly after
+      // script load; calling from() immediately on a fast page leaves the
+      // renderer with zero bound textures (blank output + texParameter spam).
+      // A short pre-delay plus retries covers both this race and load flakes.
+      for (var attempt = 0; attempt < 5 && !model; attempt++) {
+        try { model = await PIXI.live2d.Live2DModel.from(manifestUrl()); }
+        catch (e) { lastErr = e; await new Promise(function (r) { setTimeout(r, 600); }); }
+      }
+      if (!model) { throw lastErr; }
+      // Wrap the model in a plain Container and keep the model itself at a
+      // neutral transform. The live2d engine has its own per-frame layout /
+      // re-posing logic that can fight direct changes to the model's Pixi
+      // transform (scaling the model visibly shrank the painted figure back),
+      // so all framing adjustments are applied to the WRAPPER instead — a pure
+      // display-layer node the engine never touches.
+      var frame = new PIXI.Container();
+      model.anchor.set(0, 0);
+      model.scale.set(1);
+      model.x = 0; model.y = 0;
+      frame.addChild(model);
+      app.stage.addChild(frame);
+      if (typeof window !== 'undefined') { window.__app = app; window.__model = model; window.__frame = frame; } // TEMP diagnostic
+
+      // Size Pixi's canvas to the target dimensions before framing so the
+      // bounds measurement in fitModelToCanvas happens at real resolution.
+      app.canvas.width = canvas.width;
+      app.canvas.height = canvas.height;
+
+      // Disable the engine's built-in mouse-follow. By default the Automator
+      // attaches pointermove -> model.focus(), which drives the eye and head
+      // angle params toward the cursor (the "eye tracking" we don't want). The
+      // BD models ship their own idle motion + motion/expression assets, so we
+      // turn both focus-follow and hit-test off and drive motion on click
+      // instead (emote-style).
+      if (model.automator) {
+        model.automator.autoFocus = false;
+        model.automator.autoHitTest = false;
+      }
+
+      // Motion switcher. Mirrors the emote player: collect every individual
+      // motion the model defines (each group can hold several), and cycle to
+      // the next one on each click. Group labels that are just separators or
+      // the gaze/initialization tracks are skipped, so a click always lands on
+      // a real motion. If the model ships no motions, a click does nothing
+      // (idle stays). The public Live2DModel wraps an internalModel; the
+      // MotionManager (definitions + startMotion) lives on the internal model.
+      var mm = (model.internalModel && model.internalModel.motionManager) || model.motionManager;
+      var motionList = []; // array of [group, index]
+      if (mm && mm.definitions) {
+        Object.keys(mm.definitions).forEach(function (group) {
+          if (group.indexOf('-') === 0 || group === '初期化' || group === '視線追従') { return; }
+          var n = (mm.definitions[group] || []).length;
+          for (var i = 0; i < n; i++) { motionList.push([group, i]); }
+        });
+      }
+      var motionIdx = -1;
+      function nextMotion() {
+        if (!motionList.length) { return; }
+        motionIdx = (motionIdx + 1) % motionList.length;
+        // startMotion(group, index, priority, options) is the Cubism 2/3 API
+        // (there is no playMotion on the MotionManager). It returns a Promise;
+        // we fire-and-forget it.
+        try { mm.startMotion(motionList[motionIdx][0], motionList[motionIdx][1]); }
+        catch (e) { /* idle is fine */ }
+      }
+      var canvasEl = app.canvas;
+      canvasEl.style.cursor = motionList.length ? 'pointer' : 'default';
+      canvasEl.addEventListener('click', nextMotion);
+
+      // Frame at REST pose, BEFORE the idle motion starts. The drawable quads
+      // are in their deterministic rest position here, so the measured bounds
+      // (and therefore the framing) are identical on every load and every
+      // browser. Measuring after the idle starts samples a random physics-sway
+      // phase — the same model then framed differently (and sometimes cropped
+      // its own head) on every load. The fit's bottom margin absorbs the sway
+      // once the idle resumes.
+      fitModelToCanvas(app, model, frame);
+
+      // Play an idle motion on load so the character is alive before the first
+      // click (mirrors the emote player's initial random motion). Prefer a group
+      // named "idle"; otherwise play the first defined motion.
+      (function () {
+        if (!motionList.length) { return; }
+        var idle = motionList.find(function (p) { return p[0].toLowerCase().indexOf('idle') === 0; });
+        var pick = idle || motionList[0];
+        motionIdx = motionList.indexOf(pick);
+        try { mm.startMotion(pick[0], pick[1]); } catch (e) { /* idle is fine */ }
+      })();
+
+      // Restart the ticker (frozen since app.init) so the idle motion + skirt
+      // physics come alive — AFTER the rest-pose frame is locked in.
+      app.ticker.start();
+
+      // Swap the placeholder #c for the canvas Pixi actually renders into
+      // (already sized and framed — the user never sees an intermediate frame).
+      app.canvas.id = 'c';
+      app.canvas.style.maxWidth = '100%';
+      app.canvas.style.maxHeight = '100%';
+      canvas.replaceWith(app.canvas);
+    } catch (e) {
+      fail('加载模型失败: ' + (e && e.message ? e.message : e));
+    }
+  })();
+
+  // Fetch the visit count and render it as a DOM overlay. A text value of "_"
+  // is a sentinel meaning "no count overlay" (used by thumbnail captures and
+  // embeds that don't want the visitor line), so we skip the fetch.
+  if (TEXT !== '_') {
+    fetch(base + 'api/count/@' + encodeURIComponent(NAME), { credentials: 'omit' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        countEl.textContent = TEXT.replace(/\{n\}/g, d.num);
+      })
+      .catch(function () { countEl.textContent = ''; });
+  }
+})();
+</script>
+</body>
+</html>

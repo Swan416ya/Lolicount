@@ -238,21 +238,16 @@ FRAMES=30 FPS=12 QV=80 node scripts/render-spine-anim.mjs   # 30帧/12fps/质量
 - 免 JS WebP 体积:720×720、30 帧、质量 80 约 0.5~0.8MB/模型,可接受;
   需要更小可调 `MAXW`/`QV`/`FRAMES`。
 
-## 9. 前端主题列表集成（后续,不在本次范围）
+## 9. 前端主题列表集成（已落地）
 
-当前 Spine 是**独立 web 特性**(直接访问 `spine-player.html` 或 `/spine/anim/`),
-尚未并入 `/api/themes` 的 `animated` 主题列表(PSB 已并入,见
-`internal/server/api.go` 追加 `psbModelNames`)。后续如需在 Playground 主题下拉里
-选 Spine 模型,需:
+Spine（与 Live2D 一起）已并入 `/api/themes`：`listThemes`（`internal/server/api.go`）
+在 PSB 之后追加 `spineModelNames()`，带 `animated:true, kind:"spine"`。`themeMeta.ts`
+的 `ThemeKind` 增加 `"spine"` 与 `"live2d"`，`useApi.ts` 的 `ThemeInfo` 增加
+`kind?: 'psb'|'spine'|'live2d'`。
 
-- `themeMeta.ts` 的 `ThemeKind` 增加 `"spine"`;
-- `api.go` 的 `/api/themes` 追加 `spineModelNames` 并带 `animated:true`(或新增
-  `engine:"spine"` 字段);
-- `themes.vue`/`LinkOutput.vue` 对 Spine 主题给出 `<iframe>`(交互)或
-  `<img>`(免 JS)两种嵌入代码。
-
-本次先以独立页 + 资产路由落地,渲染链路已验证,主题列表集成留待 Live2D 一起做
-(两者共用同一套「动画模型 + 免 JS WebP」范式)。
+后续（可选）：`themes.vue` / `LinkOutput.vue` 对 `kind==='spine'` 的主题给出
+`<iframe>`（交互）或 `<img src=…/spine/anim/…/loop.webp>`（免 JS）两种嵌入代码；
+目前交互页与免 JS WebP 均已可用，嵌入文案生成为收尾项。
 
 ## 附录：链路验证记录（2026-09-10）
 
