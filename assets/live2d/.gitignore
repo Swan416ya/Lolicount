@@ -1,6 +1,24 @@
-# Live2D 模型二进制不入库（BanG Dream 等游戏提取物受版权保护，仅本地测试）。
-# 只保留放置流程与代码：本 README 与 .gitkeep。
+# Live2D 模型默认不入库（游戏提取物受版权保护，仅本地测试）。
+# 例外：BanG Dream 的 17 个角色立绘经确认随代码一并入库（见 PR 说明）。
+# 其余（如按 6 位角色 ID 命名的提取物）仍保持忽略。
 /*
 !README.md
 !.gitkeep
 !.gitignore
+!anon
+!arisa
+!himari
+!kaoru
+!kasumi
+!kokoro
+!moca
+!ran
+!rana
+!rimi
+!saya
+!soyo
+!tae
+!taki
+!tomoe
+!tomori
+!tsugumi

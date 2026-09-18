@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "name": "rana",
+  "model": "rana_school_winter-2023.moc",
+  "textures": [
+    "texture_00.png",
+    "texture_01.png"
+  ],
+  "hit_areas": [],
+  "physics": "rana_school_winter-2023.physics.json",
+  "motions": {
+    "motion": [
+      {
+        "file": "angry01.mtn"
+      },
+      {
+        "file": "bye01.mtn"
+      },
+      {
+        "file": "cry01.mtn"
+      },
+      {
+        "file": "cry02.mtn"
+      },
+      {
+        "file": "cry03.mtn"
+      },
+      {
+        "file": "eeto01.mtn"
+      },
+      {
+        "file": "gattsu01.mtn"
+      },
+      {
+        "file": "hukumi01.mtn"
+      },
+      {
+        "file": "idle01.mtn"
+      },
+      {
+        "file": "idle02.mtn"
+      },
+      {
+        "file": "jaan01.mtn"
+      },
+      {
+        "file": "kime01.mtn"
+      },
+      {
+        "file": "nf01.mtn"
+      },
+      {
+        "file": "nf02.mtn"
+      },
+      {
+        "file": "nf03.mtn"
+      },
+      {
+        "file": "nf04.mtn"
+      },
+      {
+        "file": "nf05.mtn"
+      },
+      {
+        "file": "nf_left01.mtn"
+      },
+      {
+        "file": "nf_right01.mtn"
+      },
+      {
+        "file": "niyaniya01.mtn"
+      },
+      {
+        "file": "nnf01.mtn"
+      },
+      {
+        "file": "nnf02.mtn"
+      },
+      {
+        "file": "nnf03.mtn"
+      },
+      {
+        "file": "nnf04.mtn"
+      },
+      {
+        "file": "nnf05.mtn"
+      },
+      {
+        "file": "nnf_left01.mtn"
+      },
+      {
+        "file": "nnf_right01.mtn"
+      },
+      {
+        "file": "nod01.mtn"
+      },
+      {
+        "file": "nod02.mtn"
+      },
+      {
+        "file": "oowarai01.mtn"
+      },
+      {
+        "file": "sad01.mtn"
+      },
+      {
+        "file": "sad02.mtn"
+      },
+      {
+        "file": "scared01.mtn"
+      },
+      {
+        "file": "serious01.mtn"
+      },
+      {
+        "file": "serious02.mtn"
+      },
+      {
+        "file": "shame01.mtn"
+      },
+      {
+        "file": "sing01.mtn"
+      },
+      {
+        "file": "sleep01.mtn"
+      },
+      {
+        "file": "sleep02.mtn"
+      },
+      {
+        "file": "smile01.mtn"
+      },
+      {
+        "file": "smile02.mtn"
+      },
+      {
+        "file": "smile03.mtn"
+      },
+      {
+        "file": "smile04.mtn"
+      },
+      {
+        "file": "smile05.mtn"
+      },
+      {
+        "file": "smile06.mtn"
+      },
+      {
+        "file": "sneeze01.mtn"
+      },
+      {
+        "file": "sneeze02.mtn"
+      },
+      {
+        "file": "surprised01.mtn"
+      },
+      {
+        "file": "surprised02.mtn"
+      },
+      {
+        "file": "surprised03.mtn"
+      },
+      {
+        "file": "wink01.mtn"
+      }
+    ]
+  },
+  "expressions": []
+}

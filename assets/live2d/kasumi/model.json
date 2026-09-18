@@ -1,0 +1,294 @@
+{
+  "version": 2,
+  "name": "kasumi",
+  "model": "kasumi_school_winter-2023.moc",
+  "textures": [
+    "texture_00.png",
+    "texture_01.png"
+  ],
+  "hit_areas": [],
+  "physics": "kasumi_school_winter-2023.physics.json",
+  "motions": {
+    "motion": [
+      {
+        "file": "angry01.mtn"
+      },
+      {
+        "file": "bye01.mtn"
+      },
+      {
+        "file": "cry01.mtn"
+      },
+      {
+        "file": "cry02.mtn"
+      },
+      {
+        "file": "cry03.mtn"
+      },
+      {
+        "file": "eeto01.mtn"
+      },
+      {
+        "file": "gattsu01.mtn"
+      },
+      {
+        "file": "hukumi01.mtn"
+      },
+      {
+        "file": "idle01.mtn"
+      },
+      {
+        "file": "idle02.mtn"
+      },
+      {
+        "file": "jaan01.mtn"
+      },
+      {
+        "file": "kime01.mtn"
+      },
+      {
+        "file": "nf01.mtn"
+      },
+      {
+        "file": "nf02.mtn"
+      },
+      {
+        "file": "nf03.mtn"
+      },
+      {
+        "file": "nf04.mtn"
+      },
+      {
+        "file": "nf05.mtn"
+      },
+      {
+        "file": "nf_left01.mtn"
+      },
+      {
+        "file": "nf_right01.mtn"
+      },
+      {
+        "file": "niyaniya01.mtn"
+      },
+      {
+        "file": "nnf01.mtn"
+      },
+      {
+        "file": "nnf02.mtn"
+      },
+      {
+        "file": "nnf03.mtn"
+      },
+      {
+        "file": "nnf04.mtn"
+      },
+      {
+        "file": "nnf05.mtn"
+      },
+      {
+        "file": "nnf_left01.mtn"
+      },
+      {
+        "file": "nnf_right01.mtn"
+      },
+      {
+        "file": "nod01.mtn"
+      },
+      {
+        "file": "nod02.mtn"
+      },
+      {
+        "file": "oowarai01.mtn"
+      },
+      {
+        "file": "sad01.mtn"
+      },
+      {
+        "file": "sad02.mtn"
+      },
+      {
+        "file": "scared01.mtn"
+      },
+      {
+        "file": "serious01.mtn"
+      },
+      {
+        "file": "serious02.mtn"
+      },
+      {
+        "file": "shame01.mtn"
+      },
+      {
+        "file": "sing01.mtn"
+      },
+      {
+        "file": "sleep01.mtn"
+      },
+      {
+        "file": "sleep02.mtn"
+      },
+      {
+        "file": "smile01.mtn"
+      },
+      {
+        "file": "smile02.mtn"
+      },
+      {
+        "file": "smile03.mtn"
+      },
+      {
+        "file": "smile04.mtn"
+      },
+      {
+        "file": "smile05.mtn"
+      },
+      {
+        "file": "smile06.mtn"
+      },
+      {
+        "file": "sneeze01.mtn"
+      },
+      {
+        "file": "sneeze02.mtn"
+      },
+      {
+        "file": "surprised01.mtn"
+      },
+      {
+        "file": "surprised02.mtn"
+      },
+      {
+        "file": "surprised03.mtn"
+      },
+      {
+        "file": "wink01.mtn"
+      }
+    ]
+  },
+  "expressions": [
+    {
+      "name": "angry01",
+      "file": "angry01.exp.json"
+    },
+    {
+      "name": "cry01",
+      "file": "cry01.exp.json"
+    },
+    {
+      "name": "cry03",
+      "file": "cry03.exp.json"
+    },
+    {
+      "name": "default",
+      "file": "default.exp.json"
+    },
+    {
+      "name": "f01",
+      "file": "f01.exp.json"
+    },
+    {
+      "name": "f02",
+      "file": "f02.exp.json"
+    },
+    {
+      "name": "f03",
+      "file": "f03.exp.json"
+    },
+    {
+      "name": "f04",
+      "file": "f04.exp.json"
+    },
+    {
+      "name": "f05",
+      "file": "f05.exp.json"
+    },
+    {
+      "name": "f06",
+      "file": "f06.exp.json"
+    },
+    {
+      "name": "f07",
+      "file": "f07.exp.json"
+    },
+    {
+      "name": "f08",
+      "file": "f08.exp.json"
+    },
+    {
+      "name": "f09",
+      "file": "f09.exp.json"
+    },
+    {
+      "name": "f10",
+      "file": "f10.exp.json"
+    },
+    {
+      "name": "f11",
+      "file": "f11.exp.json"
+    },
+    {
+      "name": "f12",
+      "file": "f12.exp.json"
+    },
+    {
+      "name": "f14",
+      "file": "f14.exp.json"
+    },
+    {
+      "name": "f15",
+      "file": "f15.exp.json"
+    },
+    {
+      "name": "f16",
+      "file": "f16.exp.json"
+    },
+    {
+      "name": "f17",
+      "file": "f17.exp.json"
+    },
+    {
+      "name": "f18",
+      "file": "f18.exp.json"
+    },
+    {
+      "name": "idle01",
+      "file": "idle01.exp.json"
+    },
+    {
+      "name": "kime01",
+      "file": "kime01.exp.json"
+    },
+    {
+      "name": "sad01",
+      "file": "sad01.exp.json"
+    },
+    {
+      "name": "serious01",
+      "file": "serious01.exp.json"
+    },
+    {
+      "name": "serious02",
+      "file": "serious02.exp.json"
+    },
+    {
+      "name": "shame01",
+      "file": "shame01.exp.json"
+    },
+    {
+      "name": "smile01",
+      "file": "smile01.exp.json"
+    },
+    {
+      "name": "smile02",
+      "file": "smile02.exp.json"
+    },
+    {
+      "name": "smile03",
+      "file": "smile03.exp.json"
+    },
+    {
+      "name": "surprised01",
+      "file": "surprised01.exp.json"
+    }
+  ]
+}
