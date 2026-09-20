@@ -32,6 +32,7 @@ export type GameKey =
   | "steins-gate"
   | "nekopara"
   | "chunithm"
+  | "majo-saiban"
   | "other";
 
 export const gameMeta: Record<
@@ -62,6 +63,13 @@ export const gameMeta: Record<
   },
   chunithm: {
     label: { zh: "CHUNITHM", en: "CHUNITHM", jp: "チュウニズム" },
+  },
+  "majo-saiban": {
+    label: {
+      zh: "魔法少女的魔女审判",
+      en: "Magical Girl Witch Trials",
+      jp: "魔法少女ノ魔女裁判",
+    },
   },
   other: {
     label: { zh: "其他来源", en: "Other", jp: "その他" },
@@ -1363,6 +1371,220 @@ export const themeMeta: ThemeMeta[] = [
     character: "クオン",
     romaji: "kuon",
     aliases: ["kuon"],
+  },
+
+  // Magical Girl Witch Trials (character themes, layered Naninovel
+  // sprites extracted from the Unity Addressables bundles)
+  {
+    name: "manosaba-alisa",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "紫藤アリサ",
+    romaji: "shidou alisa",
+    aliases: ["alisa", "アリサ", "阿里萨"],
+  },
+  {
+    name: "manosaba-anan",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "夏目アンアン",
+    romaji: "natsume anan",
+    aliases: ["anan", "アンアン"],
+  },
+  {
+    name: "manosaba-coco",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "沢渡ココ",
+    romaji: "sawatari coco",
+    aliases: ["coco", "ココ", "可可"],
+  },
+  {
+    name: "manosaba-ema",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "桜羽エマ",
+    romaji: "sakuraba ema",
+    aliases: ["ema", "エマ"],
+  },
+  {
+    name: "manosaba-hanna",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "遠野ハンナ",
+    romaji: "touno hanna",
+    aliases: ["hanna", "ハンナ", "汉娜"],
+  },
+  {
+    name: "manosaba-hiro",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "二階堂ヒロ",
+    romaji: "nikaidou hiro",
+    aliases: ["hiro", "ヒロ"],
+  },
+  {
+    name: "manosaba-leia",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "蓮見レイア",
+    romaji: "hasumi reia",
+    aliases: ["leia", "レイア", "蕾雅"],
+  },
+  {
+    name: "manosaba-margo",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "宝生マーゴ",
+    romaji: "houshou margo",
+    aliases: ["margo", "マーゴ", "玛戈"],
+  },
+  {
+    name: "manosaba-meruru",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "氷上メルル",
+    romaji: "hikami meruru",
+    aliases: ["meruru", "メルル", "梅露露"],
+  },
+  {
+    name: "manosaba-miria",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "佐伯ミリア",
+    romaji: "saeki miria",
+    aliases: ["miria", "ミリア", "米莉亚"],
+  },
+  {
+    name: "manosaba-nanoka",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "黒部ナノカ",
+    romaji: "kurobe nanoka",
+    aliases: ["nanoka", "ナノカ"],
+  },
+  {
+    name: "manosaba-noah",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "城ケ崎ノア",
+    romaji: "jougasaki noah",
+    aliases: ["noah", "ノア", "诺亚"],
+  },
+  {
+    name: "manosaba-sherry",
+    kind: "character",
+    gameKey: "majo-saiban",
+    character: "橘シェリー",
+    romaji: "tachibana sherry",
+    aliases: ["sherry", "シェリー", "雪莉"],
+  },
+
+  // Witchified (クリーチャー) forms: single-frame card themes. The scrambled
+  // Creature textures were descrambled by re-rendering the mesh sprites.
+  {
+    name: "manosaba-creature-alisa",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "紫藤アリサ(魔女化)",
+    romaji: "shidou alisa creature",
+    aliases: ["alisa", "アリサ", "阿里萨", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-anan",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "夏目アンアン(魔女化)",
+    romaji: "natsume anan creature",
+    aliases: ["anan", "アンアン", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-coco",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "沢渡ココ(魔女化)",
+    romaji: "sawatari coco creature",
+    aliases: ["coco", "ココ", "可可", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-ema",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "桜羽エマ(魔女化)",
+    romaji: "sakuraba ema creature",
+    aliases: ["ema", "エマ", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-hanna",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "遠野ハンナ(魔女化)",
+    romaji: "touno hanna creature",
+    aliases: ["hanna", "ハンナ", "汉娜", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-hiro",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "二階堂ヒロ(魔女化)",
+    romaji: "nikaidou hiro creature",
+    aliases: ["hiro", "ヒロ", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-leia",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "蓮見レイア(魔女化)",
+    romaji: "hasumi reia creature",
+    aliases: ["leia", "レイア", "蕾雅", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-margo",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "宝生マーゴ(魔女化)",
+    romaji: "houshou margo creature",
+    aliases: ["margo", "マーゴ", "玛戈", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-meruru",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "氷上メルル(魔女化)",
+    romaji: "hikami meruru creature",
+    aliases: ["meruru", "メルル", "梅露露", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-miria",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "佐伯ミリア(魔女化)",
+    romaji: "saeki miria creature",
+    aliases: ["miria", "ミリア", "米莉亚", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-nanoka",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "黒部ナノカ(魔女化)",
+    romaji: "kurobe nanoka creature",
+    aliases: ["nanoka", "ナノカ", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-noah",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "城ケ崎ノア(魔女化)",
+    romaji: "jougasaki noah creature",
+    aliases: ["noah", "ノア", "诺亚", "魔女化"],
+  },
+  {
+    name: "manosaba-creature-sherry",
+    kind: "card",
+    gameKey: "majo-saiban",
+    character: "橘シェリー(魔女化)",
+    romaji: "tachibana sherry creature",
+    aliases: ["sherry", "シェリー", "雪莉", "魔女化"],
   },
 ];
 
