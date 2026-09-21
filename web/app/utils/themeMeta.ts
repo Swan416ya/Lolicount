@@ -33,6 +33,7 @@ export type GameKey =
   | "nekopara"
   | "chunithm"
   | "majo-saiban"
+  | "cafe-stella"
   | "other";
 
 export const gameMeta: Record<
@@ -69,6 +70,13 @@ export const gameMeta: Record<
       zh: "魔法少女的魔女审判",
       en: "Magical Girl Witch Trials",
       jp: "魔法少女ノ魔女裁判",
+    },
+  },
+  "cafe-stella": {
+    label: {
+      zh: "星光咖啡馆与死神之蝶",
+      en: "Cafe Stella",
+      jp: "スターライトカフェと死神の蝶",
     },
   },
   other: {
@@ -1585,6 +1593,64 @@ export const themeMeta: ThemeMeta[] = [
     character: "橘シェリー(魔女化)",
     romaji: "tachibana sherry creature",
     aliases: ["sherry", "シェリー", "雪莉", "魔女化"],
+  },
+
+  // Cafe Stella (character themes, composited with faces)
+  {
+    name: "cafestella-nova",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "希",
+    romaji: "noa",
+    aliases: ["noa", "nova", "希"],
+  },
+  {
+    name: "cafestella-yuna",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "深山由夏",
+    romaji: "fukazawa yuna",
+    aliases: ["yuna", "結菜", "深山結菜"],
+  },
+  {
+    name: "cafestella-riona",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "涼音",
+    romaji: "riona",
+    aliases: ["riona", "涼音"],
+  },
+  {
+    name: "cafestella-ai",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "愛衣",
+    romaji: "ai",
+    aliases: ["ai", "愛衣"],
+  },
+  {
+    name: "cafestella-shuna",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "栞那",
+    romaji: "shuna",
+    aliases: ["shuna", "栞那"],
+  },
+  {
+    name: "cafestella-ketsie",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "ケットシー",
+    romaji: "ketsie",
+    aliases: ["ketsie", "ケットシー"],
+  },
+  {
+    name: "cafestella-rokuro",
+    kind: "character",
+    gameKey: "cafe-stella",
+    character: "緑郎",
+    romaji: "rokuro",
+    aliases: ["rokuro", "緑郎"],
   },
 ];
 

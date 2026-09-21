@@ -20,16 +20,6 @@
     "group_layer_id": 1
   },
   {
-    "name": "eye_2",
-    "left": 817,
-    "top": 829,
-    "width": 175,
-    "height": 64,
-    "visible": 1,
-    "layer_id": 2,
-    "group_layer_id": 2
-  },
-  {
     "name": "eye_3",
     "left": 822,
     "top": 796,
@@ -278,5 +268,15 @@
     "visible": 1,
     "layer_id": 27,
     "group_layer_id": 27
+  },
+  {
+    "name": "glasses_28",
+    "left": 817,
+    "top": 829,
+    "width": 175,
+    "height": 64,
+    "visible": 1,
+    "layer_id": 28,
+    "group_layer_id": 28
   }
 ]

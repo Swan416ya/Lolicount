@@ -1,0 +1,32 @@
+[
+  {
+    "name": "placeholder",
+    "left": 0,
+    "top": 0,
+    "width": 0,
+    "height": 0,
+    "visible": 1,
+    "layer_id": 0,
+    "group_layer_id": 0
+  },
+  {
+    "name": "lass_1",
+    "left": 205,
+    "top": 215,
+    "width": 1589,
+    "height": 3570,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 1
+  },
+  {
+    "name": "lass_2",
+    "left": 52,
+    "top": 215,
+    "width": 1896,
+    "height": 3570,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 2
+  }
+]
