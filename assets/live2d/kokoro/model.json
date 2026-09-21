@@ -1,0 +1,199 @@
+{
+  "version": 2,
+  "name": "kokoro",
+  "model": "kokoro_school_winter-2023.moc",
+  "textures": [
+    "texture_00.png",
+    "texture_01.png"
+  ],
+  "hit_areas": [],
+  "physics": "kokoro_shcool_winter-2023.physics.json",
+  "motions": {
+    "motion": [
+      {
+        "file": "angry01.mtn"
+      },
+      {
+        "file": "bye01.mtn"
+      },
+      {
+        "file": "cry01.mtn"
+      },
+      {
+        "file": "gattsu01.mtn"
+      },
+      {
+        "file": "humming01.mtn"
+      },
+      {
+        "file": "idle01.mtn"
+      },
+      {
+        "file": "idle02.mtn"
+      },
+      {
+        "file": "jaan01.mtn"
+      },
+      {
+        "file": "kime01.mtn"
+      },
+      {
+        "file": "nf01.mtn"
+      },
+      {
+        "file": "nf02.mtn"
+      },
+      {
+        "file": "nf03.mtn"
+      },
+      {
+        "file": "nf04.mtn"
+      },
+      {
+        "file": "nf05.mtn"
+      },
+      {
+        "file": "nf_left01.mtn"
+      },
+      {
+        "file": "nf_right01.mtn"
+      },
+      {
+        "file": "nnf01.mtn"
+      },
+      {
+        "file": "nnf02.mtn"
+      },
+      {
+        "file": "nnf03.mtn"
+      },
+      {
+        "file": "nnf04.mtn"
+      },
+      {
+        "file": "nnf05.mtn"
+      },
+      {
+        "file": "nnf_left01.mtn"
+      },
+      {
+        "file": "nnf_right01.mtn"
+      },
+      {
+        "file": "nod01.mtn"
+      },
+      {
+        "file": "nod02.mtn"
+      },
+      {
+        "file": "oowarai01.mtn"
+      },
+      {
+        "file": "sad01.mtn"
+      },
+      {
+        "file": "sad02.mtn"
+      },
+      {
+        "file": "sad03.mtn"
+      },
+      {
+        "file": "serious01.mtn"
+      },
+      {
+        "file": "shame01.mtn"
+      },
+      {
+        "file": "sleep01.mtn"
+      },
+      {
+        "file": "sleep02.mtn"
+      },
+      {
+        "file": "smile01.mtn"
+      },
+      {
+        "file": "smile02.mtn"
+      },
+      {
+        "file": "surprised01.mtn"
+      },
+      {
+        "file": "wink01.mtn"
+      },
+      {
+        "file": "wondering01.mtn"
+      }
+    ]
+  },
+  "expressions": [
+    {
+      "name": "angry01",
+      "file": "angry01.exp.json"
+    },
+    {
+      "name": "cry01",
+      "file": "cry01.exp.json"
+    },
+    {
+      "name": "default",
+      "file": "default.exp.json"
+    },
+    {
+      "name": "idle01",
+      "file": "idle01.exp.json"
+    },
+    {
+      "name": "kime01",
+      "file": "kime01.exp.json"
+    },
+    {
+      "name": "kokoro_default",
+      "file": "kokoro_default.exp.json"
+    },
+    {
+      "name": "kokoro_sad",
+      "file": "kokoro_sad.exp.json"
+    },
+    {
+      "name": "kokoro_serious",
+      "file": "kokoro_serious.exp.json"
+    },
+    {
+      "name": "kokoro_smile01",
+      "file": "kokoro_smile01.exp.json"
+    },
+    {
+      "name": "kokoro_smile02",
+      "file": "kokoro_smile02.exp.json"
+    },
+    {
+      "name": "kokoro_special",
+      "file": "kokoro_special.exp.json"
+    },
+    {
+      "name": "kokoro_suprised",
+      "file": "kokoro_suprised.exp.json"
+    },
+    {
+      "name": "sad01",
+      "file": "sad01.exp.json"
+    },
+    {
+      "name": "serious01",
+      "file": "serious01.exp.json"
+    },
+    {
+      "name": "smile01",
+      "file": "smile01.exp.json"
+    },
+    {
+      "name": "smile02",
+      "file": "smile02.exp.json"
+    },
+    {
+      "name": "suprised01",
+      "file": "suprised01.exp.json"
+    }
+  ]
+}

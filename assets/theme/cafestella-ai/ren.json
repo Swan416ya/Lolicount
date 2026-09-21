@@ -1,0 +1,72 @@
+[
+  {
+    "name": "body_チャイナ服",
+    "left": 1369,
+    "top": 1517,
+    "width": 731,
+    "height": 3470,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 0
+  },
+  {
+    "name": "body_メイド服",
+    "left": 918,
+    "top": 1488,
+    "width": 1687,
+    "height": 3499,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 0
+  },
+  {
+    "name": "body_上着",
+    "left": 1222,
+    "top": 1517,
+    "width": 1156,
+    "height": 3466,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_58　素直になれない顔頬　真剣2口　きょ",
+    "left": 1675,
+    "top": 1780,
+    "width": 325,
+    "height": 269,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_47　素直になれない顔眉　真剣2口　微笑",
+    "left": 1678,
+    "top": 1785,
+    "width": 321,
+    "height": 264,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_31　冷たい目目　真剣2口　拗ねる眉",
+    "left": 1678,
+    "top": 1779,
+    "width": 317,
+    "height": 270,
+    "visible": 1,
+    "layer_id": 6,
+    "group_layer_id": 0
+  },
+  {
+    "name": "face_46　流し目っぽい目目 冷たい目口　悲し",
+    "left": 1677,
+    "top": 1799,
+    "width": 318,
+    "height": 255,
+    "visible": 1,
+    "layer_id": 7,
+    "group_layer_id": 0
+  }
+]

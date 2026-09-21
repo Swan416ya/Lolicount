@@ -228,6 +228,60 @@ agent铁律-不要修改该文件的任何描述内容,至允许修改当前任�
 
 ---
 
+## M14:Spine 动态立绘(骨骼动画计数器)
+
+> 设计文档:`docs/spine-widget.md`。Spine 3.8 WebGL 实时渲染,随机动作,页面加载自动
+> 计数;**额外提供免 JS 路径**——构建期预渲染 looping 动画 WebP,第三方裸 `<img>` 嵌入
+> 即可播放(无脚本,适配 GitHub README)。
+
+- [x] `assets/spine/` 模型目录 + `GET /api/spine/models`、`GET /spine/models/:name/:file`、
+  `GET /spine/anim/:name/:file`(immutable 长缓存/名称+文件名白名单)
+- [x] vendor Spine 3.8 WebGL 运行时至 `web/public/spine/spine-3.8.js`
+- [x] `spine-player.html` 交互页:AssetManager 载 atlas+skel/json,随机动画,
+  `getBounds` 自适应取景,`{n}` 计数 overlay
+- [x] `scripts/render-spine-anim.mjs` 免 JS WebP 渲染器(headless Chrome + CDP + ffmpeg)
+- [x] 主题列表集成:`/api/themes` 追加 `spineModelNames` 带 `animated:true, kind:"spine"`;
+  `ThemeKind`/`ThemeInfo` 增加 `spine`
+- [ ] 交互增强(动作切换、点击反应)
+- [ ] 4.x 运行时兼容(过新模型需换 4.x runtime)
+
+---
+
+## M15:Live2D 动态立绘(Cubism 计数器)
+
+> 设计文档:`docs/live2d-widget.md`。Cubism 3 / Cubism 2(BanG Dream)模型经
+> untitled-pixi-live2d-engine (PixiJS v8) 实时渲染,**点击切换动作**(无鼠标眼动跟踪),
+> 页面加载自动计数。
+> **仅交互(`<iframe>`)路径**:Live2D 需 WebGL + JS,无免 JS 的 `<img>` 路径
+> (预渲染动画图太大、实时渲染太慢,两害相权放弃,见设计文档第 1 节)。
+
+- [x] `assets/live2d/` 模型目录 + `GET /api/live2d/models`、`GET /live2d/models/:name/:file`
+  (immutable 长缓存/名称+文件名白名单)
+- [x] vendor SDK 四件套到 `web/public/live2d/`:pixi.min.js、live2dcubismcore.min.js、
+  live2d-legacy.min.js、live2d-engine.js(依序加载为硬约束)
+- [x] `live2d-player.html` 交互页:`Live2DModel.from(<清单>)`(按清单自动选 Cubism 3 / 2
+  运行时),**点击画布按序切换 motion**(仿 emote 播放器),`{n}` 计数 overlay
+- [x] `gen-live2d-model3.mjs` 为裸 Cubism 3 模型目录生成 `model3.json` 清单
+- [x] 主题列表集成:`/api/themes` 追加 `live2dModelNames` 带 `animated:true, kind:"live2d"`;
+  `ThemeKind`/`ThemeInfo` 增加 `live2d`
+- [x] 修复 `extOf` 双点 bug(Spine/Live2D Content-Type 映射 miss→octet-stream)
+- [x] 修复交互页 base 路径(按尾段匹配,避免 `/live2d-player.html/` 坏路径)
+- [x] 修复 Pixi v8 不绑定传入 canvas 的 bug(改用 `app.canvas` 替换 `#c`)+ 两遍式
+  不透明像素框 **contain-fit 整框取景**(全身/半身都完整显示,不裁剪不上移)
+- [x] **去除眼动/鼠标跟踪**:关闭引擎 `Automator` 的 `autoFocus`/`autoHitTest`,
+  角色眼睛与头部不再跟随鼠标
+- [x] **点击切换动作**:收集 `model.internalModel.motionManager.definitions` 的
+  motion 分组(跳过 `-` 分隔行与「初期化 / 視線追従」),点击画布按序
+  `startMotion(group, index)` 换下一个(公开 `Live2DModel` 无 `motionManager`,
+  MotionManager API 是 `startMotion` 不是 `playMotion`);裸模型(无 `.mtn`)
+  时点击无效果、保持静态 idle
+- [x] **修复清单探测 HEAD→GET**:后端 `/live2d/models/` 路由只注册 GET,HEAD 落到
+  SPA catch-all 误报导致模型不加载(白屏);改 GET + 校验 JSON manifest
+- [x] **BanG Dream 角色导入**:BD 提取物是**标准 Cubism 2 moc**,`live2d-legacy.min.js`
+  官方 Cubism 2 运行时可直接渲染(引擎按 `model.json` 清单自动选 legacy 运行时)
+
+---
+
 ## 已完成的设计文档
 
 - [x] `docs/architecture.md`:架构文档(总体架构/存储/渲染/限流/缓存)

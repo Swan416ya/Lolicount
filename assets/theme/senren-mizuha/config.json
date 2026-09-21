@@ -8,9 +8,13 @@
     },
     "eye": {
       "first": 2,
-      "last": 26
+      "last": 25
     },
     "face": {
+      "first": 26,
+      "last": 26
+    },
+    "glasses": {
       "first": 27,
       "last": 27
     }

@@ -8,11 +8,15 @@
     },
     "eye": {
       "first": 9,
-      "last": 50
+      "last": 92
     },
     "face": {
-      "first": 51,
-      "last": 51
+      "first": 93,
+      "last": 94
+    },
+    "mask": {
+      "first": 95,
+      "last": 96
     }
   }
 }

@@ -31,6 +31,7 @@ const zh: Dict = {
   'emote.currentMotion': '当前动作',
   'emote.motions': '可用动作数',
   'emote.loadFailed': '加载失败',
+  'emote.hintClick': '点击角色切换动作',
 
   'param.animated': '动图',
   'editor.title': '图片编辑工作台',
@@ -116,6 +117,7 @@ const zh: Dict = {
   'themesGallery.allKinds': '全部类型',
   'themesGallery.kindCard': '单图层',
   'themesGallery.kindCharacter': '多图层',
+  'themesGallery.kindLive2d': 'Live2D 立绘',
   'themesGallery.kindAnimated': '动画',
   'themesGallery.generateTitle': '生成计数器',
   'themesGallery.searchPlaceholder': '搜索主题 / 角色 / 罗马音 / 游戏',
@@ -214,6 +216,7 @@ const en: Dict = {
   'emote.currentMotion': 'Current motion',
   'emote.motions': 'Motions',
   'emote.loadFailed': 'Load failed',
+  'emote.hintClick': 'Click the character to switch motions',
 
   'param.animated': 'animated',
   'editor.title': 'Theme Editor',
@@ -299,6 +302,7 @@ const en: Dict = {
   'themesGallery.allKinds': 'All types',
   'themesGallery.kindCard': 'Card',
   'themesGallery.kindCharacter': 'Character',
+  'themesGallery.kindLive2d': 'Live2D',
   'themesGallery.kindAnimated': 'Animated',
   'themesGallery.generateTitle': '生成计数器',
   'themesGallery.searchPlaceholder': 'Search theme / character / romaji / game',
@@ -397,6 +401,7 @@ const jp: Dict = {
   'emote.currentMotion': '現在のモーション',
   'emote.motions': 'モーション数',
   'emote.loadFailed': '読み込みに失敗しました',
+  'emote.hintClick': 'キャラをクリックでモーション切替',
 
   'param.animated': 'アニメ',
   'editor.title': 'テーマエディター',
@@ -482,6 +487,7 @@ const jp: Dict = {
   'themesGallery.allKinds': 'すべてのタイプ',
   'themesGallery.kindCard': 'カード',
   'themesGallery.kindCharacter': 'キャラクター',
+  'themesGallery.kindLive2d': 'Live2D',
   'themesGallery.kindAnimated': 'アニメ',
   'themesGallery.generateTitle': '生成计数器',
   'themesGallery.searchPlaceholder': 'テーマ / キャラ / ローマ字 / ゲームを検索',

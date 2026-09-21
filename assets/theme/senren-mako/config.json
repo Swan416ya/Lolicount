@@ -4,15 +4,15 @@
   "ranges": {
     "lass": {
       "first": 1,
-      "last": 12
+      "last": 11
     },
     "eye": {
-      "first": 13,
-      "last": 59
+      "first": 12,
+      "last": 95
     },
     "face": {
-      "first": 60,
-      "last": 60
+      "first": 96,
+      "last": 97
     }
   }
 }

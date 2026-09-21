@@ -29,6 +29,8 @@ type Server struct {
 	ipLimiter   *ratelimit.IPLimiter
 	nameLimiter *ratelimit.NameLimiter
 	psbFS       fs.FS
+	spineFS     fs.FS
+	live2dFS    fs.FS
 }
 
 // New constructs the Server with routes and middleware registered.
@@ -62,6 +64,16 @@ func New(cfg *config.Config, logger zerolog.Logger, themes composer.ThemeRegistr
 	if psbRoot, err := fs.Sub(assets.FS, "psb"); err == nil {
 		s.psbFS = psbRoot
 	}
+	// Spine dynamic-illustration models live under assets/spine/. Same
+	// convention: a missing tree leaves spineFS nil => "no models".
+	if spineRoot, err := fs.Sub(assets.FS, "spine"); err == nil {
+		s.spineFS = spineRoot
+	}
+	// Live2D (Cubism) dynamic-illustration models live under assets/live2d/.
+	// Same convention: a missing tree leaves live2dFS nil => "no models".
+	if live2dRoot, err := fs.Sub(assets.FS, "live2d"); err == nil {
+		s.live2dFS = live2dRoot
+	}
 	s.registerRoutes()
 	return s
 }
@@ -82,10 +94,15 @@ func (s *Server) registerRoutes() {
 	s.app.Get("/api/count/@:name", sanitizeBackslashEscape, s.ipRateLimit, s.countHandler)
 	s.app.Get("/api/psb/models", s.listPsbModels)
 	s.app.Get("/api/psb/:model/download", s.psbModelDownload)
+	s.app.Get("/api/spine/models", s.listSpineModels)
+	s.app.Get("/api/live2d/models", s.listLive2DModels)
 	s.app.Post("/api/editor/preview", s.editorPreviewHandler)
 	s.app.Post("/api/editor/export", s.editorExportHandler)
 
 	s.app.Get("/psb/:model", s.psbModelHandler)
+	s.app.Get("/spine/models/:name/:file", s.spineModelHandler)
+	s.app.Get("/spine/anim/:name/:file", s.spineAnimHandler)
+	s.app.Get("/live2d/models/:name/:file", s.live2dModelHandler)
 
 	// Admin routes — all require X-Admin-Key header (ADMIN_KEY env).
 	// When ADMIN_KEY is empty, adminAuth returns 404 so the endpoints
