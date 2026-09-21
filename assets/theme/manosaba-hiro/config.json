@@ -1,0 +1,30 @@
+{
+  "canvasW": 1182,
+  "canvasH": 3152,
+  "ranges": {
+    "lass": {
+      "first": 1,
+      "last": 1
+    },
+    "cheeks": {
+      "first": 2,
+      "last": 4
+    },
+    "mouth": {
+      "first": 5,
+      "last": 19
+    },
+    "eye": {
+      "first": 20,
+      "last": 35
+    },
+    "extra": {
+      "first": 36,
+      "last": 37
+    },
+    "arms": {
+      "first": 38,
+      "last": 45
+    }
+  }
+}
