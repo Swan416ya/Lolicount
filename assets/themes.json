@@ -1,8 +1,328 @@
 {
   "themes": [
     {
+      "name": "airi",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "akane",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "akari",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "akemi",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "akira",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "ako",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "ako-ark-uniform",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "alice",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "ami",
+      "frames": 26,
+      "ext": "webp"
+    },
+    {
       "name": "ao",
       "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "aoba",
+      "frames": 30,
+      "ext": "webp"
+    },
+    {
+      "name": "aoi",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "aru",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "asuna",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "asuna-bunny-girl",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "atsuko-bleeding",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "atsuko-undersuit-unmask",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "atsuko-unmask",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "ayame",
+      "frames": 30,
+      "ext": "webp"
+    },
+    {
+      "name": "ayane",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "ayane-ark-uniform",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "ayumu",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "ayumu-ark-uniform",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "azami",
+      "frames": 39,
+      "ext": "webp"
+    },
+    {
+      "name": "azusa",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "cherino",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "chiaki",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "chihiro",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "chinatsu",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "chise",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "eimi",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "eri",
+      "frames": 26,
+      "ext": "webp"
+    },
+    {
+      "name": "erika",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "fubuki",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "fuuka",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "fuyu",
+      "frames": 36,
+      "ext": "webp"
+    },
+    {
+      "name": "hanae",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "hanako",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "hanako-ark-uniform",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "hare",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "haruka",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "haruna",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "hasumi",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "hibiki",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "hifumi",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "hikari",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "himari-ark-uniform",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "himari-ba",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "hina",
+      "frames": 21,
+      "ext": "webp"
+    },
+    {
+      "name": "hinata-ba",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "hiyori",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "hoshino",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "ibuki",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "ichika",
+      "frames": 22,
+      "ext": "webp"
+    },
+    {
+      "name": "iori",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "iroha",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "izumi",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "izuna",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "junko",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "juri",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "juri-part-timer",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "kaede",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "kaguya",
+      "frames": 21,
+      "ext": "webp"
+    },
+    {
+      "name": "kaho",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "kai",
+      "frames": 14,
       "ext": "webp"
     },
     {
@@ -11,8 +331,138 @@
       "ext": "webp"
     },
     {
+      "name": "kanna",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "kanoe",
+      "frames": 24,
+      "ext": "webp"
+    },
+    {
+      "name": "karen",
+      "frames": 36,
+      "ext": "webp"
+    },
+    {
+      "name": "karin",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "kasumi-ba",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "kaya",
+      "frames": 25,
+      "ext": "webp"
+    },
+    {
+      "name": "kayoko",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "kayoko-ark-uniform",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "kazusa",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "kei",
+      "frames": 35,
+      "ext": "webp"
+    },
+    {
+      "name": "kikyou",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "kirara",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "kirino",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "kisaki",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "koharu",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "kokona",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "kokoro-ba",
+      "frames": 21,
+      "ext": "webp"
+    },
+    {
+      "name": "kokuriko",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "konoka",
+      "frames": 20,
+      "ext": "webp"
+    },
+    {
+      "name": "kotama",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "kotone",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "kotone-no-glasses",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "kotori",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "koyuki",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "koyuki-bunny-girl",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
       "name": "kuon",
       "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "kurumi",
+      "frames": 13,
       "ext": "webp"
     },
     {
@@ -23,6 +473,26 @@
     {
       "name": "lian",
       "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "mai",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "maia",
+      "frames": 24,
+      "ext": "webp"
+    },
+    {
+      "name": "maki",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "makoto",
+      "frames": 15,
       "ext": "webp"
     },
     {
@@ -91,8 +561,263 @@
       "ext": "webp"
     },
     {
+      "name": "mari",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "marina",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "mashiro",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "mayumi",
+      "frames": 38,
+      "ext": "webp"
+    },
+    {
+      "name": "megu",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "meru",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "michiru",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "midori",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "mika",
+      "frames": 31,
+      "ext": "webp"
+    },
+    {
       "name": "Miki",
       "frames": 5,
+      "ext": "webp"
+    },
+    {
+      "name": "miku",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "mimori",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "mina",
+      "frames": 17,
+      "ext": "webp"
+    },
+    {
+      "name": "minato-ba",
+      "frames": 25,
+      "ext": "webp"
+    },
+    {
+      "name": "mine",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "minori",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "mirai",
+      "frames": 25,
+      "ext": "webp"
+    },
+    {
+      "name": "misaki",
+      "frames": 20,
+      "ext": "webp"
+    },
+    {
+      "name": "misuzu",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "mitsuki",
+      "frames": 24,
+      "ext": "webp"
+    },
+    {
+      "name": "miyako",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "miyo",
+      "frames": 39,
+      "ext": "webp"
+    },
+    {
+      "name": "miyu-ba",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "moe",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "momiji",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "momoi",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "momoka",
+      "frames": 48,
+      "ext": "webp"
+    },
+    {
+      "name": "mutsuki",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "nagisa",
+      "frames": 18,
+      "ext": "webp"
+    },
+    {
+      "name": "nagusa",
+      "frames": 18,
+      "ext": "webp"
+    },
+    {
+      "name": "nanami-ba",
+      "frames": 26,
+      "ext": "webp"
+    },
+    {
+      "name": "natsu",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "natsuki",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "neru",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "niko",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "niya",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "noa",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "nodoka",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "nonomi",
+      "frames": 20,
+      "ext": "webp"
+    },
+    {
+      "name": "nozomi",
+      "frames": 20,
+      "ext": "webp"
+    },
+    {
+      "name": "otogi",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "pina",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "rabu",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "rei",
+      "frames": 20,
+      "ext": "webp"
+    },
+    {
+      "name": "reijo",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "reisa",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "rena",
+      "frames": 31,
+      "ext": "webp"
+    },
+    {
+      "name": "renge",
+      "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "rin",
+      "frames": 45,
+      "ext": "webp"
+    },
+    {
+      "name": "rio",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "ritsu",
+      "frames": 32,
+      "ext": "webp"
+    },
+    {
+      "name": "rumi",
+      "frames": 8,
       "ext": "webp"
     },
     {
@@ -101,13 +826,188 @@
       "ext": "webp"
     },
     {
+      "name": "saki",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "sakurako",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "sakurako-justina-suit",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "sanae",
+      "frames": 22,
+      "ext": "webp"
+    },
+    {
+      "name": "saori",
+      "frames": 30,
+      "ext": "webp"
+    },
+    {
+      "name": "satsuki",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "saya-ba",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "seia",
+      "frames": 10,
+      "ext": "webp"
+    },
+    {
+      "name": "sena",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "serika",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "serina",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "shigure",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "shimiko",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "shinon",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
       "name": "shiroha",
+      "frames": 19,
+      "ext": "webp"
+    },
+    {
+      "name": "shiroko",
+      "frames": 18,
+      "ext": "webp"
+    },
+    {
+      "name": "shizuko",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "shouko",
+      "frames": 35,
+      "ext": "webp"
+    },
+    {
+      "name": "shun",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "shuro",
+      "frames": 26,
+      "ext": "webp"
+    },
+    {
+      "name": "sumika",
+      "frames": 21,
+      "ext": "webp"
+    },
+    {
+      "name": "sumire",
+      "frames": 14,
+      "ext": "webp"
+    },
+    {
+      "name": "sumire-part-timer",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "sumomo",
+      "frames": 12,
+      "ext": "webp"
+    },
+    {
+      "name": "suzumi",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "takane",
       "frames": 19,
       "ext": "webp"
     },
     {
       "name": "Tenzen",
       "frames": 16,
+      "ext": "webp"
+    },
+    {
+      "name": "toki",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "toki-bunny-girl",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "toki-mode-2",
+      "frames": 8,
+      "ext": "webp"
+    },
+    {
+      "name": "tomoe-ba",
+      "frames": 7,
+      "ext": "webp"
+    },
+    {
+      "name": "tsubaki",
+      "frames": 11,
+      "ext": "webp"
+    },
+    {
+      "name": "tsubasa",
+      "frames": 29,
+      "ext": "webp"
+    },
+    {
+      "name": "tsukuyo",
+      "frames": 9,
+      "ext": "webp"
+    },
+    {
+      "name": "tsumugi",
+      "frames": 13,
+      "ext": "webp"
+    },
+    {
+      "name": "tsurugi",
+      "frames": 15,
+      "ext": "webp"
+    },
+    {
+      "name": "ui",
+      "frames": 25,
       "ext": "webp"
     },
     {
