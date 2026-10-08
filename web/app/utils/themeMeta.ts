@@ -5993,14 +5993,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "momoi airi wedding",
     aliases: ["pjsk-airi-wedding", "airi-wedding", "wedding", "wedding", "airi wedding"],
   },
-  {
-    name: "pjsk-akito-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "東雲彰人 · 黑色服装",
-    romaji: "shinonome akito black",
-    aliases: ["pjsk-akito-black", "akito-black", "black", "黑色服装", "akito black", "ブラック"],
-  },
+
   {
     name: "pjsk-akito-sports",
     kind: "live2d",
@@ -6025,14 +6018,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "shinonome akito vest",
     aliases: ["pjsk-akito-vest", "akito-vest", "vest", "vest", "akito vest"],
   },
-  {
-    name: "pjsk-an-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "白石杏 · 黑色服装",
-    romaji: "shiraishi an black",
-    aliases: ["pjsk-an-black", "an-black", "black", "黑色服装", "an black", "ブラック"],
-  },
+
   {
     name: "pjsk-an-culture",
     kind: "live2d",
@@ -6113,14 +6099,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "otori emu swim",
     aliases: ["pjsk-emu-swim", "emu-swim", "swim", "swim", "emu swim"],
   },
-  {
-    name: "pjsk-ena-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "東雲絵名 · 黑色服装",
-    romaji: "shinonome ena black",
-    aliases: ["pjsk-ena-black", "ena-black", "black", "黑色服装", "ena black", "ブラック"],
-  },
+
   {
     name: "pjsk-ena-cloth001",
     kind: "live2d",
@@ -6153,14 +6132,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kiritani haruka asuran",
     aliases: ["pjsk-haruka-asuran", "haruka-asuran", "asuran", "asuran", "haruka asuran"],
   },
-  {
-    name: "pjsk-haruka-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "桐谷遥 · 黑色服装",
-    romaji: "kiritani haruka black",
-    aliases: ["pjsk-haruka-black", "haruka-black", "black", "黑色服装", "haruka black", "ブラック"],
-  },
+
   {
     name: "pjsk-haruka-cloth002",
     kind: "live2d",
@@ -6225,14 +6197,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kiritani haruka swim",
     aliases: ["pjsk-haruka-swim", "haruka-swim", "swim", "swim", "haruka swim"],
   },
-  {
-    name: "pjsk-honami-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "望月穂波 · 黑色服装",
-    romaji: "mochizuki honami black",
-    aliases: ["pjsk-honami-black", "honami-black", "black", "黑色服装", "honami black", "ブラック"],
-  },
+
   {
     name: "pjsk-honami-cloth001",
     kind: "live2d",
@@ -6337,14 +6302,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kaito band",
     aliases: ["pjsk-kaito-band", "kaito-band", "band", "乐队服", "kaito band", "バンド"],
   },
-  {
-    name: "pjsk-kaito-idolblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "KAITO · idolblack",
-    romaji: "kaito idolblack",
-    aliases: ["pjsk-kaito-idolblack", "kaito-idolblack", "idolblack", "idolblack", "kaito idolblack"],
-  },
+
   {
     name: "pjsk-kaito-night",
     kind: "live2d",
@@ -6353,14 +6311,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kaito night",
     aliases: ["pjsk-kaito-night", "kaito-night", "night", "夜间服", "kaito night", "ナイト"],
   },
-  {
-    name: "pjsk-kaito-normalblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "KAITO · normalblack",
-    romaji: "kaito normalblack",
-    aliases: ["pjsk-kaito-normalblack", "kaito-normalblack", "normalblack", "normalblack", "kaito normalblack"],
-  },
+
   {
     name: "pjsk-kaito-wonder",
     kind: "live2d",
@@ -6369,14 +6320,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kaito wonder",
     aliases: ["pjsk-kaito-wonder", "kaito-wonder", "wonder", "奇迹服", "kaito wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-kaito-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "KAITO · wonderblack",
-    romaji: "kaito wonderblack",
-    aliases: ["pjsk-kaito-wonderblack", "kaito-wonderblack", "wonderblack", "wonderblack", "kaito wonderblack"],
-  },
+
   {
     name: "pjsk-kanade-april001",
     kind: "live2d",
@@ -6385,14 +6329,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "yoisaki kanade april001",
     aliases: ["pjsk-kanade-april001", "kanade-april001", "april001", "愚月节装", "kanade april001", "エイプリル"],
   },
-  {
-    name: "pjsk-kanade-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "宵崎奏 · 黑色服装",
-    romaji: "yoisaki kanade black",
-    aliases: ["pjsk-kanade-black", "kanade-black", "black", "黑色服装", "kanade black", "ブラック"],
-  },
+
   {
     name: "pjsk-kanade-wedding",
     kind: "live2d",
@@ -6425,14 +6362,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "azusawa kohane longunit",
     aliases: ["pjsk-kohane-longunit", "kohane-longunit", "longunit", "longunit", "kohane longunit"],
   },
-  {
-    name: "pjsk-kohane-longunit-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "小豆沢こはね · black",
-    romaji: "azusawa kohane black",
-    aliases: ["pjsk-kohane-longunit-black", "kohane-black", "black", "black", "kohane black"],
-  },
+
   {
     name: "pjsk-kohane-sanisani",
     kind: "live2d",
@@ -6465,14 +6395,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "azusawa kohane swim",
     aliases: ["pjsk-kohane-swim", "kohane-swim", "swim", "swim", "kohane swim"],
   },
-  {
-    name: "pjsk-kohane-unit-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "小豆沢こはね · black",
-    romaji: "azusawa kohane black",
-    aliases: ["pjsk-kohane-unit-black", "kohane-black", "black", "black", "kohane black"],
-  },
+
   {
     name: "pjsk-kohane-wedding",
     kind: "live2d",
@@ -6513,14 +6436,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kagamine len wonder",
     aliases: ["pjsk-len-wonder", "len-wonder", "wonder", "奇迹服", "len wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-len-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "鏡音レン · wonderblack",
-    romaji: "kagamine len wonderblack",
-    aliases: ["pjsk-len-wonderblack", "len-wonderblack", "wonderblack", "wonderblack", "len wonderblack"],
-  },
+
   {
     name: "pjsk-luka-april001",
     kind: "live2d",
@@ -6553,14 +6469,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "megurine luka wonder",
     aliases: ["pjsk-luka-wonder", "luka-wonder", "wonder", "奇迹服", "luka wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-luka-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "巡音ルカ · wonderblack",
-    romaji: "megurine luka wonderblack",
-    aliases: ["pjsk-luka-wonderblack", "luka-wonderblack", "wonderblack", "wonderblack", "luka wonderblack"],
-  },
+
   {
     name: "pjsk-mafuyu-archery",
     kind: "live2d",
@@ -6569,14 +6478,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "asahina mafuyu archery",
     aliases: ["pjsk-mafuyu-archery", "mafuyu-archery", "archery", "archery", "mafuyu archery"],
   },
-  {
-    name: "pjsk-mafuyu-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "朝比奈まふゆ · 黑色服装",
-    romaji: "asahina mafuyu black",
-    aliases: ["pjsk-mafuyu-black", "mafuyu-black", "black", "黑色服装", "mafuyu black", "ブラック"],
-  },
+
   {
     name: "pjsk-mafuyu-cloth001",
     kind: "live2d",
@@ -6649,14 +6551,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "meiko band",
     aliases: ["pjsk-meiko-band", "meiko-band", "band", "乐队服", "meiko band", "バンド"],
   },
-  {
-    name: "pjsk-meiko-idolblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "MEIKO · idolblack",
-    romaji: "meiko idolblack",
-    aliases: ["pjsk-meiko-idolblack", "meiko-idolblack", "idolblack", "idolblack", "meiko idolblack"],
-  },
+
   {
     name: "pjsk-meiko-night",
     kind: "live2d",
@@ -6665,14 +6560,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "meiko night",
     aliases: ["pjsk-meiko-night", "meiko-night", "night", "夜间服", "meiko night", "ナイト"],
   },
-  {
-    name: "pjsk-meiko-normalblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "MEIKO · normalblack",
-    romaji: "meiko normalblack",
-    aliases: ["pjsk-meiko-normalblack", "meiko-normalblack", "normalblack", "normalblack", "meiko normalblack"],
-  },
+
   {
     name: "pjsk-meiko-wonder",
     kind: "live2d",
@@ -6681,14 +6569,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "meiko wonder",
     aliases: ["pjsk-meiko-wonder", "meiko-wonder", "wonder", "奇迹服", "meiko wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-meiko-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "MEIKO · wonderblack",
-    romaji: "meiko wonderblack",
-    aliases: ["pjsk-meiko-wonderblack", "meiko-wonderblack", "wonderblack", "wonderblack", "meiko wonderblack"],
-  },
+
   {
     name: "pjsk-miku-april001",
     kind: "live2d",
@@ -6705,22 +6586,8 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "hatsune miku band",
     aliases: ["pjsk-miku-band", "miku-band", "band", "乐队服", "miku band", "バンド"],
   },
-  {
-    name: "pjsk-miku-bandblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "初音ミク · bandblack",
-    romaji: "hatsune miku bandblack",
-    aliases: ["pjsk-miku-bandblack", "miku-bandblack", "bandblack", "bandblack", "miku bandblack"],
-  },
-  {
-    name: "pjsk-miku-idolblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "初音ミク · idolblack",
-    romaji: "hatsune miku idolblack",
-    aliases: ["pjsk-miku-idolblack", "miku-idolblack", "idolblack", "idolblack", "miku idolblack"],
-  },
+
+
   {
     name: "pjsk-miku-night",
     kind: "live2d",
@@ -6729,22 +6596,8 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "hatsune miku night",
     aliases: ["pjsk-miku-night", "miku-night", "night", "夜间服", "miku night", "ナイト"],
   },
-  {
-    name: "pjsk-miku-normalblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "初音ミク · normalblack",
-    romaji: "hatsune miku normalblack",
-    aliases: ["pjsk-miku-normalblack", "miku-normalblack", "normalblack", "normalblack", "miku normalblack"],
-  },
-  {
-    name: "pjsk-miku-streetblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "初音ミク · streetblack",
-    romaji: "hatsune miku streetblack",
-    aliases: ["pjsk-miku-streetblack", "miku-streetblack", "streetblack", "streetblack", "miku streetblack"],
-  },
+
+
   {
     name: "pjsk-miku-wonder",
     kind: "live2d",
@@ -6753,14 +6606,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "hatsune miku wonder",
     aliases: ["pjsk-miku-wonder", "miku-wonder", "wonder", "奇迹服", "miku wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-miku-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "初音ミク · wonderblack",
-    romaji: "hatsune miku wonderblack",
-    aliases: ["pjsk-miku-wonderblack", "miku-wonderblack", "wonderblack", "wonderblack", "miku wonderblack"],
-  },
+
   {
     name: "pjsk-minori-cloth002",
     kind: "live2d",
@@ -6825,14 +6671,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "hanasato minori swim",
     aliases: ["pjsk-minori-swim", "minori-swim", "swim", "swim", "minori swim"],
   },
-  {
-    name: "pjsk-mizuki-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "暁山瑞希 · 黑色服装",
-    romaji: "akiyama mizuki black",
-    aliases: ["pjsk-mizuki-black", "mizuki-black", "black", "黑色服装", "mizuki black", "ブラック"],
-  },
+
   {
     name: "pjsk-mizuki-cloth001",
     kind: "live2d",
@@ -6945,14 +6784,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kagamine rin night",
     aliases: ["pjsk-rin-night", "rin-night", "night", "夜间服", "rin night", "ナイト"],
   },
-  {
-    name: "pjsk-rin-normalblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "鏡音リン · normalblack",
-    romaji: "kagamine rin normalblack",
-    aliases: ["pjsk-rin-normalblack", "rin-normalblack", "normalblack", "normalblack", "rin normalblack"],
-  },
+
   {
     name: "pjsk-rin-wonder",
     kind: "live2d",
@@ -6961,14 +6793,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kagamine rin wonder",
     aliases: ["pjsk-rin-wonder", "rin-wonder", "wonder", "奇迹服", "rin wonder", "ワンダー"],
   },
-  {
-    name: "pjsk-rin-wonderblack",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "鏡音リン · wonderblack",
-    romaji: "kagamine rin wonderblack",
-    aliases: ["pjsk-rin-wonderblack", "rin-wonderblack", "wonderblack", "wonderblack", "rin wonderblack"],
-  },
+
   {
     name: "pjsk-rui-culture",
     kind: "live2d",
@@ -7017,14 +6842,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "kamishiro rui yukata",
     aliases: ["pjsk-rui-yukata", "rui-yukata", "yukata", "yukata", "rui yukata"],
   },
-  {
-    name: "pjsk-saki-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "天馬咲希 · 黑色服装",
-    romaji: "tenma saki black",
-    aliases: ["pjsk-saki-black", "saki-black", "black", "黑色服装", "saki black", "ブラック"],
-  },
+
   {
     name: "pjsk-saki-cloth001",
     kind: "live2d",
@@ -7081,14 +6899,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "tenma saki swim",
     aliases: ["pjsk-saki-swim", "saki-swim", "swim", "swim", "saki swim"],
   },
-  {
-    name: "pjsk-shiho-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "日野森志歩 · 黑色服装",
-    romaji: "hinomori shiho black",
-    aliases: ["pjsk-shiho-black", "shiho-black", "black", "黑色服装", "shiho black", "ブラック"],
-  },
+
   {
     name: "pjsk-shiho-cloth001",
     kind: "live2d",
@@ -7201,14 +7012,7 @@ export const themeMeta: ThemeMeta[] = [
     romaji: "hinomori shizuku tuxedo",
     aliases: ["pjsk-shizuku-tuxedo", "shizuku-tuxedo", "tuxedo", "tuxedo", "shizuku tuxedo"],
   },
-  {
-    name: "pjsk-touya-black",
-    kind: "live2d",
-    gameKey: "project-sekai",
-    character: "青柳冬弥 · 黑色服装",
-    romaji: "aoyagi toya black",
-    aliases: ["pjsk-touya-black", "touya-black", "black", "黑色服装", "touya black", "ブラック"],
-  },
+
   {
     name: "pjsk-touya-sports",
     kind: "live2d",
