@@ -6,13 +6,20 @@
 
 const STORAGE_KEY = 'lolicount-sound-muted'
 const DRUM_URL = '/audios/drum9.wav'
+const DRUM3_URL = '/audios/drum3.wav'
+const TAP_URL = '/audios/tap.ogg'
 const GAIN = 0.5
 const MIN_RATE = 0.9
 const RATE_SPREAD = 0.2
+// Physics collision hits at most every 50ms, mirroring the reference.
+const COLLISION_THROTTLE_MS = 50
 
 let ctx: AudioContext | null = null
 let drumBuffer: AudioBuffer | null = null
+let drum3Buffer: AudioBuffer | null = null
+let tapBuffer: AudioBuffer | null = null
 let loading = false
+let lastCollisionAt = 0
 
 // Lazily create the AudioContext and decode the drum sample once.
 // Browsers require a user gesture before audio can play, so the context is
@@ -47,6 +54,94 @@ const soundState = {
 }
 
 // Play one drum hit at a slightly randomized pitch, like the reference.
+// Decode an extra sample into the given slot; a failed load keeps the
+// slot null and the corresponding play function stays silent.
+const loadSample = (url: string, apply: (buffer: AudioBuffer) => void): void => {
+  fetch(url)
+    .then((res) => res.arrayBuffer())
+    .then((bytes) => ensureContext()?.decodeAudioData(bytes) ?? null)
+    .then((buffer) => {
+      if (buffer) apply(buffer)
+    })
+    .catch(() => {})
+}
+
+// Physics-playground hits, ported from the reference: drum9 scaled by
+// collision velocity (with an optional horizontal pan), a soft drum3 nudge
+// for keyboard pushes, and a tiny tap blip when glyphs spawn. All gated by
+// the site-wide mute like the rest of the sound effects.
+const playDrum9 = (velocity: number, x?: number): void => {
+  if (soundState.muted.value) return
+  const audioCtx = ensureContext()
+  if (!audioCtx) return
+  if (!drumBuffer) {
+    loadSample(DRUM_URL, (buffer) => {
+      drumBuffer = buffer
+    })
+    return
+  }
+  const now = performance.now()
+  if (now - lastCollisionAt < COLLISION_THROTTLE_MS) return
+  lastCollisionAt = now
+  const amount = Math.min(velocity / 20, 1)
+  const source = audioCtx.createBufferSource()
+  source.buffer = drumBuffer
+  source.playbackRate.value = (0.1 + amount * 1.3) * 0.7 + (0.1 + Math.random() * 1.3) * 0.3
+  const gain = audioCtx.createGain()
+  gain.gain.value = amount * 0.5
+  if (typeof x === 'number') {
+    const panner = audioCtx.createStereoPanner()
+    panner.pan.value = ((x / window.innerWidth) * 2 - 1) * 0.75
+    source.connect(gain).connect(panner).connect(audioCtx.destination)
+  } else {
+    source.connect(gain).connect(audioCtx.destination)
+  }
+  source.start()
+}
+
+const playDrum3 = (pan?: number): void => {
+  if (soundState.muted.value) return
+  const audioCtx = ensureContext()
+  if (!audioCtx) return
+  if (!drum3Buffer) {
+    loadSample(DRUM3_URL, (buffer) => {
+      drum3Buffer = buffer
+    })
+    return
+  }
+  const source = audioCtx.createBufferSource()
+  source.buffer = drum3Buffer
+  const gain = audioCtx.createGain()
+  gain.gain.value = 0.25
+  if (typeof pan === 'number') {
+    const panner = audioCtx.createStereoPanner()
+    panner.pan.value = pan * 0.75
+    source.connect(gain).connect(panner).connect(audioCtx.destination)
+  } else {
+    source.connect(gain).connect(audioCtx.destination)
+  }
+  source.start()
+}
+
+const playTap = (): void => {
+  if (soundState.muted.value) return
+  const audioCtx = ensureContext()
+  if (!audioCtx) return
+  if (!tapBuffer) {
+    loadSample(TAP_URL, (buffer) => {
+      tapBuffer = buffer
+    })
+    return
+  }
+  const source = audioCtx.createBufferSource()
+  source.buffer = tapBuffer
+  source.playbackRate.value = 0.9 + Math.random() * 0.2
+  const gain = audioCtx.createGain()
+  gain.gain.value = 0.3
+  source.connect(gain).connect(audioCtx.destination)
+  source.start()
+}
+
 const playDrum = (): void => {
   if (soundState.muted.value) return
   const audioCtx = ensureContext()
@@ -77,7 +172,7 @@ if (import.meta.client && localStorage.getItem(STORAGE_KEY) === 'false') {
 }
 
 const useSoundFx = () => {
-  return { muted: soundState.muted, toggleMute, playDrum }
+  return { muted: soundState.muted, toggleMute, playDrum, playDrum9, playDrum3, playTap }
 }
 
 export default useSoundFx

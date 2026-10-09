@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import { droogGlyphs } from '../data/droog-glyphs'
+import { FxTables } from '../data/fx-tables'
 
 // Chanfoo-style hero: the wordmark letters drop in with squash & stretch,
 // the whole text block slides out from behind the avatar, the avatar
@@ -14,25 +15,15 @@ import { droogGlyphs } from '../data/droog-glyphs'
 // degrees (per its shape) around its own center, clicking spins the whole
 // word outward ring by ring, and both play a short drum hit.
 // The avatar follows the pointer while dragged and springs back on release.
+// Ten quick avatar taps within rolling 3s windows trigger the reference's
+// secret: the hero collapses behind the title, the title spans are handed
+// off to a fixed overlay, and the route jumps to the glyph playground.
 
 const TITLE = 'Lolicount'
 const SUBTITLE = 'SVG Counter / Theme Engine'
 
-// Deterministic per-letter color tokens, replicating the reference site's LCG
-// (seed 42, multiplier 1664525, increment 1013904223) over the three text
-// tokens with the "no adjacent repeat" rule.
-const TOKENS = ['body', 'subtext-0', 'subtext-1'] as const
-const titleColorTokens = (() => {
-  let t = 42
-  let prev = -1
-  return TITLE.split('').map(() => {
-    t = (Math.imul(t, 1664525) + 1013904223) | 0
-    let index = (t >>> 16) % TOKENS.length
-    if (index === prev) index = (index + 1) % TOKENS.length
-    prev = index
-    return index
-  })
-})()
+// Per-letter color tokens come from the shared LCG helper (useLetterTokens).
+const titleColorTokens = letterColorTokens(TITLE.length)
 
 // Hover rotation per letter shape, ported from the reference's char map:
 // round/boxy letters (O C N H D G Q 0 4) spin 90 degrees, the rest of A-Z
@@ -56,22 +47,9 @@ const glyphOverlayEl = ref<SVGSVGElement | null>(null)
 const subtitleEl = ref<HTMLElement | null>(null)
 const letterEls = ref<HTMLElement[]>([])
 
-const letterColor = (index: number): string => `var(--token-${TOKENS[titleColorTokens[index]]})`
+const letterColor = (index: number): string => letterColorCss(titleColorTokens[index] ?? 0)
 
-const FxTables = {
-  desktop: {
-    dropName: { launchY: -80, compressY: 0.6, compressX: 1.3, stretchY: 1.3, stretchX: 0.8, squashY: 0.7, squashX: 1.2 },
-    avatar: { offsetY: 80, launchY: -120, compressY: 0.75, compressX: 1.1, squashY: 0.85, squashX: 1.25 },
-    majors: { offsetY: 20, stretchY: 1.3, stretchX: 0.8, squashY: 0.7, squashX: 1.2 },
-  },
-  mobile: {
-    dropName: { launchY: -56, compressY: 0.72, compressX: 1.21, stretchY: 1.21, stretchX: 0.86, squashY: 0.79, squashX: 1.14 },
-    avatar: { offsetY: 56, launchY: -84, compressY: 0.82, compressX: 1.07, squashY: 0.9, squashX: 1.18 },
-    majors: { offsetY: 14, stretchY: 1.21, stretchX: 0.86, squashY: 0.79, squashX: 1.14 },
-  },
-} as const
-
-const drag = { pointerId: -1, startX: 0, startY: 0 }
+const drag = { pointerId: -1, startX: 0, startY: 0, startTime: 0 }
 let entranceDone = false
 let spinBusy = false
 let lastHoverBlip = 0
@@ -83,6 +61,7 @@ const onAvatarPointerDown = (event: PointerEvent) => {
   drag.pointerId = event.pointerId
   drag.startX = event.clientX
   drag.startY = event.clientY
+  drag.startTime = event.timeStamp
   avatarEl.value.setPointerCapture(event.pointerId)
   gsap.killTweensOf(avatarEl.value, 'x,y,rotate')
 }
@@ -96,6 +75,8 @@ const onAvatarPointerMove = (event: PointerEvent) => {
 
 const onAvatarPointerUp = (event: PointerEvent) => {
   if (!avatarEl.value || event.pointerId !== drag.pointerId) return
+  const moved = Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY)
+  if (moved <= TAP_MAX_MOVE && event.timeStamp - drag.startTime <= TAP_MAX_MS) handleAvatarTap()
   drag.pointerId = -1
   avatarEl.value.releasePointerCapture(event.pointerId)
   setAvatarScale(1.1)
@@ -201,6 +182,112 @@ const spinWord = (index: number) => {
         },
       })
     }
+  }
+}
+
+// --- Ten-tap avatar secret, ported from the reference's ut() hook. Ten
+// quick taps (rolling 3s window) settle every letter, collapse the
+// subtitle and avatar, slide the copy block to the word's center, then
+// hand the title spans off to the glyph playground via useGlyphHandoff.
+const TAP_MAX_MOVE = 10
+const TAP_MAX_MS = 300
+const SECRET_TAPS = 10
+const SECRET_WINDOW_MS = 3000
+
+let tapCount = 0
+let tapTimer: ReturnType<typeof setTimeout> | null = null
+let secretActive = false
+let collapsing = false
+let collapseTl: ReturnType<typeof gsap.timeline> | null = null
+let collapseRelease: (() => void) | null = null
+
+const handleAvatarTap = (): void => {
+  // Touch treats the tap as a word spin around the middle letter too.
+  if (isCoarse()) spinWord(Math.floor(letterEls.value.length / 2))
+  if (secretActive || collapsing) return
+  tapCount += 1
+  if (tapTimer) clearTimeout(tapTimer)
+  tapTimer = setTimeout(() => {
+    tapCount = 0
+    tapTimer = null
+  }, SECRET_WINDOW_MS)
+  if (tapCount < SECRET_TAPS) return
+  if (tapTimer) {
+    clearTimeout(tapTimer)
+    tapTimer = null
+  }
+  secretActive = true
+  triggerCollapse()
+}
+
+const triggerCollapse = (): void => {
+  const avatar = avatarEl.value
+  const copy = copyEl.value
+  const title = titleEl.value
+  const subtitle = subtitleEl.value
+  if (!avatar || !copy || !title || !subtitle) {
+    secretActive = false
+    return
+  }
+
+  // Settle every letter before the collapse so the handoff starts clean.
+  letterEls.value.forEach((span) => {
+    gsap.to(span, { rotation: 0, duration: 0.3, ease: 'power2.out', overwrite: true })
+  })
+
+  const majors = Array.from(subtitle.querySelectorAll<HTMLElement>('.major-letter'))
+  const tl = gsap.timeline({ paused: true })
+  gsap.set(copy, { pointerEvents: 'none' })
+  tl.addLabel('collapseMajors', 0)
+  const reversed = [...majors].reverse()
+  reversed.forEach((span, i) => {
+    tl.to(span, { opacity: 0, y: 20, duration: 0.2, ease: 'power2.in' }, `collapseMajors+=${i * 0.03}`)
+  })
+  tl.to(subtitle, { height: 0, overflow: 'hidden', duration: 0.4, ease: 'expo.inOut' }, `collapseMajors+=${reversed.length * 0.03 * 0.5}`)
+  tl.addLabel('hideAvatar', '>')
+  tl.to(avatar, { opacity: 0, y: 40, duration: 0.3, ease: 'power2.in' }, 'hideAvatar')
+  const centerDelta = { x: 0, y: 0 }
+  tl.add(() => {
+    gsap.set(avatar, { clearProps: 'transform,scale' })
+    avatar.style.pointerEvents = 'none'
+    avatar.style.opacity = '0'
+    const nameRect = title.getBoundingClientRect()
+    const parent = copy.parentElement
+    const parentRect = parent ? parent.getBoundingClientRect() : null
+    if (parentRect) {
+      centerDelta.x = parentRect.left + parentRect.width / 2 - (nameRect.left + nameRect.width / 2)
+      centerDelta.y = parentRect.top + parentRect.height / 2 - (nameRect.top + nameRect.height / 2)
+    }
+  }, 'hideAvatar+=0.35')
+  tl.to(copy, { x: () => centerDelta.x, y: () => centerDelta.y, duration: 0.5, ease: 'overshoot' }, 'hideAvatar+=0.4')
+  collapseTl = tl
+
+  const lock = scrollLock()
+  collapseRelease = lock.release
+  const done = new Promise<void>((resolve) => {
+    tl.eventCallback('onComplete', resolve)
+  })
+  Promise.all([lock.ready, done]).then(() => {
+    if (collapsing) return
+    collapsing = true
+    // Capture the title spans pinned at their on-screen spot, then jump
+    // straight to the physics page without a route transition.
+    if (collapseRelease) startGlyphHandoff(collapseRelease, title)
+    void navigateTo('/playground/glyph', { transition: false, state: { glyphText: TITLE } })
+  })
+  tl.play()
+}
+
+const cleanupSecret = (): void => {
+  collapseTl?.kill()
+  collapseTl = null
+  if (tapTimer) {
+    clearTimeout(tapTimer)
+    tapTimer = null
+  }
+  if (collapseRelease) {
+    collapseRelease()
+    collapseRelease = null
   }
 }
 
@@ -460,6 +547,7 @@ onMounted(() => {
   onBeforeUnmount(() => {
     mq.removeEventListener('change', onMqChange)
     morphCleanup?.()
+    cleanupSecret()
     tl.kill()
   })
 })

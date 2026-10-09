@@ -102,6 +102,15 @@ const zh: Dict = {
 
   'loli.loading': '加载中…',
 
+  'glyph.word': 'Lolicount',
+  'glyph.hint.spawn': '输入字母 (A–Z) 生成字块',
+  'glyph.hint.push': '空格弹起,Shift 推挤',
+  'glyph.hint.drag': '拖拽后松手甩出',
+  'glyph.hint.inputPlaceholder': '输入字母…',
+  'glyph.motion.text': '是否启用设备感应?倾斜可改变重力,摇晃可弹起飞字。',
+  'glyph.motion.allow': '允许感应',
+  'glyph.motion.deny': '暂不',
+
   'themes.reload': '重新加载',
   'themes.variants': '该主题的变化数：{n}',
 
@@ -280,6 +289,15 @@ const en: Dict = {
 
   'loli.loading': 'Loading…',
 
+  'glyph.word': 'Lolicount',
+  'glyph.hint.spawn': 'Type a letter (A–Z) to drop a glyph',
+  'glyph.hint.push': 'Space bounces them, Shift pushes',
+  'glyph.hint.drag': 'Drag and release to throw',
+  'glyph.hint.inputPlaceholder': 'Type letters…',
+  'glyph.motion.text': 'Enable device motion? Tilting changes gravity, shaking bounces the letters.',
+  'glyph.motion.allow': 'Allow motion',
+  'glyph.motion.deny': 'Not now',
+
   'themes.reload': 'Reload',
   'themes.variants': 'Variations: {n}',
 
@@ -457,6 +475,15 @@ const jp: Dict = {
   'howto.example': '例',
 
   'loli.loading': '読み込み中…',
+
+  'glyph.word': 'Lolicount',
+  'glyph.hint.spawn': '文字 (A〜Z) を入力すると落ちる',
+  'glyph.hint.push': 'Space で跳ね、Shift で押し出し',
+  'glyph.hint.drag': 'ドラッグして投げてみよう',
+  'glyph.hint.inputPlaceholder': '文字を入力…',
+  'glyph.motion.text': '端末の傾き感应を有効にしますか? 傾けると重力が変わり、揺ると文字が跳ねます。',
+  'glyph.motion.allow': '許可する',
+  'glyph.motion.deny': '今はしない',
 
   'themes.reload': '再読み込み',
   'themes.variants': 'バリエーション数：{n}',

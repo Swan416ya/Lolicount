@@ -115,6 +115,11 @@ textarea,
   font-weight: 900;
 }
 
+/* Physics-spawned glyphs transition their token color like the reference. */
+.fade-color {
+  transition: color 0.4s ease;
+}
+
 ::selection {
   background-color: var(--text-color);
   color: var(--loli-surface);
