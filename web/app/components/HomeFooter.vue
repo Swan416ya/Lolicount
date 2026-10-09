@@ -15,6 +15,10 @@ const helpLinks = [
   { label: 'Contributing', href: `${repoUrl}/blob/main/docs/contributing-themes.md` },
 ]
 
+const brandLetters = [...'Lolicount']
+const LETTER_COLORS = ['--token-subtext-0', '--token-body', '--token-subtext-1'] as const
+const letterColor = (index: number): string => `var(${LETTER_COLORS[index % LETTER_COLORS.length]})`
+
 const footerRoot = ref<HTMLElement | null>(null)
 
 onMounted(() => {
@@ -22,11 +26,19 @@ onMounted(() => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return
-      gsap.from('.footer-column, .footer-brand', {
+      gsap.from('.footer-column', {
         opacity: 0,
         y: 32,
         duration: 0.6,
         stagger: 0.08,
+        ease: 'power3.out',
+      })
+      // Brand drops in from above, echoing the hero's drop-in motif.
+      gsap.from('.footer-brand', {
+        opacity: 0,
+        y: -50,
+        duration: 0.7,
+        delay: 0.1,
         ease: 'power3.out',
       })
       observer.disconnect()
@@ -59,9 +71,16 @@ onMounted(() => {
         </nav>
       </div>
 
-      <div class="footer-brand">
+      <div class="footer-brand" data-no-cursor-firework>
         <div>
-          <p class="footer-title droog">Lolicount</p>
+          <p class="footer-title droog">
+            <span
+              v-for="(letter, index) in brandLetters"
+              :key="`brand-${index}`"
+              class="footer-letter"
+              :style="{ color: letterColor(index) }"
+            >{{ letter }}</span>
+          </p>
           <p class="footer-copy">© {{ year }} Lolicount contributors</p>
         </div>
       </div>
@@ -72,7 +91,8 @@ onMounted(() => {
 <style scoped>
 .home-footer {
   padding: 3rem 1.5rem;
-  background: var(--loli-crust);
+  background: var(--loli-cream);
+  border-radius: 0 0 var(--frame-radius) var(--frame-radius);
 }
 
 .footer-inner {
@@ -122,8 +142,12 @@ onMounted(() => {
 
 .footer-title {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-color);
+  font-weight: 900;
+  color: var(--token-body);
+}
+
+.footer-letter {
+  display: inline-block;
 }
 
 .footer-copy {

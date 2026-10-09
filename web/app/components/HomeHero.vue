@@ -1,92 +1,168 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 
-const { t } = useI18n()
+// Chanfoo-style hero: the droog wordmark and tagline drop in from above with
+// squash & stretch, and the avatar bounces down beside them. The timing
+// constants mirror the reference site's desktop/mobile tables.
+// The avatar follows the pointer while dragged and springs back on release.
+
+const TITLE = 'Lolicount'
+const SUBTITLE = 'SVG Counter / Theme Engine'
+const LETTER_COLORS = ['--token-subtext-0', '--token-body', '--token-subtext-1'] as const
+
+const titleLetters = [...TITLE]
+const subtitleWords = SUBTITLE.split(' ')
+
 const heroRoot = ref<HTMLElement | null>(null)
 const avatarEl = ref<HTMLElement | null>(null)
-const titleLetters = [...'Lolicount']
-const subtitleLetters = [...'Cute themeable SVG visitor counter']
 
-let dragStart = { x: 0, y: 0 }
-let dragging = false
+const letterColor = (index: number): string => `var(${LETTER_COLORS[index % LETTER_COLORS.length]})`
 
-const onPointerDown = (event: PointerEvent) => {
-  if (!avatarEl.value) return
-  dragging = true
-  dragStart = { x: event.clientX, y: event.clientY }
+const FxTables = {
+  desktop: {
+    dropName: { launchY: -80, compressY: 0.6, compressX: 1.3, stretchY: 1.3, stretchX: 0.8, squashY: 0.7, squashX: 1.2 },
+    avatar: { offsetY: 80, launchY: -120, compressY: 0.75, compressX: 1.1, squashY: 0.85, squashX: 1.25 },
+    majors: { offsetY: 20, stretchY: 1.3, stretchX: 0.8, squashY: 0.7, squashX: 1.2 },
+  },
+  mobile: {
+    dropName: { launchY: -56, compressY: 0.72, compressX: 1.21, stretchY: 1.21, stretchX: 0.86, squashY: 0.79, squashX: 1.14 },
+    avatar: { offsetY: 56, launchY: -84, compressY: 0.82, compressX: 1.07, squashY: 0.9, squashX: 1.18 },
+    majors: { offsetY: 14, stretchY: 1.21, stretchX: 0.86, squashY: 0.79, squashX: 1.14 },
+  },
+} as const
+
+const drag = { pointerId: -1, startX: 0, startY: 0 }
+let entranceDone = false
+
+const onAvatarPointerDown = (event: PointerEvent) => {
+  if (!avatarEl.value || drag.pointerId !== -1) return
+  drag.pointerId = event.pointerId
+  drag.startX = event.clientX
+  drag.startY = event.clientY
   avatarEl.value.setPointerCapture(event.pointerId)
-  gsap.killTweensOf(avatarEl.value)
+  gsap.killTweensOf(avatarEl.value, 'x,y,rotate')
 }
 
-const onPointerMove = (event: PointerEvent) => {
-  if (!dragging || !avatarEl.value) return
-  const dx = event.clientX - dragStart.x
-  const dy = event.clientY - dragStart.y
-  gsap.set(avatarEl.value, { x: dx, y: dy, rotate: dx * 0.04 })
+const onAvatarPointerMove = (event: PointerEvent) => {
+  if (!avatarEl.value || event.pointerId !== drag.pointerId) return
+  const dx = event.clientX - drag.startX
+  const dy = event.clientY - drag.startY
+  gsap.set(avatarEl.value, { x: dx, y: dy, rotate: dx * 0.03 })
 }
 
-const onPointerUp = (event: PointerEvent) => {
-  if (!dragging || !avatarEl.value) return
-  dragging = false
+const onAvatarPointerUp = (event: PointerEvent) => {
+  if (!avatarEl.value || event.pointerId !== drag.pointerId) return
+  drag.pointerId = -1
   avatarEl.value.releasePointerCapture(event.pointerId)
-  gsap.to(avatarEl.value, {
-    x: 0,
-    y: 0,
-    rotate: 0,
-    duration: 0.9,
-    ease: 'elastic.out(1, 0.35)',
-  })
+  gsap.to(avatarEl.value, { x: 0, y: 0, rotate: 0, duration: 0.9, ease: 'elastic.out(1, 0.35)' })
+}
+
+const setAvatarScale = (scale: number) => {
+  if (avatarEl.value && entranceDone && drag.pointerId === -1) {
+    gsap.to(avatarEl.value, { scale, duration: 0.3, ease: 'back.out(2)', overwrite: 'auto' })
+  }
 }
 
 onMounted(() => {
-  if (!heroRoot.value) return
-  const q = gsap.utils.selector(heroRoot.value)
-  gsap.set(q('.hero-letter'), { opacity: 0, y: 24 })
-  gsap.set(q('.subtitle-letter'), { opacity: 0, y: 12 })
-  gsap.set(q('.hero-avatar'), { opacity: 0, scale: 0.9 })
+  const root = heroRoot.value
+  const avatar = avatarEl.value
+  if (!root || !avatar) return
 
-  gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .to(q('.hero-avatar'), { opacity: 1, scale: 1, duration: 0.8 }, 0)
-    .to(q('.hero-letter'), { opacity: 1, y: 0, duration: 0.55, stagger: 0.035 }, 0.12)
-    .to(q('.subtitle-letter'), { opacity: 1, y: 0, duration: 0.4, stagger: 0.012 }, 0.38)
+  const fx = window.matchMedia('(min-width: 1024px)').matches ? FxTables.desktop : FxTables.mobile
+  const nameSpans = Array.from(root.querySelectorAll<HTMLElement>('.hero-letter'))
+  const majorSpans = Array.from(root.querySelectorAll<HTMLElement>('.major-letter'))
+  const majorWords = Array.from(root.querySelectorAll<HTMLElement>('.major-word'))
+
+  const master = gsap.timeline()
+  master.set(nameSpans, { opacity: 0, y: 0, scaleX: 1, scaleY: 1, transformOrigin: 'center bottom' })
+  master.set(avatar, { opacity: 0, y: fx.avatar.offsetY, transformOrigin: 'center bottom', pointerEvents: 'none' })
+  master.set(majorSpans, { opacity: 0, y: fx.majors.offsetY, transformOrigin: 'center bottom' })
+
+  master.addLabel('dropName', 0.3)
+  nameSpans.forEach((span, index) => {
+    const mini = gsap.timeline()
+    mini.set(span, { opacity: 1 })
+    mini.to(span, { scaleY: fx.dropName.compressY, scaleX: fx.dropName.compressX, duration: 0.1, ease: 'power2.in' })
+    mini.to(span, { y: fx.dropName.launchY, scaleY: fx.dropName.stretchY, scaleX: fx.dropName.stretchX, duration: 0.3, ease: 'power4.out' })
+    mini.to(span, { y: 0, scaleY: fx.dropName.squashY, scaleX: fx.dropName.squashX, duration: 0.25, ease: 'power4.in' })
+    mini.to(span, { scaleY: 1, scaleX: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)' })
+    master.add(mini, `dropName+=${index * 0.05}`)
+  })
+
+  master.addLabel('avatarEntrance', '>')
+  const avatarMini = gsap.timeline()
+  avatarMini.to(avatar, { opacity: 1, scaleY: fx.avatar.compressY, scaleX: fx.avatar.compressX, duration: 0.08, ease: 'power2.in' })
+  avatarMini.to(avatar, { y: fx.avatar.launchY, scaleY: 1, scaleX: 1, duration: 0.25, ease: 'power2.out' })
+  avatarMini.to(avatar, { y: 0, scaleY: fx.avatar.squashY, scaleX: fx.avatar.squashX, duration: 0.25, ease: 'power3.in' })
+  avatarMini.to(avatar, { scaleY: 1, scaleX: 1, duration: 0.5, ease: 'elastic.out(1, 0.5)' })
+  master.add(avatarMini, 'avatarEntrance+=0.05')
+
+  master.addLabel('slideMajors', '>-0.4')
+  let wordOffset = 0.15
+  majorWords.forEach((word, wordIndex) => {
+    if (wordIndex > 0) wordOffset += 0.2
+    const letters = word.querySelectorAll<HTMLElement>('.major-letter')
+    letters.forEach((span, letterIndex) => {
+      const mini = gsap.timeline()
+      mini.set(span, { opacity: 1 })
+      mini.to(span, { y: 0, scaleY: fx.majors.stretchY, scaleX: fx.majors.stretchX, duration: 0.25, ease: 'power4.out' })
+      mini.to(span, { scaleY: fx.majors.squashY, scaleX: fx.majors.squashX, duration: 0.15, ease: 'power2.in' })
+      mini.to(span, { scaleY: 1, scaleX: 1, duration: 0.4, ease: 'elastic.out(1, 0.5)' })
+      master.add(mini, `slideMajors+=${wordOffset + letterIndex * 0.05}`)
+    })
+    wordOffset += letters.length * 0.05
+  })
+
+  master.eventCallback('onComplete', () => {
+    gsap.set([...nameSpans, ...majorSpans], { clearProps: 'transform' })
+    gsap.set(avatar, { clearProps: 'transform' })
+    avatar.style.pointerEvents = ''
+    entranceDone = true
+  })
 })
 </script>
 
 <template>
   <section ref="heroRoot" class="home-hero">
     <div class="hero-inner">
-      <div class="hero-avatar-wrap">
-        <div
-          ref="avatarEl"
-          class="hero-avatar"
-          @pointerdown="onPointerDown"
-          @pointermove="onPointerMove"
-          @pointerup="onPointerUp"
-          @pointercancel="onPointerUp"
-        >
-          <img src="/images/lolicount-icon.png" alt="Lolicount" draggable="false" />
-        </div>
+      <div
+        ref="avatarEl"
+        class="hero-avatar"
+        data-no-cursor-firework
+        @pointerdown="onAvatarPointerDown"
+        @pointermove="onAvatarPointerMove"
+        @pointerup="onAvatarPointerUp"
+        @pointercancel="onAvatarPointerUp"
+        @pointerenter="setAvatarScale(1.08)"
+        @pointerleave="setAvatarScale(1)"
+      >
+        <img src="/images/avatar.webp" alt="Lolicount" draggable="false" />
       </div>
 
       <div class="hero-copy">
-        <h1 class="hero-title droog">
+        <h1 class="hero-title droog" data-no-cursor-firework>
           <span
             v-for="(letter, index) in titleLetters"
-            :key="`${letter}-${index}`"
+            :key="`title-${index}`"
             class="hero-letter"
-            :class="`hero-letter-${index % 4}`"
+            :style="{ color: letterColor(index) }"
           >{{ letter }}</span>
         </h1>
 
         <p class="hero-subtitle droog">
           <span
-            v-for="(letter, index) in subtitleLetters"
-            :key="`${letter}-${index}`"
-            class="subtitle-letter"
-          >{{ letter }}</span>
+            v-for="(word, wordIndex) in subtitleWords"
+            :key="`word-${wordIndex}`"
+            class="major-word"
+            :class="{ 'major-word-last': wordIndex === subtitleWords.length - 1 }"
+          >
+            <span
+              v-for="(letter, letterIndex) in [...word]"
+              :key="`major-${wordIndex}-${letterIndex}`"
+              class="major-letter"
+            >{{ letter }}</span>
+          </span>
         </p>
-
-        <p class="hero-description">{{ t('themesGallery.desc') }}</p>
       </div>
     </div>
   </section>
@@ -97,35 +173,26 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100dvh - 64px - 1.5rem);
+  min-height: calc(100dvh - 2 * var(--frame-gutter) - 64px);
   padding: 4rem 1.5rem;
-  overflow: hidden;
 }
 
 .hero-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  width: min(100%, 72rem);
-  margin: 0 auto;
-}
-
-.hero-avatar-wrap {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  flex: 0 0 auto;
+  user-select: none;
 }
 
 .hero-avatar {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
+  width: min(320px, 78vw);
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
   cursor: grab;
   touch-action: none;
-  user-select: none;
+  opacity: 0;
 }
 
 .hero-avatar:active {
@@ -143,86 +210,76 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  min-width: 0;
+  gap: 0.75rem;
 }
 
 .hero-title {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.02em;
-  font-size: 2.25rem;
-  font-weight: 700;
+  margin: 0;
+  font-size: 1.875rem;
   line-height: 1;
-  letter-spacing: 0;
   white-space: nowrap;
 }
 
 .hero-letter {
   display: inline-block;
-  min-width: 0.18em;
+  opacity: 0;
+  line-height: 1;
 }
-
-.hero-letter-0 { color: var(--text-color); }
-.hero-letter-1 { color: var(--loli-pink); }
-.hero-letter-2 { color: var(--text-muted); }
-.hero-letter-3 { color: var(--accent); }
 
 .hero-subtitle {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.02em;
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
-.subtitle-letter {
+.major-word {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.25em;
+}
+
+.major-word-last {
+  margin-right: 0;
+}
+
+.major-letter {
   display: inline-block;
-  min-width: 0.16em;
+  opacity: 0;
+  line-height: 1;
 }
 
-.hero-description {
-  max-width: 38rem;
-  margin-top: 1.25rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-muted);
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 1024px) {
-  .hero-title {
-    font-size: 4rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-
   .hero-inner {
     flex-direction: row;
-    justify-content: space-between;
     gap: 6rem;
-    padding-inline: 3rem;
   }
 
   .hero-copy {
     align-items: flex-start;
-    text-align: left;
-  }
-
-  .hero-title,
-  .hero-subtitle {
-    justify-content: flex-start;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-avatar {
-    cursor: default;
+@media (min-width: 1280px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
   }
 }
 </style>

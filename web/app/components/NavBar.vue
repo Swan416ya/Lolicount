@@ -22,9 +22,9 @@ onMounted(() => {
 })
 
 onMounted(() => {
-  gsap.from('.nav-link, .nav-actions', {
+  gsap.from('.nav-brand, .nav-link, .nav-actions', {
     opacity: 0,
-    y: -24,
+    y: -32,
     duration: 0.5,
     stagger: 0.04,
     ease: 'power3.out',
@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
   <header class="nav-bar">
     <div class="nav-wrapper">
-      <button type="button" class="nav-brand" :title="t('nav.theme')" @click="toggleTheme">
+      <button type="button" class="nav-brand" data-ripple :title="t('nav.theme')" @click="toggleTheme">
         <img src="/images/lolicount-icon.png" alt="Lolicount" class="nav-brand-icon" />
         <span class="nav-brand-text">Lolicount</span>
       </button>
@@ -46,6 +46,7 @@ onMounted(() => {
           :key="link.href"
           :to="link.href"
           class="nav-link"
+          data-ripple
           :class="{ 'nav-link-active': isLinkActive(link.href) }"
         >{{ t(link.label) }}</NuxtLink>
       </nav>
@@ -58,6 +59,7 @@ onMounted(() => {
           target="_blank"
           rel="noopener"
           class="nav-star"
+          data-ripple
           :title="localeLabels[locale]"
         >
           <svg class="nav-star-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
@@ -73,6 +75,7 @@ onMounted(() => {
         <button
           type="button"
           class="nav-hamburger"
+          data-ripple
           :class="{ 'nav-hamburger-active': menuOpen }"
           :aria-label="t('nav.features')"
           :aria-expanded="menuOpen"
@@ -102,10 +105,25 @@ onMounted(() => {
 <style scoped>
 .nav-bar {
   position: sticky;
-  top: var(--app-gutter, 0.5rem);
+  top: var(--frame-gutter);
   z-index: 50;
   height: 64px;
   flex: 0 0 auto;
+}
+
+/* Frosted band: blurs page content sliding under the header and fades out
+   below it, matching the reference site's header::before treatment. */
+.nav-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -125%;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--loli-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(#000, #000000f2 10%, #000000de 20%, #000000bf 30%, #00000094 40%, #0006 50%, #00000040 60%, #00000024 70%, #00000012 80%, #00000005 90%, #0000);
+  mask-image: linear-gradient(#000, #000000f2 10%, #000000de 20%, #000000bf 30%, #00000094 40%, #0006 50%, #00000040 60%, #00000024 70%, #00000012 80%, #00000005 90%, #0000);
 }
 
 .nav-wrapper {
@@ -119,6 +137,8 @@ onMounted(() => {
 }
 
 .nav-brand {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -155,6 +175,8 @@ onMounted(() => {
 }
 
 .nav-link {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   height: 2.5rem;
@@ -179,6 +201,8 @@ onMounted(() => {
 }
 
 .nav-star {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -215,6 +239,8 @@ onMounted(() => {
 }
 
 .nav-hamburger {
+  position: relative;
+  overflow: hidden;
   display: none;
   flex-direction: column;
   justify-content: center;
