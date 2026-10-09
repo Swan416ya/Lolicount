@@ -41,6 +41,7 @@ onBeforeUnmount(() => {
   <div class="app-frame">
     <LoadingScreen />
     <div ref="progressEl" class="scroll-progress" aria-hidden="true" />
+    <div class="page-frame" aria-hidden="true" />
     <NavBar />
     <NuxtPage />
     <noscript>
@@ -64,7 +65,29 @@ onBeforeUnmount(() => {
   min-height: calc(100dvh - 2 * var(--frame-gutter));
   margin: var(--frame-gutter);
   background: var(--loli-surface);
+  /* Clip children to the rounded rectangle so full-bleed backgrounds (nav
+     frost band, page sections) cannot square off the frame corners; clip
+     (unlike hidden) keeps the sticky nav pinned to the viewport. */
+  overflow: clip;
   border-radius: var(--frame-radius);
+}
+
+/* Rounded-window mask, faithful to the reference site's #page-frame: a
+   fixed rounded rectangle whose 100vmax spread shadow paints the crust
+   color over everything outside it. Fixed-position children (loading
+   screen, editor modals, physics overlays) escape .app-frame's clip, so
+   the mask is what keeps their edges inside the rounded frame too. */
+.page-frame {
+  pointer-events: none;
+  position: fixed;
+  top: var(--frame-gutter);
+  left: var(--frame-gutter);
+  right: var(--frame-gutter);
+  height: calc(100dvh - 2 * var(--frame-gutter));
+  z-index: 110;
+  border-radius: var(--frame-radius);
+  box-shadow: 0 0 0 100vmax var(--loli-crust);
+  transition: box-shadow 300ms;
 }
 
 .scroll-progress {
