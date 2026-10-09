@@ -2,6 +2,7 @@
 import gsap from 'gsap'
 const { t, localeLabels } = useI18n()
 const { toggle: toggleTheme } = useTheme()
+const { muted, toggleMute } = useSoundFx()
 const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
 const route = useRoute()
 
@@ -84,6 +85,17 @@ onMounted(() => {
           <span class="nav-hamburger-line"></span>
           <span class="nav-hamburger-line"></span>
           <span class="nav-hamburger-line"></span>
+        </button>
+
+        <button type="button" class="nav-sound" data-ripple :title="t('nav.sound')" :aria-label="t('nav.sound')" :aria-pressed="String(!muted)" @click="toggleMute">
+          <svg v-if="muted" class="nav-sound-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M11 4.5 6.5 8H3.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h3L11 20.5v-16Z" opacity=".55" />
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m16 9.5 5 5m0-5-5 5" />
+          </svg>
+          <svg v-else class="nav-sound-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M11 4.5 6.5 8H3.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h3L11 20.5v-16Z" />
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M15.5 9.2a4 4 0 0 1 0 5.6m2.6-8.2a7.4 7.4 0 0 1 0 10.4" />
+          </svg>
         </button>
       </div>
     </div>
@@ -252,6 +264,31 @@ onMounted(() => {
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+.nav-sound {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-sound:hover {
+  background: var(--loli-selection);
+  color: var(--text-body);
+}
+
+.nav-sound[aria-pressed='true'] {
+  color: var(--accent);
 }
 
 .nav-hamburger:hover {

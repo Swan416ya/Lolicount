@@ -8,7 +8,22 @@ import gsap from 'gsap'
 
 const TITLE = 'Lolicount'
 const SUBTITLE = 'SVG Counter / Theme Engine'
-const LETTER_COLORS = ['--token-subtext-0', '--token-body', '--token-subtext-1'] as const
+
+// Deterministic per-letter color tokens, replicating the reference site's LCG
+// (seed 42, multiplier 1664525, increment 1013904223) over the three text
+// tokens with the "no adjacent repeat" rule.
+const TOKENS = ['body', 'subtext-0', 'subtext-1'] as const
+const titleColorTokens = (() => {
+  let t = 42
+  let prev = -1
+  return TITLE.split('').map(() => {
+    t = (Math.imul(t, 1664525) + 1013904223) | 0
+    let index = (t >>> 16) % TOKENS.length
+    if (index === prev) index = (index + 1) % TOKENS.length
+    prev = index
+    return index
+  })
+})()
 
 const titleLetters = [...TITLE]
 const subtitleWords = SUBTITLE.split(' ')
@@ -16,7 +31,7 @@ const subtitleWords = SUBTITLE.split(' ')
 const heroRoot = ref<HTMLElement | null>(null)
 const avatarEl = ref<HTMLElement | null>(null)
 
-const letterColor = (index: number): string => `var(${LETTER_COLORS[index % LETTER_COLORS.length]})`
+const letterColor = (index: number): string => `var(--token-${TOKENS[titleColorTokens[index]]})`
 
 const FxTables = {
   desktop: {
@@ -61,6 +76,53 @@ const setAvatarScale = (scale: number) => {
   if (avatarEl.value && entranceDone && drag.pointerId === -1) {
     gsap.to(avatarEl.value, { scale, duration: 0.3, ease: 'back.out(2)', overwrite: 'auto' })
   }
+}
+
+// Title-letter interactions replicate the reference site: hovering blips a
+// short drum hit (50ms throttle), and clicking a letter spins it a full turn
+// while the neighbouring letters spin outward, 50ms per ring (back.out).
+const { playDrum } = useSoundFx()
+let spinBusy = false
+let lastHoverBlip = 0
+
+const onLetterClick = (index: number) => {
+  const root = heroRoot.value
+  if (!root || spinBusy) return
+  spinBusy = true
+  const spans = Array.from(root.querySelectorAll<HTMLElement>('.hero-letter'))
+  const center = Math.min(index, spans.length - 1)
+  const outer = Math.max(center, spans.length - 1 - center)
+  for (let ring = 0; ring <= outer; ring++) {
+    let first = true
+    for (const i of [center - ring, center + ring]) {
+      if (i < 0 || i >= spans.length || (ring > 0 && i === center)) continue
+      const isFirst = first
+      first = false
+      const span = spans[i]
+      const current = Math.round(gsap.getProperty(span, 'rotation') as number)
+      const clean = current % 360 === 0
+      const dir = i < center ? -1 : 1
+      gsap.to(span, {
+        rotation: clean ? current + dir * 360 : 0,
+        duration: 0.4,
+        ease: 'back.out(1.7)',
+        delay: ring * 0.05,
+        overwrite: true,
+        onStart: isFirst ? playDrum : undefined,
+        onComplete: () => {
+          if (clean) gsap.set(span, { rotation: 0 })
+          if (ring === outer) spinBusy = false
+        },
+      })
+    }
+  }
+}
+
+const onLetterHover = () => {
+  const now = performance.now()
+  if (now - lastHoverBlip < 50) return
+  lastHoverBlip = now
+  playDrum()
 }
 
 onMounted(() => {
@@ -146,6 +208,8 @@ onMounted(() => {
             :key="`title-${index}`"
             class="hero-letter"
             :style="{ color: letterColor(index) }"
+            @click="onLetterClick(index)"
+            @mouseenter="onLetterHover"
           >{{ letter }}</span>
         </h1>
 
