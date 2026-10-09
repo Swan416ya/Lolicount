@@ -1,19 +1,11 @@
 <script setup lang="ts">
-// NavBar: fixed top navigation bar, modeled after dicebear's VitePress
-// nav. Left: brand icon + title (click cycles the color theme). Center:
-// route links. Right: language picker, GitHub Star button with count.
-// Collapses into a hamburger menu on narrow screens.
-
+import gsap from 'gsap'
 const { t, localeLabels } = useI18n()
 const { toggle: toggleTheme } = useTheme()
 const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
 const route = useRoute()
 
-const isLinkActive = (href: string) => {
-  const path = route.path
-  return path === href || path.startsWith(href + '/')
-}
-
+const isLinkActive = (href: string) => route.path === href || route.path.startsWith(href + '/')
 const navLinks = [
   { href: '/', label: 'nav.playground', isRoute: true },
   { href: '/editor', label: 'nav.editor', isRoute: true },
@@ -28,19 +20,27 @@ const closeMenu = () => {
 onMounted(() => {
   fetchStars()
 })
+
+onMounted(() => {
+  gsap.from('.nav-link, .nav-actions', {
+    opacity: 0,
+    y: -24,
+    duration: 0.5,
+    stagger: 0.04,
+    ease: 'power3.out',
+  })
+})
 </script>
 
 <template>
   <header class="nav-bar">
     <div class="nav-wrapper">
-      <!-- Brand: click cycles the color theme (pink <-> gray) -->
       <button type="button" class="nav-brand" :title="t('nav.theme')" @click="toggleTheme">
         <img src="/images/lolicount-icon.png" alt="Lolicount" class="nav-brand-icon" />
         <span class="nav-brand-text">Lolicount</span>
       </button>
 
-      <!-- Desktop nav links -->
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Lolicount">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.href"
@@ -50,12 +50,9 @@ onMounted(() => {
         >{{ t(link.label) }}</NuxtLink>
       </nav>
 
-      <!-- Right actions -->
       <div class="nav-actions">
-        <!-- Language picker -->
         <LangSwitch nav />
 
-        <!-- GitHub Star button -->
         <a
           :href="repoUrl"
           target="_blank"
@@ -73,7 +70,6 @@ onMounted(() => {
           <span v-if="stars != null" class="nav-star-count">{{ formatStars(stars) }}</span>
         </a>
 
-        <!-- Mobile hamburger -->
         <button
           type="button"
           class="nav-hamburger"
@@ -89,7 +85,6 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Mobile dropdown menu -->
     <Transition name="nav-menu">
       <nav v-if="menuOpen" class="nav-mobile">
         <NuxtLink
@@ -106,25 +101,11 @@ onMounted(() => {
 
 <style scoped>
 .nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: sticky;
+  top: var(--app-gutter, 0.5rem);
   z-index: 50;
-  background: var(--nav-bg, rgba(255, 255, 255, 0.85));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--loli-cream);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: background-color 0.25s, border-color 0.25s, box-shadow 0.25s;
-}
-
-[data-theme='pink'] .nav-bar {
-  --nav-bg: rgba(255, 255, 255, 0.85);
-}
-
-[data-theme='gray'] .nav-bar {
-  --nav-bg: rgba(249, 250, 251, 0.85);
+  height: 64px;
+  flex: 0 0 auto;
 }
 
 .nav-wrapper {
@@ -132,200 +113,195 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  max-width: 96rem;
   padding: 0 1.5rem;
-  max-width: 1440px;
   margin: 0 auto;
 }
 
-/* Brand */
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0;
-  padding: 0;
+  gap: 0.625rem;
+  padding: 0.375rem 0.5rem;
   background: transparent;
-  border: none;
+  border: 0;
+  border-radius: 0.75rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
+
+.nav-brand:hover {
+  background: var(--loli-selection);
+}
+
 .nav-brand-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
+
 .nav-brand-text {
   font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--loli-pink);
+  font-weight: 750;
+  letter-spacing: 0;
+  color: var(--text-color);
   white-space: nowrap;
 }
 
-/* Desktop nav links */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
+
 .nav-link {
-  /* Auto width with a floor: the fixed 5.5rem slot wrapped longer CJK
-   * labels (使用方法 / 关于) into multiple lines that spilled out of the
-   * 64px bar. nowrap keeps every locale on one line. */
-  min-width: 5.5rem;
-  padding: 0 0.75rem;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 1rem;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #6b7280;
+  color: var(--text-muted);
   text-decoration: none;
-  line-height: 64px;
-  text-align: center;
-  white-space: nowrap;
-  transition: color 0.25s;
-}
-.nav-link:hover {
-  color: var(--loli-pink);
-}
-.nav-link-active {
-  color: #1f2937;
-  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Right actions */
+.nav-link:hover,
+.nav-link-active {
+  color: var(--text-color);
+  background: var(--loli-selection);
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-shrink: 0;
 }
-/* GitHub Star button */
+
 .nav-star {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.375rem 0.75rem;
+  gap: 0.45rem;
+  height: 2.25rem;
+  padding: 0 0.75rem;
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: #4b5563;
-  background: var(--loli-cream);
-  border: 1px solid var(--loli-pink);
-  border-radius: 0.5rem;
+  font-weight: 650;
+  color: var(--text-color);
   text-decoration: none;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.75rem;
   white-space: nowrap;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .nav-star:hover {
   border-color: var(--loli-pink);
-  background: var(--loli-pink);
-  color: #fff;
-  box-shadow: 0 0 0 3px var(--loli-cream);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.nav-star-icon {
-  flex-shrink: 0;
-}
+
 .nav-star-count {
   display: inline-flex;
   align-items: center;
+  min-width: 1.625rem;
+  justify-content: center;
   padding: 0 0.375rem;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--loli-pink);
-  background: #fff;
-  border-radius: 0.375rem;
+  background: var(--loli-selection);
+  border-radius: 0.5rem;
   line-height: 1.4;
 }
-.nav-star:hover .nav-star-count {
-  color: var(--loli-pink);
-  background: #fff;
-}
 
-/* Hamburger (mobile) */
 .nav-hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
-  width: 2.25rem;
-  height: 2.25rem;
-  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
   background: transparent;
-  border: 1px solid var(--loli-cream);
-  border-radius: 0.5rem;
+  border: 0;
+  border-radius: 0.75rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
+
+.nav-hamburger:hover {
+  background: var(--loli-selection);
+}
+
 .nav-hamburger-line {
   display: block;
-  width: 1rem;
+  width: 1.125rem;
   height: 2px;
   margin: 0 auto;
-  background: var(--loli-pink);
+  background: var(--text-color);
   border-radius: 1px;
-  transition: transform 0.25s, opacity 0.25s;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
+
 .nav-hamburger-active .nav-hamburger-line:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
+
 .nav-hamburger-active .nav-hamburger-line:nth-child(2) {
   opacity: 0;
 }
+
 .nav-hamburger-active .nav-hamburger-line:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Mobile dropdown */
 .nav-mobile {
-  display: none;
+  display: flex;
   flex-direction: column;
-  padding: 0.5rem 1.5rem 1rem;
-  border-top: 1px solid var(--loli-cream);
-  background: var(--nav-bg, rgba(255, 255, 255, 0.95));
+  gap: 0.25rem;
+  padding: 0 1.5rem 1rem;
 }
+
 .nav-mobile-link {
-  padding: 0.75rem 0;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #374151;
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
   text-decoration: none;
-  border-bottom: 1px solid var(--loli-cream);
+  border-radius: 0.75rem;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-.nav-mobile-link:last-child {
-  border-bottom: none;
-}
+
 .nav-mobile-link:hover {
-  color: var(--loli-pink);
+  color: var(--text-color);
+  background: var(--loli-selection);
 }
 
-/* Responsive: hide desktop links + show hamburger under 768px */
-@media (max-width: 767px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-hamburger {
-    display: flex;
-  }
-  .nav-mobile {
-    display: flex;
-  }
-  .nav-star-label {
-    display: none;
-  }
-  .nav-wrapper {
-    padding: 0 1rem;
-  }
-}
-
-/* Tablet: condense nav links */
-@media (max-width: 1024px) and (min-width: 768px) {
-  .nav-link {
-    padding: 0 0.5rem;
-  }
-}
-
-/* Mobile menu transition */
 .nav-menu-enter-active,
 .nav-menu-leave-active {
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
 .nav-menu-enter-from,
 .nav-menu-leave-to {
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-0.5rem);
+}
+
+@media (max-width: 767px) {
+  .nav-links,
+  .nav-star-label {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-star {
+    padding: 0 0.625rem;
+  }
 }
 </style>

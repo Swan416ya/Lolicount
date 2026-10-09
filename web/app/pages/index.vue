@@ -338,47 +338,35 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="max-w-5xl mx-auto px-4 py-8 font-sans">
-    <!-- Header -->
-    <section class="mb-8">
-      <h1 class="text-3xl font-bold text-loli-pink mb-2">{{ t('themesGallery.title') }}</h1>
-      <p class="text-sm text-gray-600">{{ t('themesGallery.desc') }}</p>
-    </section>
-    <!-- min-w-0 on every child: grid items default to min-width auto, so
-         unbreakable output content (embed URLs) would stretch the whole
-         page on phones. -->
-    <div class="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-8 [&>*]:min-w-0">
-      <!-- Generator: first in DOM so mobile stacks it above the preview. -->
-      <div>
-        <!-- Playground -->
-        <section class="rounded-xl bg-loli-cream p-4">
-          <h2 class="text-lg font-semibold mb-3 flex items-center gap-2">
-            <img src="/images/lolicount-icon.png" alt="" class="h-5 w-5" />
-            {{ t('themesGallery.generateTitle') }}
-          </h2>
+  <main class="home-page">
+    <HomeHero />
+
+    <section class="home-workspace">
+      <div class="workspace-grid">
+        <section class="tool-panel">
+          <header class="panel-header">
+            <h2>{{ t('themesGallery.generateTitle') }}</h2>
+          </header>
+
           <ParamPanel
             :state="state"
             :themes="themes"
             :fthemes="fthemes"
             @update="onUpdate"
           />
-          <div class="relative mt-4">
+
+          <div class="generate-row">
             <StarBurst ref="starBurst" />
             <button
+              type="button"
+              class="generate-button"
               :disabled="nameEmpty"
-              :class="cn(
-                'relative w-full py-2 rounded-lg font-medium transition',
-                nameEmpty
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-loli-pink text-white hover:bg-loli-pink/90'
-              )"
               @click="generate($event)"
-            >
-              {{ nameEmpty ? t('param.nameEmpty') : t('playground.generate') }}
-            </button>
+            >{{ nameEmpty ? t('param.nameEmpty') : t('playground.generate') }}</button>
           </div>
-          <div v-if="generatedUrl || generatedAnimated" class="mt-4 space-y-3">
-            <div class="rounded-xl bg-white p-3 flex justify-center">
+
+          <div v-if="generatedUrl || generatedAnimated" class="result-panel">
+            <div class="result-preview">
               <EmotePreview
                 v-if="generatedAnimated && generatedKind !== 'live2d'"
                 :key="generateKey"
@@ -401,30 +389,19 @@ onMounted(async () => {
               :widget-snippet="generatedAnimated ? widgetSnippet : undefined"
             />
           </div>
-          <div v-else class="mt-4 rounded-xl bg-white p-3">
-            <div class="h-24 flex flex-col items-center justify-center text-center text-xs text-gray-400">
-              <p>{{ t('playground.emptyHint1') }}</p>
-              <p>{{ t('playground.emptyHint2') }}</p>
-            </div>
+
+          <div v-else class="empty-panel">
+            <p>{{ t('playground.emptyHint1') }}</p>
+            <p>{{ t('playground.emptyHint2') }}</p>
           </div>
         </section>
-      </div>
 
-      <!-- Preview panel: second in DOM so mobile shows it right below
-           the generator. On desktop it spans both grid rows of the
-           right column and the inner rail is sticky, so scrolling moves
-           only the left column. -->
-      <div class="lg:row-span-2 lg:self-stretch">
-        <div class="preview-rail">
-        <!-- Preview panel -->
-        <section class="rounded-xl bg-loli-cream p-4">
-          <h2 class="text-lg font-semibold mb-3">{{ t('themesGallery.previewTitle') }}</h2>
-          <div
-            v-if="selectedTheme"
-            class="cursor-pointer relative flex justify-center"
-            :title="t('themes.reload')"
-            @click="reloadPreview"
-          >
+        <aside class="preview-panel">
+          <header class="panel-header">
+            <h2>{{ t('themesGallery.previewTitle') }}</h2>
+          </header>
+
+          <div v-if="selectedTheme" class="preview-stage" @click="reloadPreview">
             <EmotePreview
               v-if="selectedAnimated && selectedKind !== 'live2d'"
               :key="previewKey"
@@ -445,159 +422,511 @@ onMounted(async () => {
               :src="previewUrl"
               :alt="selectedTheme"
               crossorigin="anonymous"
-              class="max-h-72 object-contain"
+              class="preview-image"
               @load="previewLoading = false"
               @error="previewLoading = false"
-            />
-            <!-- Loading overlay: blocks the click-to-reload hit area and
-                 signals that a fresh no-store render is on its way. -->
-            <div
-              v-if="previewLoading && !selectedAnimated"
-              class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-white/70 rounded-lg"
-              aria-live="polite"
             >
-              <span class="h-6 w-6 animate-spin rounded-full border-2 border-loli-pink border-t-transparent" aria-hidden="true" />
-              <span class="text-xs text-gray-500">{{ t('themesGallery.previewLoading') }}</span>
+            <div v-if="previewLoading && !selectedAnimated" class="preview-loading">
+              <span class="spinner"></span>
+              <span>{{ t('themesGallery.previewLoading') }}</span>
             </div>
           </div>
-          <div v-else class="h-40 flex items-center justify-center text-sm text-gray-400">
-            {{ t('loli.loading') }}
-          </div>
-          <div v-if="selectedTheme && !selectedAnimated" class="mt-3 flex justify-center">
-            <button
-              type="button"
-              :disabled="previewLoading"
-              :class="cn(
-                'inline-flex items-center gap-1.5 border-2 border-loli-pink text-loli-pink text-sm font-semibold px-4 py-1.5 rounded-lg hover:bg-loli-pink hover:text-white transition disabled:opacity-50 disabled:cursor-not-allowed'
-              )"
-              @click="downloadFrame"
-            >↓ {{ t('themesGallery.downloadFrame') }}</button>
-          </div>
-          <div v-if="selectedMeta" class="mt-3 text-xs text-gray-500 space-y-1">
-            <p>{{ t('themesGallery.gameLabel') }}: {{ gameLabel(selectedMeta.gameKey) }}</p>
-            <p>{{ t('themesGallery.characterLabel') }}: {{ selectedMeta.character }}</p>
-          </div>
-          <p class="mt-2 text-xs text-gray-500">{{ t('themesGallery.previewHint') }}</p>
-        </section>
-        </div>
+
+          <div v-else class="preview-empty">{{ t('loli.loading') }}</div>
+
+          <button
+            v-if="selectedTheme && !selectedAnimated"
+            type="button"
+            class="download-button"
+            :disabled="previewLoading"
+            @click="downloadFrame"
+          >{{ t('themesGallery.downloadFrame') }}</button>
+
+          <dl v-if="selectedMeta" class="preview-meta">
+            <div>
+              <dt>{{ t('themesGallery.gameLabel') }}</dt>
+              <dd>{{ gameLabel(selectedMeta.gameKey) }}</dd>
+            </div>
+            <div>
+              <dt>{{ t('themesGallery.characterLabel') }}</dt>
+              <dd>{{ selectedMeta.character }}</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
 
-      <!-- Filters + theme grid: last on mobile; on desktop grid
-           auto-placement puts it in the second row, left column. -->
-      <div>
-        <!-- Filter bar: search + type filter. The game dropdown was
-             replaced by the collapsible per-source groups below. -->
-        <section class="mb-6 rounded-xl bg-loli-cream p-4 space-y-3">
-          <!-- box-border: no global CSS reset is loaded, so <input> keeps
-               the UA content-box and w-full + px-3 + border would overflow
-               the panel by 26px on the right. text-base on mobile: 16px
-               control text prevents iOS focus auto-zoom. -->
+      <section class="theme-library">
+        <header class="library-header">
+          <div>
+            <h2>{{ t('themesGallery.title') }}</h2>
+            <p>{{ t('themesGallery.desc') }}</p>
+          </div>
           <input
             v-model="searchQuery"
-            type="text"
+            type="search"
+            class="library-search"
             :placeholder="t('themesGallery.searchPlaceholder')"
-            class="w-full box-border border rounded-lg px-3 py-2 bg-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-loli-pink/40 focus:border-loli-pink transition"
-          />
-          <div class="flex items-center gap-2 flex-wrap">
+          >
+        </header>
+
+        <div class="library-filters">
+          <button
+            v-for="opt in [
+              { value: 'all', label: t('themesGallery.allKinds') },
+              { value: 'card', label: t('themesGallery.kindCard') },
+              { value: 'character', label: t('themesGallery.kindCharacter') },
+              { value: 'live2d', label: t('themesGallery.kindLive2d') },
+            ]"
+            :key="opt.value"
+            type="button"
+            class="library-filter"
+            :class="{ active: kindFilter === opt.value }"
+            @click="kindFilter = opt.value"
+          >{{ opt.label }}</button>
+          <span class="library-count">{{ t('themesGallery.resultCount', { n: resultCount }) }}</span>
+        </div>
+
+        <div v-if="groups.length" class="theme-groups">
+          <section v-for="g in groups" :key="g.key" class="theme-group">
             <button
-              v-for="opt in [
-                { value: 'all', label: t('themesGallery.allKinds') },
-                { value: 'card', label: t('themesGallery.kindCard') },
-                { value: 'character', label: t('themesGallery.kindCharacter') },
-                { value: 'live2d', label: t('themesGallery.kindLive2d') },
-              ]"
-              :key="opt.value"
               type="button"
-              :class="cn(
-                'px-3 py-1.5 rounded-full text-sm transition border',
-                kindFilter === opt.value
-                  ? 'bg-loli-pink text-white border-loli-pink'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-loli-pink'
-              )"
-              @click="kindFilter = opt.value"
-            >{{ opt.label }}</button>
-            <span class="text-xs text-gray-500 ml-auto">{{ t('themesGallery.resultCount', { n: resultCount }) }}</span>
-          </div>
-        </section>
+              class="theme-group-header"
+              :aria-expanded="isGroupOpen(g.key)"
+              @click="toggleGroup(g.key)"
+            >
+              <span>{{ g.label }}</span>
+              <span v-if="g.hot" class="hot-badge">HOT</span>
+              <span class="group-count">{{ g.items.length }}</span>
+            </button>
 
-        <!-- Theme groups: hot first, then one collapsible section per
-             source game. Collapsed by default; auto-expanded while
-             search/type filters are active. -->
-        <section>
-          <div v-if="groups.length" class="space-y-3">
-            <div v-for="g in groups" :key="g.key">
+            <div v-show="isGroupOpen(g.key)" class="theme-grid">
               <button
+                v-for="tth in g.items"
+                :key="tth.name"
                 type="button"
-                class="w-full flex items-center gap-2 rounded-lg bg-loli-cream px-4 py-2.5 text-left transition hover:bg-loli-pink/10"
-                :aria-expanded="isGroupOpen(g.key)"
-                @click="toggleGroup(g.key)"
+                class="theme-card"
+                :class="{ selected: selectedTheme === tth.name }"
+                @click="selectTheme(tth.name)"
               >
-                <span class="text-xs text-loli-pink w-4">{{ isGroupOpen(g.key) ? '▼' : '▶' }}</span>
-                <span class="font-medium text-sm">{{ g.label }}</span>
-                <span
-                  v-if="g.hot"
-                  class="text-[10px] leading-none px-1.5 py-1 rounded-full bg-loli-pink text-white font-semibold"
-                  :title="t('themesGallery.hotHint')"
-                >HOT</span>
-                <span class="ml-auto text-xs text-gray-500">{{ g.items.length }}</span>
-              </button>
-              <div v-show="isGroupOpen(g.key)" class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-3">
-                <button
-                  v-for="tth in g.items"
-                  :key="tth.name"
-                  type="button"
-                  :class="cn(
-                    'rounded-xl border-2 p-3 text-left transition bg-white',
-                    selectedTheme === tth.name
-                      ? 'border-loli-pink shadow-sm'
-                      : 'border-transparent hover:border-loli-pink/40'
-                  )"
-                  @click="selectTheme(tth.name)"
+                <img
+                  :src="tth.animated
+                    ? `/images/emote-thumbs/${tth.name}.webp`
+                    : `/images/theme-thumbs/${tth.name}.webp`"
+                  :alt="tth.name"
+                  loading="lazy"
                 >
-                  <div class="rounded-lg bg-loli-cream flex items-center justify-center overflow-hidden mb-2 h-28">
-                    <!-- Static pre-rendered thumbs (cmd/gen-theme-thumbs, compressed
-                         to card-sized webp by scripts/gen-theme-thumbs-webp.mjs): the live
-                         /@demo URL fires one render request per card, and a 500-card grid
-                         bursts past the IP rate limit (429) and breaks every image. -->
-                    <img
-                      :src="tth.animated
-                        ? `/images/emote-thumbs/${tth.name}.webp`
-                        : `/images/theme-thumbs/${tth.name}.webp`"
-                      :alt="tth.name"
-                      class="max-h-24 object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <p class="text-sm font-medium truncate">{{ tth.name }}</p>
-                  <p class="text-xs text-gray-500 truncate">
-                    {{ tth.meta ? tth.meta.character : t('themesGallery.unknownMeta') }}
-                  </p>
-                  <!-- Variation count from /api/themes (product of random layer
-                       candidates; absent for animated themes). -->
-                  <p v-if="tth.variants" class="text-xs text-gray-400 truncate">
-                    {{ t('themes.variants', { n: tth.variants.toLocaleString() }) }}
-                  </p>
-                </button>
-              </div>
+                <strong>{{ tth.name }}</strong>
+                <span>{{ tth.meta ? tth.meta.character : t('themesGallery.unknownMeta') }}</span>
+                <small v-if="tth.variants">{{ t('themes.variants', { n: tth.variants.toLocaleString() }) }}</small>
+              </button>
             </div>
-          </div>
-          <div v-else class="rounded-xl bg-loli-cream p-10 text-center text-sm text-gray-400">
-            {{ t('themesGallery.noResults') }}
-          </div>
-        </section>
-      </div>
-    </div>
+          </section>
+        </div>
 
+        <div v-else class="library-empty">{{ t('themesGallery.noResults') }}</div>
+      </section>
+    </section>
+
+    <HomeFooter />
     <BackToTop />
   </main>
 </template>
 
 <style scoped>
-/* Desktop only: pin the preview rail to the viewport so scrolling moves
- * just the left column (generator + theme picker). Below lg the rail is
- * a plain block in the normal flow. */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.home-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 1.5rem;
+  background: var(--loli-surface);
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  width: min(100%, 72rem);
+  margin: 0 auto;
+}
+
+.tool-panel,
+.preview-panel {
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(76, 79, 105, 0.08);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.panel-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.generate-row {
+  position: relative;
+  margin-top: 1.25rem;
+}
+
+.generate-button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: #fff;
+  background: var(--loli-pink);
+  border: 0;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.generate-button:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.generate-button:disabled {
+  color: var(--text-muted);
+  background: var(--loli-cream);
+  cursor: not-allowed;
+}
+
+.result-panel {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.result-preview {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  padding: 1rem;
+  background: var(--loli-surface);
+  border-radius: 0.85rem;
+}
+
+.empty-panel {
+  display: grid;
+  gap: 0.35rem;
+  place-items: center;
+  min-height: 9rem;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  background: var(--loli-surface);
+  border-radius: 0.85rem;
+}
+
+.preview-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 16rem;
+  cursor: pointer;
+  background: var(--loli-surface);
+  border-radius: 0.85rem;
+}
+
+.preview-image {
+  max-height: 18rem;
+  object-fit: contain;
+}
+
+.preview-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  background: rgba(239, 241, 245, 0.75);
+  border-radius: 0.85rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--loli-pink);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.preview-empty {
+  display: grid;
+  place-items: center;
+  min-height: 16rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.download-button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--loli-pink);
+  background: transparent;
+  border: 1px solid var(--loli-pink);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.download-button:hover:not(:disabled) {
+  color: #fff;
+  background: var(--loli-pink);
+}
+
+.download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preview-meta {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.preview-meta div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0.5rem;
+}
+
+.preview-meta dt {
+  font-weight: 650;
+}
+
+.preview-meta dd {
+  margin: 0;
+}
+
+.theme-library {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+}
+
+.library-header {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.library-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.library-header p {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.library-search {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.75rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.library-search:focus {
+  border-color: var(--loli-pink);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.library-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.library-filter {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.library-filter:hover,
+.library-filter.active {
+  color: #fff;
+  background: var(--loli-pink);
+  border-color: var(--loli-pink);
+}
+
+.library-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.theme-groups {
+  display: grid;
+  gap: 1rem;
+}
+
+.theme-group {
+  min-width: 0;
+}
+
+.theme-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text-color);
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.theme-group-header:hover {
+  background: var(--loli-selection);
+}
+
+.hot-badge {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--loli-pink);
+  border-radius: 999px;
+}
+
+.group-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.theme-card {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.85rem;
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.theme-card:hover,
+.theme-card.selected {
+  border-color: var(--loli-pink);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.theme-card img {
+  width: 100%;
+  height: 8.5rem;
+  object-fit: contain;
+  margin-bottom: 0.35rem;
+}
+
+.theme-card strong {
+  overflow: hidden;
+  font-size: 0.875rem;
+  color: var(--text-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-card span,
+.theme-card small {
+  overflow: hidden;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.library-empty {
+  padding: 3rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  background: var(--bg-card);
+  border-radius: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .theme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .library-header {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: end;
+  }
+}
+
 @media (min-width: 1024px) {
-  .preview-rail {
+  .workspace-grid {
+    grid-template-columns: minmax(0, 1fr) 24rem;
+    align-items: start;
+  }
+
+  .preview-panel {
     position: sticky;
     top: 5rem;
     max-height: calc(100vh - 6rem);
