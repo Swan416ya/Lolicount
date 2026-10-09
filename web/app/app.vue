@@ -3,6 +3,7 @@ const { init: initLocale } = useI18n()
 const { init: initTheme } = useTheme()
 useFireworkFx()
 useRippleFx()
+useReveal()
 
 const progressEl = ref<HTMLElement | null>(null)
 let ticking = false
@@ -38,9 +39,20 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="app-frame">
+    <LoadingScreen />
     <div ref="progressEl" class="scroll-progress" aria-hidden="true" />
     <NavBar />
     <NuxtPage />
+    <noscript>
+      <style>
+        /* Without JS the entrance-hidden state must not persist. */
+        .reveal,
+        .hero-letter,
+        .major-letter,
+        .hero-avatar { opacity: 1 !important; transform: none !important; }
+        .hero-subtitle { height: auto !important; overflow: visible !important; }
+      </style>
+    </noscript>
   </div>
 </template>
 
@@ -67,5 +79,22 @@ onBeforeUnmount(() => {
   transform-origin: left center;
   pointer-events: none;
   z-index: 120;
+}
+</style>
+
+<style>
+/* .reveal is applied to elements inside child components, so the hidden
+state must be global (not scoped). useReveal removes the class when the
+reveal plays. */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>

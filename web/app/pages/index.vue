@@ -344,7 +344,7 @@ onMounted(async () => {
     <section class="home-workspace">
       <div class="workspace-grid">
         <section class="tool-panel">
-          <header class="panel-header">
+          <header class="panel-header reveal" data-reveal>
             <h2>{{ t('themesGallery.generateTitle') }}</h2>
           </header>
 
@@ -397,7 +397,7 @@ onMounted(async () => {
         </section>
 
         <aside class="preview-panel">
-          <header class="panel-header">
+          <header class="panel-header reveal" data-reveal>
             <h2>{{ t('themesGallery.previewTitle') }}</h2>
           </header>
 
@@ -456,7 +456,7 @@ onMounted(async () => {
       </div>
 
       <section class="theme-library">
-        <header class="library-header">
+        <header class="library-header reveal" data-reveal>
           <div>
             <h2>{{ t('themesGallery.title') }}</h2>
             <p>{{ t('themesGallery.desc') }}</p>
@@ -469,7 +469,7 @@ onMounted(async () => {
           >
         </header>
 
-        <div class="library-filters">
+        <div class="library-filters reveal" data-reveal>
           <button
             v-for="opt in [
               { value: 'all', label: t('themesGallery.allKinds') },
