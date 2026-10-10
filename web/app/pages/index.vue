@@ -400,6 +400,7 @@ onMounted(async () => {
             <p>{{ t('playground.emptyHint2') }}</p>
           </div>
         </section>
+        <div class="preview-slot">
 
         <aside class="preview-panel">
           <header class="panel-header reveal" data-reveal>
@@ -458,7 +459,7 @@ onMounted(async () => {
             </div>
           </dl>
         </aside>
-      </div>
+        </div>
 
       <section class="theme-library">
         <header class="library-header reveal" data-reveal>
@@ -535,6 +536,7 @@ onMounted(async () => {
 
         <div v-else class="library-empty">{{ t('themesGallery.noResults') }}</div>
       </section>
+      </div>
     </section>
 
     <BackToTop />
@@ -562,8 +564,19 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
-  width: min(100%, 72rem);
+  width: min(100%, 64rem);
   margin: 0 auto;
+}
+
+.theme-library {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.preview-slot {
+  width: 100%;
+  min-width: 0;
 }
 
 .tool-panel,
@@ -739,11 +752,6 @@ onMounted(async () => {
 
 .preview-meta dd {
   margin: 0;
-}
-
-.theme-library {
-  width: min(100%, 72rem);
-  margin: 0 auto;
 }
 
 .library-header {
@@ -948,8 +956,14 @@ onMounted(async () => {
 
 @media (min-width: 1024px) {
   .workspace-grid {
-    grid-template-columns: minmax(0, 1fr) 24rem;
+    grid-template-columns: minmax(0, 1fr) 22.5rem;
     align-items: start;
+  }
+
+  .preview-slot {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: stretch;
   }
 
   .preview-panel {
@@ -957,6 +971,10 @@ onMounted(async () => {
     top: 5rem;
     max-height: calc(100vh - 6rem);
     overflow-y: auto;
+  }
+
+  .theme-library {
+    grid-column: 1;
   }
 }
 </style>
