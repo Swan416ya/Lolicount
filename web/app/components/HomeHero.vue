@@ -66,11 +66,17 @@ const onAvatarPointerDown = (event: PointerEvent) => {
   gsap.killTweensOf(avatarEl.value, 'x,y,rotate')
 }
 
+// Drag range ported from the reference: the avatar is pulled at most 16px
+// from its rest position in each axis, no matter how far the pointer goes.
+const DRAG_CLAMP_PX = 16
+const clampDrag = (v: number): number => Math.max(-DRAG_CLAMP_PX, Math.min(DRAG_CLAMP_PX, v))
+
 const onAvatarPointerMove = (event: PointerEvent) => {
   if (!avatarEl.value || event.pointerId !== drag.pointerId) return
-  const dx = event.clientX - drag.startX
-  const dy = event.clientY - drag.startY
-  gsap.set(avatarEl.value, { x: dx, y: dy, rotate: dx * 0.03 })
+  gsap.set(avatarEl.value, {
+    x: clampDrag(event.clientX - drag.startX),
+    y: clampDrag(event.clientY - drag.startY),
+  })
 }
 
 const onAvatarPointerUp = (event: PointerEvent) => {
@@ -79,8 +85,13 @@ const onAvatarPointerUp = (event: PointerEvent) => {
   if (moved <= TAP_MAX_MOVE && event.timeStamp - drag.startTime <= TAP_MAX_MS) handleAvatarTap()
   drag.pointerId = -1
   avatarEl.value.releasePointerCapture(event.pointerId)
-  setAvatarScale(1.1)
-  gsap.to(avatarEl.value, { x: 0, y: 0, rotate: 0, duration: 0.9, ease: 'elastic.out(1, 0.35)' })
+  gsap.to(avatarEl.value, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.35)' })
+  // Reference behavior: the released avatar settles at the hover scale only
+  // while the pointer is still over it, otherwise it returns to 1.
+  const rect = avatarEl.value.getBoundingClientRect()
+  const stillOver = event.clientX >= rect.left && event.clientX <= rect.right
+    && event.clientY >= rect.top && event.clientY <= rect.bottom
+  setAvatarScale(stillOver ? 1.1 : 1)
 }
 
 // Avatar press/hover scale, values and ease ported from the reference.
