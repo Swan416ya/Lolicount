@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { letterColorCss, letterColorTokens } from '~/composables/useLetterTokens'
 // About page rebuilt on the reference site's about layout: a two-column
 // intro (the Hi-I'm copy plus the how-to-embed block on the left, the
 // big avatar with the Skills/Participations lists on the right), then
@@ -13,6 +16,63 @@ const { repoUrl } = useGitHub()
 // sample links users copy point at the real origin once publicBase
 // resolves.
 const howToUrl = computed(() => buildCounterUrl({ name: 'name' }, publicBase.value))
+const titleLetters = [...'Lolicount']
+const titleColorTokens = letterColorTokens(titleLetters.length)
+const letterColor = (index: number): string => letterColorCss(titleColorTokens[index] ?? 0)
+const topTitleStackEl = ref<HTMLElement | null>(null)
+const topSecondaryEl = ref<HTMLElement | null>(null)
+const topTitleEl = ref<HTMLElement | null>(null)
+const topPeriodEl = ref<HTMLElement | null>(null)
+const topOverlayEl = ref<HTMLElement | null>(null)
+const topAvatarEl = ref<HTMLElement | null>(null)
+const topAvatarInnerEl = ref<HTMLElement | null>(null)
+const topAlternate = ref(false)
+const aboutDetailsEl = ref<HTMLElement | null>(null)
+const aboutDetailsLeftEl = ref<HTMLElement | null>(null)
+const aboutDetailsRightEl = ref<HTMLElement | null>(null)
+const prefersReducedMotion = (): boolean =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const showTopHero = (): void => {
+  const secondary = topSecondaryEl.value
+  const title = topTitleEl.value
+  const period = topPeriodEl.value
+  const avatar = topAvatarEl.value
+  if (!secondary || !title || !period || !avatar) return
+  if (prefersReducedMotion()) {
+    gsap.set([secondary, title, period], { opacity: 1, y: 0 })
+    gsap.set(avatar, { opacity: 1, y: 24, scale: 1 })
+    return
+  }
+  gsap.fromTo(secondary, { opacity: 0, y: -50 }, { opacity: 1, y: 0, delay: 0.35, duration: 1, ease: 'cardReveal' })
+  gsap.fromTo(title, { opacity: 0, y: -50 }, { opacity: 1, y: 0, delay: 0.25, duration: 1, ease: 'cardReveal' })
+  gsap.fromTo(period, { opacity: 0, y: -50 }, { opacity: 1, y: 0, delay: 0.25, duration: 1, ease: 'cardReveal' })
+  gsap.fromTo(avatar, { opacity: 0, y: 128, scale: 0.95 }, { opacity: 1, y: 24, scale: 1, delay: 0.75, duration: 0.4, ease: 'overshoot' })
+}
+const rotateAvatar = (rotation: number): void => {
+  if (prefersReducedMotion()) return
+  gsap.to(topAvatarInnerEl.value, { rotation, duration: 0.25, ease: 'overshoot', overwrite: 'auto' })
+}
+const toggleTopHero = (): void => {
+  topAlternate.value = !topAlternate.value
+  const active = topAlternate.value
+  const titleStack = topTitleStackEl.value
+  const overlay = topOverlayEl.value
+  if (titleStack && overlay && !prefersReducedMotion()) {
+    gsap.to(titleStack, { opacity: active ? 0 : 1, y: active ? -256 : 0, duration: 1, ease: 'cardReveal', overwrite: 'auto' })
+    gsap.to(overlay, { opacity: active ? 1 : 0, y: active ? 0 : 256, duration: 1, ease: 'cardReveal', overwrite: 'auto' })
+    return
+  }
+  if (titleStack && overlay) {
+    gsap.set(titleStack, { opacity: active ? 0 : 1, y: active ? -256 : 0 })
+    gsap.set(overlay, { opacity: active ? 1 : 0, y: active ? 0 : 256 })
+  }
+}
+const bounceAvatar = (): void => {
+  if (prefersReducedMotion() || !topAvatarInnerEl.value) return
+  gsap.timeline({ defaults: { duration: 0.125, ease: 'overshoot' } })
+    .fromTo(topAvatarInnerEl.value, { scale: 1 }, { scale: 0.9, overwrite: 'auto' })
+    .to(topAvatarInnerEl.value, { scale: 1 })
+}
 
 const issuesUrl = `${repoUrl}/issues`
 const contributeUrl = `${repoUrl}/blob/main/docs/contributing-themes.md`
@@ -40,8 +100,34 @@ const workshopCards = computed(() => {
 
 const thumb = (name: string, animated?: boolean): string =>
   `/images/${animated ? 'emote-thumbs' : 'theme-thumbs'}/${name}.webp`
-
-onMounted(async () => {
+let detailsContext: gsap.Context | null = null
+const setupAboutDetails = (): void => {
+  const root = aboutDetailsEl.value
+  const left = aboutDetailsLeftEl.value
+  const right = aboutDetailsRightEl.value
+  if (!root || !left || !right) return
+  const leftItems = left.querySelectorAll('.about-detail-item')
+  const rightItems = right.querySelectorAll('.about-detail-item')
+  const reveal = { opacity: 1, y: 0, duration: 0.8, stagger: 0.05, ease: 'power3.out' }
+  if (prefersReducedMotion()) {
+    gsap.set([leftItems, rightItems], { opacity: 1, y: 0 })
+    return
+  }
+  detailsContext = gsap.context(() => {
+    gsap.matchMedia().add({
+      '(min-width: 768px)': () => {
+        gsap.timeline({ scrollTrigger: { trigger: root, start: 'top 85%', once: true } })
+          .fromTo(leftItems, { opacity: 0, y: 60 }, reveal, 0)
+          .fromTo(rightItems, { opacity: 0, y: 60 }, reveal, 0)
+      },
+      '(max-width: 767px)': () => {
+        gsap.fromTo(leftItems, { opacity: 0, y: 60 }, { ...reveal, scrollTrigger: { trigger: left, start: 'top 85%', once: true } })
+        gsap.fromTo(rightItems, { opacity: 0, y: 60 }, { ...reveal, scrollTrigger: { trigger: right, start: 'top 85%', once: true } })
+      },
+    })
+  }, root)
+}
+const loadAboutCards = async (): Promise<void> => {
   try {
     const [all, hot] = await Promise.all([fetchThemes(), fetchHotThemes()])
     const names = hot.length > 0 ? hot : all.map((x) => x.name)
@@ -49,21 +135,128 @@ onMounted(async () => {
   } catch {
     hotCards.value = []
   }
+}
+
+onMounted(() => {
+  useEases()
+  gsap.registerPlugin(ScrollTrigger)
+  const { ready } = usePageReady()
+  const playEntrance = () => {
+    showTopHero()
+    setupAboutDetails()
+  }
+  if (ready.value) playEntrance()
+  else watch(ready, (value) => {
+    if (value) playEntrance()
+  })
+  void loadAboutCards()
+})
+
+onBeforeUnmount(() => {
+  detailsContext?.revert()
+  gsap.killTweensOf([
+    topTitleStackEl.value,
+    topSecondaryEl.value,
+    topTitleEl.value,
+    topPeriodEl.value,
+    topOverlayEl.value,
+    topAvatarEl.value,
+    topAvatarInnerEl.value,
+  ])
 })
 </script>
 
 <template>
   <main class="about-page">
     <!-- Intro: reference's two-column "About Me" + avatar/Skills block. -->
-    <section class="about-hero reveal" data-reveal>
-      <div class="about-hero-copy">
-        <h2 class="section-watermark droog" aria-hidden="true">About Me</h2>
-        <p class="hero-hi">Hi, I'm</p>
-        <h1 class="hero-name droog">Lolicount</h1>
-        <p class="hero-badge">SVG Counter</p>
-        <p class="hero-desc">{{ t('about.desc') }}</p>
+    <section class="about-top" aria-label="Lolicount">
+      <div class="about-top-pattern" aria-hidden="true" />
+      <div class="about-top-fade" aria-hidden="true" />
+      <div class="about-top-inner">
+        <div class="about-top-copy">
+          <div class="about-top-title-area">
+            <div ref="topTitleStackEl" class="about-top-title-stack">
+              <p
+                ref="topSecondaryEl"
+                class="about-top-secondary"
+                data-nojs-reveal
+                style="opacity: 0; transform: translateY(-50px)"
+              >Hi, I'm</p>
+              <h1 class="about-top-title-row">
+                <span
+                  ref="topTitleEl"
+                  class="about-top-title droog"
+                  data-nojs-reveal
+                  style="opacity: 0; transform: translateY(-50px)"
+                >
+                  <span
+                    v-for="(letter, index) in titleLetters"
+                    :key="`about-title-${index}`"
+                    class="about-top-letter fade-color"
+                    :style="{ color: letterColor(index), lineHeight: 1 }"
+                  >{{ letter }}</span>
+                </span>
+                <span
+                  ref="topPeriodEl"
+                  class="about-top-title-period"
+                  data-nojs-reveal
+                  style="opacity: 0; transform: translateY(-50px)"
+                >.</span>
+              </h1>
+            </div>
+            <div
+              ref="topOverlayEl"
+              class="about-top-overlay"
+              aria-live="polite"
+              style="opacity: 0; transform: translateY(256px)"
+            >
+              <p class="about-top-secondary about-top-overlay-eyebrow">Counter</p>
+              <p class="about-top-overlay-value droog">SVG</p>
+              <div class="about-top-dots" aria-hidden="true">
+                <span class="about-top-dot about-top-dot-active" />
+                <span class="about-top-dot" />
+                <span class="about-top-dot" />
+                <span class="about-top-dot" />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div id="howto" class="hero-howto scroll-mt-20">
+        <div class="about-top-avatar-wrap">
+          <div
+            ref="topAvatarEl"
+            class="about-top-avatar"
+            data-nojs-reveal
+            style="opacity: 0; transform: translateY(128px) scale(0.95)"
+          >
+            <div
+              ref="topAvatarInnerEl"
+              class="about-top-avatar-inner"
+              tabindex="0"
+              role="button"
+              aria-label="Toggle counter format"
+              @pointerenter="rotateAvatar(-6)"
+              @pointerleave="rotateAvatar(0)"
+              @click="bounceAvatar(); toggleTopHero()"
+              @keydown.enter.prevent="bounceAvatar(); toggleTopHero()"
+              @keydown.space.prevent="bounceAvatar(); toggleTopHero()"
+            >
+              <img src="/images/avatar.webp" alt="Lolicount" width="840" height="840" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section ref="aboutDetailsEl" class="about-details">
+      <div ref="aboutDetailsLeftEl" class="about-details-left">
+        <h2 class="about-detail-title droog about-detail-item" data-nojs-reveal>About Me</h2>
+        <div class="about-detail-copy">
+          <p class="about-detail-item" data-nojs-reveal>{{ t('about.desc') }}</p>
+          <p class="about-detail-item" data-nojs-reveal>{{ t('about.stackValue') }}</p>
+          <p class="about-detail-item" data-nojs-reveal>{{ t('about.deploymentValue') }}</p>
+        </div>
+        <div id="howto" class="hero-howto scroll-mt-20 about-detail-item" data-nojs-reveal>
           <p class="howto-text">
             {{ t('howto.introPre') }}<NuxtLink to="/" class="howto-link">{{ t('howto.introLink') }}</NuxtLink>{{ t('howto.introPost') }}
           </p>
@@ -72,19 +265,22 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="about-hero-side">
-        <img src="/images/avatar.webp" alt="Lolicount" class="about-avatar" width="420" height="420">
-        <h2 class="section-watermark droog" aria-hidden="true">Skills</h2>
-        <h3 class="side-title">{{ t('about.techStack') }}</h3>
-        <ul class="side-list">
-          <li v-for="skill in skills" :key="skill">{{ skill }}</li>
-        </ul>
-        <h3 class="side-title">{{ t('about.contribute') }}</h3>
-        <ul class="side-list">
-          <li><a :href="issuesUrl" target="_blank" rel="noopener">{{ t('about.feedback') }}</a></li>
-          <li><a :href="contributeUrl" target="_blank" rel="noopener">{{ t('about.contributeLink') }}</a></li>
-          <li><a :href="repoUrl" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
+      <div ref="aboutDetailsRightEl" class="about-details-right">
+        <h2 class="about-detail-title droog about-detail-item" data-nojs-reveal>Skills</h2>
+        <div class="about-skill-group">
+          <h3 class="about-subheading about-detail-item" data-nojs-reveal>{{ t('about.techStack') }}</h3>
+          <ul class="side-list">
+            <li v-for="skill in skills" :key="skill" class="about-detail-item" data-nojs-reveal>{{ skill }}</li>
+          </ul>
+        </div>
+        <div class="about-skill-group">
+          <h3 class="about-subheading about-detail-item" data-nojs-reveal>{{ t('about.contribute') }}</h3>
+          <ul class="side-list">
+            <li class="about-detail-item" data-nojs-reveal><a :href="issuesUrl" target="_blank" rel="noopener">{{ t('about.feedback') }}</a></li>
+            <li class="about-detail-item" data-nojs-reveal><a :href="contributeUrl" target="_blank" rel="noopener">{{ t('about.contributeLink') }}</a></li>
+            <li class="about-detail-item" data-nojs-reveal><a :href="repoUrl" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -146,9 +342,230 @@ onMounted(async () => {
 
 <style scoped>
 .about-page {
-  max-width: 64rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-top {
+  position: relative;
+  display: flex;
+  min-height: 26.25rem;
+  align-items: center;
+  overflow: hidden;
+  padding: 3.5rem 1.5rem;
+  background: var(--loli-surface);
+}
+
+.about-top-pattern,
+.about-top-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-top-pattern {
+  background-color: var(--loli-crust);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-image: url('/images/cross-pattern.svg');
+  mask-image: url('/images/cross-pattern.svg');
+  -webkit-mask-size: 120px 120px;
+  mask-size: 120px 120px;
+  -webkit-mask-position: center 30px;
+  mask-position: center 30px;
+  opacity: 0.24;
+}
+
+.about-top-fade {
+  z-index: 1;
+  background: linear-gradient(to bottom, var(--loli-surface), transparent 24%, transparent 76%, var(--loli-surface));
+}
+
+.about-top-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(64rem, 100%);
   margin: 0 auto;
-  padding: 2rem 1.5rem 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-top-title-area {
+  position: relative;
+  min-height: 15rem;
+}
+
+.about-top-title-stack {
+  position: relative;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.about-top-secondary {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+.about-top-title-row {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+}
+
+.about-top-title {
+  display: flex;
+  overflow: visible;
+  font-size: clamp(4rem, 15vw, 9rem);
+  line-height: 0.86;
+  letter-spacing: 0;
+  will-change: transform, opacity;
+}
+
+.about-top-letter {
+  display: inline-block;
+}
+
+.about-top-title-period {
+  color: var(--loli-pink);
+  font-size: clamp(4rem, 15vw, 9rem);
+  line-height: 0.86;
+  will-change: transform, opacity;
+}
+
+.about-top-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.about-top-overlay-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.about-top-overlay-value {
+  margin: 0;
+  font-size: clamp(4rem, 15vw, 9rem);
+  line-height: 0.86;
+  color: var(--text-color);
+}
+
+.about-top-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.about-top-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--loli-border);
+  border-radius: 999px;
+}
+
+.about-top-dot-active {
+  background: var(--loli-pink);
+}
+
+.about-top-avatar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about-top-avatar {
+  width: min(20rem, 100%);
+  will-change: transform, opacity;
+}
+
+.about-top-avatar-inner {
+  display: block;
+  cursor: pointer;
+  outline: none;
+  will-change: transform;
+}
+
+.about-top-avatar-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(12px 12px 0 var(--loli-surface));
+}
+
+.about-top-avatar-inner:focus-visible {
+  outline: 0.25rem solid var(--loli-pink);
+  outline-offset: 0.25rem;
+}
+
+.about-details {
+  display: grid;
+  width: min(64rem, 100%);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.about-detail-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  line-height: 0.95;
+  color: var(--loli-border);
+  user-select: none;
+}
+
+.about-detail-copy {
+  margin-bottom: 1.5rem;
+}
+
+.about-detail-copy p {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-color);
+}
+
+.about-detail-item {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.about-subheading {
+  margin: 0 0 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.about-skill-group {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-details {
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-top {
+    padding: 0 1.5rem;
+  }
+
+  .about-top-inner {
+    grid-template-columns: minmax(0, 1fr) 26.25rem;
+    gap: 4rem;
+  }
+
+  .about-top-avatar {
+    width: 26.25rem;
+  }
 }
 
 /* Big pale droog watermark headings, like the reference's section
@@ -159,53 +576,6 @@ onMounted(async () => {
   line-height: 0.95;
   color: var(--loli-border);
   user-select: none;
-}
-
-.about-hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-@media (min-width: 1024px) {
-  .about-hero {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 4rem;
-  }
-}
-
-.hero-hi {
-  margin-bottom: 0.25rem;
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: var(--text-muted);
-}
-
-.hero-name {
-  margin: 0 0 0.75rem;
-  font-size: clamp(2.75rem, 7vw, 4.25rem);
-  line-height: 1;
-  color: var(--text-color);
-}
-
-.hero-badge {
-  display: inline-flex;
-  margin-bottom: 1.25rem;
-  padding: 0.25rem 0.875rem;
-  font-size: 0.875rem;
-  font-weight: 650;
-  color: var(--text-muted);
-  border: 1px solid var(--loli-border);
-  border-radius: 999px;
-}
-
-.hero-desc {
-  max-width: 34rem;
-  margin: 0 0 1.5rem;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text-color);
 }
 
 .hero-howto {
@@ -243,19 +613,6 @@ onMounted(async () => {
   word-break: break-all;
   background: var(--loli-surface);
   border-radius: 0.5rem;
-}
-
-.about-avatar {
-  width: min(420px, 100%);
-  height: auto;
-  margin-bottom: 1.5rem;
-}
-
-.side-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--text-color);
 }
 
 .side-list {
@@ -296,7 +653,10 @@ onMounted(async () => {
 }
 
 .about-section {
-  margin-top: 4.5rem;
+  width: min(64rem, 100%);
+  margin: 4.5rem auto 0;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .section-head {
@@ -403,6 +763,9 @@ onMounted(async () => {
 }
 
 .about-plea {
-  margin-top: 4.5rem;
+  width: min(64rem, 100%);
+  margin: 4.5rem auto 0;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 </style>

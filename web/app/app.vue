@@ -51,6 +51,7 @@ onBeforeUnmount(() => {
         .hero-letter,
         .major-letter,
         .hero-avatar { opacity: 1 !important; transform: none !important; }
+        [data-nojs-reveal] { opacity: 1 !important; transform: none !important; }
         .hero-subtitle { height: auto !important; overflow: visible !important; }
       </style>
     </noscript>
