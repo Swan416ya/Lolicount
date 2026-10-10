@@ -60,6 +60,20 @@
 
   --frame-gutter: 8px;
   --frame-radius: 24px;
+
+  /* Skeleton ramp (reference's --skeleton-0..3, Catppuccin Latte grays). */
+  --skeleton-0: rgb(204, 208, 218);
+  --skeleton-1: rgb(188, 192, 204);
+  --skeleton-2: rgb(172, 176, 190);
+  --skeleton-3: rgb(156, 160, 176);
+}
+
+/* Reference's skeleton-cycle: the four grays rotate while images load. */
+@keyframes skeleton-cycle {
+  0%, 100% { background-color: var(--skeleton-0); }
+  25% { background-color: var(--skeleton-1); }
+  50% { background-color: var(--skeleton-2); }
+  75% { background-color: var(--skeleton-3); }
 }
 
 [data-theme='pink'] {

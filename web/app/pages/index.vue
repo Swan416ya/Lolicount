@@ -13,6 +13,11 @@ const { t, locale } = useI18n()
 const themes = ref<ThemeInfo[]>([])
 const fthemes = ref<string[]>([])
 
+// Thumbnail load state for the reference-style skeleton background:
+// cards show the animated gray ramp until their image has decoded.
+const loadedThumbs = ref<Record<string, boolean>>({})
+const markThumbLoaded = (name: string): void => { loadedThumbs.value[name] = true }
+
 // Join the API theme list with local metadata. Themes missing metadata
 // (e.g. added before the meta table is updated) still show up under
 // the "other" game bucket.
@@ -508,13 +513,18 @@ onMounted(async () => {
                 :class="{ selected: selectedTheme === tth.name }"
                 @click="selectTheme(tth.name)"
               >
-                <img
-                  :src="tth.animated
-                    ? `/images/emote-thumbs/${tth.name}.webp`
-                    : `/images/theme-thumbs/${tth.name}.webp`"
-                  :alt="tth.name"
-                  loading="lazy"
-                >
+                <span class="thumb-box">
+                  <span v-if="!loadedThumbs[tth.name]" class="thumb-skeleton" aria-hidden="true"></span>
+                  <img
+                    :src="tth.animated
+                      ? `/images/emote-thumbs/${tth.name}.webp`
+                      : `/images/theme-thumbs/${tth.name}.webp`"
+                    :alt="tth.name"
+                    loading="lazy"
+                    @load="markThumbLoaded(tth.name)"
+                    @error="markThumbLoaded(tth.name)"
+                  >
+                </span>
                 <strong>{{ tth.name }}</strong>
                 <span>{{ tth.meta ? tth.meta.character : t('themesGallery.unknownMeta') }}</span>
                 <small v-if="tth.variants">{{ t('themes.variants', { n: tth.variants.toLocaleString() }) }}</small>
@@ -876,11 +886,27 @@ onMounted(async () => {
   transform: translateY(-2px);
 }
 
-.theme-card img {
+.thumb-box {
+  position: relative;
   width: 100%;
   height: 8.5rem;
-  object-fit: contain;
   margin-bottom: 0.35rem;
+}
+
+/* Reference's skeleton-cycle ramp behind each card image until it loads. */
+.thumb-skeleton {
+  position: absolute;
+  inset: 0;
+  background-color: var(--skeleton-0);
+  animation: skeleton-cycle 1.4s ease-in-out infinite;
+}
+
+.theme-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .theme-card strong {
