@@ -12,8 +12,21 @@ const current = ref<ThemeName>(DEFAULT_THEME)
 
 const isValid = (v: string | null): v is ThemeName => v === 'pink' || v === 'gray'
 
+// The reference fades every surface color over 300ms when the theme
+// switches; the fade class enables that window just long enough.
+const FADE_CLASS = 'theme-fade'
+let fadeTimer: ReturnType<typeof setTimeout> | null = null
+
 const applyHtmlTheme = (theme: ThemeName) => {
-  if (import.meta.client) document.documentElement.setAttribute('data-theme', theme)
+  if (!import.meta.client) return
+  const html = document.documentElement
+  html.classList.add(FADE_CLASS)
+  if (fadeTimer) clearTimeout(fadeTimer)
+  fadeTimer = setTimeout(() => {
+    html.classList.remove(FADE_CLASS)
+    fadeTimer = null
+  }, 350)
+  html.setAttribute('data-theme', theme)
 }
 
 const load = (): ThemeName => {

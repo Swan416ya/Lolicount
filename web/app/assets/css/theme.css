@@ -125,6 +125,14 @@ textarea,
   transition: color 0.4s ease;
 }
 
+/* Theme-switch fade: while .theme-fade is set on <html> (see
+   useTheme), every surface transitions its colors over 300ms, mirroring
+   the reference's --fade-color/--fade-bg mechanism. */
+html.theme-fade body,
+html.theme-fade body * {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+
 ::selection {
   background-color: var(--text-color);
   color: var(--loli-surface);
