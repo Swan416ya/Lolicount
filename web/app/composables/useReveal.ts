@@ -19,44 +19,56 @@ const revealElement = (el: HTMLElement): void => {
 }
 
 const useReveal = () => {
+  const route = useRoute()
+  const { ready } = usePageReady()
+  let io: IntersectionObserver | null = null
+
+  const scan = () => {
+    if (!ready.value) return
+    const els = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
+      .filter((el) => el.classList.contains('reveal'))
+    if (els.length === 0) return
+
+    // Re-scan after route changes: the previous page's elements unmount,
+    // so its observer is discarded before a new one is created.
+    io?.disconnect()
+    io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue
+          io?.unobserve(entry.target)
+          revealElement(entry.target as HTMLElement)
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+    )
+
+    const visible = els.filter((el) => {
+      const rect = el.getBoundingClientRect()
+      return rect.bottom > 0 && rect.top < window.innerHeight
+    })
+    // Elements already in view on entry reveal together, like the
+    // reference's staggered mount reveal; the rest wait for scroll.
+    visible.forEach((el) => {
+      io?.unobserve(el)
+      revealElement(el)
+    })
+    els.filter((el) => !visible.includes(el)).forEach((el) => io?.observe(el))
+  }
+
   onMounted(() => {
     useEases()
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const els = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
-    if (els.length === 0) return
 
-    let started = false
-    const start = () => {
-      if (started) return
-      started = true
-      const visible = els.filter((el) => {
-        const rect = el.getBoundingClientRect()
-        return rect.bottom > 0 && rect.top < window.innerHeight
-      })
-      // Elements already in view on entry reveal together, like the
-      // reference's staggered mount reveal; the rest wait for scroll.
-      if (visible.length > 0) {
-        visible.forEach(revealElement)
-      }
-      const remaining = els.filter((el) => !visible.includes(el))
-      if (remaining.length === 0) return
-      const io = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (!entry.isIntersecting) continue
-            io.unobserve(entry.target)
-            revealElement(entry.target)
-          }
-        },
-        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
-      )
-      remaining.forEach((el) => io.observe(el))
-    }
+    watch(ready, (value) => {
+      if (value) scan()
+    }, { immediate: true })
 
-    const { ready } = usePageReady()
-    if (ready.value) start()
-    else watch(ready, (value) => {
-      if (value) start()
+    // Nuxt keeps app.vue mounted across page navigations. Without this
+    // watcher, [data-reveal] nodes added by the next page stay hidden.
+    watch(() => route.fullPath, async () => {
+      await nextTick()
+      scan()
     })
   })
 }
