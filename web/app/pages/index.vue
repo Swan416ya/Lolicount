@@ -537,8 +537,8 @@ onMounted(async () => {
       </section>
     </section>
 
-    <HomeFooter />
     <BackToTop />
+    <HomeFooter />
   </main>
 </template>
 
