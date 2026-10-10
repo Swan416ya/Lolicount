@@ -93,6 +93,11 @@ html {
 }
 
 body {
+  /* No global CSS reset is loaded, so zero the UA body margin explicitly:
+     the app frame's own 8px gutter margin must be the only offset, or
+     the bezel ring doubles to 16px and the fixed frame mask (at 8px)
+     no longer aligns with the frame edges. */
+  margin: 0;
   font-family: 'helvetica-lt-pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
   background: var(--loli-crust);
