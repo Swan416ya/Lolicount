@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 const { t } = useI18n()
-const { toggle: toggleTheme } = useTheme()
+const { theme, toggle: toggleTheme } = useTheme()
 const { muted, toggleMute } = useSoundFx()
 const { repoUrl } = useGitHub()
 const route = useRoute()
@@ -105,10 +105,20 @@ onMounted(() => {
           </svg>
         </a>
 
+        <!-- Sun when gray, moon when pink: the reference shows sun/moon per scheme. -->
         <button type="button" class="nav-icon-button nav-theme" data-ripple :title="t('nav.theme')" :aria-label="t('nav.theme')" @click="toggleTheme">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-            <circle cx="9.5" cy="9.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
-            <circle cx="14.5" cy="14.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <svg v-if="theme === 'gray'" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <path
+              fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"
+            />
+          </svg>
+          <svg v-else viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path
+              fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 1 0 11 11Z"
+            />
           </svg>
         </button>
       </div>
@@ -213,7 +223,8 @@ onMounted(() => {
   color: var(--text-muted);
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  /* 0.3s matches the reference's --fade-bg hover language. */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-icon-button:hover {
