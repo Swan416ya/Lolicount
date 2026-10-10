@@ -26,13 +26,13 @@ const SUBTITLE = 'SVG Counter / Theme Engine'
 const titleColorTokens = letterColorTokens(TITLE.length)
 
 // Hover rotation per letter shape, ported from the reference's char map:
-// round/boxy letters (O C N H D G Q 0 4) spin 90 degrees, the rest of A-Z
-// and 1 2 3 5 6 7 8 9 spin 180, and F has no hover rotation (drum only).
+// round/boxy letters (O C N H D G Q 0 4) spin 90 degrees, every other
+// A-Z letter and digit (including F) spins 180.
 const HOVER_90 = new Set(['O', 'C', 'N', 'H', 'D', 'G', 'Q', '0', '4'])
 const hoverDegrees = (letter: string): number => {
   const ch = letter.toUpperCase()
   if (HOVER_90.has(ch)) return 90
-  if (ch !== 'F' && /^[A-Z0-9]$/.test(ch)) return 180
+  if (/^[A-Z0-9]$/.test(ch)) return 180
   return 0
 }
 
@@ -149,10 +149,6 @@ const onLetterClick = (event: MouseEvent, index: number) => {
   const span = letterEls.value[index]
   if (isCoarse()) {
     if (span) hoverRotate(span, event)
-    playDrum()
-    return
-  }
-  if (span && hoverDegrees(span.textContent ?? '') === 0) {
     playDrum()
     return
   }

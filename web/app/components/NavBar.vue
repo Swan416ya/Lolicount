@@ -6,6 +6,24 @@ const { muted, toggleMute } = useSoundFx()
 const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
 const route = useRoute()
 
+// Theme icon entrance, ported from the reference: the glyph spins in
+// from -180deg (light/gray) or -360deg (dark/pink) over 1s with the
+// cardReveal curve, on mount and on every theme change.
+useEases()
+const themeIconEl = ref<HTMLElement | null>(null)
+
+const playThemeIconSpin = (): void => {
+  if (!themeIconEl.value) return
+  gsap.fromTo(
+    themeIconEl.value,
+    { rotation: theme.value === 'pink' ? -360 : -180 },
+    { rotation: 0, duration: 1, ease: 'cardReveal', overwrite: true },
+  )
+}
+
+onMounted(playThemeIconSpin)
+watch(theme, playThemeIconSpin, { flush: 'post' })
+
 const isLinkActive = (href: string) => route.path === href || route.path.startsWith(href + '/')
 const navLinks = [
   { href: '/', label: 'nav.playground', isRoute: true },
@@ -109,6 +127,7 @@ onMounted(() => {
 
         <!-- Sun when gray, moon when pink: the reference shows sun/moon per scheme. -->
         <button type="button" class="nav-icon-button nav-theme" data-ripple :title="t('nav.theme')" :aria-label="t('nav.theme')" @click="toggleTheme">
+          <span ref="themeIconEl" class="nav-theme-icon">
           <svg v-if="theme === 'gray'" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
             <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
             <path
@@ -122,6 +141,7 @@ onMounted(() => {
               d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 1 0 11 11Z"
             />
           </svg>
+          </span>
         </button>
       </div>
     </div>
@@ -272,6 +292,10 @@ onMounted(() => {
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+.nav-theme-icon {
+  display: inline-flex;
 }
 
 .nav-sound[aria-pressed='true'] {

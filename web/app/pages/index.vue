@@ -898,7 +898,7 @@ onMounted(async () => {
   position: absolute;
   inset: 0;
   background-color: var(--skeleton-0);
-  animation: skeleton-cycle 1.4s ease-in-out infinite;
+  animation: skeleton-cycle 6s ease-in-out infinite;
 }
 
 .theme-card img {
