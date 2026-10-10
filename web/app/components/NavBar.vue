@@ -14,6 +14,24 @@ const navLinks = [
 ] as const
 const menuOpen = ref(false)
 
+// Faded stroke glyphs for the takeover-menu tiles, echoing the reference
+// site's icon cards (currentColor so they follow the theme).
+const linkIcons: Record<string, string> = {
+  '/': '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 5h9A4.5 4.5 0 0 1 21 9.5v4A4.5 4.5 0 0 1 16.5 18h-9A4.5 4.5 0 0 1 3 13.5v-4A4.5 4.5 0 0 1 7.5 5Z"/><path d="M6 10.8h3.6M7.8 9v3.6"/><path d="M15 10h.01M17.8 12.4h.01"/></svg>',
+  '/editor': '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8m5 0h3M4 16h3m5 0h8"/><circle cx="14.5" cy="8" r="2.1"/><circle cx="9.5" cy="16" r="2.1"/></svg>',
+  '/about': '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2V16"/><path d="M12 7.9h.01"/></svg>',
+}
+
+// The takeover menu covers the whole frame, so page scroll must stop
+// while it is open (restored on close and on unmount).
+const lockScroll = (locked: boolean): void => {
+  document.documentElement.style.overflow = locked ? 'hidden' : ''
+}
+
+watch(menuOpen, (open) => lockScroll(open))
+
+onBeforeUnmount(() => lockScroll(false))
+
 const closeMenu = () => {
   menuOpen.value = false
 }
@@ -101,14 +119,17 @@ onMounted(() => {
     </div>
 
     <Transition name="nav-menu">
-      <nav v-if="menuOpen" class="nav-mobile">
+      <nav v-if="menuOpen" class="nav-mobile" aria-label="Features">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.href"
           :to="link.href"
           class="nav-mobile-link"
           @click="closeMenu"
-        >{{ t(link.label) }}</NuxtLink>
+        >
+          <span v-html="linkIcons[link.href]" class="nav-mobile-icon" aria-hidden="true" />
+          <span class="nav-mobile-label">{{ t(link.label) }}</span>
+        </NuxtLink>
       </nav>
     </Transition>
   </header>
@@ -317,29 +338,58 @@ onMounted(() => {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+/* Takeover menu (the reference site's mobile pattern): a fixed panel
+   filling the frame below the header, hiding the page content, with the
+   links as large rounded icon tiles in a two-column grid. */
 .nav-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0 1.5rem 1rem;
+  position: fixed;
+  top: calc(var(--frame-gutter) + 64px);
+  left: var(--frame-gutter);
+  right: var(--frame-gutter);
+  bottom: var(--frame-gutter);
+  z-index: 45;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background: var(--loli-surface);
+  border-radius: 0 0 var(--frame-radius) var(--frame-radius);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .nav-mobile-link {
+  position: relative;
   display: flex;
-  align-items: center;
-  min-height: 2.5rem;
-  padding: 0 1rem;
-  font-size: 0.9375rem;
-  color: var(--text-muted);
+  align-items: flex-end;
+  min-height: 9rem;
+  padding: 1rem;
+  font-family: 'droog', sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--text-color);
   text-decoration: none;
-  border-radius: 0.75rem;
-  background: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 1rem;
+  background: var(--loli-cream);
+  overflow: hidden;
+  transition: background-color 0.2s ease;
 }
 
 .nav-mobile-link:hover {
-  color: var(--text-color);
   background: var(--loli-selection);
+}
+
+.nav-mobile-icon {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--text-muted);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .nav-menu-enter-active,
@@ -354,17 +404,40 @@ onMounted(() => {
 }
 
 @media (max-width: 767px) {
+  /* Mirror the reference mobile header: the brand reduces to its icon and
+     the actions become a uniform run of 40px icon buttons (hamburger
+     first). Hiding the brand text also ends the flex-shrink fight that
+     used to clip it at narrow widths. */
   .nav-links,
-  .nav-star-label {
+  .nav-brand-text,
+  .nav-star-label,
+  .nav-star-count {
     display: none;
+  }
+
+  .nav-brand {
+    width: 2.5rem;
+    padding: 0;
+    justify-content: center;
   }
 
   .nav-hamburger {
     display: flex;
+    order: -1;
   }
 
   .nav-star {
-    padding: 0 0.625rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+  }
+
+  .nav-star:hover {
+    box-shadow: none;
+    background: var(--loli-selection);
   }
 }
 </style>
