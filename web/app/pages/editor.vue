@@ -383,7 +383,7 @@ const doExport = async () => {
 <template>
   <div class="editor-root">
     <!-- Top toolbar -->
-    <div class="editor-toolbar">
+    <div class="editor-toolbar reveal" data-reveal>
       <div class="editor-toolbar-left">
         <h2 class="editor-toolbar-title">{{ t('editor.title') }}</h2>
         <span class="editor-toolbar-badge">{{ isCardTheme ? t('editor.cardTheme') : t('editor.characterTheme') }}</span>
@@ -437,7 +437,7 @@ const doExport = async () => {
     </div>
 
     <!-- Main layout: transitions between workbench and quick mode -->
-    <div class="editor-main">
+    <div class="editor-main reveal" data-reveal>
       <Transition name="mode-fade" mode="out-in">
         <!-- Quick mode: simplified single-panel layout -->
         <div v-if="editorMode === 'quick'" key="quick" class="quick-mode-layout">
