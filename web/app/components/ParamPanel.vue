@@ -342,10 +342,6 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   font-size: 0.7rem;
   color: #9ca3af;
 }
-.loli-cell-hint-row {
-  font-size: 0.75rem;
-  color: #9ca3af;
-}
 .loli-unusual-caption {
   font-weight: 600;
   font-size: 0.85rem;

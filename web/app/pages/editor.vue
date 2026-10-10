@@ -737,41 +737,6 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   transform: translateY(-1px);
 }
 
-.editor-lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-shrink: 0;
-}
-
-.editor-lang-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--loli-border);
-  border-radius: 0.5rem;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  padding: 0;
-  transition: all 0.15s;
-}
-
-.editor-lang-btn:hover {
-  border-color: var(--loli-pink);
-  color: var(--loli-pink);
-}
-
-.editor-lang-btn-active {
-  background: var(--loli-pink);
-  border-color: var(--loli-pink);
-  color: #fff;
-}
-
 .editor-btn-upload {
   height: 2.25rem;
   padding: 0 0.875rem;
@@ -1521,12 +1486,6 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   .editor-toolbar-right {
     flex-wrap: wrap;
     gap: 0.25rem;
-  }
-
-  .editor-lang-btn {
-    width: 24px;
-    height: 24px;
-    font-size: 0.625rem;
   }
 
   .editor-btn-draft,

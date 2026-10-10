@@ -413,21 +413,6 @@ onBeforeUnmount(() => {
   flex-shrink: 0;
 }
 
-.canvas-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  cursor: pointer;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  user-select: none;
-}
-
-.canvas-toggle input {
-  cursor: pointer;
-  accent-color: var(--loli-pink);
-}
-
 .canvas-dims {
   font-size: 0.6875rem;
   font-family: monospace;
