@@ -241,6 +241,11 @@ const triggerCollapse = (): void => {
     return
   }
 
+  // Reference behavior: the chibi rattles (chibi-pop + chibi-shake) while
+  // the secret fires; keep the shake alive through the early collapse.
+  avatar.classList.add('chibi-angry')
+  window.setTimeout(() => avatar.classList.remove('chibi-angry'), 800)
+
   // Settle every letter before the collapse so the handoff starts clean.
   letterEls.value.forEach((span) => {
     gsap.to(span, { rotation: 0, duration: 0.3, ease: 'power2.out', overwrite: true })
@@ -290,6 +295,7 @@ const triggerCollapse = (): void => {
 }
 
 const cleanupSecret = (): void => {
+  avatarEl.value?.classList.remove('chibi-angry')
   collapseTl?.kill()
   collapseTl = null
   if (tapTimer) {
@@ -745,6 +751,29 @@ morph, exactly covering the title box; content may overflow it. */
 
   .hero-subtitle {
     font-size: 1.5rem;
+  }
+}
+
+/* chibi-pop / chibi-shake, ported from the reference: the angry rattle
+   while the ten-tap secret fires. Individual translate/scale properties
+   compose with GSAP's transform, so no conflict. */
+@keyframes chibi-pop {
+  0% { scale: 1.08; }
+}
+
+@keyframes chibi-shake {
+  0%, 100% { translate: 0; }
+  25% { translate: -3px; }
+  75% { translate: 3px; }
+}
+
+.hero-avatar.chibi-angry {
+  animation: chibi-pop 0.25s cubic-bezier(0, 0.55, 0.45, 1), chibi-shake 0.12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-avatar.chibi-angry {
+    animation: none;
   }
 }
 </style>
