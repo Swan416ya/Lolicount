@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import gsap from 'gsap'
-const { t, localeLabels } = useI18n()
+const { t } = useI18n()
 const { toggle: toggleTheme } = useTheme()
 const { muted, toggleMute } = useSoundFx()
-const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
+const { repoUrl } = useGitHub()
 const route = useRoute()
 
 const isLinkActive = (href: string) => route.path === href || route.path.startsWith(href + '/')
@@ -37,11 +37,7 @@ const closeMenu = () => {
 }
 
 onMounted(() => {
-  fetchStars()
-})
-
-onMounted(() => {
-  gsap.from('.nav-brand, .nav-link, .nav-actions', {
+  gsap.from('.nav-link, .nav-actions', {
     opacity: 0,
     y: -32,
     duration: 0.5,
@@ -54,9 +50,18 @@ onMounted(() => {
 <template>
   <header class="nav-bar">
     <div class="nav-wrapper">
-      <button type="button" class="nav-brand" data-ripple :title="t('nav.theme')" @click="toggleTheme">
-        <img src="/images/lolicount-icon.png" alt="Lolicount" class="nav-brand-icon" />
-        <span class="nav-brand-text">Lolicount</span>
+      <button
+        type="button"
+        class="nav-hamburger"
+        data-ripple
+        :class="{ 'nav-hamburger-active': menuOpen }"
+        :aria-label="t('nav.features')"
+        :aria-expanded="menuOpen"
+        @click="menuOpen = !menuOpen"
+      >
+        <span class="nav-hamburger-line"></span>
+        <span class="nav-hamburger-line"></span>
+        <span class="nav-hamburger-line"></span>
       </button>
 
       <nav class="nav-links" aria-label="Lolicount">
@@ -71,41 +76,7 @@ onMounted(() => {
       </nav>
 
       <div class="nav-actions">
-        <LangSwitch nav />
-
-        <a
-          :href="repoUrl"
-          target="_blank"
-          rel="noopener"
-          class="nav-star"
-          data-ripple
-          :title="localeLabels[locale]"
-        >
-          <svg class="nav-star-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-            />
-          </svg>
-          <span class="nav-star-label">Star</span>
-          <span v-if="stars != null" class="nav-star-count">{{ formatStars(stars) }}</span>
-        </a>
-
-        <button
-          type="button"
-          class="nav-hamburger"
-          data-ripple
-          :class="{ 'nav-hamburger-active': menuOpen }"
-          :aria-label="t('nav.features')"
-          :aria-expanded="menuOpen"
-          @click="menuOpen = !menuOpen"
-        >
-          <span class="nav-hamburger-line"></span>
-          <span class="nav-hamburger-line"></span>
-          <span class="nav-hamburger-line"></span>
-        </button>
-
-        <button type="button" class="nav-sound" data-ripple :title="t('nav.sound')" :aria-label="t('nav.sound')" :aria-pressed="String(!muted)" @click="toggleMute">
+        <button type="button" class="nav-icon-button nav-sound" data-ripple :title="t('nav.sound')" :aria-label="t('nav.sound')" :aria-pressed="String(!muted)" @click="toggleMute">
           <svg v-if="muted" class="nav-sound-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
             <path fill="currentColor" d="M11 4.5 6.5 8H3.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h3L11 20.5v-16Z" opacity=".55" />
             <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m16 9.5 5 5m0-5-5 5" />
@@ -113,6 +84,31 @@ onMounted(() => {
           <svg v-else class="nav-sound-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
             <path fill="currentColor" d="M11 4.5 6.5 8H3.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h3L11 20.5v-16Z" />
             <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M15.5 9.2a4 4 0 0 1 0 5.6m2.6-8.2a7.4 7.4 0 0 1 0 10.4" />
+          </svg>
+        </button>
+        <LangSwitch nav />
+
+        <a
+          :href="repoUrl"
+          target="_blank"
+          rel="noopener"
+          class="nav-icon-button nav-star"
+          data-ripple
+          :title="t('nav.star')"
+          :aria-label="t('nav.star')"
+        >
+          <svg class="nav-star-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
+        </a>
+
+        <button type="button" class="nav-icon-button nav-theme" data-ripple :title="t('nav.theme')" :aria-label="t('nav.theme')" @click="toggleTheme">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="9.5" cy="9.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="14.5" cy="14.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
           </svg>
         </button>
       </div>
@@ -169,38 +165,6 @@ onMounted(() => {
   margin: 0 auto;
 }
 
-.nav-brand {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.375rem 0.5rem;
-  background: transparent;
-  border: 0;
-  border-radius: 0.75rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.nav-brand:hover {
-  background: var(--loli-selection);
-}
-
-.nav-brand-icon {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
-}
-
-.nav-brand-text {
-  font-size: 1.15rem;
-  font-weight: 750;
-  letter-spacing: 0;
-  color: var(--text-color);
-  white-space: nowrap;
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -230,45 +194,31 @@ onMounted(() => {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.nav-star {
+/* The right cluster mirrors the reference header: a uniform run of
+   40px icon buttons (sound, language, star, theme). */
+.nav-icon-button {
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  height: 2.25rem;
-  padding: 0 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 650;
-  color: var(--text-color);
-  text-decoration: none;
-  background: var(--bg-card);
-  border: 1px solid var(--loli-border);
-  border-radius: 0.75rem;
-  white-space: nowrap;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.nav-star:hover {
-  border-color: var(--loli-pink);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-
-.nav-star-count {
-  display: inline-flex;
-  align-items: center;
-  min-width: 1.625rem;
   justify-content: center;
-  padding: 0 0.375rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--loli-pink);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-button:hover {
   background: var(--loli-selection);
-  border-radius: 0.5rem;
-  line-height: 1.4;
+  color: var(--text-color);
 }
 
 .nav-hamburger {
@@ -285,27 +235,6 @@ onMounted(() => {
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-.nav-sound {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: transparent;
-  border: 0;
-  border-radius: 0.75rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-sound:hover {
-  background: var(--loli-selection);
-  color: var(--text-body);
 }
 
 .nav-sound[aria-pressed='true'] {
@@ -404,40 +333,14 @@ onMounted(() => {
 }
 
 @media (max-width: 767px) {
-  /* Mirror the reference mobile header: the brand reduces to its icon and
-     the actions become a uniform run of 40px icon buttons (hamburger
-     first). Hiding the brand text also ends the flex-shrink fight that
-     used to clip it at narrow widths. */
-  .nav-links,
-  .nav-brand-text,
-  .nav-star-label,
-  .nav-star-count {
+  /* Reference mobile header: hamburger on the left, the same uniform
+     icon cluster on the right, links hidden. */
+  .nav-links {
     display: none;
-  }
-
-  .nav-brand {
-    width: 2.5rem;
-    padding: 0;
-    justify-content: center;
   }
 
   .nav-hamburger {
     display: flex;
-    order: -1;
-  }
-
-  .nav-star {
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    justify-content: center;
-    background: transparent;
-    border: 0;
-  }
-
-  .nav-star:hover {
-    box-shadow: none;
-    background: var(--loli-selection);
   }
 }
 </style>

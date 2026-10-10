@@ -21,17 +21,8 @@ const cycleLocale = (): void => {
 </script>
 
 <template>
-  <!-- Nav mode: a compact dropdown selector on wide screens, a single
-       locale-cycling icon button on the mobile header. -->
-  <select
-    v-if="nav"
-    :value="locale"
-    class="lang-select"
-    @change="setLocale(($event.target as HTMLSelectElement).value as any)"
-  >
-    <option v-for="l in locales" :key="l" :value="l">{{ fullLabels[l] }}</option>
-  </select>
-
+  <!-- Nav mode: a single locale-cycling icon button at every width,
+       mirroring the reference site's 文A header control. -->
   <button
     v-if="nav"
     type="button"
@@ -67,7 +58,7 @@ const cycleLocale = (): void => {
 
 <style scoped>
 .lang-cycle {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 2.5rem;
@@ -89,31 +80,4 @@ const cycleLocale = (): void => {
   font-family: 'helvetica-lt-pro', sans-serif;
 }
 
-@media (max-width: 767px) {
-  .lang-select {
-    display: none;
-  }
-
-  .lang-cycle {
-    display: flex;
-  }
-}
-
-.lang-select {
-  height: 2rem;
-  padding: 0 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #4b5563;
-  background: var(--loli-cream);
-  border: 1px solid var(--loli-pink);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.lang-select:focus {
-  outline: none;
-  border-color: var(--loli-pink);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--loli-pink) 40%, transparent);
-}
 </style>

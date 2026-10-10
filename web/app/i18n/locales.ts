@@ -18,6 +18,7 @@ const zh: Dict = {
   'app.title': 'Lolicount',
 
   'nav.lang': '语言',
+  'nav.star': '在 GitHub 上 Star',
   'nav.top': '顶部',
   'nav.theme': '主题颜色',
   'nav.sound': '音效',
@@ -205,6 +206,7 @@ const en: Dict = {
   'app.title': 'Lolicount',
 
   'nav.lang': 'Language',
+  'nav.star': 'Star on GitHub',
   'nav.top': 'Top',
   'nav.theme': 'Theme color',
   'nav.sound': 'Sound effects',
@@ -392,6 +394,7 @@ const jp: Dict = {
   'app.title': 'Lolicount',
 
   'nav.lang': '言語',
+  'nav.star': 'GitHub でスター',
   'nav.top': 'トップ',
   'nav.theme': 'テーマカラー',
   'nav.sound': '効果音',
