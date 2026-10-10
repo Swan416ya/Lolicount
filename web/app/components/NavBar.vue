@@ -3,7 +3,7 @@ import gsap from 'gsap'
 const { t } = useI18n()
 const { theme, toggle: toggleTheme } = useTheme()
 const { muted, toggleMute } = useSoundFx()
-const { repoUrl } = useGitHub()
+const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
 const route = useRoute()
 
 const isLinkActive = (href: string) => route.path === href || route.path.startsWith(href + '/')
@@ -37,6 +37,7 @@ const closeMenu = () => {
 }
 
 onMounted(() => {
+  fetchStars()
   gsap.from('.nav-link, .nav-actions', {
     opacity: 0,
     y: -32,
@@ -103,6 +104,7 @@ onMounted(() => {
               d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
             />
           </svg>
+          <span v-if="stars != null" class="nav-star-count">{{ formatStars(stars) }}</span>
         </a>
 
         <!-- Sun when gray, moon when pink: the reference shows sun/moon per scheme. -->
@@ -230,6 +232,30 @@ onMounted(() => {
 .nav-icon-button:hover {
   background: var(--loli-selection);
   color: var(--text-color);
+}
+
+/* The star button widens to show the live count while there is room;
+   narrow screens keep the uniform 40px icon cluster. */
+.nav-star-count {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* Only widens while a count is actually rendered, so a failed fetch
+     keeps the uniform 40px icon cluster. */
+  .nav-icon-button.nav-star:has(.nav-star-count) {
+    width: auto;
+    gap: 0.4rem;
+    padding: 0 0.625rem;
+  }
+
+  .nav-star-count {
+    display: inline-flex;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--loli-pink);
+    white-space: nowrap;
+  }
 }
 
 .nav-hamburger {
