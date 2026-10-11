@@ -485,11 +485,14 @@ onMounted(() => {
   gsap.set(subtitle, { height: 0, overflow: 'hidden' })
   gsap.set(avatar, { opacity: 0, y: fx.avatar.offsetY, scaleX: 1, scaleY: 1, transformOrigin: 'center bottom', pointerEvents: 'none' })
 
-  // The text block starts stacked over the avatar and slides to its final
-  // place, like the reference's entrance.
+  // The morph variant orbits around the viewport centre, so the copy block
+  // starts centred in the hero and slides to its final place afterwards.
   const copyRect = copy.getBoundingClientRect()
-  const avatarRect = avatar.getBoundingClientRect()
-  gsap.set(copy, { x: avatarRect.left - copyRect.left, y: avatarRect.top - copyRect.top })
+  const heroRect = root.getBoundingClientRect()
+  gsap.set(copy, {
+    x: heroRect.left + heroRect.width / 2 - (copyRect.left + copyRect.width / 2),
+    y: 0,
+  })
 
   const tl = gsap.timeline({ paused: true })
   tl.addLabel('dropName', 0.3)
@@ -626,7 +629,9 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100dvh - 2 * var(--frame-gutter) - 64px);
+  box-sizing: border-box;
+  min-height: calc(100dvh - 2 * var(--frame-gutter));
+  margin-top: -4rem;
   padding: 4rem 1.5rem;
 }
 
