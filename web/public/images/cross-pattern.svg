@@ -1,3 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <path fill="white" d="M52 30h16v60H52zM30 52h60v16H30z" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 1040">
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="32">
+    <line x1="520" y1="520" x2="584" y2="520"/>
+    <line x1="712" y1="520" x2="904" y2="520" stroke-dasharray="128 128"/>
+    <line x1="968" y1="520" x2="1032" y2="520"/>
+    <line x1="8" y1="520" x2="72" y2="520"/>
+    <line x1="200" y1="520" x2="392" y2="520" stroke-dasharray="128 128"/>
+    <line x1="456" y1="520" x2="520" y2="520"/>
+    <line x1="520" y1="520" x2="520" y2="584"/>
+    <line x1="520" y1="712" x2="520" y2="904" stroke-dasharray="128 128"/>
+    <line x1="520" y1="968" x2="520" y2="1032"/>
+    <line x1="520" y1="8" x2="520" y2="72"/>
+    <line x1="520" y1="200" x2="520" y2="392" stroke-dasharray="128 128"/>
+    <line x1="520" y1="456" x2="520" y2="520"/>
+  </g>
 </svg>

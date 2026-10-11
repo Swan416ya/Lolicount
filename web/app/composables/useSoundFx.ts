@@ -56,7 +56,8 @@ const soundState = {
 // Play one drum hit at a slightly randomized pitch, like the reference.
 // Decode an extra sample into the given slot; a failed load keeps the
 // slot null and the corresponding play function stays silent.
-const loadSample = (url: string, apply: (buffer: AudioBuffer) => void): void => {
+const loadSample = (url: string, apply: (buffer: AudioBuffer) => void): Promise<void> => {
+  return fetch(url)
   fetch(url)
     .then((res) => res.arrayBuffer())
     .then((bytes) => ensureContext()?.decodeAudioData(bytes) ?? null)
@@ -157,6 +158,41 @@ const playDrum = (): void => {
   source.start()
 }
 
+// Generic cached sample player used by the about page's BPM metronome.
+// Buffers are decoded once per URL and then replayed through fresh
+// BufferSource nodes, mirroring the reference site's Audio() cache.
+const sampleCache = new Map<string, AudioBuffer>()
+const sampleLoading = new Set<string>()
+
+const preloadSample = (url: string): void => {
+  if (sampleCache.has(url) || sampleLoading.has(url) || typeof window === 'undefined') return
+  // Decoding needs an AudioContext, and creating one before a user gesture
+  // trips the browser's autoplay warning, so only warm the cache after the
+  // context already exists.
+  if (!ctx) return
+  sampleLoading.add(url)
+  loadSample(url, (buffer) => {
+    sampleCache.set(url, buffer)
+  }).finally(() => sampleLoading.delete(url))
+}
+
+const playSample = (url: string, volume = 0.5): void => {
+  if (soundState.muted.value) return
+  const audioCtx = ensureContext()
+  if (!audioCtx) return
+  const buffer = sampleCache.get(url)
+  if (!buffer) {
+    preloadSample(url)
+    return
+  }
+  const source = audioCtx.createBufferSource()
+  source.buffer = buffer
+  const gain = audioCtx.createGain()
+  gain.gain.value = volume
+  source.connect(gain).connect(audioCtx.destination)
+  source.start()
+}
+
 const toggleMute = (): void => {
   soundState.muted.value = !soundState.muted.value
   if (typeof window !== 'undefined') {
@@ -172,7 +208,7 @@ if (import.meta.client && localStorage.getItem(STORAGE_KEY) === 'false') {
 }
 
 const useSoundFx = () => {
-  return { muted: soundState.muted, toggleMute, playDrum, playDrum9, playDrum3, playTap }
+  return { muted: soundState.muted, toggleMute, playDrum, playDrum9, playDrum3, playTap, playSample, preloadSample }
 }
 
 export default useSoundFx
