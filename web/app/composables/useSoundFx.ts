@@ -58,7 +58,6 @@ const soundState = {
 // slot null and the corresponding play function stays silent.
 const loadSample = (url: string, apply: (buffer: AudioBuffer) => void): Promise<void> => {
   return fetch(url)
-  fetch(url)
     .then((res) => res.arrayBuffer())
     .then((bytes) => ensureContext()?.decodeAudioData(bytes) ?? null)
     .then((buffer) => {
