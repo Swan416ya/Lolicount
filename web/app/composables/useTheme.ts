@@ -1,24 +1,33 @@
-// useTheme: pink/gray color theme shared app-wide. Persisted to
-// localStorage and applied to <html data-theme="..."> so the CSS
-// variables in theme.css recolor the whole site. SSR-safe: the initial
-// value is always the default (pink); init() reconciles on the client.
+// useTheme: site-wide accent (pink/gray) and day/night mode (light/dark),
+// shared app-wide. Both are persisted to localStorage and applied to
+// <html data-theme> / <html data-mode> so the CSS variables in theme.css
+// recolor the whole site. Mode defaults to the OS preference
+// (prefers-color-scheme) until the user toggles it, mirroring the
+// reference's next-themes setup. SSR-safe: initial values are the
+// defaults; init() reconciles on the client.
 
 export type ThemeName = 'pink' | 'gray'
+export type ModeName = 'light' | 'dark'
 
-const STORAGE_KEY = 'lolicount-theme'
+const THEME_KEY = 'lolicount-theme'
+const MODE_KEY = 'lolicount-mode'
 const DEFAULT_THEME: ThemeName = 'gray'
 
-const current = ref<ThemeName>(DEFAULT_THEME)
+const theme = ref<ThemeName>(DEFAULT_THEME)
+const mode = ref<ModeName>('light')
 
-const isValid = (v: string | null): v is ThemeName => v === 'pink' || v === 'gray'
+const isTheme = (v: string | null): v is ThemeName => v === 'pink' || v === 'gray'
+const isMode = (v: string | null): v is ModeName => v === 'light' || v === 'dark'
+
+const systemMode = (): ModeName =>
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
 // The reference fades every surface color over 300ms when the theme
 // switches; the fade class enables that window just long enough.
 const FADE_CLASS = 'theme-fade'
 let fadeTimer: ReturnType<typeof setTimeout> | null = null
 
-const applyHtmlTheme = (theme: ThemeName) => {
-  if (!import.meta.client) return
+const startFade = (): void => {
   const html = document.documentElement
   html.classList.add(FADE_CLASS)
   if (fadeTimer) clearTimeout(fadeTimer)
@@ -26,31 +35,67 @@ const applyHtmlTheme = (theme: ThemeName) => {
     html.classList.remove(FADE_CLASS)
     fadeTimer = null
   }, 350)
-  html.setAttribute('data-theme', theme)
 }
 
-const load = (): ThemeName => {
-  if (!import.meta.client) return DEFAULT_THEME
-  const stored = localStorage.getItem(STORAGE_KEY)
-  return isValid(stored) ? stored : DEFAULT_THEME
+const applyToHtml = (): void => {
+  if (!import.meta.client) return
+  const html = document.documentElement
+  startFade()
+  html.setAttribute('data-theme', theme.value)
+  if (mode.value === 'dark') html.setAttribute('data-mode', 'dark')
+  else html.removeAttribute('data-mode')
+  // next-themes parity: the inline color-scheme keeps native UI
+  // (scrollbars, form controls) in step with the picked scheme.
+  html.style.colorScheme = mode.value
+}
+
+// While no explicit preference is stored, the site follows the OS scheme;
+// this listener keeps it in step with live OS changes.
+let followSystem = false
+const onSystemSchemeChange = (e: MediaQueryListEvent): void => {
+  if (!followSystem) return
+  const next: ModeName = e.matches ? 'dark' : 'light'
+  if (next === mode.value) return
+  mode.value = next
+  applyToHtml()
+}
+
+const setTheme = (t: ThemeName): void => {
+  theme.value = t
+  if (import.meta.client) localStorage.setItem(THEME_KEY, t)
+  applyToHtml()
+}
+
+const toggle = (): void => setTheme(theme.value === 'pink' ? 'gray' : 'pink')
+
+const setMode = (m: ModeName): void => {
+  followSystem = false
+  mode.value = m
+  if (import.meta.client) localStorage.setItem(MODE_KEY, m)
+  applyToHtml()
+}
+
+const toggleMode = (): void => setMode(mode.value === 'light' ? 'dark' : 'light')
+
+// Reconcile both preferences once on the client, after hydration, to
+// avoid clobbering SSR output. The pre-paint script in nuxt.config.ts
+// already applied them to <html> before first paint, so this is a
+// value-level no-op for returning visitors.
+const init = (): void => {
+  if (!import.meta.client) return
+  const storedTheme = localStorage.getItem(THEME_KEY)
+  if (isTheme(storedTheme)) theme.value = storedTheme
+  const storedMode = localStorage.getItem(MODE_KEY)
+  if (isMode(storedMode)) {
+    mode.value = storedMode
+  } else {
+    mode.value = systemMode()
+    followSystem = true
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', onSystemSchemeChange)
+  }
+  applyToHtml()
 }
 
 export const useTheme = () => {
-  const setTheme = (theme: ThemeName) => {
-    current.value = theme
-    if (import.meta.client) localStorage.setItem(STORAGE_KEY, theme)
-    applyHtmlTheme(theme)
-  }
-
-  const toggle = () => setTheme(current.value === 'pink' ? 'gray' : 'pink')
-
-  // Reconcile with persisted preference once on the client, after
-  // hydration, to avoid clobbering SSR output.
-  const init = () => {
-    const stored = load()
-    if (stored !== current.value) current.value = stored
-    applyHtmlTheme(current.value)
-  }
-
-  return { theme: current, setTheme, toggle, init }
+  return { theme, setTheme, toggle, mode, setMode, toggleMode, init }
 }

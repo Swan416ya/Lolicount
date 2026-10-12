@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
   left: var(--frame-gutter);
   right: var(--frame-gutter);
   height: 2px;
-  background: #1e66f5;
+  background: var(--url-color);
   border-radius: var(--frame-radius) var(--frame-radius) 0 0;
   transform: scaleX(0);
   transform-origin: left center;

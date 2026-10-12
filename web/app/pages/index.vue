@@ -684,7 +684,7 @@ onMounted(async () => {
   display: grid;
   place-items: center;
   gap: 0.5rem;
-  background: rgba(239, 241, 245, 0.75);
+  background: color-mix(in srgb, var(--loli-surface) 75%, transparent);
   border-radius: 0.85rem;
   color: var(--text-muted);
   font-size: 0.8rem;

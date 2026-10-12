@@ -233,7 +233,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   align-items: center;
   border: 2px solid var(--loli-pink);
   border-radius: 0.5rem;
-  background: #fff;
+  background: var(--bg-card);
   overflow: hidden;
   transition: border-color 0.2s;
 }
@@ -262,7 +262,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   box-sizing: border-box;
 }
 .loli-name-input::placeholder {
-  color: #c4b0bb;
+  color: var(--loli-hint);
 }
 @keyframes loli-shake {
   0%, 100% { transform: translateX(0); }
@@ -274,7 +274,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.625rem;
-  border-bottom: 1px solid #e5d4dc;
+  border-bottom: 1px solid var(--loli-border);
   background: var(--loli-cream);
 }
 .loli-mode-btn {
@@ -282,20 +282,20 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   border-radius: 0.375rem;
   border: 1px solid transparent;
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--text-muted);
   background: transparent;
   transition: all 0.2s;
   cursor: pointer;
 }
 .loli-mode-btn.is-active {
   border-color: var(--loli-pink);
-  background: #fff;
+  background: var(--bg-card);
   color: var(--loli-pink);
   font-weight: 600;
 }
 .loli-mode-sep {
   font-size: 0.7rem;
-  color: #c4b0bb;
+  color: var(--loli-hint);
   user-select: none;
 }
 .loli-tool-table {
@@ -308,14 +308,14 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-tool-table td {
   text-align: left;
   padding: 0.5rem 0.625rem;
-  border-bottom: 1px solid #f0e3e8;
+  border-bottom: 1px solid var(--loli-border);
   vertical-align: middle;
   word-break: break-word;
 }
 .loli-tool-table th {
   font-weight: 600;
-  color: #6b7280;
-  border-bottom: 1px solid #e5d4dc;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--loli-border);
   background: var(--loli-cream);
 }
 .loli-tool-table td code {
@@ -326,11 +326,11 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-input {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #e5d4dc;
+  border: 1px solid var(--loli-border);
   border-radius: 0.375rem;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-  background: #fff;
+  background: var(--bg-card);
 }
 .loli-input:focus {
   outline: none;
@@ -340,14 +340,14 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-cell-hint {
   margin: 0.25rem 0 0;
   font-size: 0.7rem;
-  color: #9ca3af;
+  color: var(--loli-hint);
 }
 .loli-unusual-caption {
   font-weight: 600;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--text-muted);
   padding-top: 0.75rem;
-  border-bottom: 2px solid #e5d4dc;
+  border-bottom: 2px solid var(--loli-border);
 }
 
 /* Mobile: bigger touch targets, and 16px control text — iOS Safari

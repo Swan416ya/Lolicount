@@ -427,13 +427,14 @@ onBeforeUnmount(() => {
   justify-content: center;
   padding: 2rem;
   position: relative;
-  /* Soft light checkerboard (transparency) matching the page palette. */
-  background-color: #eef1f6;
+  /* Soft checkerboard (transparency) from palette tokens, so the
+     pattern follows day/night mode. */
+  background-color: var(--loli-checker-bg);
   background-image:
-    linear-gradient(45deg, #e2e6ee 25%, transparent 25%),
-    linear-gradient(-45deg, #e2e6ee 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #e2e6ee 75%),
-    linear-gradient(-45deg, transparent 75%, #e2e6ee 75%);
+    linear-gradient(45deg, var(--loli-checker-sq) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--loli-checker-sq) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--loli-checker-sq) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--loli-checker-sq) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0;
 }
@@ -463,7 +464,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: var(--bg-card);
   box-shadow: 0 10px 30px rgba(76, 79, 105, 0.18);
 }
 
@@ -491,7 +492,7 @@ onBeforeUnmount(() => {
   left: 0;
   pointer-events: none;
   z-index: 15;
-  box-shadow: 0 0 0 9999px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--loli-surface) 60%, transparent);
 }
 
 /* Grid overlay: rendered above everything so canvas bounds and guide
@@ -669,7 +670,7 @@ onBeforeUnmount(() => {
   font-size: 0.625rem;
   font-family: monospace;
   color: var(--loli-pink);
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
   padding: 0 4px;
   border-radius: 0.25rem;
   white-space: nowrap;
