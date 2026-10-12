@@ -7,6 +7,9 @@ import type { GameKey, ThemeKind } from '~/utils/themeMeta'
 // previously shared ?theme= links keep working.
 definePageMeta({ alias: ['/themes'] })
 
+// Default theme for the playground selection and generator state.
+const DEFAULT_THEME = 'lian-ren'
+
 const { fetchThemes, fetchFThemes, fetchHotThemes, fetchConfig, buildCounterUrl, publicBase } = useApi()
 const { t, locale } = useI18n()
 
@@ -108,7 +111,7 @@ const isGroupOpen = (key: string) => filtersActive.value || expandedGroups.has(k
 // home page showcase: the back-end picks a random frame per request).
 // Animated (emote) themes render through the shared WebGL preview instead
 // of the static SVG image endpoint.
-const selectedTheme = ref('')
+const selectedTheme = ref(DEFAULT_THEME)
 const previewKey = ref(0)
 
 // The selected theme lives in the URL as ?theme=<name> so a refresh or a
@@ -128,7 +131,7 @@ const applyThemeSelection = (name: string) => {
 
 // Default selection: lian-ren when present, else the first theme.
 const defaultThemeName = () => {
-  const lianRen = themes.value.find((tth) => tth.name === 'lian-ren')
+  const lianRen = themes.value.find((tth) => tth.name === DEFAULT_THEME)
   return lianRen ? lianRen.name : (themes.value[0]?.name ?? '')
 }
 
@@ -248,7 +251,7 @@ const selectedMeta = computed(() =>
 // (ParamPanel + generate + LinkOutput) stays identical.
 const state = reactive<ParamState>({
   name: '',
-  theme: 'wenders',
+  theme: DEFAULT_THEME,
   ftheme: '',
   fsize: 16,
   scale: 1,
