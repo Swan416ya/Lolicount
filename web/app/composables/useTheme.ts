@@ -1,22 +1,16 @@
-// useTheme: site-wide accent (pink/gray) and day/night mode (light/dark),
-// shared app-wide. Both are persisted to localStorage and applied to
-// <html data-theme> / <html data-mode> so the CSS variables in theme.css
-// recolor the whole site. Mode defaults to the OS preference
-// (prefers-color-scheme) until the user toggles it, mirroring the
-// reference's next-themes setup. SSR-safe: initial values are the
-// defaults; init() reconciles on the client.
+// useTheme: site-wide day/night mode (light/dark), shared app-wide.
+// Persisted to localStorage and applied to <html data-mode> so the CSS
+// variables in theme.css recolor the whole site. Mode defaults to the
+// OS preference (prefers-color-scheme) until the user toggles it,
+// mirroring the reference's next-themes setup. SSR-safe: initial values
+// are the defaults; init() reconciles on the client.
 
-export type ThemeName = 'pink' | 'gray'
 export type ModeName = 'light' | 'dark'
 
-const THEME_KEY = 'lolicount-theme'
 const MODE_KEY = 'lolicount-mode'
-const DEFAULT_THEME: ThemeName = 'gray'
 
-const theme = ref<ThemeName>(DEFAULT_THEME)
 const mode = ref<ModeName>('light')
 
-const isTheme = (v: string | null): v is ThemeName => v === 'pink' || v === 'gray'
 const isMode = (v: string | null): v is ModeName => v === 'light' || v === 'dark'
 
 const systemMode = (): ModeName =>
@@ -41,7 +35,6 @@ const applyToHtml = (): void => {
   if (!import.meta.client) return
   const html = document.documentElement
   startFade()
-  html.setAttribute('data-theme', theme.value)
   if (mode.value === 'dark') html.setAttribute('data-mode', 'dark')
   else html.removeAttribute('data-mode')
   // next-themes parity: the inline color-scheme keeps native UI
@@ -60,14 +53,6 @@ const onSystemSchemeChange = (e: MediaQueryListEvent): void => {
   applyToHtml()
 }
 
-const setTheme = (t: ThemeName): void => {
-  theme.value = t
-  if (import.meta.client) localStorage.setItem(THEME_KEY, t)
-  applyToHtml()
-}
-
-const toggle = (): void => setTheme(theme.value === 'pink' ? 'gray' : 'pink')
-
 const setMode = (m: ModeName): void => {
   followSystem = false
   mode.value = m
@@ -83,8 +68,6 @@ const toggleMode = (): void => setMode(mode.value === 'light' ? 'dark' : 'light'
 // value-level no-op for returning visitors.
 const init = (): void => {
   if (!import.meta.client) return
-  const storedTheme = localStorage.getItem(THEME_KEY)
-  if (isTheme(storedTheme)) theme.value = storedTheme
   const storedMode = localStorage.getItem(MODE_KEY)
   if (isMode(storedMode)) {
     mode.value = storedMode
@@ -97,5 +80,5 @@ const init = (): void => {
 }
 
 export const useTheme = () => {
-  return { theme, setTheme, toggle, mode, setMode, toggleMode, init }
+  return { mode, setMode, toggleMode, init }
 }

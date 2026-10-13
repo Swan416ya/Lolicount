@@ -17,7 +17,6 @@ type Dict = Record<string, string>
 const zh: Dict = {
   'nav.star': '在 GitHub 上 Star',
   'nav.top': '顶部',
-  'nav.theme': '主题颜色',
   'nav.mode': '日间 / 夜间模式',
   'nav.sound': '音效',
   'nav.features': '功能',
@@ -189,7 +188,6 @@ const zh: Dict = {
 const en: Dict = {
   'nav.star': 'Star on GitHub',
   'nav.top': 'Top',
-  'nav.theme': 'Theme color',
   'nav.mode': 'Day / Night mode',
   'nav.sound': 'Sound effects',
   'nav.features': 'Features',
@@ -361,7 +359,6 @@ const en: Dict = {
 const jp: Dict = {
   'nav.star': 'GitHub でスター',
   'nav.top': 'トップ',
-  'nav.theme': 'テーマカラー',
   'nav.mode': '昼 / 夜モード',
   'nav.sound': '効果音',
   'nav.features': '機能',

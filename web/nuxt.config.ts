@@ -69,14 +69,12 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          // No-flash bootstrap: read persisted theme/locale from
-          // localStorage and set <html data-theme> / <html lang> before
+          // No-flash bootstrap: read persisted mode/locale from
+          // localStorage and set <html data-mode> / <html lang> before
           // the page paints, so SSG users with a saved preference do
-          // not see the default (zh/gray) flash on first frame.
+          // not see the default (zh/light) flash on first frame.
           innerHTML: [
             '(function(){try{',
-            'var t=localStorage.getItem("lolicount-theme");',
-            'if(t==="pink"||t==="gray")document.documentElement.setAttribute("data-theme",t);',
             'var m=localStorage.getItem("lolicount-mode");',
             'if(m!=="light"&&m!=="dark")m=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";',
             'if(m==="dark")document.documentElement.setAttribute("data-mode","dark");',

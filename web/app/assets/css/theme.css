@@ -35,14 +35,13 @@
 }
 
 /*
- * Token model: accent (data-theme=gray|pink) is orthogonal to day/night
- * (data-mode=dark, absent for light). The light blocks define the full
- * Catppuccin Latte palette; the dark blocks override it with Catppuccin
- * Mocha, matching chanfoo's light/dark schemes. Block order keeps dark
- * + dark-pink winning on specificity.
+ * Token model: a single fixed accent (chanfoo's gray/lavender scheme),
+ * orthogonal to day/night (data-mode=dark, absent for light). The light
+ * block defines the full Catppuccin Latte palette; the dark block
+ * overrides it with Catppuccin Mocha, matching chanfoo's light/dark
+ * schemes.
  */
-:root,
-[data-theme='gray'] {
+:root {
   /* Catppuccin Latte neutrals, matching chanfoo's light scheme. */
   --loli-crust: #dce0e8;
   --loli-surface: #eff1f5;
@@ -87,13 +86,6 @@
   --skeleton-3: rgb(156, 160, 176);
 }
 
-/* Light-mode pink accent only; neutrals stay the light palette above. */
-[data-theme='pink'] {
-  --loli-pink: #ea76cb;
-  --accent: #ea76cb;
-  --accent-soft: rgba(234, 118, 203, 0.16);
-}
-
 /* Dark mode (day/night): Catppuccin Mocha neutrals, matching chanfoo's
    dark scheme, on top of the light gray accent. */
 html[data-mode='dark'] {
@@ -133,13 +125,6 @@ html[data-mode='dark'] {
   --skeleton-1: #45475a;
   --skeleton-2: #585b70;
   --skeleton-3: #6c7086;
-}
-
-/* Dark-mode pink accent (highest specificity: wins over both light blocks). */
-html[data-theme='pink'][data-mode='dark'] {
-  --loli-pink: #f5c2e7;
-  --accent: #f5c2e7;
-  --accent-soft: rgba(245, 194, 231, 0.16);
 }
 
 /* Registered so the takeover tile's --nav-tile-bg interpolates on hover

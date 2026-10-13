@@ -1,28 +1,12 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 const { t } = useI18n()
-const { theme, mode, toggle: toggleTheme, toggleMode } = useTheme()
+const { mode, toggleMode } = useTheme()
 const { muted, toggleMute } = useSoundFx()
 const { stars, repoUrl, fetchStars, formatStars } = useGitHub()
 const route = useRoute()
 
-// Theme icon entrance, ported from the reference: the glyph spins in
-// from -180deg (light/gray) or -360deg (dark/pink) over 1s with the
-// cardReveal curve, on mount and on every theme change.
 useEases()
-const themeIconEl = ref<HTMLElement | null>(null)
-
-const playThemeIconSpin = (): void => {
-  if (!themeIconEl.value) return
-  gsap.fromTo(
-    themeIconEl.value,
-    { rotation: theme.value === 'pink' ? -360 : -180 },
-    { rotation: 0, duration: 1, ease: 'cardReveal', overwrite: true },
-  )
-}
-
-onMounted(playThemeIconSpin)
-watch(theme, playThemeIconSpin, { flush: 'post' })
 
 // Day/night icon entrance, ported from the reference's next-themes
 // toggle: the glyph spins in from -180deg (light) or -360deg (dark)
@@ -164,25 +148,6 @@ onMounted(() => {
           </svg>
           <span v-if="stars != null" class="nav-star-count">{{ formatStars(stars) }}</span>
         </a>
-
-        <!-- Sun when gray, moon when pink: the reference shows sun/moon per scheme. -->
-        <button type="button" class="nav-icon-button nav-theme" data-ripple :title="t('nav.theme')" :aria-label="t('nav.theme')" @click="toggleTheme">
-          <span ref="themeIconEl" class="nav-theme-icon">
-          <svg v-if="theme === 'gray'" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-            <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8" />
-            <path
-              fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-              d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"
-            />
-          </svg>
-          <svg v-else viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-            <path
-              fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-              d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 1 0 11 11Z"
-            />
-          </svg>
-          </span>
-        </button>
 
         <!-- Sun fill in light, moon fill in dark: the reference's
              next-themes toggle (tabler fill glyphs on the 256 grid). -->
