@@ -48,6 +48,11 @@ const navLinks = [
   { href: '/about', label: 'nav.howAbout', isRoute: true },
 ] as const
 const menuOpen = ref(false)
+const startupDone = ref(false)
+const headerEl = ref<HTMLElement | null>(null)
+const menuPanelEl = ref<HTMLElement | null>(null)
+const hamburgerIconEl = ref<HTMLElement | null>(null)
+const isTouch = useIsTouch()
 
 // Faded stroke glyphs for the takeover-menu tiles, echoing the reference
 // site's icon cards (currentColor so they follow the theme).
@@ -57,47 +62,65 @@ const linkIcons: Record<string, string> = {
   '/about': '<svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11.2V16"/><path d="M12 7.9h.01"/></svg>',
 }
 
-// The takeover menu covers the whole frame, so page scroll must stop
-// while it is open (restored on close and on unmount).
-const lockScroll = (locked: boolean): void => {
-  document.documentElement.style.overflow = locked ? 'hidden' : ''
-}
+// Takeover-menu choreography (panel fade, tile rise, ghost slide, action
+// fly-out, hamburger spin, pancake easter egg) lives in the composable;
+// NavBar only supplies the element refs and the menuOpen state.
+const { pancake, toggleMenu, closeMenu } = useTakeoverMenu({
+  menuOpen,
+  panelEl: menuPanelEl,
+  headerEl,
+  hamburgerIconEl,
+  isTouch,
+  startupDone,
+})
 
-watch(menuOpen, (open) => lockScroll(open))
-
-onBeforeUnmount(() => lockScroll(false))
-
-const closeMenu = () => {
-  menuOpen.value = false
-}
-
+// Header entrance, ported from the reference's startup timeline: the
+// hamburger and right-side cluster drop in from y:-32 over 0.8s with a
+// .05 stagger from the end. startupDone gates the menu's action fly-out
+// so the two choreographies never overlap.
 onMounted(() => {
   fetchStars()
-  gsap.from('.nav-link, .nav-actions', {
+  gsap.fromTo('.nav-hamburger', { opacity: 0, y: -32 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+  gsap.fromTo('.nav-link, .nav-actions > *', {
     opacity: 0,
     y: -32,
-    duration: 0.5,
-    stagger: 0.04,
+    duration: 0.8,
     ease: 'power3.out',
+    stagger: { each: 0.05, from: 'end' },
+    onComplete: () => {
+      gsap.set('.nav-hamburger, .nav-link, .nav-actions > *', { clearProps: 'transform' })
+      startupDone.value = true
+    },
   })
 })
 </script>
 
 <template>
-  <header class="nav-bar">
+  <header ref="headerEl" class="nav-bar">
     <div class="nav-wrapper">
       <button
         type="button"
         class="nav-hamburger"
         data-ripple
-        :class="{ 'nav-hamburger-active': menuOpen }"
-        :aria-label="t('nav.features')"
+        :aria-label="menuOpen ? t('nav.closeMenu') : t('nav.features')"
         :aria-expanded="menuOpen"
-        @click="menuOpen = !menuOpen"
+        @click="toggleMenu"
       >
-        <span class="nav-hamburger-line"></span>
-        <span class="nav-hamburger-line"></span>
-        <span class="nav-hamburger-line"></span>
+        <span ref="hamburgerIconEl" class="nav-hamburger-icon" aria-hidden="true">
+          <span v-if="pancake && !menuOpen" class="nav-pancake">🥞</span>
+          <svg v-else-if="menuOpen" class="nav-hamburger-svg" viewBox="0 0 256 256" width="24" height="24">
+            <path
+              fill="currentColor"
+              d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+            />
+          </svg>
+          <svg v-else class="nav-hamburger-svg" viewBox="0 0 256 256" width="24" height="24">
+            <path
+              fill="currentColor"
+              d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"
+            />
+          </svg>
+        </span>
       </button>
 
       <nav class="nav-links" aria-label="Lolicount">
@@ -176,20 +199,32 @@ onMounted(() => {
       </div>
     </div>
 
-    <Transition name="nav-menu">
-      <nav v-if="menuOpen" class="nav-mobile" aria-label="Features">
-        <NuxtLink
-          v-for="link in navLinks"
-          :key="link.href"
-          :to="link.href"
-          class="nav-mobile-link"
-          @click="closeMenu"
-        >
-          <span v-html="linkIcons[link.href]" class="nav-mobile-icon" aria-hidden="true" />
-          <span class="nav-mobile-label">{{ t(link.label) }}</span>
-        </NuxtLink>
-      </nav>
-    </Transition>
+    <!-- Always-mounted takeover panel: opacity/visibility are driven by
+         useTakeoverMenu so GSAP can animate both directions. -->
+    <div ref="menuPanelEl" class="nav-menu-panel" :aria-hidden="menuOpen ? undefined : 'true'" aria-label="Menu" @click="closeMenu">
+      <div class="nav-menu-inner">
+        <div class="nav-menu-grid-wrap">
+          <nav class="nav-menu-grid" :aria-label="t('nav.features')">
+            <NuxtLink
+              v-for="(link, i) in navLinks"
+              :key="link.href"
+              :to="link.href"
+              class="nav-tile"
+              :class="{ 'nav-tile-large': i === 0 }"
+            >
+              <span class="nav-tile-ghost" aria-hidden="true">
+                <span v-html="linkIcons[link.href]" />
+              </span>
+              <span class="nav-tile-fade" aria-hidden="true" />
+              <span class="nav-tile-icon" aria-hidden="true">
+                <span v-html="linkIcons[link.href]" />
+              </span>
+              <span class="nav-tile-label">{{ t(link.label) }}</span>
+            </NuxtLink>
+          </nav>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -320,6 +355,7 @@ onMounted(() => {
   background: transparent;
   border: 0;
   border-radius: 0.75rem;
+  color: var(--text-color);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -336,92 +372,210 @@ onMounted(() => {
   background: var(--loli-selection);
 }
 
-.nav-hamburger-line {
+/* The icon container is the spin target: it rotates in from -90deg on
+   every toggle while its child swaps List <-> X (or the pancake). */
+.nav-hamburger-icon {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-hamburger-svg {
   display: block;
-  width: 1.125rem;
-  height: 2px;
-  margin: 0 auto;
-  background: var(--text-color);
-  border-radius: 1px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.nav-hamburger-active .nav-hamburger-line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+.nav-pancake {
+  font-size: 1.125rem;
+  line-height: 1;
+  user-select: none;
 }
 
-.nav-hamburger-active .nav-hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-hamburger-active .nav-hamburger-line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* Takeover menu (the reference site's mobile pattern): a fixed panel
-   filling the frame below the header, hiding the page content, with the
-   links as large rounded icon tiles in a two-column grid. */
-.nav-mobile {
+/* Takeover menu (the reference site's mobile pattern): an always-mounted
+   fixed panel filling the frame below the header (z-45 < header z-50),
+   its opacity/visibility driven by useTakeoverMenu. The tile grid is a
+   square, centered in the remaining space, sized from the container
+   query width. */
+.nav-menu-panel {
   position: fixed;
-  top: calc(var(--frame-gutter) + 64px);
+  top: var(--frame-gutter);
   left: var(--frame-gutter);
   right: var(--frame-gutter);
   bottom: var(--frame-gutter);
   z-index: 45;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-content: start;
-  gap: 1rem;
-  padding: 1.25rem 1.5rem 1.5rem;
-  background: var(--loli-surface);
-  border-radius: 0 0 var(--frame-radius) var(--frame-radius);
+  visibility: hidden;
+  opacity: 0;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
+  background: var(--loli-surface);
+  border-radius: var(--frame-radius);
+  /* pt-16: reserve the sticky header; the bottom padding keeps the grid
+     reachable when the mobile browser UI shrinks the visual viewport. */
+  padding-top: 4rem;
+  padding-bottom: max(4rem, calc(4rem + 100lvh - var(--menu-visible-h, 100svh)));
 }
 
-.nav-mobile-link {
-  position: relative;
+.nav-menu-inner {
   display: flex;
-  align-items: flex-end;
-  min-height: 9rem;
-  padding: 1rem;
-  font-family: 'droog', sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  color: var(--text-color);
-  text-decoration: none;
-  border-radius: 1rem;
-  background: var(--loli-cream);
+  min-height: 100%;
+  width: 100%;
+  align-items: safe center;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .nav-menu-inner {
+    padding: 1.5rem;
+  }
+}
+
+.nav-menu-grid-wrap {
+  container-type: inline-size;
+  width: 100%;
+  max-width: calc((var(--menu-visible-h, 100svh) - 9.875rem) / 1.5);
+}
+
+@media (min-width: 40rem) {
+  .nav-menu-grid-wrap {
+    max-width: min(36rem, calc(var(--menu-visible-h, 100svh) - 11rem));
+  }
+}
+
+.nav-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: calc((100cqw - 0.75rem) / 2);
+  gap: 0.75rem;
+}
+
+/* The first tile spans both rows, like the reference's large tiles. */
+.nav-tile-large {
+  grid-row: span 2;
+}
+
+.nav-tile {
+  --nav-tile-bg: var(--loli-tile);
+  position: relative;
+  display: block;
   overflow: hidden;
-  transition: background-color 0.2s ease;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: var(--nav-tile-bg);
+  text-decoration: none;
+  transition: --nav-tile-bg 0.3s ease-out;
 }
 
-.nav-mobile-link:hover {
-  background: var(--loli-selection);
+@media (min-width: 40rem) {
+  .nav-tile {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
 }
 
-.nav-mobile-icon {
+.nav-tile:hover {
+  --nav-tile-bg: var(--loli-tile-hover);
+}
+
+.nav-tile:focus-visible {
+  outline: 2px solid var(--url-color);
+  outline-offset: 2px;
+}
+
+.nav-tile-ghost {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  right: -20%;
+  bottom: -8%;
+  transform-origin: bottom center;
+  opacity: 0;
+  pointer-events: none;
+  color: var(--loli-ghost);
+  transition: color 0.4s ease;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .nav-tile-ghost {
+    color: var(--loli-ghost-touch);
+  }
+}
+
+.nav-tile-ghost svg {
+  height: 100%;
+  width: auto;
+}
+
+.nav-tile-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--nav-tile-bg) 80%, transparent),
+    color-mix(in srgb, var(--nav-tile-bg) 35%, transparent) 45%,
+    transparent
+  );
+}
+
+@media (min-width: 40rem) {
+  .nav-tile-fade {
+    height: 5rem;
+  }
+}
+
+.nav-tile-icon {
   position: absolute;
   top: 0.75rem;
-  right: 0.75rem;
-  width: 2.75rem;
-  height: 2.75rem;
-  color: var(--text-muted);
-  opacity: 0.4;
+  left: 0.75rem;
+  z-index: 1;
+  height: 1.75rem;
+  color: var(--text-color);
   pointer-events: none;
 }
 
-.nav-menu-enter-active,
-.nav-menu-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+.nav-tile-icon svg {
+  height: 100%;
+  width: auto;
 }
 
-.nav-menu-enter-from,
-.nav-menu-leave-to {
-  opacity: 0;
-  transform: translateY(-0.5rem);
+@media (min-width: 40rem) {
+  .nav-tile-icon {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .nav-tile-large .nav-tile-icon {
+    height: 2.25rem;
+  }
 }
+
+.nav-tile-label {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  font-family: 'droog', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: left;
+  color: var(--text-color);
+}
+
+@media (min-width: 40rem) {
+  .nav-tile-label {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1.25rem;
+  }
+}
+
 
 @media (max-width: 767px) {
   /* Reference mobile header: hamburger on the left, the same uniform

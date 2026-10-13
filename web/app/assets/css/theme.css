@@ -57,6 +57,12 @@
   --loli-hint: #c4b0bb;
   --url-color: #1e66f5;
 
+  /* Takeover-menu tiles and ghost icons (reference surface/overlay grays). */
+  --loli-tile: #ccd0da;
+  --loli-tile-hover: #bcc0cc;
+  --loli-ghost: #7c7f93;
+  --loli-ghost-touch: #9ca0b0;
+
   --loli-pink: #7287fd;
   --accent: #7287fd;
   --accent-strong: #4c4f69;
@@ -117,6 +123,12 @@ html[data-mode='dark'] {
   --loli-checker-bg: #181825;
   --loli-checker-sq: #313244;
 
+  /* Takeover-menu tiles and ghost icons, dark scheme. */
+  --loli-tile: #313244;
+  --loli-tile-hover: #585b70;
+  --loli-ghost: #7f849c;
+  --loli-ghost-touch: #585b70;
+
   --skeleton-0: #313244;
   --skeleton-1: #45475a;
   --skeleton-2: #585b70;
@@ -128,6 +140,14 @@ html[data-theme='pink'][data-mode='dark'] {
   --loli-pink: #f5c2e7;
   --accent: #f5c2e7;
   --accent-soft: rgba(245, 194, 231, 0.16);
+}
+
+/* Registered so the takeover tile's --nav-tile-bg interpolates on hover
+   (the reference fades its tile background and bottom gradient together). */
+@property --nav-tile-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
 }
 
 /* Reference's skeleton-cycle: the four grays rotate while images load. */

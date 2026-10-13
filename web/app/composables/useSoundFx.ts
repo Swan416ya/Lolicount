@@ -192,6 +192,60 @@ const playSample = (url: string, volume = 0.5): void => {
   source.start()
 }
 
+// The reference site's pancake easter egg plays a synthesized "sparkle":
+// four short sine tones through a lowpass feedback-delay shimmer. The
+// recipe (frequencies, envelope, delay/feedback/wet/lowpass values) is
+// ported verbatim from the reference bundle's sound table.
+const playSparkle = (): void => {
+  if (soundState.muted.value) return
+  const audioCtx = ensureContext()
+  if (!audioCtx) return
+  const now = audioCtx.currentTime
+  const master = audioCtx.createGain()
+  master.gain.value = 0.5 * 10 ** (12 / 20)
+  master.connect(audioCtx.destination)
+  const delay = audioCtx.createDelay(1)
+  delay.delayTime.value = 0.07
+  const filter = audioCtx.createBiquadFilter()
+  filter.type = 'lowpass'
+  filter.frequency.value = 6000
+  const feedback = audioCtx.createGain()
+  feedback.gain.value = 0.35
+  const wet = audioCtx.createGain()
+  wet.gain.value = 0.22
+  master.connect(delay)
+  delay.connect(filter)
+  filter.connect(feedback)
+  feedback.connect(delay)
+  filter.connect(wet)
+  wet.connect(audioCtx.destination)
+  const tones = [
+    { frequency: 1760, offset: 0, attack: 0.003, decay: 0.09, peak: 0.045 },
+    { frequency: 2217, offset: 0.045, attack: 0.003, decay: 0.09, peak: 0.04 },
+    { frequency: 2637, offset: 0.09, attack: 0.003, decay: 0.1, peak: 0.038 },
+    { frequency: 3520, offset: 0.135, attack: 0.003, decay: 0.12, peak: 0.032 },
+  ]
+  let total = 0
+  for (const tone of tones) {
+    const t0 = now + tone.offset
+    const osc = audioCtx.createOscillator()
+    osc.frequency.setValueAtTime(tone.frequency, t0)
+    const gain = audioCtx.createGain()
+    gain.gain.setValueAtTime(1e-4, t0)
+    gain.gain.exponentialRampToValueAtTime(tone.peak, t0 + tone.attack)
+    gain.gain.exponentialRampToValueAtTime(1e-4, t0 + tone.attack + tone.decay)
+    osc.connect(gain).connect(master)
+    osc.start(t0)
+    osc.stop(t0 + tone.attack + tone.decay + 0.05)
+    total = Math.max(total, tone.offset + tone.attack + tone.decay + 0.05)
+  }
+  // Disconnect the graph once the feedback tail has decayed below 0.1%.
+  const repeats = 1 + Math.ceil(Math.log(0.001) / Math.log(0.35))
+  window.setTimeout(() => {
+    for (const node of [master, delay, filter, feedback, wet]) node.disconnect()
+  }, (total + 0.07 * repeats + 0.05) * 1000)
+}
+
 const toggleMute = (): void => {
   soundState.muted.value = !soundState.muted.value
   if (typeof window !== 'undefined') {
@@ -207,7 +261,7 @@ if (import.meta.client && localStorage.getItem(STORAGE_KEY) === 'false') {
 }
 
 const useSoundFx = () => {
-  return { muted: soundState.muted, toggleMute, playDrum, playDrum9, playDrum3, playTap, playSample, preloadSample }
+  return { muted: soundState.muted, toggleMute, playDrum, playDrum9, playDrum3, playTap, playSample, preloadSample, playSparkle }
 }
 
 export default useSoundFx
