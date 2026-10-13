@@ -585,7 +585,15 @@ onMounted(() => {
         @pointerenter="setAvatarScale(1.1)"
         @pointerleave="setAvatarScale(1)"
       >
-        <img src="/images/avatar.webp" alt="Lolicount" draggable="false" />
+        <img
+          src="/images/avatar.webp"
+          alt="Lolicount"
+          width="960"
+          height="960"
+          draggable="false"
+          fetchpriority="high"
+          decoding="async"
+        >
       </div>
 
       <div ref="copyEl" class="hero-copy">
