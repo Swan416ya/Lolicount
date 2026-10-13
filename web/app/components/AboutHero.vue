@@ -145,6 +145,12 @@ onMounted(() => {
     onParallaxScroll()
   }
   metronome.preload()
+  // SPA navigation: the shared ready gate is a module-level ref that stays
+  // open after the first page load, so the watch above never re-fires for
+  // this mount (its immediate call ran during setup, before the template
+  // refs existed). Play the entrance now; on a full page load ready is
+  // still false and the watch delivers the reveal instead.
+  if (ready.value) showHero()
 })
 
 onBeforeUnmount(teardownParallax)
@@ -267,7 +273,7 @@ watch(ready, (value) => {
                 @keydown.enter.prevent="metronome.tap()"
                 @keydown.space.prevent="metronome.tap()"
               >
-                <img src="/images/avatar.webp" alt="Lolicount" width="840" height="840" draggable="false" loading="lazy" decoding="async">
+                <img src="/images/avatar.webp" alt="Lolicount" width="840" height="840" draggable="false" fetchpriority="high" decoding="async">
               </div>
             </div>
           </div>
