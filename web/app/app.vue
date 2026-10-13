@@ -45,7 +45,7 @@ onBeforeUnmount(() => {
     <NavBar />
     <NuxtPage />
     <noscript>
-      <style>
+      <!-- <style>
         /* Without JS the entrance-hidden state must not persist. */
         .reveal,
         .hero-letter,
@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
         .hero-avatar { opacity: 1 !important; transform: none !important; }
         [data-nojs-reveal] { opacity: 1 !important; transform: none !important; }
         .hero-subtitle { height: auto !important; overflow: visible !important; }
-      </style>
+      </style> -->
     </noscript>
   </div>
 </template>
