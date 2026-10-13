@@ -63,7 +63,6 @@ const { pancake, toggleMenu, closeMenu } = useTakeoverMenu({
 // .05 stagger from the end. startupDone gates the menu's action fly-out
 // so the two choreographies never overlap.
 onMounted(() => {
-  fetchStars()
   gsap.fromTo('.nav-hamburger', { opacity: 0, y: -32 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
   gsap.fromTo(
     '.nav-link, .nav-actions > *',
@@ -81,6 +80,10 @@ onMounted(() => {
     },
   )
 })
+
+// Star count is non-critical and rate-limited by GitHub; start it only
+// after Nuxt finishes hydration so it cannot compete with first paint.
+onNuxtReady(() => { void fetchStars() })
 </script>
 
 <template>
