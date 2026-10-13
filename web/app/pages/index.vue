@@ -7,14 +7,30 @@ import type { GameKey, ThemeKind } from '~/utils/themeMeta'
 // previously shared ?theme= links keep working.
 definePageMeta({ alias: ['/themes'] })
 
-// Default theme for the playground selection and generator state.
 const DEFAULT_THEME = 'lian-ren'
 
 const { fetchThemes, fetchFThemes, fetchHotThemes, fetchConfig, buildCounterUrl, publicBase } = useApi()
 const { t, locale } = useI18n()
 
-const themes = ref<ThemeInfo[]>([])
-const fthemes = ref<string[]>([])
+// Client-side Nuxt data layer: setup starts all read-only requests during
+// hydration instead of waiting for mounted. server:false keeps nuxt generate
+// independent from the Go API while lazy:true avoids a second SSR payload.
+type PlaygroundData = { themes: ThemeInfo[]; fthemes: string[]; hot: string[] }
+const { data: homeData } = useAsyncData<PlaygroundData>(
+  'playground-data',
+  async () => {
+    const [themeList, fthemeList, hotList] = await Promise.all([
+      fetchThemes().catch(() => []),
+      fetchFThemes().catch(() => []),
+      fetchHotThemes().catch(() => []),
+      fetchConfig(),
+    ])
+    return { themes: themeList, fthemes: fthemeList, hot: hotList }
+  },
+  { server: false, lazy: true, immediate: true },
+)
+const themes = computed(() => homeData.value?.themes ?? [])
+const fthemes = computed(() => homeData.value?.fthemes ?? [])
 
 // Thumbnail load state for the reference-style skeleton background:
 // cards show the animated gray ramp until their image has decoded.
@@ -24,9 +40,10 @@ const markThumbLoaded = (name: string): void => { loadedThumbs.value[name] = tru
 // Join the API theme list with local metadata. Themes missing metadata
 // (e.g. added before the meta table is updated) still show up under
 // the "other" game bucket.
+const themeMetaByName = new Map(themeMeta.map((meta) => [meta.name, meta]))
 const merged = computed(() =>
   themes.value.map((tth) => {
-    const meta = themeMeta.find((m) => m.name === tth.name)
+    const meta = themeMetaByName.get(tth.name)
     return {
       ...tth,
       meta: meta ?? null,
@@ -73,7 +90,7 @@ const resultCount = computed(() => filteredThemes.value.length)
 // Themes surfaced in the hot group are excluded from their game group.
 type ThemeGroup = { key: string; label: string; hot: boolean; items: typeof merged.value }
 
-const hotNames = ref<string[]>([])
+const hotNames = computed(() => homeData.value?.hot ?? [])
 const filtersActive = computed(() => kindFilter.value !== 'all' || searchQuery.value.trim().length > 0)
 
 const groups = computed<ThemeGroup[]>(() => {
@@ -97,15 +114,19 @@ const groups = computed<ThemeGroup[]>(() => {
   return out
 })
 
-// Group expand state: collapsed by default (spec). While search/type
-// filters are active, matching groups auto-expand so results stay
-// visible without extra clicks.
+// Group expand/render state: collapsed groups stay out of the DOM until
+// first opened. Previously rendered groups remain mounted so closing does
+// not discard scroll state or thumbnail skeletons. Filters still mount all
+// matching groups so results remain immediately visible while searching.
 const expandedGroups = reactive(new Set<string>())
+const renderedGroups = reactive(new Set<string>())
 const toggleGroup = (key: string) => {
+  renderedGroups.add(key)
   if (expandedGroups.has(key)) expandedGroups.delete(key)
   else expandedGroups.add(key)
 }
 const isGroupOpen = (key: string) => filtersActive.value || expandedGroups.has(key)
+const isGroupRendered = (key: string) => filtersActive.value || renderedGroups.has(key)
 
 // Selected theme + preview with a cache-buster (same reload trick as the
 // home page showcase: the back-end picks a random frame per request).
@@ -142,14 +163,15 @@ const defaultThemeName = () => {
 // selection falls back to the default so the clean URL and the preview
 // stay consistent with a fresh visit.
 watch(
-  () => route.query.theme,
-  (q) => {
-    if (themes.value.length === 0) return
+  [() => homeData.value, () => route.query.theme],
+  ([data, q]) => {
+    if (!data) return
     const name = typeof q === 'string' ? q : ''
     if (name === selectedTheme.value) return
     if (name && !themes.value.some((tth) => tth.name === name)) return
     applyThemeSelection(name || defaultThemeName())
   },
+  { immediate: true },
 )
 
 const selectedAnimated = computed(() =>
@@ -244,7 +266,7 @@ const reloadPreview = () => {
 }
 
 const selectedMeta = computed(() =>
-  themeMeta.find((m) => m.name === selectedTheme.value) ?? null,
+  themeMetaByName.get(selectedTheme.value) ?? null,
 )
 
 // Playground state, same shape as the home page so the generation flow
@@ -321,27 +343,19 @@ const generate = (e: MouseEvent) => {
   generatedPreviewUrl.value = `${preview}${sep}_=_${generateKey.value}`
 }
 
-onMounted(async () => {
+onMounted(() => {
   // SSG may finish the preview fetch before hydration attaches @load —
   // clear the spinner for an already-complete image.
   if (previewImgEl.value?.complete) previewLoading.value = false
-  themes.value = await fetchThemes()
-  fthemes.value = await fetchFThemes()
-  // Hot list is non-critical: an API hiccup just hides the hot group.
-  try {
-    hotNames.value = await fetchHotThemes()
-  } catch {
-    hotNames.value = []
-  }
-  // Restore ?theme= from the URL; fall back to the default selection for
-  // plain visits or unknown names (URL stays clean in the fallback).
-  const fromQuery = typeof route.query.theme === 'string' ? route.query.theme : ''
-  if (fromQuery && themes.value.some((tth) => tth.name === fromQuery)) {
-    applyThemeSelection(fromQuery)
-  } else {
-    applyThemeSelection(defaultThemeName())
-  }
-  await fetchConfig()
+})
+
+// Critical first-paint assets are preloaded only on the playground route;
+// Nuxt injects these after its global head entries without duplicating them.
+useHead({
+  link: [
+    { rel: 'preload', href: '/images/avatar.webp', as: 'image', fetchpriority: 'high' },
+    { rel: 'preload', href: '/fonts/droog-900.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+  ],
 })
 </script>
 
@@ -356,7 +370,7 @@ onMounted(async () => {
             <h2>{{ t('themesGallery.generateTitle') }}</h2>
           </header>
 
-          <ParamPanel
+          <LazyParamPanel
             :state="state"
             :themes="themes"
             :fthemes="fthemes"
@@ -391,7 +405,7 @@ onMounted(async () => {
               />
               <BgPreview v-else :url="generatedPreviewUrl" :width="400" />
             </div>
-            <LinkOutput
+            <LazyLinkOutput
               :url="generatedAnimated ? '' : generatedUrl"
               :name="generatedName"
               :widget-snippet="generatedAnimated ? widgetSnippet : undefined"
@@ -508,7 +522,7 @@ onMounted(async () => {
               <span class="group-count">{{ g.items.length }}</span>
             </button>
 
-            <div v-show="isGroupOpen(g.key)" class="theme-grid">
+            <div v-if="isGroupRendered(g.key)" v-show="isGroupOpen(g.key)" class="theme-grid">
               <button
                 v-for="tth in g.items"
                 :key="tth.name"
@@ -542,8 +556,8 @@ onMounted(async () => {
       </div>
     </section>
 
-    <BackToTop />
-    <HomeFooter />
+    <LazyBackToTop />
+    <LazyHomeFooter />
   </main>
 </template>
 
@@ -875,6 +889,8 @@ onMounted(async () => {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .theme-card {
