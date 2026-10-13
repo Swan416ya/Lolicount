@@ -65,17 +65,21 @@ const { pancake, toggleMenu, closeMenu } = useTakeoverMenu({
 onMounted(() => {
   fetchStars()
   gsap.fromTo('.nav-hamburger', { opacity: 0, y: -32 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
-  gsap.fromTo('.nav-link, .nav-actions > *', {
-    opacity: 0,
-    y: -32,
-    duration: 0.8,
-    ease: 'power3.out',
-    stagger: { each: 0.05, from: 'end' },
-    onComplete: () => {
-      gsap.set('.nav-hamburger, .nav-link, .nav-actions > *', { clearProps: 'transform' })
-      startupDone.value = true
+  gsap.fromTo(
+    '.nav-link, .nav-actions > *',
+    { opacity: 0, y: -32 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: { each: 0.05, from: 'end' },
+      onComplete: () => {
+        gsap.set('.nav-hamburger, .nav-link, .nav-actions > *', { clearProps: 'transform' })
+        startupDone.value = true
+      },
     },
-  })
+  )
 })
 </script>
 
@@ -164,8 +168,13 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Always-mounted takeover panel: opacity/visibility are driven by
-         useTakeoverMenu so GSAP can animate both directions. -->
+  </header>
+
+  <!-- Always-mounted takeover panel. Teleported to <body> (like the
+       reference's portal) so it stacks under the header in the root
+       context: z-45 < header z-50, instead of covering the header's
+       own content from inside its stacking context. -->
+  <Teleport to="body">
     <div ref="menuPanelEl" class="nav-menu-panel" :aria-hidden="menuOpen ? undefined : 'true'" aria-label="Menu" @click="closeMenu">
       <div class="nav-menu-inner">
         <div class="nav-menu-grid-wrap">
@@ -190,7 +199,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
-  </header>
+  </Teleport>
 </template>
 
 <style scoped>
