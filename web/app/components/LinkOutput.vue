@@ -26,7 +26,7 @@ const copy = async (text: string, label: string) => {
 
 <template>
   <div class="space-y-2">
-    <div v-for="f in formats" :key="f.label" class="flex items-start gap-2">
+    <div v-for="f in formats" :key="f.label" class="flex items-center gap-2">
       <!-- min-w-0: flex items default to min-width auto, so the long
            unbreakable embed URL would stretch the whole page on phones. -->
       <pre class="flex-1 min-w-0 bg-gray-50 p-2 rounded text-xs overflow-x-auto">{{ f.value }}</pre>
