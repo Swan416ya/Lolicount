@@ -383,7 +383,7 @@ const doExport = async () => {
 <template>
   <div class="editor-root">
     <!-- Top toolbar -->
-    <div class="editor-toolbar">
+    <div class="editor-toolbar reveal" data-reveal>
       <div class="editor-toolbar-left">
         <h2 class="editor-toolbar-title">{{ t('editor.title') }}</h2>
         <span class="editor-toolbar-badge">{{ isCardTheme ? t('editor.cardTheme') : t('editor.characterTheme') }}</span>
@@ -437,7 +437,7 @@ const doExport = async () => {
     </div>
 
     <!-- Main layout: transitions between workbench and quick mode -->
-    <div class="editor-main">
+    <div class="editor-main reveal" data-reveal>
       <Transition name="mode-fade" mode="out-in">
         <!-- Quick mode: simplified single-panel layout -->
         <div v-if="editorMode === 'quick'" key="quick" class="quick-mode-layout">
@@ -650,14 +650,15 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 </template>
 
 <style scoped>
+
+/* The editor fills the app frame in-flow (the frame's overflow clip
+   rounds the bottom corners), right under the sticky nav, instead of a
+   fixed full-bleed overlay. */
 .editor-root {
-  position: fixed;
-  top: 4rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -666,9 +667,9 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background: var(--bg-card, #1e1e1e);
-  border-bottom: 1px solid var(--border-color, #333);
+  padding: 0.625rem 1.25rem;
+  background: var(--loli-surface);
+  border-bottom: 1px solid var(--loli-border);
   flex-shrink: 0;
 }
 
@@ -679,17 +680,19 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .editor-toolbar-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
   font-weight: 700;
+  color: var(--text-color);
 }
 
 .editor-toolbar-badge {
   font-size: 0.6875rem;
-  padding: 0.125rem 0.5rem;
-  border-radius: 10px;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-muted, #999);
+  font-weight: 600;
+  padding: 0.2rem 0.625rem;
+  border-radius: 0.5rem;
+  background: var(--loli-selection);
+  color: var(--text-muted);
 }
 
 .editor-toolbar-right {
@@ -700,75 +703,52 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 
 .editor-toolbar-input {
   width: 180px;
-  height: 2rem;
-  padding: 0 0.5rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: #fff;
-  color: #111;
+  height: 2.25rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.625rem;
+  background: var(--bg-card);
+  color: var(--text-color);
   font-size: 0.8125rem;
+}
+
+.editor-toolbar-input:focus {
+  outline: none;
+  border-color: var(--loli-pink);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .editor-btn-export {
-  height: 2rem;
+  height: 2.25rem;
   padding: 0 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.625rem;
   background: var(--loli-pink);
   color: #fff;
   cursor: pointer;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 650;
   white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.editor-lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  flex-shrink: 0;
-}
-
-.editor-lang-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text-muted, #999);
-  cursor: pointer;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  padding: 0;
-  transition: all 0.15s;
-}
-
-.editor-lang-btn:hover {
-  border-color: var(--loli-pink);
-  color: var(--loli-pink);
-}
-
-.editor-lang-btn-active {
-  background: var(--loli-pink);
-  border-color: var(--loli-pink);
-  color: #fff;
+.editor-btn-export:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 .editor-btn-upload {
-  height: 2rem;
-  padding: 0 0.75rem;
+  height: 2.25rem;
+  padding: 0 0.875rem;
   border: 1px solid var(--loli-pink);
-  border-radius: 4px;
+  border-radius: 0.625rem;
   background: transparent;
   color: var(--loli-pink);
   cursor: pointer;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 650;
   white-space: nowrap;
-  transition: all 0.15s;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .editor-btn-upload:hover {
@@ -777,25 +757,26 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .editor-btn-draft {
-  height: 2rem;
-  padding: 0 0.75rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: transparent;
-  color: var(--text-color, #eee);
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.625rem;
+  background: var(--bg-btn);
+  color: var(--text-color);
   cursor: pointer;
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 650;
   white-space: nowrap;
+  transition: background-color 0.2s ease;
 }
 
 .editor-btn-draft:hover {
-  border-color: var(--loli-pink);
-  color: var(--loli-pink);
+  background: var(--loli-selection);
 }
 
 .editor-btn-export:disabled {
-  opacity: 0.5;
+  color: var(--text-muted);
+  background: var(--loli-cream);
   cursor: not-allowed;
 }
 
@@ -806,17 +787,17 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .editor-export-dropdown .editor-btn-export {
-  border-radius: 4px 0 0 4px;
-  padding-right: 0.5rem;
+  border-radius: 0.625rem 0 0 0.625rem;
+  padding-right: 0.625rem;
 }
 
 .editor-export-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
+  width: 24px;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 0.625rem 0.625rem 0;
   background: var(--loli-pink);
   color: #fff;
   cursor: pointer;
@@ -829,7 +810,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .editor-export-arrow:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.08);
 }
 
 .editor-export-backdrop {
@@ -842,31 +823,31 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   position: absolute;
   top: 100%;
   right: 0;
-  margin-top: 2px;
+  margin-top: 0.375rem;
   display: flex;
   flex-direction: column;
-  background: var(--bg-card, #1e1e1e);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 18px 45px rgba(76, 79, 105, 0.15);
   overflow: hidden;
   z-index: 50;
-  min-width: 120px;
+  min-width: 130px;
 }
 
 .editor-export-item {
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.875rem;
   border: none;
   background: transparent;
-  color: var(--text-color, #eee);
+  color: var(--text-color);
   cursor: pointer;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   text-align: left;
   white-space: nowrap;
 }
 
 .editor-export-item:hover {
-  background: var(--loli-pink);
-  color: #fff;
+  background: var(--loli-selection);
 }
 
 /* Main layout */
@@ -881,17 +862,17 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   width: 280px;
   flex-shrink: 0;
   overflow-y: auto;
-  background: var(--bg-card, #1e1e1e);
-  border-right: 1px solid var(--border-color, #333);
-  padding: 0.75rem;
+  background: var(--loli-cream);
+  border-right: 1px solid var(--loli-border);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .editor-sidebar-right {
   border-right: none;
-  border-left: 1px solid var(--border-color, #333);
+  border-left: 1px solid var(--loli-border);
 }
 
 .sidebar-section {
@@ -905,10 +886,10 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   margin: 0;
-  padding-bottom: 0.375rem;
-  border-bottom: 1px solid var(--border-color, #333);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--loli-border);
 }
 
 .sidebar-row {
@@ -919,72 +900,78 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 
 .sidebar-label {
   font-size: 0.75rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   min-width: 4rem;
 }
 
 .sidebar-input {
   flex: 1;
   width: 100%;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: #fff;
-  color: #111;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.5rem;
+  background: var(--bg-card);
+  color: var(--text-color);
   font-size: 0.8125rem;
+}
+
+.sidebar-input:focus {
+  outline: none;
+  border-color: var(--loli-pink);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .sidebar-drafts {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.375rem;
 }
 
 .sidebar-draft-item {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  border: 1px solid var(--border-color, #333);
-  border-radius: 4px;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.5rem;
+  background: var(--bg-card);
   overflow: hidden;
 }
 
 .sidebar-draft-btn {
   flex: 1;
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.625rem;
   border: none;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-color, #eee);
+  background: transparent;
+  color: var(--text-color);
   cursor: pointer;
   font-size: 0.75rem;
   text-align: left;
 }
 
 .sidebar-draft-btn:hover {
-  background: var(--loli-pink);
-  color: #fff;
+  background: var(--loli-selection);
 }
 
 .sidebar-draft-del {
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.625rem;
   border: none;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-color, #eee);
+  background: transparent;
+  color: var(--text-muted);
   cursor: pointer;
   font-size: 0.75rem;
 }
 
 .sidebar-draft-del:hover {
-  color: #ef4444;
+  color: #d20f39;
 }
 
 .sidebar-error {
-  color: #ef4444;
+  color: #d20f39;
   font-size: 0.75rem;
   margin: 0;
-  padding: 0.5rem;
-  background: rgba(239, 68, 68, 0.1);
-  border-radius: 4px;
+  padding: 0.625rem 0.75rem;
+  background: rgba(210, 15, 57, 0.08);
+  border-radius: 0.5rem;
 }
 
 /* Canvas area */
@@ -993,6 +980,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   overflow: auto;
   display: flex;
   flex-direction: column;
+  background: var(--loli-surface);
 }
 
 /* Mode switch */
@@ -1000,26 +988,27 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   display: flex;
   align-items: center;
   gap: 2px;
-  background: var(--bg-btn, #2a2a2a);
-  border-radius: 6px;
-  padding: 2px;
+  background: var(--loli-cream);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.625rem;
+  padding: 3px;
 }
 
 .editor-mode-btn {
   height: 1.5rem;
-  padding: 0 0.6rem;
+  padding: 0 0.75rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: transparent;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   cursor: pointer;
   font-size: 0.6875rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  font-weight: 650;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .editor-mode-btn:hover {
-  color: var(--text-color, #eee);
+  color: var(--text-color);
 }
 
 .editor-mode-btn-active {
@@ -1055,8 +1044,8 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   width: 240px;
   flex-shrink: 0;
   overflow-y: auto;
-  background: var(--bg-card, #1e1e1e);
-  border-right: 1px solid var(--border-color, #333);
+  background: var(--loli-cream);
+  border-right: 1px solid var(--loli-border);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -1074,32 +1063,32 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   justify-content: center;
   gap: 0.5rem;
   padding: 2rem 1rem;
-  border: 2px dashed #d1d5db;
-  border-radius: 8px;
-  background: #fff;
+  border: 2px dashed var(--loli-border);
+  border-radius: 1rem;
+  background: var(--bg-card);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .quick-dropzone:hover,
 .quick-dropzone-active {
-  border-color: #9ca3af;
-  background: #f3f4f6;
+  border-color: var(--loli-pink);
+  background: var(--loli-surface);
 }
 
 .quick-dropzone-icon {
-  color: #9ca3af;
+  color: var(--text-muted);
   transition: color 0.2s;
 }
 
 .quick-dropzone:hover .quick-dropzone-icon,
 .quick-dropzone-active .quick-dropzone-icon {
-  color: #6b7280;
+  color: var(--loli-pink);
 }
 
 .quick-dropzone-text {
   font-size: 0.8125rem;
-  color: #6b7280;
+  color: var(--text-muted);
   margin: 0;
   text-align: center;
   font-weight: 500;
@@ -1117,7 +1106,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   gap: 0.3rem;
   font-size: 0.6875rem;
   font-family: monospace;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
 }
 
 .quick-stat-sep {
@@ -1133,7 +1122,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 .quick-thumb-wrap {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 4px;
+  border-radius: 0.625rem;
   border: 2px solid transparent;
   cursor: pointer;
   overflow: visible;
@@ -1141,7 +1130,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .quick-thumb-wrap:hover {
-  border-color: var(--text-muted, #999);
+  border-color: var(--text-muted);
 }
 
 .quick-thumb-selected {
@@ -1152,7 +1141,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 0.5rem;
 }
 
 .quick-thumb-del {
@@ -1166,7 +1155,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   height: 16px;
   border: none;
   border-radius: 50%;
-  background: #ef4444;
+  background: #d20f39;
   color: #fff;
   font-size: 10px;
   line-height: 1;
@@ -1212,7 +1201,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(76, 79, 105, 0.45);
   padding: 1rem;
 }
 
@@ -1223,24 +1212,25 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--bg-card, #1e1e1e);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 60px rgba(76, 79, 105, 0.25);
 }
 
 .upload-modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border-color, #333);
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--loli-border);
   flex-shrink: 0;
 }
 
 .upload-modal-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--loli-pink);
+  color: var(--text-color);
   margin: 0;
 }
 
@@ -1248,9 +1238,9 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: transparent;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   cursor: pointer;
   font-size: 1.25rem;
   line-height: 1;
@@ -1258,13 +1248,13 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .upload-modal-close:hover {
-  color: var(--text-color, #eee);
-  background: var(--bg-btn, #2a2a2a);
+  color: var(--text-color);
+  background: var(--loli-selection);
 }
 
 .upload-modal-body {
   overflow-y: auto;
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .upload-steps {
@@ -1272,24 +1262,24 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   padding-left: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.875rem;
 }
 
 .upload-steps li {
-  color: var(--text-color, #eee);
+  color: var(--text-color);
   font-size: 0.8125rem;
   line-height: 1.5;
 }
 
 .upload-steps strong {
-  color: var(--loli-pink);
+  color: var(--text-color);
   display: block;
   margin-bottom: 0.15rem;
 }
 
 .upload-steps p {
   margin: 0 0 0.25rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.75rem;
 }
 
@@ -1307,10 +1297,10 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 
 .upload-code {
   margin: 0.25rem 0 0;
-  padding: 0.5rem 0.625rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  color: #c8d4e0;
+  padding: 0.625rem 0.75rem;
+  background: var(--loli-cream);
+  border-radius: 0.625rem;
+  color: var(--text-color);
   font-size: 0.6875rem;
   font-family: monospace;
   overflow-x: auto;
@@ -1318,19 +1308,19 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 .upload-email-hint {
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border-color, #333);
+  margin-top: 1.25rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--loli-border);
 }
 
 .upload-email-hint p {
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.75rem;
   margin: 0;
 }
 
 .upload-note {
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.6875rem;
   font-style: italic;
 }
@@ -1346,18 +1336,16 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 }
 
 /* Responsive */
-
-/* Responsive */
 /* Sidebar toggle buttons */
 .sidebar-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 16px;
-  background: var(--bg-card, #1e1e1e);
+  background: var(--loli-cream);
   border: none;
-  border-right: 1px solid var(--border-color, #333);
-  color: var(--text-muted, #999);
+  border-right: 1px solid var(--loli-border);
+  color: var(--text-muted);
   cursor: pointer;
   flex-shrink: 0;
   transition: color 0.15s;
@@ -1369,7 +1357,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
 
 .sidebar-toggle-right {
   border-right: none;
-  border-left: 1px solid var(--border-color, #333);
+  border-left: 1px solid var(--loli-border);
 }
 
 /* Collapsed sidebar */
@@ -1390,11 +1378,11 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
   .editor-toolbar {
     flex-wrap: wrap;
     gap: 0.375rem;
-    padding: 0.375rem 0.5rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .editor-toolbar-title {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 
   .editor-toolbar-badge {
@@ -1418,12 +1406,12 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
     max-height: 25vh;
     flex-shrink: 0;
     border-right: none;
-    border-bottom: 1px solid var(--border-color, #333);
+    border-bottom: 1px solid var(--loli-border);
   }
 
   .editor-sidebar-right {
     border-left: none;
-    border-top: 1px solid var(--border-color, #333);
+    border-top: 1px solid var(--loli-border);
   }
 
   /* On mobile, both sidebars go above the canvas. Left sidebar and
@@ -1454,12 +1442,12 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
     height: 20px;
     flex-shrink: 0;
     border-right: none;
-    border-bottom: 1px solid var(--border-color, #333);
+    border-bottom: 1px solid var(--loli-border);
   }
 
   .sidebar-toggle-right {
     border-left: none;
-    border-top: 1px solid var(--border-color, #333);
+    border-top: 1px solid var(--loli-border);
   }
 
   .sidebar-toggle svg {
@@ -1480,7 +1468,7 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
     max-height: 30vh;
     flex-shrink: 0;
     border-right: none;
-    border-bottom: 1px solid var(--border-color, #333);
+    border-bottom: 1px solid var(--loli-border);
   }
 
   /* Same content-box overflow for everything inside the panel:
@@ -1500,17 +1488,11 @@ git push origin add-theme-&lt;your-theme&gt;</pre>
     gap: 0.25rem;
   }
 
-  .editor-lang-btn {
-    width: 24px;
-    height: 24px;
-    font-size: 0.625rem;
-  }
-
   .editor-btn-draft,
   .editor-btn-upload,
   .editor-export-dropdown .editor-btn-export {
     font-size: 0.6875rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.375rem 0.625rem;
   }
 }
 </style>

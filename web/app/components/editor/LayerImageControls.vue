@@ -197,6 +197,7 @@ const onDragEnd = (e: PointerEvent) => {
 </template>
 
 <style scoped>
+
 .img-controls {
   display: flex;
   flex-direction: column;
@@ -215,30 +216,33 @@ const onDragEnd = (e: PointerEvent) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem;
-  border: 1px dashed var(--loli-pink);
-  border-radius: 4px;
+  padding: 0.4rem;
+  border: 1px dashed var(--loli-border);
+  border-radius: 0.5rem;
   background: transparent;
-  color: var(--loli-pink);
+  color: var(--text-muted);
   font-size: 0.6875rem;
   font-weight: 600;
-  transition: all 0.15s;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
 }
 
 .img-upload-btn:hover {
-  background: rgba(107, 114, 128, 0.1);
+  border-color: var(--loli-pink);
+  color: var(--loli-pink);
+  background: var(--accent-soft);
 }
 
 .img-empty {
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.6875rem;
   text-align: center;
   padding: 0.5rem;
 }
 
 .img-item {
-  border: 1px solid var(--border-color, #333);
-  border-radius: 4px;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.625rem;
+  background: var(--bg-card);
   padding: 0.375rem;
   display: flex;
   flex-direction: column;
@@ -259,7 +263,7 @@ const onDragEnd = (e: PointerEvent) => {
   width: 28px;
   height: 28px;
   border: 2px solid transparent;
-  border-radius: 4px;
+  border-radius: 0.375rem;
   background: transparent;
   cursor: pointer;
   padding: 0;
@@ -267,7 +271,7 @@ const onDragEnd = (e: PointerEvent) => {
 }
 
 .img-thumb-wrap:hover {
-  border-color: var(--text-muted, #999);
+  border-color: var(--text-muted);
 }
 
 .img-thumb-selected {
@@ -278,7 +282,7 @@ const onDragEnd = (e: PointerEvent) => {
   width: 24px;
   height: 24px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 0.25rem;
 }
 
 .img-thumb-badge {
@@ -300,7 +304,7 @@ const onDragEnd = (e: PointerEvent) => {
 
 .img-index {
   font-size: 0.6875rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
 }
 
 .img-del-btn {
@@ -310,17 +314,17 @@ const onDragEnd = (e: PointerEvent) => {
   width: 20px;
   height: 20px;
   margin-left: auto;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 3px;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-color, #eee);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.375rem;
+  background: var(--bg-card);
+  color: var(--text-muted);
   cursor: pointer;
   padding: 0;
 }
 
 .img-del-btn:hover {
-  border-color: #ef4444;
-  color: #ef4444;
+  border-color: #d20f39;
+  color: #d20f39;
 }
 
 .img-fields {
@@ -334,7 +338,7 @@ const onDragEnd = (e: PointerEvent) => {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.625rem;
   user-select: none;
 }
@@ -351,18 +355,18 @@ const onDragEnd = (e: PointerEvent) => {
 
 .img-field label {
   font-size: 0.625rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   min-width: 0.75rem;
   font-family: monospace;
 }
 
 .img-num-input {
   width: 100%;
-  padding: 0.125rem 0.25rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 3px;
-  background: #fff;
-  color: #111;
+  padding: 0.25rem 0.375rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.375rem;
+  background: var(--bg-card);
+  color: var(--text-color);
   font-size: 0.6875rem;
   cursor: ew-resize;
   user-select: none;
@@ -373,5 +377,6 @@ const onDragEnd = (e: PointerEvent) => {
   user-select: text;
   border-color: var(--loli-pink);
   outline: none;
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 </style>

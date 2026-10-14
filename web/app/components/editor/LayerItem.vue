@@ -66,16 +66,19 @@ const onNameChange = (e: Event) => {
 </template>
 
 <style scoped>
+
 .layer-item {
-  border: 1px solid var(--border-color, #333);
-  border-radius: 6px;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.75rem;
+  background: var(--bg-card);
   overflow: hidden;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
 }
 
 .layer-item-selected {
   border-color: var(--loli-pink);
-  background: rgba(107, 114, 128, 0.05);
+  background: var(--loli-surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .layer-row {
@@ -93,7 +96,7 @@ const onNameChange = (e: Event) => {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   transition: transform 0.15s ease;
 }
 
@@ -104,21 +107,21 @@ const onNameChange = (e: Event) => {
 .layer-name {
   flex: 1;
   min-width: 0;
-  padding: 0.2rem 0.375rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: #fff;
-  color: #111;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.375rem;
+  background: var(--bg-card);
+  color: var(--text-color);
   font-size: 0.75rem;
   font-weight: 600;
 }
 
 .layer-badge {
   font-size: 0.625rem;
-  padding: 0.1rem 0.3rem;
-  border-radius: 8px;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-muted, #999);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.5rem;
+  background: var(--loli-cream);
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
@@ -134,10 +137,10 @@ const onNameChange = (e: Event) => {
   justify-content: center;
   width: 22px;
   height: 22px;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: var(--bg-btn, #2a2a2a);
-  color: var(--text-color, #eee);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.5rem;
+  background: var(--bg-card);
+  color: var(--text-muted);
   cursor: pointer;
   padding: 0;
 }
@@ -153,13 +156,13 @@ const onNameChange = (e: Event) => {
 }
 
 .layer-action-del:not(:disabled):hover {
-  border-color: #ef4444;
-  color: #ef4444;
+  border-color: #d20f39;
+  color: #d20f39;
 }
 
 .layer-body {
   padding: 0.5rem;
-  border-top: 1px solid var(--border-color, #333);
+  border-top: 1px solid var(--loli-border);
 }
 
 .layer-expand-enter-active,

@@ -39,9 +39,9 @@ export default defineNuxtConfig({
   app: {
     // Default lang is en; useI18n reconciles to the stored preference on
     // mount. Setting it here keeps SSR output consistent. A tiny inline
-    // script (below) runs before hydration to apply the persisted theme
-    // and locale to <html>, eliminating the first-paint flash under SSG
-    // (SSR always renders the defaults en + gray).
+    // script (below) runs before hydration to apply the persisted theme,
+    // day/night mode and locale to <html>, eliminating the first-paint
+    // flash under SSG (SSR always renders the defaults en + gray + light).
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Lolicount',
@@ -51,6 +51,9 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: 'A cute themeable SVG visitor counter / 萌系可换肤 SVG 访问计数器' },
+        // Mobile browser chrome color, mirroring the reference's static
+        // OS-scheme media query (the in-app toggle does not restyle it).
+        { name: 'theme-color', content: '#11111b', media: '(prefers-color-scheme: dark)' },
         // Open Graph + Twitter Card: link previews in Telegram, Discord,
         // Twitter, etc. og:image must be an absolute URL; we use the
         // build-time BASE_URL (or NUXT_PUBLIC_BASE_URL) so the SSG
@@ -66,14 +69,15 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          // No-flash bootstrap: read persisted theme/locale from
-          // localStorage and set <html data-theme> / <html lang> before
+          // No-flash bootstrap: read persisted mode/locale from
+          // localStorage and set <html data-mode> / <html lang> before
           // the page paints, so SSG users with a saved preference do
-          // not see the default (zh/gray) flash on first frame.
+          // not see the default (zh/light) flash on first frame.
           innerHTML: [
             '(function(){try{',
-            'var t=localStorage.getItem("lolicount-theme");',
-            'if(t==="pink"||t==="gray")document.documentElement.setAttribute("data-theme",t);',
+            'var m=localStorage.getItem("lolicount-mode");',
+            'if(m!=="light"&&m!=="dark")m=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";',
+            'if(m==="dark")document.documentElement.setAttribute("data-mode","dark");',
             'var l=localStorage.getItem("lolicount-locale");',
             'if(l==="zh"||l==="en"||l==="jp")document.documentElement.lang=l;',
             '}catch(e){}})();',
