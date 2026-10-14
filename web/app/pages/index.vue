@@ -650,6 +650,9 @@ useHead({
 
 .result-panel {
   display: grid;
+  /* The implicit auto track would grow to the long URL's max-content and
+     overflow the card; minmax(0, 1fr) lets the track shrink instead. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   margin-top: 1.25rem;
 }
