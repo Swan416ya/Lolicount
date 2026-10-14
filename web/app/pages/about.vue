@@ -172,7 +172,7 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <AboutCarousel
+        <!-- <AboutCarousel
           v-if="themeItems.length"
           title="Themes"
           :more-label="t('about.goThemes')"
@@ -188,7 +188,7 @@ onBeforeUnmount(() => {
           more-to="/editor"
           :view-label="t('about.view')"
           :items="workshopItems"
-        />
+        /> -->
 
         <AboutSocials :title="t('about.socials')" :links="socials" />
       </div>
