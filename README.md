@@ -1,104 +1,80 @@
-![lolicount](docs/png/lolicount-s.png)
+![Lolicount](docs/png/lolicount-s.png)
+
 **English** · [中文](./README.zh.md) · [日本語](./README.ja.md)
 
-### Show your favorite characters on your homepage or anywhere that supports external image sources!
+A themeable visitor counter for your GitHub README, blog, or website. Choose a character, copy the embed code, and you're ready to go. Static themes can pick a random frame or combine character layers on each request.
 
-A cute, themeable visitor counter that renders as an SVG image. It ships with several built-in themes, and you can also upload your own digit images or backgrounds to create a custom style. Just paste one link in your README or homepage!
+## Get started
 
-Displayed characters support random frame selection and dynamic composition like character sprites in galgames.
+1. Open [lolicount.top](https://lolicount.top).
+2. Enter a counter name, choose a theme, and generate your counter.
+3. Copy the Markdown or HTML code into your page.
 
-## Few Sprites, Infinite Poses — minimal storage, maximum variety
+Use your own name in place of `my-counter` below. The same name shares one count across all embeds.
 
-Multi-layer themes split each character into independent layers — expression, eyes, mouth, face, etc. — and randomly compose them on every request. Take the `lian-ren` theme: with just **71 images** (lass ×8 + brow ×18 + eye ×18 + mouth ×20 + face ×6), it produces **311,040** unique sprite combinations — every refresh is a brand-new pose.
+**GitHub README / Markdown**
 
-## Fast Loading
-
-Fiber v3 is built on [Fasthttp](https://gofiber.io/), which the Fiber team describes as the fastest HTTP engine for Go. In [Fiber's published TechEmpower benchmark](https://docs.gofiber.io/extra/benchmarks/), Fiber v3 reaches about **12.0M plaintext responses/s** versus Express's **1.20M**, and about **2.36M JSON responses/s** versus Express's **0.95M**.
-
-For broader context, [TechEmpower Round 23](https://www.techempower.com/benchmarks/#section=data-r23&test=plaintext&hw=ph) compares popular frameworks using the best 15-second plaintext run on the same physical hardware:
-
-| Framework | Plaintext RPS |
-|---|---:|
-| ASP.NET Core | 27.53M |
-| Fiber v2.52.5 prefork | 13.51M |
-| Gin | 1.64M |
-| Spring | 0.83M |
-| Express | 0.28M |
-| Laravel | 0.027M |
-| Next.js | 0.002M |
-
-Round 23 still uses Fiber v2.52.5, so treat this row as ecosystem context rather than a direct Fiber v3 measurement.
-
-In Lolicount, that lightweight request path is paired with embedded theme assets and an embedded Nuxt SSG frontend. Counter SVGs are composed in-process, so requests avoid a separate theme fetch and respond quickly.
-
-## Quick Start
-
-### Direct Usage
-See https://lolicount.top
-
-### Dev Test Run
-
-The root `package.json` uses `concurrently` to start both the backend (Go :9721) and the frontend (Nuxt :3721) at the same time, cross-platform compatible with macOS / Windows / Linux:
-
-```bash
-pnpm install        # installs concurrently (root) and frontend deps
-pnpm dev            # starts both frontend and backend
+```markdown
+![Visits](https://lolicount.top/@my-counter?theme=lian-ren&fsize=16&scale=0.6)
 ```
 
-You can also run them separately: `pnpm dev:server` (backend only) or `pnpm dev:web` (frontend only).
+**Website / HTML**
 
-### Server Deployment
-
-```bash
-docker run -d -p 9721:9721 \
-  -v lolicount-data:/app/data \
-  ghcr.io/miaoledor/lolicount:latest
+```html
+<img src="https://lolicount.top/@my-counter?theme=lian-ren&amp;fsize=16&amp;scale=0.6" alt="Visits" />
 ```
 
-Open `http://localhost:9721/@my-counter`. Counter data is persisted to the SQLite file inside the `lolicount-data` volume.
+**Image URL**: [open the example](https://lolicount.top/@my-counter?theme=lian-ren&fsize=16&scale=0.6), or copy its address into any field that accepts an image URL.
 
-CI/CD is powered by GitHub Actions: pushes trigger `go vet` + tests automatically, and pushing a `v*` tag builds the frontend, compiles a static binary, and pushes a Docker image to ghcr.io.
+For GitHub READMEs, choose an SVG theme. E-mote, Spine, and Live2D themes use the website widget code generated on the site and require JavaScript.
 
-## Contributing
+## Customize
 
-We really need your help!
+Adjust the URL parameters, or use the online generator to preview changes:
 
-Whether enriching features or adding themes, your participation is welcome.
-For more contribution `details`, see:
-| Document | Content |
-|---|---|
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution overview |
-| [docs/contributing-themes.md](./docs/contributing-themes.md) | Theme contribution guide |
-| [docs/contributing-code.md](./docs/contributing-code.md) | Code contribution guide |
+| Parameter | What it does | Example |
+|---|---|---|
+| `theme` | Character theme; `random` picks a random SVG theme | `theme=lian-ren` |
+| `scale` | Image scale, from `0.1` to `4`; default `1` | `scale=0.6` |
+| `fsize` | Counter font size in pixels, from `0` to `500`; `0` uses the default | `fsize=16` |
+| `number` | Display a fixed value without counting, from `1` to `999999`; omit for real counts | `number=12345` |
 
-## Acknowledgements
+For a preview without counting, replace the name with [`demo`](https://lolicount.top/@demo?theme=lian-ren&fsize=16&scale=0.6). It displays `0123456789` unless `number` is set.
 
-- [kun-galgame-forum](https://github.com/KunMoe/kun-galgame-forum)
-- [Moe-Counter](https://github.com/journey-ad/Moe-Counter)
+See the [full parameter reference](./docs/projectDesign.md#接口调用文档) for font styles and text positioning, or the [FAQ](./docs/faq.md) for troubleshooting.
 
-## Sponsor
+## Self-host
 
-Like this project? If Lolicount helps you, consider [buying the author a milk tea](https://github.com/sponsors/miaoledor) 🧋
+Start with Docker:
 
-## Tech Stack
+```sh
+docker run -d --name lolicount --restart unless-stopped -p 9721:9721 -v lolicount-data:/app/data ghcr.io/miaoledor/lolicount:latest
+```
 
-**Backend**: Go 1.25+ / Fiber v3 / SQLite
-**Performance**: Fiber v3 keeps request handling fast, so counter SVGs respond quickly even under embed traffic.
-**Frontend**: Vue (Nuxt 4 SSG) / UnoCSS / GSAP
-**Storage**: request → in-memory buffer → batched writes → SQLite
-**Deployment**: single binary (embed.FS bundles themes + frontend dist)
-For more technical details, see the following documents:
-| Document | Content |
-|---|---|
-| [docs/architecture.md](./docs/architecture.md) | Architecture, project structure, tech choices |
-| [docs/deployment.md](./docs/deployment.md) | Usage & deployment (Win/Mac/Linux) |
-| [docs/projectDesign.md](./docs/projectDesign.md) | Project design & interface contract |
-| [docs/TODOlist.md](./docs/TODOlist.md) | Milestones & task status |
+Open [localhost:9721](http://localhost:9721) to generate counters. Data is saved in the `lolicount-data` volume. Run a single instance; when using a public domain, set `BASE_URL` to that origin, such as `https://counter.example.com`.
 
-## License
+See the [deployment guide](./docs/deployment.md) for Docker Compose, configuration, and binary builds.
 
-This project is licensed under the [AGPL-3.0](./LICENSE) license.
+## Local development
 
-本项目基于 [AGPL-3.0](./LICENSE) 协议开源。
+With Go 1.25+, Node.js 22+, and pnpm 11 installed, run these commands from the repository root:
 
-![lolicount](https://lolicount.top/@lolicount?theme=lian-ren&fsize=16&scale=1&unshowf=true)
+```sh
+pnpm install
+pnpm --dir web install
+pnpm dev
+```
+
+Open [localhost:3721](http://localhost:3721) for the frontend. The backend runs at [127.0.0.1:9721](http://127.0.0.1:9721).
+
+## Contribute & support
+
+- [Contributing](./CONTRIBUTING.md) · [Add a theme](./docs/contributing-themes.md) · [Contribute code](./docs/contributing-code.md)
+- [Documentation](./docs/index.md) · [Architecture](./docs/architecture.md) · [Roadmap](./docs/TODOlist.md)
+- [Buy the author a milk tea](https://github.com/sponsors/miaoledor) 🧋
+
+Thanks to [kun-galgame-forum](https://github.com/KunMoe/kun-galgame-forum) and [Moe-Counter](https://github.com/journey-ad/Moe-Counter).
+
+Licensed under [AGPL-3.0](./LICENSE).
+
+![Lolicount](https://lolicount.top/@lolicount?theme=lian-ren&fsize=16&scale=1&unshowf=true)
