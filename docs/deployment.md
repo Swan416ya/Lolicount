@@ -52,6 +52,8 @@ npm install -g pnpm
 根目录 `package.json` 用 `concurrently` 同时启动后端(Go :9721)和前端
 (Nuxt :3721),脚本本身跨平台,无需为不同系统改命令:
 
+根目录的 pnpm workspace 包含 `web`,执行一次 `pnpm install` 即可安装开发工具和前端依赖。
+
 ```bash
 git clone https://github.com/miaoledor/Lolicount.git
 cd Lolicount

@@ -61,7 +61,6 @@ Docker Compose、环境配置和二进制构建见[部署文档](./docs/deployme
 
 ```sh
 pnpm install
-pnpm --dir web install
 pnpm dev
 ```
 

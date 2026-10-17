@@ -61,7 +61,6 @@ With Go 1.25+, Node.js 22+, and pnpm 11 installed, run these commands from the r
 
 ```sh
 pnpm install
-pnpm --dir web install
 pnpm dev
 ```
 

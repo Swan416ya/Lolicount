@@ -4,8 +4,10 @@ Nuxt 4 SSG frontend for Lolicount.
 
 ## Commands
 
+Run these commands from the repository root. The workspace installs both the development tools and frontend dependencies together.
+
 ```bash
-pnpm --dir web install
+pnpm install
 pnpm --dir web dev
 pnpm --dir web generate
 ```

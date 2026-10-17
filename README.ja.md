@@ -61,7 +61,6 @@ Go 1.25+、Node.js 22+、pnpm 11 を用意し、リポジトリのルートで�
 
 ```sh
 pnpm install
-pnpm --dir web install
 pnpm dev
 ```
 

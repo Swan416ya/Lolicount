@@ -14,8 +14,9 @@ ARG BASE_URL=""
 ENV NUXT_PUBLIC_BASE_URL=$BASE_URL
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@11.25.0 --activate
-COPY web/pnpm-lock.yaml web/package.json web/.npmrc ./web/
-RUN cd web && pnpm install --config.dangerouslyAllowAllBuilds=true
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY web/package.json ./web/
+RUN pnpm --filter web install --frozen-lockfile
 COPY web/ ./web/
 RUN cd web && pnpm generate
 

@@ -41,6 +41,8 @@ scripts/            主题校验 / 生成 / 构建 / 图片优化脚本
 
 ## 开发流程
 
+在仓库根目录运行,workspace 会统一安装根目录和 `web` 的依赖。
+
 ```bash
 pnpm install        # 安装 concurrently + 前端依赖
 pnpm dev            # 同时启动前后端(跨平台 macOS/win/linux)

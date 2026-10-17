@@ -31,10 +31,9 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: web/pnpm-lock.yaml
+          cache-dependency-path: pnpm-lock.yaml
       - name: Install frontend deps
-        run: pnpm install --config.dangerouslyAllowAllBuilds=true
-        working-directory: web
+        run: pnpm install --frozen-lockfile
       - name: Build frontend (SSG)
         # BASE_URL is baked into the SSG bundle so embed links point at the
         # public domain. Set it as a GitHub Actions variable (Settings →
