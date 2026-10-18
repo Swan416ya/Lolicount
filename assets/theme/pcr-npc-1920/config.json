@@ -1,0 +1,99 @@
+{
+  "sets": [
+    {
+      "name": "192011",
+      "canvasW": 419,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 1,
+          "last": 1
+        },
+        "eye": {
+          "first": 2,
+          "last": 20
+        },
+        "mouth": {
+          "first": 21,
+          "last": 45
+        }
+      }
+    },
+    {
+      "name": "192012",
+      "canvasW": 644,
+      "canvasH": 567,
+      "ranges": {
+        "body": {
+          "first": 46,
+          "last": 46
+        },
+        "eye": {
+          "first": 47,
+          "last": 63
+        },
+        "mouth": {
+          "first": 64,
+          "last": 85
+        }
+      }
+    },
+    {
+      "name": "192013",
+      "canvasW": 628,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 86,
+          "last": 86
+        },
+        "eye": {
+          "first": 87,
+          "last": 87
+        },
+        "mouth": {
+          "first": 88,
+          "last": 88
+        }
+      }
+    },
+    {
+      "name": "192014",
+      "canvasW": 509,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 89,
+          "last": 89
+        },
+        "eye": {
+          "first": 90,
+          "last": 106
+        },
+        "mouth": {
+          "first": 107,
+          "last": 128
+        }
+      }
+    },
+    {
+      "name": "192015",
+      "canvasW": 491,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 129,
+          "last": 129
+        },
+        "eye": {
+          "first": 130,
+          "last": 130
+        },
+        "mouth": {
+          "first": 131,
+          "last": 131
+        }
+      }
+    }
+  ]
+}

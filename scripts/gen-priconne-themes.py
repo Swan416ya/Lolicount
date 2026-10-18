@@ -35,6 +35,8 @@ def decode(png):
 def export(result, dest, name, label):
     """Keep exact alpha, deduplicate complete pixels and verify reference blends."""
     size = (result["width"], result["height"])
+    # Layer images are content-cropped, so placement plus size lives in ren.json
+    # alone; recording it in config.json would go stale on re-export.
     manifest = [{"layer_id": 0}]
     ranges, seen, by_name = {}, {}, {}
     ren = dest / name / "ren"
@@ -50,15 +52,16 @@ def export(result, dest, name, label):
         by_name[part["name"]] = image
         crop = image.crop(box)
         category = part["category"]
+        # Layer images are content-cropped, so placement plus size lives in
+        # ren.json alone and re-encoding an identical part changes nothing.
         key = (category, box, hashlib.sha256(crop.tobytes()).hexdigest())
         if key in seen:
             continue
         seen[key] = True
         layer_id = len(manifest)
-        crop.save(ren / f"{layer_id}.webp", lossless=True, method=4)
+        crop.save(ren / f"{layer_id}.webp", lossless=True, exact=True, method=4)
         manifest.append({"name": part["name"], "left": box[0], "top": box[1],
-                         "width": crop.width, "height": crop.height, "visible": 1,
-                         "layer_id": layer_id, "group_layer_id": 0})
+                         "visible": 1, "layer_id": layer_id, "group_layer_id": 0})
         if category not in ranges:
             ranges[category] = {"first": layer_id, "last": layer_id}
         ranges[category]["last"] = layer_id

@@ -1,0 +1,15 @@
+{
+  "sets": [
+    {
+      "name": "001911",
+      "canvasW": 423,
+      "canvasH": 459,
+      "ranges": {
+        "body": {
+          "first": 1,
+          "last": 1
+        }
+      }
+    }
+  ]
+}

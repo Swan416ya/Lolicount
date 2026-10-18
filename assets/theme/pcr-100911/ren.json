@@ -46,7 +46,7 @@
     "name": "joy_eyeOpen",
     "left": 274,
     "top": 111,
-    "width": 123,
+    "width": 122,
     "height": 103,
     "visible": 1,
     "layer_id": 5,
@@ -55,9 +55,9 @@
   {
     "name": "normal_eyeClose",
     "left": 278,
-    "top": 110,
+    "top": 111,
     "width": 116,
-    "height": 103,
+    "height": 102,
     "visible": 1,
     "layer_id": 6,
     "group_layer_id": 0
@@ -65,9 +65,9 @@
   {
     "name": "normal_eyeOpen",
     "left": 274,
-    "top": 110,
+    "top": 111,
     "width": 123,
-    "height": 103,
+    "height": 102,
     "visible": 1,
     "layer_id": 7,
     "group_layer_id": 0
@@ -86,7 +86,7 @@
     "name": "sad_eyeOpen",
     "left": 275,
     "top": 118,
-    "width": 122,
+    "width": 121,
     "height": 95,
     "visible": 1,
     "layer_id": 9,
@@ -145,9 +145,9 @@
   {
     "name": "anger_mouthOpen",
     "left": 320,
-    "top": 195,
+    "top": 196,
     "width": 26,
-    "height": 17,
+    "height": 16,
     "visible": 1,
     "layer_id": 15,
     "group_layer_id": 0
@@ -155,9 +155,9 @@
   {
     "name": "anger_mouthOpen2",
     "left": 320,
-    "top": 198,
+    "top": 199,
     "width": 26,
-    "height": 11,
+    "height": 10,
     "visible": 1,
     "layer_id": 16,
     "group_layer_id": 0
@@ -166,7 +166,7 @@
     "name": "joy_mouthClose",
     "left": 315,
     "top": 196,
-    "width": 34,
+    "width": 33,
     "height": 12,
     "visible": 1,
     "layer_id": 17,
@@ -174,10 +174,10 @@
   },
   {
     "name": "joy_mouthOpen",
-    "left": 312,
-    "top": 194,
-    "width": 37,
-    "height": 19,
+    "left": 313,
+    "top": 195,
+    "width": 36,
+    "height": 18,
     "visible": 1,
     "layer_id": 18,
     "group_layer_id": 0
@@ -205,9 +205,9 @@
   {
     "name": "sad_mouthOpen2",
     "left": 323,
-    "top": 202,
+    "top": 203,
     "width": 20,
-    "height": 8,
+    "height": 7,
     "visible": 1,
     "layer_id": 21,
     "group_layer_id": 0
@@ -235,9 +235,9 @@
   {
     "name": "surprised_mouthOpen",
     "left": 315,
-    "top": 195,
+    "top": 196,
     "width": 32,
-    "height": 17,
+    "height": 16,
     "visible": 1,
     "layer_id": 24,
     "group_layer_id": 0
@@ -245,9 +245,9 @@
   {
     "name": "surprised_mouthOpen2",
     "left": 314,
-    "top": 198,
+    "top": 199,
     "width": 34,
-    "height": 12,
+    "height": 11,
     "visible": 1,
     "layer_id": 25,
     "group_layer_id": 0

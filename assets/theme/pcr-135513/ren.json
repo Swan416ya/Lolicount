@@ -6,8 +6,8 @@
     "name": "default_body",
     "left": 2,
     "top": 2,
-    "width": 640,
-    "height": 617,
+    "width": 800,
+    "height": 771,
     "visible": 1,
     "layer_id": 1,
     "group_layer_id": 0
@@ -16,8 +16,8 @@
     "name": "normal_eyeClose",
     "left": 2,
     "top": 2,
-    "width": 640,
-    "height": 617,
+    "width": 800,
+    "height": 771,
     "visible": 1,
     "layer_id": 2,
     "group_layer_id": 0
@@ -26,8 +26,8 @@
     "name": "normal_mouthClose",
     "left": 2,
     "top": 2,
-    "width": 640,
-    "height": 617,
+    "width": 800,
+    "height": 771,
     "visible": 1,
     "layer_id": 3,
     "group_layer_id": 0

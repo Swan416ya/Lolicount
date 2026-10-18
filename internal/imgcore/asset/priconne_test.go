@@ -31,10 +31,36 @@ func TestPriconnePortraits(t *testing.T) {
 	if err := json.Unmarshal(exclusionJSON, &exclusions); err != nil {
 		t.Fatal(err)
 	}
+	nameJSON, err := os.ReadFile("../../../scripts/priconne-names.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var names map[string]string
+	if err := json.Unmarshal(nameJSON, &names); err != nil {
+		t.Fatal(err)
+	}
+	silhouetteJSON, err := os.ReadFile("../../../scripts/priconne-silhouettes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var silhouettes map[string]string
+	if err := json.Unmarshal(silhouetteJSON, &silhouettes); err != nil {
+		t.Fatal(err)
+	}
 	expected := make(map[string]bool)
 	for _, match := range regexp.MustCompile(`spine_full_(\d+)`).FindAllStringSubmatch(string(source), -1) {
-		if _, excluded := exclusions[match[1]]; !excluded {
-			expected["pcr-"+match[1]] = true
+		modelID := match[1]
+		if _, excluded := exclusions[modelID]; excluded {
+			continue
+		}
+		if _, silhouette := silhouettes[modelID]; silhouette {
+			continue
+		}
+		label := names[modelID[:4]]
+		if label == "" || strings.HasPrefix(label, "Story ") {
+			expected["pcr-npc-"+modelID[:4]] = true
+		} else {
+			expected["pcr-"+modelID] = true
 		}
 	}
 	if len(expected) == 0 {
@@ -65,35 +91,54 @@ func TestPriconnePortraits(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			for category, span := range portrait.Config.Ranges {
-				if span.First < 1 || span.Last < span.First || span.Last >= len(portrait.Manifest) {
-					t.Fatalf("%s: invalid manifest range %+v", category, span)
+			type configSet struct {
+				canvasW int
+				canvasH int
+				ranges  map[string]asset.PartRange
+			}
+			sets := []configSet{{canvasW: portrait.Config.CanvasW, canvasH: portrait.Config.CanvasH, ranges: portrait.Config.Ranges}}
+			if len(portrait.Config.Sets) > 0 {
+				sets = nil
+				for _, configured := range portrait.Config.Sets {
+					sets = append(sets, configSet{canvasW: configured.CanvasW, canvasH: configured.CanvasH, ranges: configured.Ranges})
 				}
-				for i := span.First; i <= span.Last; i++ {
-					layer := portrait.Manifest[i]
-					if category == "body" && !strings.HasSuffix(layer.Name, "_body") || category == "eye" && !strings.Contains(layer.Name, "_eye") || category == "mouth" && !strings.Contains(layer.Name, "_mouth") {
-						t.Fatalf("%s range includes unrelated layer %q", category, layer.Name)
+			}
+			multiple := len(sets) > 1
+			expectedVariants := 0
+			for _, configured := range sets {
+				setVariants := 1
+				for category, span := range configured.ranges {
+					if span.First < 1 || span.Last < span.First || span.Last >= len(portrait.Manifest) {
+						t.Fatalf("%s: invalid manifest range %+v", category, span)
 					}
-					part, ok := portrait.Parts[layer.LayerID]
-					if !ok || part.Width != layer.Width || part.Height != layer.Height {
-						t.Fatalf("layer %d missing or dimensions disagree with manifest", layer.LayerID)
+					for i := span.First; i <= span.Last; i++ {
+						layer := portrait.Manifest[i]
+						if category == "body" && !strings.HasSuffix(layer.Name, "_body") || category == "eye" && !strings.Contains(layer.Name, "_eye") || category == "mouth" && !strings.Contains(layer.Name, "_mouth") {
+							t.Fatalf("%s range includes unrelated layer %q", category, layer.Name)
+						}
+						part, ok := portrait.Parts[layer.LayerID]
+						if !ok || part.Width != layer.Width || part.Height != layer.Height {
+							t.Fatalf("layer %d missing or dimensions disagree with manifest", layer.LayerID)
+						}
+						if layer.Left < 0 || layer.Top < 0 || layer.Left+layer.Width > configured.canvasW || layer.Top+layer.Height > configured.canvasH {
+							t.Fatalf("layer %d falls outside canvas", layer.LayerID)
+						}
 					}
-					if layer.Left < 0 || layer.Top < 0 || layer.Left+layer.Width > portrait.Config.CanvasW || layer.Top+layer.Height > portrait.Config.CanvasH {
-						t.Fatalf("layer %d falls outside canvas", layer.LayerID)
-					}
+					multiple = multiple || span.Last > span.First
+					setVariants *= span.Last - span.First + 1
 				}
+				expectedVariants += setVariants
+			}
+			catalog := catalogs[entry.Name()]
+			if catalog == nil {
+				t.Fatal("portrait is absent from the production theme catalog")
+			}
+			if catalog.Variants != expectedVariants {
+				t.Fatalf("catalog variants = %d, want additive set total %d", catalog.Variants, expectedVariants)
 			}
 			var first string
 			varies := false
-			multiple := false
-			for _, span := range portrait.Config.Ranges {
-				multiple = multiple || span.Last > span.First
-			}
 			for seed := 0; seed < 8; seed++ {
-				catalog := catalogs[entry.Name()]
-				if catalog == nil {
-					t.Fatal("portrait is absent from the production theme catalog")
-				}
 				theme, err := asset.AssembleTheme(root, catalog, func(n int) int { return seed % n })
 				if err != nil {
 					t.Fatal(err)
@@ -102,7 +147,11 @@ func TestPriconnePortraits(t *testing.T) {
 				if err != nil {
 					t.Fatal(err)
 				}
-				if got := strings.Count(svg, "<image "); got != len(portrait.Config.Ranges) {
+				selected := sets[0]
+				if len(portrait.Config.Sets) > 0 {
+					selected = sets[seed%len(sets)]
+				}
+				if got := strings.Count(svg, "<image "); got != len(selected.ranges) {
 					t.Fatalf("rendered %d parts, want one per category", got)
 				}
 				decoder := xml.NewDecoder(strings.NewReader(svg))

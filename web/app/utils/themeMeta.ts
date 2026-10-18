@@ -24,6 +24,7 @@ export type ThemeMeta = {
   character: string;
   romaji: string;
   aliases: string[];
+  unnamed?: boolean;
   // Optional per-frame character mapping for multi-character card themes
   // (legacy field kept for card themes that mix characters).
   frames?: ThemeFrameInfo[];

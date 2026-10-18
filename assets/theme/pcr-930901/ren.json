@@ -25,9 +25,9 @@
   {
     "name": "normal_mouthClose",
     "left": 289,
-    "top": 340,
+    "top": 341,
     "width": 25,
-    "height": 9,
+    "height": 8,
     "visible": 1,
     "layer_id": 3,
     "group_layer_id": 0
@@ -35,9 +35,9 @@
   {
     "name": "normal_mouthOpen",
     "left": 289,
-    "top": 337,
-    "width": 27,
-    "height": 21,
+    "top": 338,
+    "width": 26,
+    "height": 20,
     "visible": 1,
     "layer_id": 4,
     "group_layer_id": 0
@@ -45,9 +45,9 @@
   {
     "name": "normal_mouthOpen2",
     "left": 289,
-    "top": 340,
+    "top": 341,
     "width": 26,
-    "height": 16,
+    "height": 14,
     "visible": 1,
     "layer_id": 5,
     "group_layer_id": 0

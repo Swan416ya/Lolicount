@@ -104,9 +104,15 @@ const groups = computed<ThemeGroup[]>(() => {
     hot.forEach((x) => consumed.add(x.name))
   }
   for (const key of gameOptions.value) {
-    const items = filteredThemes.value.filter(
-      (tth) => !consumed.has(tth.name) && (tth.meta?.gameKey ?? 'other') === key,
-    )
+    // Princess Connect lists named characters first and unnamed NPC themes at
+    // the end of the group, matching how the portraits are named.
+    const items = filteredThemes.value
+      .filter((tth) => !consumed.has(tth.name) && (tth.meta?.gameKey ?? 'other') === key)
+      .sort((a, b) => {
+        if (key !== 'princess-connect') return 0
+        const unnamedOrder = Number(a.meta?.unnamed ?? false) - Number(b.meta?.unnamed ?? false)
+        return unnamedOrder || a.name.localeCompare(b.name)
+      })
     if (items.length > 0) {
       out.push({ key, label: gameLabel(key), hot: false, items })
     }

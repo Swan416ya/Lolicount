@@ -5,9 +5,9 @@
   {
     "name": "default_body",
     "left": 2,
-    "top": 2,
-    "width": 549,
-    "height": 640,
+    "top": 3,
+    "width": 687,
+    "height": 800,
     "visible": 1,
     "layer_id": 1,
     "group_layer_id": 0
@@ -15,9 +15,9 @@
   {
     "name": "normal_eyeClose",
     "left": 2,
-    "top": 2,
-    "width": 549,
-    "height": 640,
+    "top": 3,
+    "width": 687,
+    "height": 800,
     "visible": 1,
     "layer_id": 2,
     "group_layer_id": 0
@@ -25,9 +25,9 @@
   {
     "name": "normal_mouthClose",
     "left": 2,
-    "top": 2,
-    "width": 549,
-    "height": 640,
+    "top": 3,
+    "width": 687,
+    "height": 800,
     "visible": 1,
     "layer_id": 3,
     "group_layer_id": 0

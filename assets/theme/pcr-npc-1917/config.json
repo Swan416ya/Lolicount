@@ -1,0 +1,137 @@
+{
+  "sets": [
+    {
+      "name": "191711",
+      "canvasW": 644,
+      "canvasH": 415,
+      "ranges": {
+        "body": {
+          "first": 1,
+          "last": 1
+        },
+        "eye": {
+          "first": 2,
+          "last": 16
+        },
+        "mouth": {
+          "first": 17,
+          "last": 42
+        }
+      }
+    },
+    {
+      "name": "191712",
+      "canvasW": 644,
+      "canvasH": 379,
+      "ranges": {
+        "body": {
+          "first": 43,
+          "last": 43
+        },
+        "eye": {
+          "first": 44,
+          "last": 57
+        },
+        "mouth": {
+          "first": 58,
+          "last": 83
+        }
+      }
+    },
+    {
+      "name": "191713",
+      "canvasW": 644,
+      "canvasH": 398,
+      "ranges": {
+        "body": {
+          "first": 84,
+          "last": 84
+        },
+        "eye": {
+          "first": 85,
+          "last": 88
+        },
+        "mouth": {
+          "first": 89,
+          "last": 100
+        }
+      }
+    },
+    {
+      "name": "191714",
+      "canvasW": 644,
+      "canvasH": 415,
+      "ranges": {
+        "body": {
+          "first": 101,
+          "last": 101
+        },
+        "eye": {
+          "first": 102,
+          "last": 116
+        },
+        "mouth": {
+          "first": 117,
+          "last": 142
+        }
+      }
+    },
+    {
+      "name": "191731",
+      "canvasW": 316,
+      "canvasH": 645,
+      "ranges": {
+        "body": {
+          "first": 143,
+          "last": 143
+        },
+        "eye": {
+          "first": 144,
+          "last": 156
+        },
+        "mouth": {
+          "first": 157,
+          "last": 176
+        }
+      }
+    },
+    {
+      "name": "191732",
+      "canvasW": 317,
+      "canvasH": 645,
+      "ranges": {
+        "body": {
+          "first": 177,
+          "last": 177
+        },
+        "eye": {
+          "first": 178,
+          "last": 190
+        },
+        "mouth": {
+          "first": 191,
+          "last": 210
+        }
+      }
+    },
+    {
+      "name": "191733",
+      "canvasW": 316,
+      "canvasH": 645,
+      "ranges": {
+        "body": {
+          "first": 211,
+          "last": 211
+        },
+        "eye": {
+          "first": 212,
+          "last": 212
+        },
+        "mouth": {
+          "first": 213,
+          "last": 213
+        }
+      }
+    }
+  ]
+}
