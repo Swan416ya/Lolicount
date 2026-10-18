@@ -1,13 +1,14 @@
 {
   "name": "pcr-npc-1073",
-  "description": "Princess Connect! Re:Dive / Story 1073; 3 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+  "description": "Princess Connect! Re:Dive / ラジラジ (拉基拉基); 3 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
     "公主连结",
     "プリコネ",
-    "Story 1073",
-    "NPC"
+    "ラジラジ",
+    "拉基拉基",
+    "Story 1073"
   ],
   "version": "1.1.0"
 }

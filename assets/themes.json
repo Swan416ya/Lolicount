@@ -19228,14 +19228,15 @@
       "name": "pcr-npc-0021",
       "frames": 7,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0021; 5 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / プキチ (噗吉); 5 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0021",
-        "NPC"
+        "プキチ",
+        "噗吉",
+        "Story 0021"
       ],
       "version": "1.1.0"
     },
@@ -19258,14 +19259,15 @@
       "name": "pcr-npc-0024",
       "frames": 14,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0024; 6 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ドクロ親父 (骷髅老爸); 6 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0024",
-        "NPC"
+        "ドクロ親父",
+        "骷髅老爸",
+        "Story 0024"
       ],
       "version": "1.1.0"
     },
@@ -19288,14 +19290,15 @@
       "name": "pcr-npc-0026",
       "frames": 69,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0026; 2 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / パック (帕克); 2 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0026",
-        "NPC"
+        "パック",
+        "帕克",
+        "Story 0026"
       ],
       "version": "1.1.0"
     },
@@ -19319,14 +19322,15 @@
       "name": "pcr-npc-0028",
       "frames": 25,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0028; 2 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ペテルギウス (培提尔其乌斯); 2 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0028",
-        "NPC"
+        "ペテルギウス",
+        "培提尔其乌斯",
+        "Story 0028"
       ],
       "version": "1.1.0"
     },
@@ -19454,14 +19458,14 @@
       "name": "pcr-npc-0042",
       "frames": 30,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0042; 1 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / モーラ (モーラ); 1 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0042",
-        "NPC"
+        "モーラ",
+        "Story 0042"
       ],
       "version": "1.1.0"
     },
@@ -20264,14 +20268,15 @@
       "name": "pcr-npc-0108",
       "frames": 3,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0108; 2 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ガミ (伽米); 2 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0108",
-        "NPC"
+        "ガミ",
+        "伽米",
+        "Story 0108"
       ],
       "version": "1.1.0"
     },
@@ -20279,14 +20284,14 @@
       "name": "pcr-npc-0111",
       "frames": 7,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0111; 3 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / 哀叹女神 (哀叹女神); 3 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0111",
-        "NPC"
+        "哀叹女神",
+        "Story 0111"
       ],
       "version": "1.1.0"
     },
@@ -20339,14 +20344,14 @@
       "name": "pcr-npc-0125",
       "frames": 5,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0125; 1 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ボストナカイ (ボストナカイ); 1 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0125",
-        "NPC"
+        "ボストナカイ",
+        "Story 0125"
       ],
       "version": "1.1.0"
     },
@@ -21269,14 +21274,15 @@
       "name": "pcr-npc-1062",
       "frames": 86,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1062; 3 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / オクトー (尾狗刀); 3 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1062",
-        "NPC"
+        "オクトー",
+        "尾狗刀",
+        "Story 1062"
       ],
       "version": "1.1.0"
     },
@@ -21299,14 +21305,15 @@
       "name": "pcr-npc-1073",
       "frames": 91,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1073; 3 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ラジラジ (拉基拉基); 3 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1073",
-        "NPC"
+        "ラジラジ",
+        "拉基拉基",
+        "Story 1073"
       ],
       "version": "1.1.0"
     },
@@ -21615,14 +21622,15 @@
       "name": "pcr-npc-1907",
       "frames": 89,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1907; 3 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ダイゴ (大吾); 3 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1907",
-        "NPC"
+        "ダイゴ",
+        "大吾",
+        "Story 1907"
       ],
       "version": "1.1.0"
     },
@@ -21630,14 +21638,15 @@
       "name": "pcr-npc-1909",
       "frames": 69,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1909; 2 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ネビア (涅比亚); 2 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1909",
-        "NPC"
+        "ネビア",
+        "涅比亚",
+        "Story 1909"
       ],
       "version": "1.1.0"
     },
@@ -21645,14 +21654,15 @@
       "name": "pcr-npc-1910",
       "frames": 61,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1910; 2 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / マサキ (真崎); 2 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1910",
-        "NPC"
+        "マサキ",
+        "真崎",
+        "Story 1910"
       ],
       "version": "1.1.0"
     },
@@ -21660,14 +21670,15 @@
       "name": "pcr-npc-1911",
       "frames": 87,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1911; 5 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ミネルヴァβ (米奈瓦β); 5 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1911",
-        "NPC"
+        "ミネルヴァβ",
+        "米奈瓦β",
+        "Story 1911"
       ],
       "version": "1.1.0"
     },
@@ -21690,14 +21701,14 @@
       "name": "pcr-npc-1917",
       "frames": 213,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1917; 7 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / ゼーン (ゼーン); 7 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1917",
-        "NPC"
+        "ゼーン",
+        "Story 1917"
       ],
       "version": "1.1.0"
     },

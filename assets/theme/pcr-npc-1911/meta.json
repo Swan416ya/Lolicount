@@ -1,13 +1,14 @@
 {
   "name": "pcr-npc-1911",
-  "description": "Princess Connect! Re:Dive / Story 1911; 5 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+  "description": "Princess Connect! Re:Dive / ミネルヴァβ (米奈瓦β); 5 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
     "公主连结",
     "プリコネ",
-    "Story 1911",
-    "NPC"
+    "ミネルヴァβ",
+    "米奈瓦β",
+    "Story 1911"
   ],
   "version": "1.1.0"
 }

@@ -1,10 +1,10 @@
 # 公主连结剧情立绘主题
 
-新增公主连结静态立绘主题。有名字的角色继续使用 `pcr-<story-model-id>`，每套服装和剧情姿势各自独立；无可靠姓名的路人使用 `pcr-npc-<story-character-id>`，同一 NPC 的多套服装合并到一个主题。剧情立绘在姓名冻结前就已按编号合并的主题保持 `pcr-npc-<story-character-id>` 形式，其中后来确认了姓名的角色（`0027` スバル / 菜月昴、`1000` 主人公 / 佑树、`1900` アメス / 爱梅斯）沿用该主题：只把标题、罗马音与搜索别名换成角色名，不重新拆分，以免改动已经逐层校验过的分层快照。这些「已命名但保留合并主题」的编号显式列在 [priconne-consolidated-named.json](../scripts/priconne-consolidated-named.json)，新增条目需要同时提供主题，否则测试会要求回到每套服装一个主题。
+新增公主连结静态立绘主题。有名字的角色继续使用 `pcr-<story-model-id>`，每套服装和剧情姿势各自独立；无可靠姓名的路人使用 `pcr-npc-<story-character-id>`，同一 NPC 的多套服装合并到一个主题。剧情立绘在姓名冻结前就已按编号合并的主题保持 `pcr-npc-<story-character-id>` 形式，其中后来确认了姓名的角色沿用该主题：只把标题、罗马音与搜索别名换成角色名，不重新拆分，以免改动已经逐层校验过的分层快照。这些「已命名但保留合并主题」的编号显式列在 [priconne-consolidated-named.json](../scripts/priconne-consolidated-named.json)，新增条目需要同时提供主题，否则测试会要求回到每套服装一个主题。
 
 主题覆盖两份资源清单中的角色立绘，包含剧情姿势、现实世界服装和 NPC；导出数量与验证结果见本页下方的快照验证记录。
 
-快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影和所有最终变化数为 1 的主题后，由 **1,657 套可见服装**整理为 **1,406 个主题**（1,204 个有名角色服装主题与 202 个无名主题，后者合计 446 套服装），包含 **47,763 张去重分层与 353,443 种组合**，分层 WebP 合计约 **544.0 MiB**。像素完全相同的 NPC 服装合并时只保留一套。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
+快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影和所有最终变化数为 1 的主题后，由 **1,657 套可见服装**整理为 **1,406 个主题**（1,219 个有名角色服装主题与 187 个无名主题，后者合计 399 套服装），包含 **47,763 张去重分层与 353,443 种组合**，分层 WebP 合计约 **544.0 MiB**。像素完全相同的 NPC 服装合并时只保留一套。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
 
 ## 素材范围与来源
 
@@ -12,7 +12,8 @@
 - [priconne-exclusions.json](../scripts/priconne-exclusions.json) 明确列出 128 个非立绘资源（答题面板、标题特效、道具或占位项）。另删除 [priconne-silhouettes.json](../scripts/priconne-silhouettes.json) 中 102 个角色未登场半透明剪影，并按 [priconne-single-variant-themes.json](../scripts/priconne-single-variant-themes.json) 删除合并后仍只有一种变化的全部 134 个主题，不区分有名角色、反派或 NPC。覆盖本次清单中的目标素材，不代表全部游戏素材或未来版本。
 - 公开提取工具：[lskyset/priconne-asset-extractor](https://github.com/lskyset/priconne-asset-extractor) 支持下载游戏资源清单、提取 Unity 图片与文本；[MightyZanark/PriconneUtils](https://github.com/MightyZanark/PriconneUtils) 也提供日服资源下载流程。它们是工具仓库，并非完整美术素材镜像。
 - 原始资源来自游戏公开 CDN `https://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/<hash 前两位>/<hash>`。本 PR 提交处理后的静态分层，不提交 Unity 资源包或游戏数据库。
-- 日文名称来自游戏主数据库的单位/角色记录，冻结在 [priconne-names.json](../scripts/priconne-names.json)；少数只有剧情立绘、主数据库里没有单位行的角色（`0027` スバル、`1000` 主人公）由立绘本身确认后加入同一份冻结表。中文名称、罗马音与英文别名分别冻结在 [priconne-zh-names.json](../scripts/priconne-zh-names.json)、[priconne-romaji.json](../scripts/priconne-romaji.json) 和 [priconne-english-aliases.json](../scripts/priconne-english-aliases.json)，中文对照 [wthee/pcr-tool-sql-diff](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/cn/data/unit_data.sql)；该项目也提供[公开数据库字段映射](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/jp_hash)。没有可靠姓名的立绘按编号前四位归并为 202 个保留主题，重新导出后像素内容完全相同的服装只保留一套；其中后来确认姓名的剧情角色（`0027`、`1000`、`1900`）沿用同编号的合并主题，只改用角色名与搜索别名；保留主题的所有源模型编号仍作为搜索别名保留。编号前四位与角色的对应只在可逐个立绘核对时使用：例如 `1916` 的主题里全是吉祥物类立绘，`1927` 的立绘与雪菲（`unit 192701`）已知的全部形态都不相似，`1917` 虽有 `unit 191701 = 主人公` 的记录，组内黑翼骑士与便装青年的造型也无法与主人公的其它立绘对上，这三个主题都刻意保持无名，不按前缀命名。
+- 名称有两个来源：游戏主数据库的单位/角色记录，以及剧情脚本本身。剧情文本用 [Overseer-Council/PrincessConnectRedive_story_extraction](https://github.com/Overseer-Council/PrincessConnectRedive_story_extraction) 的命令清单，每个 `focus`（台词＋名牌）前最近的 `type`/`visible`/`jump`/`in_*` 参数就是该立绘的角色编号；把 4,330 个剧情文件按编号投票，只接受跨多个文件一致的名牌，得到逐 **立绘编号**（不是前四位前缀）的角色名。日文与中文名称分别冻结在 [priconne-names.json](../scripts/priconne-names.json) 和 [priconne-zh-names.json](../scripts/priconne-zh-names.json)，罗马音与英文别名在 [priconne-romaji.json](../scripts/priconne-romaji.json) 和 [priconne-english-aliases.json](../scripts/priconne-english-aliases.json)，中文另对照 [wthee/pcr-tool-sql-diff](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/cn/data/unit_data.sql) 与[公开数据库字段映射](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/jp_hash)。没有可靠姓名的立绘按编号前四位归并为 187 个保留主题，重新导出后像素内容完全相同的服装只保留一套；已确认姓名的剧情角色沿用同编号的合并主题，只改用角色名与搜索别名，保留主题的所有源模型编号仍是搜索别名。
+- 名牌里描述性的称呼（`男孩`、`女孩子`、`村长`、`ギャング１`、`兵士１`、`スライム（赤）` 等）不算姓名：这些主题保持无名，只把名牌加进搜索别名。编号前四位与角色的对应只在逐个立绘核对过时才使用，例如 `1914` 的 `191411` 是 `ゴウシン`（旧版按前缀错标成可可萝，已按剧情文本修正），同编号的 `191412`/`191413` 在剧情文本里没有名牌，暂随该 stem 命名；`1916` 的主题整组是吉祥物立绘，`1927` 的立绘与雪菲（`unit 192701`）已知的全部形态都不相似，两者都刻意保持无名，不按前缀命名。
 - 原游戏美术版权归 Cygames 等各权利方所有；工具仓库的代码许可不等同于游戏美术许可。
 
 ## 分层格式与处理

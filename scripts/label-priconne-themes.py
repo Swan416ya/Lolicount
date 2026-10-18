@@ -1,4 +1,4 @@
-﻿"""Name every Princess Connect story portrait after its story model row."""
+"""Name every Princess Connect story portrait after its story model row."""
 
 import argparse
 import ctypes
@@ -70,11 +70,14 @@ def npc_row(repo, name, names, silhouettes, chinese, language, aliases):
     )
     japanese = names.get(key, f"Story {key}")
     if japanese.startswith("Story "):
+        # Story nameplates such as 男孩 or 村长 describe a nameless extra; they
+        # stay searchable aliases instead of becoming the theme title.
+        terms = [key, japanese, *outfits, *aliases.get(key, [])]
         return {
             "name": f"pcr-{name}",
             "character": japanese,
             "romaji": japanese,
-            "aliases": sorted({key, japanese, *outfits}),
+            "aliases": list(dict.fromkeys(term for term in terms if term)),
             "unnamed": True,
             "storyCharacter": key,
         }
