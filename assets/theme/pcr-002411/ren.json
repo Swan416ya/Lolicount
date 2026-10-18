@@ -1,0 +1,15 @@
+[
+  {
+    "layer_id": 0
+  },
+  {
+    "name": "default_body",
+    "left": 3,
+    "top": 3,
+    "width": 475,
+    "height": 451,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 0
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "layer_id": 0
+  },
+  {
+    "name": "default_body",
+    "left": 2,
+    "top": 2,
+    "width": 390,
+    "height": 368,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_eyeClose",
+    "left": 36,
+    "top": 228,
+    "width": 86,
+    "height": 50,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthClose",
+    "left": 44,
+    "top": 281,
+    "width": 66,
+    "height": 38,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthOpen",
+    "left": 44,
+    "top": 282,
+    "width": 66,
+    "height": 39,
+    "visible": 1,
+    "layer_id": 4,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthOpen2",
+    "left": 44,
+    "top": 281,
+    "width": 66,
+    "height": 39,
+    "visible": 1,
+    "layer_id": 5,
+    "group_layer_id": 0
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "layer_id": 0
+  },
+  {
+    "name": "default_body",
+    "left": 2,
+    "top": 3,
+    "width": 640,
+    "height": 410,
+    "visible": 1,
+    "layer_id": 1,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_eyeClose",
+    "left": 240,
+    "top": 196,
+    "width": 7,
+    "height": 9,
+    "visible": 1,
+    "layer_id": 2,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthClose",
+    "left": 240,
+    "top": 196,
+    "width": 7,
+    "height": 9,
+    "visible": 1,
+    "layer_id": 3,
+    "group_layer_id": 0
+  }
+]

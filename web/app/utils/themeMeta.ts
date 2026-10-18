@@ -8,6 +8,8 @@
 // `romaji` and `aliases` feed the search haystack so users can find a theme by
 // the character's Japanese name, romaji or the game name in any locale.
 
+import priconneThemes from "../data/priconne-themes.json";
+
 export type ThemeKind = "card" | "character" | "emote" | "spine" | "live2d";
 
 export type ThemeFrameInfo = {
@@ -41,6 +43,7 @@ export type GameKey =
   | "blue-archive"
   | "arknights"
   | "project-sekai"
+  | "princess-connect"
   | "other";
 
 export const gameMeta: Record<
@@ -98,12 +101,20 @@ export const gameMeta: Record<
   "project-sekai": {
     label: { zh: "Project SEKAI", en: "Project SEKAI", jp: "プロジェクトセカイ" },
   },
+  "princess-connect": {
+    label: { zh: "公主连结！Re:Dive", en: "Princess Connect! Re:Dive", jp: "プリンセスコネクト！Re:Dive" },
+  },
   other: {
     label: { zh: "其他来源", en: "Other", jp: "その他" },
   },
 };
 
 export const themeMeta: ThemeMeta[] = [
+  ...priconneThemes.map((entry): ThemeMeta => ({
+    ...entry,
+    kind: "character",
+    gameKey: "princess-connect",
+  })),
   // Summer Pockets (card themes)
   {
     name: "ao",
