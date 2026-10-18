@@ -47,6 +47,18 @@ func TestPriconnePortraits(t *testing.T) {
 	if err := json.Unmarshal(silhouetteJSON, &silhouettes); err != nil {
 		t.Fatal(err)
 	}
+	singleVariantJSON, err := os.ReadFile("../../../scripts/priconne-single-variant-themes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var singleVariantNames []string
+	if err := json.Unmarshal(singleVariantJSON, &singleVariantNames); err != nil {
+		t.Fatal(err)
+	}
+	singleVariants := make(map[string]bool, len(singleVariantNames))
+	for _, name := range singleVariantNames {
+		singleVariants[name] = true
+	}
 	expected := make(map[string]bool)
 	for _, match := range regexp.MustCompile(`spine_full_(\d+)`).FindAllStringSubmatch(string(source), -1) {
 		modelID := match[1]
@@ -57,10 +69,12 @@ func TestPriconnePortraits(t *testing.T) {
 			continue
 		}
 		label := names[modelID[:4]]
+		themeName := "pcr-" + modelID
 		if label == "" || strings.HasPrefix(label, "Story ") {
-			expected["pcr-npc-"+modelID[:4]] = true
-		} else {
-			expected["pcr-"+modelID] = true
+			themeName = "pcr-npc-" + modelID[:4]
+		}
+		if !singleVariants[themeName] {
+			expected[themeName] = true
 		}
 	}
 	if len(expected) == 0 {
@@ -135,6 +149,9 @@ func TestPriconnePortraits(t *testing.T) {
 			}
 			if catalog.Variants != expectedVariants {
 				t.Fatalf("catalog variants = %d, want additive set total %d", catalog.Variants, expectedVariants)
+			}
+			if catalog.Variants == 1 {
+				t.Fatal("single-variation Princess Connect themes must be excluded")
 			}
 			var first string
 			varies := false

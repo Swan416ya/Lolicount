@@ -21,6 +21,20 @@ def write_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
+def range_variants(ranges):
+    variants = 1
+    for span in ranges.values():
+        variants *= span["last"] - span["first"] + 1
+    return variants
+
+
+def theme_variants(theme_dir):
+    config = read_json(theme_dir / "config.json")
+    if config.get("sets"):
+        return sum(range_variants(configured["ranges"]) for configured in config["sets"])
+    return range_variants(config["ranges"])
+
+
 def merge_group(repo, stage, key, source_names):
     theme_root = repo / "assets/theme"
     destination_name = f"pcr-npc-{key}"
@@ -178,9 +192,32 @@ def main():
     kept_metadata.sort(key=lambda entry: (entry.get("unnamed", False), entry["name"]))
     write_json(metadata_path, kept_metadata)
     duplicate_sets = sum(deduplicate_sets(directory) for directory in theme_root.glob("pcr-npc-*"))
+    single_variant_path = repo / "scripts/priconne-single-variant-themes.json"
+    single_variant = set(read_json(single_variant_path)) if single_variant_path.exists() else set()
+    newly_single_variant = []
+    for directory in sorted(theme_root.glob("pcr-*")):
+        if theme_variants(directory) != 1:
+            continue
+        newly_single_variant.append(directory.name)
+        single_variant.add(directory.name)
+        shutil.rmtree(directory)
+        thumb = thumb_root / f"{directory.name}.webp"
+        if thumb.exists():
+            thumb.unlink()
+    write_json(single_variant_path, sorted(single_variant))
+    if newly_single_variant:
+        metadata = [entry for entry in read_json(metadata_path) if entry["name"] not in set(newly_single_variant)]
+        write_json(metadata_path, metadata)
+    orphan_thumbs = []
+    for thumb in thumb_root.glob("pcr-*.webp"):
+        if not (theme_root / thumb.stem).is_dir():
+            orphan_thumbs.append(thumb)
+            thumb.unlink()
     print(f"merged {sum(len(group) for group in unnamed.values())} outfits into {len(unnamed)} NPC themes")
     print(f"removed {len(shadows)} single-variation named silhouette themes")
     print(f"removed {duplicate_sets} visually duplicate NPC outfit sets")
+    print(f"removed {len(newly_single_variant)} remaining single-variation themes")
+    print(f"removed {len(orphan_thumbs)} orphaned thumbnails")
 
 
 if __name__ == "__main__":

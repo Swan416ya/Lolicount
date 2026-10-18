@@ -83,7 +83,17 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     excluded = read_json(repo / "scripts/priconne-exclusions.json")
     silhouettes = read_json(repo / "scripts/priconne-silhouettes.json")
-    source_models = [model for model in manifest_models(repo) if model not in excluded and model not in silhouettes]
+    single_variant = set(read_json(repo / "scripts/priconne-single-variant-themes.json"))
+    names = read_json(repo / "scripts/priconne-names.json")
+
+    def generated_theme(model):
+        label = names.get(model[:4], f"Story {model[:4]}")
+        return f"pcr-npc-{model[:4]}" if label.startswith("Story ") else f"pcr-{model}"
+
+    source_models = [
+        model for model in manifest_models(repo)
+        if model not in excluded and model not in silhouettes and generated_theme(model) not in single_variant
+    ]
     validation_path = repo / "docs/priconne-validation.json"
     reports = read_existing_validation(validation_path)
     reports.update(read_report(repo / "scripts/priconne-render-report.json"))
@@ -145,6 +155,7 @@ def main():
         "assetBytes": asset_bytes,
         "excludedNonPortraitModels": len(excluded),
         "excludedSilhouetteModels": len(silhouettes),
+        "excludedSingleVariantThemes": len(single_variant),
         "manifestSHA256_UTF8_LF": hashlib.sha256(manifest).hexdigest(),
     }
     write_json(validation_path, {"summary": summary, "models": models})
