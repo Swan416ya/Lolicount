@@ -4547,13 +4547,15 @@
   },
   {
     "name": "pcr-106911",
-    "character": "kaizaainsaito, 11",
+    "character": "霸瞳皇帝, 11",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106911"
+      "106911",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106911",
@@ -4561,13 +4563,15 @@
   },
   {
     "name": "pcr-106912",
-    "character": "kaizaainsaito, 12",
+    "character": "霸瞳皇帝, 12",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106912"
+      "106912",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106912",
@@ -4575,13 +4579,15 @@
   },
   {
     "name": "pcr-106913",
-    "character": "kaizaainsaito, 13",
+    "character": "霸瞳皇帝, 13",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106913"
+      "106913",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106913",
@@ -4589,13 +4595,15 @@
   },
   {
     "name": "pcr-106914",
-    "character": "kaizaainsaito, 14",
+    "character": "霸瞳皇帝, 14",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106914"
+      "106914",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106914",
@@ -4603,13 +4611,15 @@
   },
   {
     "name": "pcr-106915",
-    "character": "kaizaainsaito, 15",
+    "character": "霸瞳皇帝, 15",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106915"
+      "106915",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106915",
@@ -4617,13 +4627,15 @@
   },
   {
     "name": "pcr-106931",
-    "character": "kaizaainsaito, 31",
+    "character": "霸瞳皇帝, 31",
     "romaji": "kaizaainsaito",
     "aliases": [
       "カイザーインサイト",
-      "kaizaainsaito",
+      "霸瞳皇帝",
       "1069",
-      "106931"
+      "106931",
+      "Omniscient Kaiser",
+      "Kaiser Insight"
     ],
     "unnamed": false,
     "storyModel": "106931",
@@ -17010,11 +17022,73 @@
     "storyCharacter": "9309"
   },
   {
+    "name": "pcr-npc-0027",
+    "character": "菜月昴",
+    "romaji": "subaru",
+    "aliases": [
+      "スバル",
+      "菜月昴",
+      "0027",
+      "Story 0027",
+      "002711",
+      "Subaru Natsuki",
+      "Subaru",
+      "Natsuki Subaru"
+    ],
+    "unnamed": false,
+    "storyCharacter": "0027"
+  },
+  {
+    "name": "pcr-npc-1000",
+    "character": "主人公",
+    "romaji": "shujinkou",
+    "aliases": [
+      "主人公",
+      "1000",
+      "Story 1000",
+      "100011",
+      "100012",
+      "100013",
+      "100014",
+      "100015",
+      "100016",
+      "100017",
+      "100018",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": false,
+    "storyCharacter": "1000"
+  },
+  {
+    "name": "pcr-npc-1900",
+    "character": "爱梅斯",
+    "romaji": "amesu",
+    "aliases": [
+      "アメス",
+      "爱梅斯",
+      "1900",
+      "Story 1900",
+      "190011",
+      "Ameth",
+      "Ames"
+    ],
+    "unnamed": false,
+    "storyCharacter": "1900"
+  },
+  {
     "name": "pcr-npc-0001",
     "character": "Story 0001",
     "romaji": "Story 0001",
     "aliases": [
       "0001",
+      "000111",
+      "000112",
+      "000113",
+      "000131",
       "Story 0001"
     ],
     "unnamed": true,
@@ -17026,6 +17100,8 @@
     "romaji": "Story 0002",
     "aliases": [
       "0002",
+      "000211",
+      "000212",
       "Story 0002"
     ],
     "unnamed": true,
@@ -17037,6 +17113,11 @@
     "romaji": "Story 0003",
     "aliases": [
       "0003",
+      "000311",
+      "000312",
+      "000313",
+      "000314",
+      "000331",
       "Story 0003"
     ],
     "unnamed": true,
@@ -17048,6 +17129,12 @@
     "romaji": "Story 0004",
     "aliases": [
       "0004",
+      "000415",
+      "000416",
+      "000417",
+      "000418",
+      "000419",
+      "000421",
       "Story 0004"
     ],
     "unnamed": true,
@@ -17059,6 +17146,8 @@
     "romaji": "Story 0005",
     "aliases": [
       "0005",
+      "000511",
+      "000512",
       "Story 0005"
     ],
     "unnamed": true,
@@ -17070,6 +17159,7 @@
     "romaji": "Story 0006",
     "aliases": [
       "0006",
+      "000611",
       "Story 0006"
     ],
     "unnamed": true,
@@ -17081,6 +17171,11 @@
     "romaji": "Story 0008",
     "aliases": [
       "0008",
+      "000811",
+      "000812",
+      "000813",
+      "000814",
+      "000815",
       "Story 0008"
     ],
     "unnamed": true,
@@ -17092,6 +17187,13 @@
     "romaji": "Story 0009",
     "aliases": [
       "0009",
+      "000911",
+      "000912",
+      "000913",
+      "000914",
+      "000915",
+      "000916",
+      "000917",
       "Story 0009"
     ],
     "unnamed": true,
@@ -17103,6 +17205,10 @@
     "romaji": "Story 0010",
     "aliases": [
       "0010",
+      "001011",
+      "001012",
+      "001013",
+      "001031",
       "Story 0010"
     ],
     "unnamed": true,
@@ -17114,6 +17220,9 @@
     "romaji": "Story 0011",
     "aliases": [
       "0011",
+      "001111",
+      "001112",
+      "001131",
       "Story 0011"
     ],
     "unnamed": true,
@@ -17125,6 +17234,9 @@
     "romaji": "Story 0012",
     "aliases": [
       "0012",
+      "001211",
+      "001212",
+      "001213",
       "Story 0012"
     ],
     "unnamed": true,
@@ -17136,6 +17248,7 @@
     "romaji": "Story 0013",
     "aliases": [
       "0013",
+      "001331",
       "Story 0013"
     ],
     "unnamed": true,
@@ -17147,6 +17260,11 @@
     "romaji": "Story 0014",
     "aliases": [
       "0014",
+      "001411",
+      "001412",
+      "001413",
+      "001414",
+      "001421",
       "Story 0014"
     ],
     "unnamed": true,
@@ -17158,6 +17276,10 @@
     "romaji": "Story 0015",
     "aliases": [
       "0015",
+      "001514",
+      "001515",
+      "001516",
+      "001521",
       "Story 0015"
     ],
     "unnamed": true,
@@ -17169,6 +17291,12 @@
     "romaji": "Story 0017",
     "aliases": [
       "0017",
+      "001711",
+      "001712",
+      "001713",
+      "001714",
+      "001715",
+      "001731",
       "Story 0017"
     ],
     "unnamed": true,
@@ -17180,6 +17308,8 @@
     "romaji": "Story 0018",
     "aliases": [
       "0018",
+      "001811",
+      "001812",
       "Story 0018"
     ],
     "unnamed": true,
@@ -17191,6 +17321,11 @@
     "romaji": "Story 0021",
     "aliases": [
       "0021",
+      "002111",
+      "002112",
+      "002113",
+      "002114",
+      "002131",
       "Story 0021"
     ],
     "unnamed": true,
@@ -17202,6 +17337,8 @@
     "romaji": "Story 0023",
     "aliases": [
       "0023",
+      "002312",
+      "002313",
       "Story 0023"
     ],
     "unnamed": true,
@@ -17213,6 +17350,12 @@
     "romaji": "Story 0024",
     "aliases": [
       "0024",
+      "002411",
+      "002412",
+      "002413",
+      "002414",
+      "002415",
+      "002416",
       "Story 0024"
     ],
     "unnamed": true,
@@ -17224,6 +17367,9 @@
     "romaji": "Story 0025",
     "aliases": [
       "0025",
+      "002514",
+      "002515",
+      "002516",
       "Story 0025"
     ],
     "unnamed": true,
@@ -17235,21 +17381,12 @@
     "romaji": "Story 0026",
     "aliases": [
       "0026",
+      "002611",
+      "002612",
       "Story 0026"
     ],
     "unnamed": true,
     "storyCharacter": "0026"
-  },
-  {
-    "name": "pcr-npc-0027",
-    "character": "Story 0027",
-    "romaji": "Story 0027",
-    "aliases": [
-      "0027",
-      "Story 0027"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0027"
   },
   {
     "name": "pcr-npc-0028",
@@ -17257,6 +17394,8 @@
     "romaji": "Story 0028",
     "aliases": [
       "0028",
+      "002811",
+      "002812",
       "Story 0028"
     ],
     "unnamed": true,
@@ -17268,6 +17407,12 @@
     "romaji": "Story 0029",
     "aliases": [
       "0029",
+      "002911",
+      "002912",
+      "002913",
+      "002914",
+      "002915",
+      "002931",
       "Story 0029"
     ],
     "unnamed": true,
@@ -17279,6 +17424,8 @@
     "romaji": "Story 0030",
     "aliases": [
       "0030",
+      "003013",
+      "003031",
       "Story 0030"
     ],
     "unnamed": true,
@@ -17290,6 +17437,10 @@
     "romaji": "Story 0031",
     "aliases": [
       "0031",
+      "003111",
+      "003112",
+      "003113",
+      "003114",
       "Story 0031"
     ],
     "unnamed": true,
@@ -17301,6 +17452,7 @@
     "romaji": "Story 0032",
     "aliases": [
       "0032",
+      "003211",
       "Story 0032"
     ],
     "unnamed": true,
@@ -17312,6 +17464,9 @@
     "romaji": "Story 0033",
     "aliases": [
       "0033",
+      "003311",
+      "003312",
+      "003313",
       "Story 0033"
     ],
     "unnamed": true,
@@ -17323,6 +17478,7 @@
     "romaji": "Story 0034",
     "aliases": [
       "0034",
+      "003411",
       "Story 0034"
     ],
     "unnamed": true,
@@ -17334,6 +17490,8 @@
     "romaji": "Story 0035",
     "aliases": [
       "0035",
+      "003511",
+      "003512",
       "Story 0035"
     ],
     "unnamed": true,
@@ -17345,6 +17503,7 @@
     "romaji": "Story 0039",
     "aliases": [
       "0039",
+      "003911",
       "Story 0039"
     ],
     "unnamed": true,
@@ -17356,6 +17515,7 @@
     "romaji": "Story 0042",
     "aliases": [
       "0042",
+      "004211",
       "Story 0042"
     ],
     "unnamed": true,
@@ -17367,6 +17527,8 @@
     "romaji": "Story 0043",
     "aliases": [
       "0043",
+      "004311",
+      "004312",
       "Story 0043"
     ],
     "unnamed": true,
@@ -17378,6 +17540,7 @@
     "romaji": "Story 0046",
     "aliases": [
       "0046",
+      "004611",
       "Story 0046"
     ],
     "unnamed": true,
@@ -17389,6 +17552,7 @@
     "romaji": "Story 0047",
     "aliases": [
       "0047",
+      "004711",
       "Story 0047"
     ],
     "unnamed": true,
@@ -17400,6 +17564,7 @@
     "romaji": "Story 0048",
     "aliases": [
       "0048",
+      "004811",
       "Story 0048"
     ],
     "unnamed": true,
@@ -17411,6 +17576,7 @@
     "romaji": "Story 0049",
     "aliases": [
       "0049",
+      "004911",
       "Story 0049"
     ],
     "unnamed": true,
@@ -17422,6 +17588,9 @@
     "romaji": "Story 0050",
     "aliases": [
       "0050",
+      "005011",
+      "005012",
+      "005013",
       "Story 0050"
     ],
     "unnamed": true,
@@ -17433,6 +17602,8 @@
     "romaji": "Story 0051",
     "aliases": [
       "0051",
+      "005111",
+      "005112",
       "Story 0051"
     ],
     "unnamed": true,
@@ -17444,6 +17615,8 @@
     "romaji": "Story 0052",
     "aliases": [
       "0052",
+      "005211",
+      "005212",
       "Story 0052"
     ],
     "unnamed": true,
@@ -17455,6 +17628,8 @@
     "romaji": "Story 0053",
     "aliases": [
       "0053",
+      "005312",
+      "005313",
       "Story 0053"
     ],
     "unnamed": true,
@@ -17466,6 +17641,9 @@
     "romaji": "Story 0054",
     "aliases": [
       "0054",
+      "005411",
+      "005412",
+      "005413",
       "Story 0054"
     ],
     "unnamed": true,
@@ -17477,6 +17655,7 @@
     "romaji": "Story 0055",
     "aliases": [
       "0055",
+      "005511",
       "Story 0055"
     ],
     "unnamed": true,
@@ -17488,6 +17667,12 @@
     "romaji": "Story 0056",
     "aliases": [
       "0056",
+      "005611",
+      "005612",
+      "005613",
+      "005614",
+      "005615",
+      "005616",
       "Story 0056"
     ],
     "unnamed": true,
@@ -17499,6 +17684,8 @@
     "romaji": "Story 0057",
     "aliases": [
       "0057",
+      "005711",
+      "005712",
       "Story 0057"
     ],
     "unnamed": true,
@@ -17510,6 +17697,8 @@
     "romaji": "Story 0058",
     "aliases": [
       "0058",
+      "005811",
+      "005812",
       "Story 0058"
     ],
     "unnamed": true,
@@ -17521,6 +17710,7 @@
     "romaji": "Story 0059",
     "aliases": [
       "0059",
+      "005912",
       "Story 0059"
     ],
     "unnamed": true,
@@ -17532,6 +17722,8 @@
     "romaji": "Story 0060",
     "aliases": [
       "0060",
+      "006011",
+      "006012",
       "Story 0060"
     ],
     "unnamed": true,
@@ -17543,6 +17735,8 @@
     "romaji": "Story 0061",
     "aliases": [
       "0061",
+      "006111",
+      "006112",
       "Story 0061"
     ],
     "unnamed": true,
@@ -17554,6 +17748,7 @@
     "romaji": "Story 0062",
     "aliases": [
       "0062",
+      "006211",
       "Story 0062"
     ],
     "unnamed": true,
@@ -17565,6 +17760,8 @@
     "romaji": "Story 0063",
     "aliases": [
       "0063",
+      "006311",
+      "006312",
       "Story 0063"
     ],
     "unnamed": true,
@@ -17576,6 +17773,7 @@
     "romaji": "Story 0064",
     "aliases": [
       "0064",
+      "006411",
       "Story 0064"
     ],
     "unnamed": true,
@@ -17587,6 +17785,7 @@
     "romaji": "Story 0065",
     "aliases": [
       "0065",
+      "006511",
       "Story 0065"
     ],
     "unnamed": true,
@@ -17598,6 +17797,9 @@
     "romaji": "Story 0066",
     "aliases": [
       "0066",
+      "006631",
+      "006632",
+      "006633",
       "Story 0066"
     ],
     "unnamed": true,
@@ -17609,6 +17811,7 @@
     "romaji": "Story 0067",
     "aliases": [
       "0067",
+      "006732",
       "Story 0067"
     ],
     "unnamed": true,
@@ -17620,6 +17823,9 @@
     "romaji": "Story 0068",
     "aliases": [
       "0068",
+      "006831",
+      "006832",
+      "006833",
       "Story 0068"
     ],
     "unnamed": true,
@@ -17631,6 +17837,7 @@
     "romaji": "Story 0069",
     "aliases": [
       "0069",
+      "006932",
       "Story 0069"
     ],
     "unnamed": true,
@@ -17642,6 +17849,8 @@
     "romaji": "Story 0070",
     "aliases": [
       "0070",
+      "007011",
+      "007012",
       "Story 0070"
     ],
     "unnamed": true,
@@ -17653,6 +17862,10 @@
     "romaji": "Story 0071",
     "aliases": [
       "0071",
+      "007111",
+      "007112",
+      "007113",
+      "007114",
       "Story 0071"
     ],
     "unnamed": true,
@@ -17664,6 +17877,8 @@
     "romaji": "Story 0074",
     "aliases": [
       "0074",
+      "007411",
+      "007412",
       "Story 0074"
     ],
     "unnamed": true,
@@ -17675,6 +17890,9 @@
     "romaji": "Story 0075",
     "aliases": [
       "0075",
+      "007511",
+      "007531",
+      "007532",
       "Story 0075"
     ],
     "unnamed": true,
@@ -17686,6 +17904,7 @@
     "romaji": "Story 0076",
     "aliases": [
       "0076",
+      "007611",
       "Story 0076"
     ],
     "unnamed": true,
@@ -17697,6 +17916,7 @@
     "romaji": "Story 0077",
     "aliases": [
       "0077",
+      "007711",
       "Story 0077"
     ],
     "unnamed": true,
@@ -17708,6 +17928,8 @@
     "romaji": "Story 0079",
     "aliases": [
       "0079",
+      "007911",
+      "007912",
       "Story 0079"
     ],
     "unnamed": true,
@@ -17719,6 +17941,8 @@
     "romaji": "Story 0080",
     "aliases": [
       "0080",
+      "008011",
+      "008031",
       "Story 0080"
     ],
     "unnamed": true,
@@ -17730,6 +17954,7 @@
     "romaji": "Story 0081",
     "aliases": [
       "0081",
+      "008111",
       "Story 0081"
     ],
     "unnamed": true,
@@ -17741,6 +17966,7 @@
     "romaji": "Story 0082",
     "aliases": [
       "0082",
+      "008211",
       "Story 0082"
     ],
     "unnamed": true,
@@ -17752,6 +17978,8 @@
     "romaji": "Story 0083",
     "aliases": [
       "0083",
+      "008311",
+      "008312",
       "Story 0083"
     ],
     "unnamed": true,
@@ -17763,6 +17991,7 @@
     "romaji": "Story 0085",
     "aliases": [
       "0085",
+      "008511",
       "Story 0085"
     ],
     "unnamed": true,
@@ -17774,6 +18003,7 @@
     "romaji": "Story 0086",
     "aliases": [
       "0086",
+      "008611",
       "Story 0086"
     ],
     "unnamed": true,
@@ -17785,6 +18015,8 @@
     "romaji": "Story 0087",
     "aliases": [
       "0087",
+      "008711",
+      "008712",
       "Story 0087"
     ],
     "unnamed": true,
@@ -17796,6 +18028,7 @@
     "romaji": "Story 0088",
     "aliases": [
       "0088",
+      "008811",
       "Story 0088"
     ],
     "unnamed": true,
@@ -17807,6 +18040,8 @@
     "romaji": "Story 0089",
     "aliases": [
       "0089",
+      "008911",
+      "008912",
       "Story 0089"
     ],
     "unnamed": true,
@@ -17818,6 +18053,7 @@
     "romaji": "Story 0090",
     "aliases": [
       "0090",
+      "009011",
       "Story 0090"
     ],
     "unnamed": true,
@@ -17829,6 +18065,7 @@
     "romaji": "Story 0091",
     "aliases": [
       "0091",
+      "009111",
       "Story 0091"
     ],
     "unnamed": true,
@@ -17840,6 +18077,7 @@
     "romaji": "Story 0092",
     "aliases": [
       "0092",
+      "009213",
       "Story 0092"
     ],
     "unnamed": true,
@@ -17851,6 +18089,7 @@
     "romaji": "Story 0093",
     "aliases": [
       "0093",
+      "009311",
       "Story 0093"
     ],
     "unnamed": true,
@@ -17862,6 +18101,8 @@
     "romaji": "Story 0094",
     "aliases": [
       "0094",
+      "009411",
+      "009412",
       "Story 0094"
     ],
     "unnamed": true,
@@ -17873,6 +18114,8 @@
     "romaji": "Story 0095",
     "aliases": [
       "0095",
+      "009511",
+      "009512",
       "Story 0095"
     ],
     "unnamed": true,
@@ -17884,6 +18127,8 @@
     "romaji": "Story 0096",
     "aliases": [
       "0096",
+      "009611",
+      "009612",
       "Story 0096"
     ],
     "unnamed": true,
@@ -17895,6 +18140,8 @@
     "romaji": "Story 0097",
     "aliases": [
       "0097",
+      "009711",
+      "009712",
       "Story 0097"
     ],
     "unnamed": true,
@@ -17906,6 +18153,7 @@
     "romaji": "Story 0098",
     "aliases": [
       "0098",
+      "009811",
       "Story 0098"
     ],
     "unnamed": true,
@@ -17917,6 +18165,8 @@
     "romaji": "Story 0099",
     "aliases": [
       "0099",
+      "009911",
+      "009912",
       "Story 0099"
     ],
     "unnamed": true,
@@ -17928,6 +18178,8 @@
     "romaji": "Story 0104",
     "aliases": [
       "0104",
+      "010411",
+      "010412",
       "Story 0104"
     ],
     "unnamed": true,
@@ -17939,6 +18191,8 @@
     "romaji": "Story 0105",
     "aliases": [
       "0105",
+      "010511",
+      "010512",
       "Story 0105"
     ],
     "unnamed": true,
@@ -17950,6 +18204,8 @@
     "romaji": "Story 0108",
     "aliases": [
       "0108",
+      "010811",
+      "010812",
       "Story 0108"
     ],
     "unnamed": true,
@@ -17961,6 +18217,9 @@
     "romaji": "Story 0111",
     "aliases": [
       "0111",
+      "011111",
+      "011112",
+      "011113",
       "Story 0111"
     ],
     "unnamed": true,
@@ -17972,6 +18231,8 @@
     "romaji": "Story 0112",
     "aliases": [
       "0112",
+      "011211",
+      "011212",
       "Story 0112"
     ],
     "unnamed": true,
@@ -17983,6 +18244,9 @@
     "romaji": "Story 0114",
     "aliases": [
       "0114",
+      "011411",
+      "011412",
+      "011413",
       "Story 0114"
     ],
     "unnamed": true,
@@ -17994,6 +18258,8 @@
     "romaji": "Story 0120",
     "aliases": [
       "0120",
+      "012011",
+      "012012",
       "Story 0120"
     ],
     "unnamed": true,
@@ -18005,6 +18271,7 @@
     "romaji": "Story 0125",
     "aliases": [
       "0125",
+      "012511",
       "Story 0125"
     ],
     "unnamed": true,
@@ -18016,6 +18283,8 @@
     "romaji": "Story 0130",
     "aliases": [
       "0130",
+      "013011",
+      "013012",
       "Story 0130"
     ],
     "unnamed": true,
@@ -18027,6 +18296,8 @@
     "romaji": "Story 0137",
     "aliases": [
       "0137",
+      "013711",
+      "013712",
       "Story 0137"
     ],
     "unnamed": true,
@@ -18038,6 +18309,10 @@
     "romaji": "Story 0143",
     "aliases": [
       "0143",
+      "014311",
+      "014312",
+      "014313",
+      "014314",
       "Story 0143"
     ],
     "unnamed": true,
@@ -18049,6 +18324,9 @@
     "romaji": "Story 0148",
     "aliases": [
       "0148",
+      "014811",
+      "014812",
+      "014813",
       "Story 0148"
     ],
     "unnamed": true,
@@ -18060,6 +18338,8 @@
     "romaji": "Story 0149",
     "aliases": [
       "0149",
+      "014911",
+      "014912",
       "Story 0149"
     ],
     "unnamed": true,
@@ -18071,6 +18351,8 @@
     "romaji": "Story 0150",
     "aliases": [
       "0150",
+      "015011",
+      "015012",
       "Story 0150"
     ],
     "unnamed": true,
@@ -18082,6 +18364,10 @@
     "romaji": "Story 0153",
     "aliases": [
       "0153",
+      "015311",
+      "015312",
+      "015313",
+      "015314",
       "Story 0153"
     ],
     "unnamed": true,
@@ -18093,6 +18379,9 @@
     "romaji": "Story 0155",
     "aliases": [
       "0155",
+      "015511",
+      "015512",
+      "015513",
       "Story 0155"
     ],
     "unnamed": true,
@@ -18104,6 +18393,7 @@
     "romaji": "Story 0158",
     "aliases": [
       "0158",
+      "015811",
       "Story 0158"
     ],
     "unnamed": true,
@@ -18115,6 +18405,13 @@
     "romaji": "Story 0159",
     "aliases": [
       "0159",
+      "015911",
+      "015912",
+      "015913",
+      "015914",
+      "015915",
+      "015916",
+      "015917",
       "Story 0159"
     ],
     "unnamed": true,
@@ -18126,6 +18423,8 @@
     "romaji": "Story 0160",
     "aliases": [
       "0160",
+      "016011",
+      "016012",
       "Story 0160"
     ],
     "unnamed": true,
@@ -18137,6 +18436,8 @@
     "romaji": "Story 0163",
     "aliases": [
       "0163",
+      "016311",
+      "016312",
       "Story 0163"
     ],
     "unnamed": true,
@@ -18148,6 +18449,8 @@
     "romaji": "Story 0164",
     "aliases": [
       "0164",
+      "016411",
+      "016412",
       "Story 0164"
     ],
     "unnamed": true,
@@ -18159,6 +18462,9 @@
     "romaji": "Story 0166",
     "aliases": [
       "0166",
+      "016611",
+      "016612",
+      "016613",
       "Story 0166"
     ],
     "unnamed": true,
@@ -18170,6 +18476,8 @@
     "romaji": "Story 0167",
     "aliases": [
       "0167",
+      "016711",
+      "016712",
       "Story 0167"
     ],
     "unnamed": true,
@@ -18181,6 +18489,7 @@
     "romaji": "Story 0170",
     "aliases": [
       "0170",
+      "017011",
       "Story 0170"
     ],
     "unnamed": true,
@@ -18192,6 +18501,8 @@
     "romaji": "Story 0172",
     "aliases": [
       "0172",
+      "017211",
+      "017212",
       "Story 0172"
     ],
     "unnamed": true,
@@ -18203,6 +18514,8 @@
     "romaji": "Story 0173",
     "aliases": [
       "0173",
+      "017311",
+      "017312",
       "Story 0173"
     ],
     "unnamed": true,
@@ -18214,6 +18527,8 @@
     "romaji": "Story 0174",
     "aliases": [
       "0174",
+      "017411",
+      "017412",
       "Story 0174"
     ],
     "unnamed": true,
@@ -18225,6 +18540,8 @@
     "romaji": "Story 0175",
     "aliases": [
       "0175",
+      "017511",
+      "017512",
       "Story 0175"
     ],
     "unnamed": true,
@@ -18236,6 +18553,8 @@
     "romaji": "Story 0177",
     "aliases": [
       "0177",
+      "017711",
+      "017712",
       "Story 0177"
     ],
     "unnamed": true,
@@ -18247,6 +18566,7 @@
     "romaji": "Story 0182",
     "aliases": [
       "0182",
+      "018211",
       "Story 0182"
     ],
     "unnamed": true,
@@ -18258,6 +18578,8 @@
     "romaji": "Story 0184",
     "aliases": [
       "0184",
+      "018411",
+      "018412",
       "Story 0184"
     ],
     "unnamed": true,
@@ -18269,6 +18591,7 @@
     "romaji": "Story 0186",
     "aliases": [
       "0186",
+      "018611",
       "Story 0186"
     ],
     "unnamed": true,
@@ -18280,6 +18603,8 @@
     "romaji": "Story 0187",
     "aliases": [
       "0187",
+      "018711",
+      "018712",
       "Story 0187"
     ],
     "unnamed": true,
@@ -18291,6 +18616,8 @@
     "romaji": "Story 0188",
     "aliases": [
       "0188",
+      "018811",
+      "018812",
       "Story 0188"
     ],
     "unnamed": true,
@@ -18302,6 +18629,8 @@
     "romaji": "Story 0189",
     "aliases": [
       "0189",
+      "018911",
+      "018912",
       "Story 0189"
     ],
     "unnamed": true,
@@ -18313,6 +18642,8 @@
     "romaji": "Story 0192",
     "aliases": [
       "0192",
+      "019211",
+      "019212",
       "Story 0192"
     ],
     "unnamed": true,
@@ -18324,6 +18655,8 @@
     "romaji": "Story 0193",
     "aliases": [
       "0193",
+      "019311",
+      "019312",
       "Story 0193"
     ],
     "unnamed": true,
@@ -18335,6 +18668,8 @@
     "romaji": "Story 0195",
     "aliases": [
       "0195",
+      "019511",
+      "019512",
       "Story 0195"
     ],
     "unnamed": true,
@@ -18346,6 +18681,8 @@
     "romaji": "Story 0197",
     "aliases": [
       "0197",
+      "019711",
+      "019712",
       "Story 0197"
     ],
     "unnamed": true,
@@ -18357,6 +18694,8 @@
     "romaji": "Story 0200",
     "aliases": [
       "0200",
+      "020011",
+      "020012",
       "Story 0200"
     ],
     "unnamed": true,
@@ -18368,6 +18707,7 @@
     "romaji": "Story 0201",
     "aliases": [
       "0201",
+      "020111",
       "Story 0201"
     ],
     "unnamed": true,
@@ -18379,6 +18719,8 @@
     "romaji": "Story 0502",
     "aliases": [
       "0502",
+      "050211",
+      "050212",
       "Story 0502"
     ],
     "unnamed": true,
@@ -18390,6 +18732,8 @@
     "romaji": "Story 0505",
     "aliases": [
       "0505",
+      "050511",
+      "050512",
       "Story 0505"
     ],
     "unnamed": true,
@@ -18401,6 +18745,7 @@
     "romaji": "Story 0506",
     "aliases": [
       "0506",
+      "050611",
       "Story 0506"
     ],
     "unnamed": true,
@@ -18412,6 +18757,7 @@
     "romaji": "Story 0507",
     "aliases": [
       "0507",
+      "050711",
       "Story 0507"
     ],
     "unnamed": true,
@@ -18423,6 +18769,8 @@
     "romaji": "Story 0508",
     "aliases": [
       "0508",
+      "050811",
+      "050812",
       "Story 0508"
     ],
     "unnamed": true,
@@ -18434,6 +18782,8 @@
     "romaji": "Story 0509",
     "aliases": [
       "0509",
+      "050911",
+      "050912",
       "Story 0509"
     ],
     "unnamed": true,
@@ -18445,6 +18795,7 @@
     "romaji": "Story 0510",
     "aliases": [
       "0510",
+      "051011",
       "Story 0510"
     ],
     "unnamed": true,
@@ -18456,6 +18807,7 @@
     "romaji": "Story 0511",
     "aliases": [
       "0511",
+      "051111",
       "Story 0511"
     ],
     "unnamed": true,
@@ -18467,6 +18819,7 @@
     "romaji": "Story 0513",
     "aliases": [
       "0513",
+      "051311",
       "Story 0513"
     ],
     "unnamed": true,
@@ -18478,6 +18831,8 @@
     "romaji": "Story 0514",
     "aliases": [
       "0514",
+      "051411",
+      "051412",
       "Story 0514"
     ],
     "unnamed": true,
@@ -18489,6 +18844,8 @@
     "romaji": "Story 0515",
     "aliases": [
       "0515",
+      "051511",
+      "051512",
       "Story 0515"
     ],
     "unnamed": true,
@@ -18500,6 +18857,7 @@
     "romaji": "Story 0516",
     "aliases": [
       "0516",
+      "051611",
       "Story 0516"
     ],
     "unnamed": true,
@@ -18511,6 +18869,8 @@
     "romaji": "Story 0517",
     "aliases": [
       "0517",
+      "051711",
+      "051712",
       "Story 0517"
     ],
     "unnamed": true,
@@ -18522,6 +18882,8 @@
     "romaji": "Story 0518",
     "aliases": [
       "0518",
+      "051811",
+      "051812",
       "Story 0518"
     ],
     "unnamed": true,
@@ -18533,6 +18895,8 @@
     "romaji": "Story 0519",
     "aliases": [
       "0519",
+      "051911",
+      "051912",
       "Story 0519"
     ],
     "unnamed": true,
@@ -18544,6 +18908,7 @@
     "romaji": "Story 0520",
     "aliases": [
       "0520",
+      "052011",
       "Story 0520"
     ],
     "unnamed": true,
@@ -18555,6 +18920,7 @@
     "romaji": "Story 0521",
     "aliases": [
       "0521",
+      "052111",
       "Story 0521"
     ],
     "unnamed": true,
@@ -18566,6 +18932,9 @@
     "romaji": "Story 0523",
     "aliases": [
       "0523",
+      "052311",
+      "052312",
+      "052313",
       "Story 0523"
     ],
     "unnamed": true,
@@ -18577,6 +18946,8 @@
     "romaji": "Story 0524",
     "aliases": [
       "0524",
+      "052411",
+      "052412",
       "Story 0524"
     ],
     "unnamed": true,
@@ -18588,6 +18959,10 @@
     "romaji": "Story 0526",
     "aliases": [
       "0526",
+      "052611",
+      "052612",
+      "052613",
+      "052614",
       "Story 0526"
     ],
     "unnamed": true,
@@ -18599,6 +18974,9 @@
     "romaji": "Story 0527",
     "aliases": [
       "0527",
+      "052711",
+      "052712",
+      "052731",
       "Story 0527"
     ],
     "unnamed": true,
@@ -18610,6 +18988,7 @@
     "romaji": "Story 0528",
     "aliases": [
       "0528",
+      "052831",
       "Story 0528"
     ],
     "unnamed": true,
@@ -18621,6 +19000,7 @@
     "romaji": "Story 0529",
     "aliases": [
       "0529",
+      "052931",
       "Story 0529"
     ],
     "unnamed": true,
@@ -18632,6 +19012,9 @@
     "romaji": "Story 0530",
     "aliases": [
       "0530",
+      "053011",
+      "053012",
+      "053013",
       "Story 0530"
     ],
     "unnamed": true,
@@ -18643,6 +19026,8 @@
     "romaji": "Story 0531",
     "aliases": [
       "0531",
+      "053111",
+      "053112",
       "Story 0531"
     ],
     "unnamed": true,
@@ -18654,6 +19039,7 @@
     "romaji": "Story 0532",
     "aliases": [
       "0532",
+      "053211",
       "Story 0532"
     ],
     "unnamed": true,
@@ -18665,21 +19051,13 @@
     "romaji": "Story 0533",
     "aliases": [
       "0533",
+      "053311",
+      "053312",
+      "053313",
       "Story 0533"
     ],
     "unnamed": true,
     "storyCharacter": "0533"
-  },
-  {
-    "name": "pcr-npc-1000",
-    "character": "Story 1000",
-    "romaji": "Story 1000",
-    "aliases": [
-      "1000",
-      "Story 1000"
-    ],
-    "unnamed": true,
-    "storyCharacter": "1000"
   },
   {
     "name": "pcr-npc-1062",
@@ -18687,6 +19065,9 @@
     "romaji": "Story 1062",
     "aliases": [
       "1062",
+      "106211",
+      "106231",
+      "106241",
       "Story 1062"
     ],
     "unnamed": true,
@@ -18698,6 +19079,9 @@
     "romaji": "Story 1072",
     "aliases": [
       "1072",
+      "107211",
+      "107212",
+      "107231",
       "Story 1072"
     ],
     "unnamed": true,
@@ -18709,6 +19093,9 @@
     "romaji": "Story 1073",
     "aliases": [
       "1073",
+      "107311",
+      "107312",
+      "107331",
       "Story 1073"
     ],
     "unnamed": true,
@@ -18720,6 +19107,13 @@
     "romaji": "Story 1074",
     "aliases": [
       "1074",
+      "107411",
+      "107412",
+      "107413",
+      "107414",
+      "107415",
+      "107416",
+      "107418",
       "Story 1074"
     ],
     "unnamed": true,
@@ -18731,6 +19125,7 @@
     "romaji": "Story 1291",
     "aliases": [
       "1291",
+      "129111",
       "Story 1291"
     ],
     "unnamed": true,
@@ -18742,6 +19137,7 @@
     "romaji": "Story 1292",
     "aliases": [
       "1292",
+      "129211",
       "Story 1292"
     ],
     "unnamed": true,
@@ -18753,6 +19149,7 @@
     "romaji": "Story 1303",
     "aliases": [
       "1303",
+      "130311",
       "Story 1303"
     ],
     "unnamed": true,
@@ -18764,6 +19161,7 @@
     "romaji": "Story 1304",
     "aliases": [
       "1304",
+      "130411",
       "Story 1304"
     ],
     "unnamed": true,
@@ -18775,6 +19173,8 @@
     "romaji": "Story 1305",
     "aliases": [
       "1305",
+      "130512",
+      "130513",
       "Story 1305"
     ],
     "unnamed": true,
@@ -18786,6 +19186,8 @@
     "romaji": "Story 1326",
     "aliases": [
       "1326",
+      "132611",
+      "132612",
       "Story 1326"
     ],
     "unnamed": true,
@@ -18797,6 +19199,9 @@
     "romaji": "Story 1327",
     "aliases": [
       "1327",
+      "132711",
+      "132712",
+      "132741",
       "Story 1327"
     ],
     "unnamed": true,
@@ -18808,6 +19213,7 @@
     "romaji": "Story 1333",
     "aliases": [
       "1333",
+      "133311",
       "Story 1333"
     ],
     "unnamed": true,
@@ -18819,6 +19225,7 @@
     "romaji": "Story 1334",
     "aliases": [
       "1334",
+      "133411",
       "Story 1334"
     ],
     "unnamed": true,
@@ -18830,6 +19237,7 @@
     "romaji": "Story 1370",
     "aliases": [
       "1370",
+      "137011",
       "Story 1370"
     ],
     "unnamed": true,
@@ -18841,6 +19249,7 @@
     "romaji": "Story 1377",
     "aliases": [
       "1377",
+      "137711",
       "Story 1377"
     ],
     "unnamed": true,
@@ -18852,6 +19261,7 @@
     "romaji": "Story 1384",
     "aliases": [
       "1384",
+      "138411",
       "Story 1384"
     ],
     "unnamed": true,
@@ -18863,6 +19273,7 @@
     "romaji": "Story 1385",
     "aliases": [
       "1385",
+      "138511",
       "Story 1385"
     ],
     "unnamed": true,
@@ -18874,6 +19285,9 @@
     "romaji": "Story 1409",
     "aliases": [
       "1409",
+      "140911",
+      "140912",
+      "140931",
       "Story 1409"
     ],
     "unnamed": true,
@@ -18885,6 +19299,7 @@
     "romaji": "Story 1417",
     "aliases": [
       "1417",
+      "141711",
       "Story 1417"
     ],
     "unnamed": true,
@@ -18896,6 +19311,7 @@
     "romaji": "Story 1418",
     "aliases": [
       "1418",
+      "141811",
       "Story 1418"
     ],
     "unnamed": true,
@@ -18907,6 +19323,7 @@
     "romaji": "Story 1422",
     "aliases": [
       "1422",
+      "142211",
       "Story 1422"
     ],
     "unnamed": true,
@@ -18918,21 +19335,11 @@
     "romaji": "Story 1423",
     "aliases": [
       "1423",
+      "142311",
       "Story 1423"
     ],
     "unnamed": true,
     "storyCharacter": "1423"
-  },
-  {
-    "name": "pcr-npc-1900",
-    "character": "Story 1900",
-    "romaji": "Story 1900",
-    "aliases": [
-      "1900",
-      "Story 1900"
-    ],
-    "unnamed": true,
-    "storyCharacter": "1900"
   },
   {
     "name": "pcr-npc-1907",
@@ -18940,6 +19347,9 @@
     "romaji": "Story 1907",
     "aliases": [
       "1907",
+      "190711",
+      "190712",
+      "190731",
       "Story 1907"
     ],
     "unnamed": true,
@@ -18951,6 +19361,8 @@
     "romaji": "Story 1909",
     "aliases": [
       "1909",
+      "190911",
+      "190912",
       "Story 1909"
     ],
     "unnamed": true,
@@ -18962,6 +19374,8 @@
     "romaji": "Story 1910",
     "aliases": [
       "1910",
+      "191011",
+      "191031",
       "Story 1910"
     ],
     "unnamed": true,
@@ -18973,6 +19387,11 @@
     "romaji": "Story 1911",
     "aliases": [
       "1911",
+      "191111",
+      "191112",
+      "191113",
+      "191114",
+      "191115",
       "Story 1911"
     ],
     "unnamed": true,
@@ -18984,6 +19403,9 @@
     "romaji": "Story 1916",
     "aliases": [
       "1916",
+      "191612",
+      "191613",
+      "191614",
       "Story 1916"
     ],
     "unnamed": true,
@@ -18995,6 +19417,13 @@
     "romaji": "Story 1917",
     "aliases": [
       "1917",
+      "191711",
+      "191712",
+      "191713",
+      "191714",
+      "191731",
+      "191732",
+      "191733",
       "Story 1917"
     ],
     "unnamed": true,
@@ -19006,6 +19435,9 @@
     "romaji": "Story 1919",
     "aliases": [
       "1919",
+      "191914",
+      "191915",
+      "191916",
       "Story 1919"
     ],
     "unnamed": true,
@@ -19017,6 +19449,11 @@
     "romaji": "Story 1920",
     "aliases": [
       "1920",
+      "192011",
+      "192012",
+      "192013",
+      "192014",
+      "192015",
       "Story 1920"
     ],
     "unnamed": true,
@@ -19028,6 +19465,7 @@
     "romaji": "Story 1922",
     "aliases": [
       "1922",
+      "192211",
       "Story 1922"
     ],
     "unnamed": true,
@@ -19039,6 +19477,7 @@
     "romaji": "Story 1923",
     "aliases": [
       "1923",
+      "192311",
       "Story 1923"
     ],
     "unnamed": true,
@@ -19050,6 +19489,7 @@
     "romaji": "Story 1924",
     "aliases": [
       "1924",
+      "192411",
       "Story 1924"
     ],
     "unnamed": true,
@@ -19061,6 +19501,10 @@
     "romaji": "Story 1926",
     "aliases": [
       "1926",
+      "192611",
+      "192612",
+      "192613",
+      "192614",
       "Story 1926"
     ],
     "unnamed": true,
@@ -19072,6 +19516,8 @@
     "romaji": "Story 1927",
     "aliases": [
       "1927",
+      "192722",
+      "192723",
       "Story 1927"
     ],
     "unnamed": true,
@@ -19083,6 +19529,7 @@
     "romaji": "Story 1928",
     "aliases": [
       "1928",
+      "192811",
       "Story 1928"
     ],
     "unnamed": true,
@@ -19094,6 +19541,10 @@
     "romaji": "Story 1929",
     "aliases": [
       "1929",
+      "192911",
+      "192921",
+      "192922",
+      "192923",
       "Story 1929"
     ],
     "unnamed": true,
@@ -19105,6 +19556,7 @@
     "romaji": "Story 1932",
     "aliases": [
       "1932",
+      "193211",
       "Story 1932"
     ],
     "unnamed": true,
@@ -19116,6 +19568,7 @@
     "romaji": "Story 1935",
     "aliases": [
       "1935",
+      "193511",
       "Story 1935"
     ],
     "unnamed": true,
@@ -19127,6 +19580,8 @@
     "romaji": "Story 1936",
     "aliases": [
       "1936",
+      "193611",
+      "193631",
       "Story 1936"
     ],
     "unnamed": true,
@@ -19138,6 +19593,7 @@
     "romaji": "Story 1937",
     "aliases": [
       "1937",
+      "193732",
       "Story 1937"
     ],
     "unnamed": true,
@@ -19149,6 +19605,7 @@
     "romaji": "Story 1939",
     "aliases": [
       "1939",
+      "193913",
       "Story 1939"
     ],
     "unnamed": true,
@@ -19160,6 +19617,9 @@
     "romaji": "Story 1942",
     "aliases": [
       "1942",
+      "194211",
+      "194212",
+      "194231",
       "Story 1942"
     ],
     "unnamed": true,
@@ -19171,6 +19631,13 @@
     "romaji": "Story 1943",
     "aliases": [
       "1943",
+      "194311",
+      "194312",
+      "194313",
+      "194314",
+      "194315",
+      "194331",
+      "194332",
       "Story 1943"
     ],
     "unnamed": true,
@@ -19182,6 +19649,9 @@
     "romaji": "Story 1956",
     "aliases": [
       "1956",
+      "195611",
+      "195612",
+      "195613",
       "Story 1956"
     ],
     "unnamed": true,
@@ -19193,6 +19663,7 @@
     "romaji": "Story 1957",
     "aliases": [
       "1957",
+      "195713",
       "Story 1957"
     ],
     "unnamed": true,
@@ -19204,6 +19675,8 @@
     "romaji": "Story 1958",
     "aliases": [
       "1958",
+      "195811",
+      "195812",
       "Story 1958"
     ],
     "unnamed": true,
@@ -19215,6 +19688,8 @@
     "romaji": "Story 1959",
     "aliases": [
       "1959",
+      "195911",
+      "195912",
       "Story 1959"
     ],
     "unnamed": true,
@@ -19226,6 +19701,8 @@
     "romaji": "Story 1960",
     "aliases": [
       "1960",
+      "196011",
+      "196012",
       "Story 1960"
     ],
     "unnamed": true,
@@ -19237,6 +19714,9 @@
     "romaji": "Story 1961",
     "aliases": [
       "1961",
+      "196111",
+      "196112",
+      "196131",
       "Story 1961"
     ],
     "unnamed": true,
@@ -19248,6 +19728,8 @@
     "romaji": "Story 1962",
     "aliases": [
       "1962",
+      "196211",
+      "196212",
       "Story 1962"
     ],
     "unnamed": true,
@@ -19259,6 +19741,7 @@
     "romaji": "Story 1963",
     "aliases": [
       "1963",
+      "196311",
       "Story 1963"
     ],
     "unnamed": true,

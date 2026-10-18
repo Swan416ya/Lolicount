@@ -1,13 +1,14 @@
 {
   "name": "pcr-npc-1900",
-  "description": "Princess Connect! Re:Dive / Story 1900; 1 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+  "description": "Princess Connect! Re:Dive / アメス (爱梅斯); 1 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
     "公主连结",
     "プリコネ",
-    "Story 1900",
-    "NPC"
+    "アメス",
+    "爱梅斯",
+    "Story 1900"
   ],
   "version": "1.1.0"
 }

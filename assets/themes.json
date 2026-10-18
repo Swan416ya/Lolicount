@@ -19303,14 +19303,15 @@
       "name": "pcr-npc-0027",
       "frames": 30,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0027; 1 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / スバル (菜月昴); 1 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 0027",
-        "NPC"
+        "スバル",
+        "菜月昴",
+        "Story 0027"
       ],
       "version": "1.1.0"
     },
@@ -21253,14 +21254,14 @@
       "name": "pcr-npc-1000",
       "frames": 154,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1000; 8 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / 主人公 (主人公); 8 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1000",
-        "NPC"
+        "主人公",
+        "Story 1000"
       ],
       "version": "1.1.0"
     },
@@ -21598,14 +21599,15 @@
       "name": "pcr-npc-1900",
       "frames": 31,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1900; 1 mutually exclusive NPC outfit(s), with expressions selected inside the chosen outfit.",
+      "description": "Princess Connect! Re:Dive / アメス (爱梅斯); 1 mutually exclusive story portrait(s), with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "Story 1900",
-        "NPC"
+        "アメス",
+        "爱梅斯",
+        "Story 1900"
       ],
       "version": "1.1.0"
     },

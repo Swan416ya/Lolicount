@@ -59,6 +59,26 @@ func TestPriconnePortraits(t *testing.T) {
 	for _, name := range singleVariantNames {
 		singleVariants[name] = true
 	}
+	consolidatedNamedJSON, err := os.ReadFile("../../../scripts/priconne-consolidated-named.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var consolidatedNamedStems []string
+	if err := json.Unmarshal(consolidatedNamedJSON, &consolidatedNamedStems); err != nil {
+		t.Fatal(err)
+	}
+	consolidatedNamed := make(map[string]bool, len(consolidatedNamedStems))
+	for _, stem := range consolidatedNamedStems {
+		consolidatedNamed[stem] = true
+	}
+	root, err := fs.Sub(assets.FS, "theme")
+	if err != nil {
+		t.Fatal(err)
+	}
+	entries, err := fs.ReadDir(root, ".")
+	if err != nil {
+		t.Fatal(err)
+	}
 	expected := make(map[string]bool)
 	for _, match := range regexp.MustCompile(`spine_full_(\d+)`).FindAllStringSubmatch(string(source), -1) {
 		modelID := match[1]
@@ -70,7 +90,10 @@ func TestPriconnePortraits(t *testing.T) {
 		}
 		label := names[modelID[:4]]
 		themeName := "pcr-" + modelID
-		if label == "" || strings.HasPrefix(label, "Story ") {
+		if label == "" || strings.HasPrefix(label, "Story ") || consolidatedNamed[modelID[:4]] {
+			// Unnamed portraits stay consolidated per story character. A character
+			// named only after that consolidation is listed explicitly so naming a
+			// new character still requires an outfit theme unless the list grows.
 			themeName = "pcr-npc-" + modelID[:4]
 		}
 		if !singleVariants[themeName] {
@@ -79,14 +102,6 @@ func TestPriconnePortraits(t *testing.T) {
 	}
 	if len(expected) == 0 {
 		t.Fatal("source manifest contains no portrait models")
-	}
-	root, err := fs.Sub(assets.FS, "theme")
-	if err != nil {
-		t.Fatal(err)
-	}
-	entries, err := fs.ReadDir(root, ".")
-	if err != nil {
-		t.Fatal(err)
 	}
 	catalogs, catalogErrors := asset.LoadThemeCatalogs(root)
 	if len(catalogErrors) > 0 {

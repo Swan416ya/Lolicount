@@ -56,16 +56,36 @@ def display_romaji(name):
 NPC = "npc-"
 
 
-def npc_row(repo, name, names, silhouettes):
-    """Describe one merged NPC theme: every outfit key is a search alias."""
+def npc_row(repo, name, names, silhouettes, chinese, language, aliases):
+    """Describe one consolidated story portrait theme; every source outfit stays searchable.
+
+    Consolidation happens before the names are frozen, so a theme that later gains a
+    reliable name keeps its merged shape and switches from the placeholder label to
+    the character name instead of being split back into one theme per outfit.
+    """
     key = name.removeprefix(NPC)
-    outfits = sorted(stem for stem, label in names.items() if stem.startswith(key) and stem not in silhouettes and label.startswith("Story "))
+    outfits = sorted(
+        configured["name"]
+        for configured in read_json(repo / "assets/theme" / f"pcr-{name}" / "config.json").get("sets", [])
+    )
+    japanese = names.get(key, f"Story {key}")
+    if japanese.startswith("Story "):
+        return {
+            "name": f"pcr-{name}",
+            "character": japanese,
+            "romaji": japanese,
+            "aliases": sorted({key, japanese, *outfits}),
+            "unnamed": True,
+            "storyCharacter": key,
+        }
+    chinese_name = chinese.get(key, japanese)
+    terms = [japanese, chinese_name, key, f"Story {key}", *outfits, *aliases.get(key, [])]
     return {
         "name": f"pcr-{name}",
-        "character": f"Story {key}",
-        "romaji": f"Story {key}",
-        "aliases": sorted({key, f"Story {key}", *outfits}),
-        "unnamed": True,
+        "character": chinese_name,
+        "romaji": language.get(key, ""),
+        "aliases": list(dict.fromkeys(term for term in terms if term)),
+        "unnamed": False,
         "storyCharacter": key,
     }
 
@@ -103,7 +123,7 @@ def build_catalog(repo):
     for path in sorted((repo / "assets/theme").glob("pcr-*")):
         name = path.name.removeprefix("pcr-")
         if name.startswith(NPC):
-            rows.append(npc_row(repo, name, names, silhouettes))
+            rows.append(npc_row(repo, name, names, silhouettes, chinese, language, aliases))
             continue
         if split_model(name) is None:
             raise SystemExit(f"unexpected theme name {name}")

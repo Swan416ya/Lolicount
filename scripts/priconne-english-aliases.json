@@ -1,4 +1,16 @@
 {
+  "0027": [
+    "Subaru Natsuki",
+    "Subaru",
+    "Natsuki Subaru"
+  ],
+  "1000": [
+    "Yuuki",
+    "Protagonist",
+    "佑树",
+    "ユウキ",
+    "主角"
+  ],
   "1001": [
     "Hiyori"
   ],
@@ -28,6 +40,10 @@
   ],
   "1064": [
     "Sheffy"
+  ],
+  "1069": [
+    "Omniscient Kaiser",
+    "Kaiser Insight"
   ],
   "1075": [
     "Pecorine"
@@ -175,6 +191,10 @@
   ],
   "1812": [
     "Sheffy"
+  ],
+  "1900": [
+    "Ameth",
+    "Ames"
   ],
   "1914": [
     "Kokkoro"
