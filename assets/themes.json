@@ -18862,13 +18862,14 @@
       "name": "pcr-191411",
       "frames": 28,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / コッコロ; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / ゴウシン; expression variants selected inside the portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "コッコロ"
+        "ゴウシン",
+        "Story 1914"
       ],
       "version": "1.0.0"
     },
@@ -18876,13 +18877,14 @@
       "name": "pcr-191412",
       "frames": 36,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / コッコロ; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 1914; expression variants selected inside the portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "コッコロ"
+        "Story 1914",
+        "NPC"
       ],
       "version": "1.0.0"
     },
@@ -18890,13 +18892,14 @@
       "name": "pcr-191413",
       "frames": 36,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / コッコロ; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 1914; expression variants selected inside the portrait.",
       "tags": [
         "princess-connect",
         "priconne",
         "公主连结",
         "プリコネ",
-        "コッコロ"
+        "Story 1914",
+        "NPC"
       ],
       "version": "1.0.0"
     },

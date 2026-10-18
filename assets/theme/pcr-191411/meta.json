@@ -1,12 +1,13 @@
 {
   "name": "pcr-191411",
-  "description": "Princess Connect! Re:Dive / コッコロ; static story portrait, independent body, eyes and mouth.",
+  "description": "Princess Connect! Re:Dive / ゴウシン; expression variants selected inside the portrait.",
   "tags": [
     "princess-connect",
     "priconne",
     "公主连结",
     "プリコネ",
-    "コッコロ"
+    "ゴウシン",
+    "Story 1914"
   ],
   "version": "1.0.0"
 }

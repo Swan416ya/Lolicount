@@ -16896,39 +16896,10 @@
     "aliases": [
       "ゴウシン",
       "1914",
-      "191411",
-      "Goushin"
+      "191411"
     ],
     "unnamed": false,
     "storyModel": "191411",
-    "storyCharacter": "1914"
-  },
-  {
-    "name": "pcr-191412",
-    "character": "ゴウシン, 12",
-    "romaji": "goushin",
-    "aliases": [
-      "ゴウシン",
-      "1914",
-      "191412",
-      "Goushin"
-    ],
-    "unnamed": false,
-    "storyModel": "191412",
-    "storyCharacter": "1914"
-  },
-  {
-    "name": "pcr-191413",
-    "character": "ゴウシン, 13",
-    "romaji": "goushin",
-    "aliases": [
-      "ゴウシン",
-      "1914",
-      "191413",
-      "Goushin"
-    ],
-    "unnamed": false,
-    "storyModel": "191413",
     "storyCharacter": "1914"
   },
   {
@@ -17330,6 +17301,32 @@
     ],
     "unnamed": false,
     "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191412",
+    "character": "Story 1914, 12",
+    "romaji": "goushin",
+    "aliases": [
+      "Story 1914",
+      "1914",
+      "191412"
+    ],
+    "unnamed": true,
+    "storyModel": "191412",
+    "storyCharacter": "1914"
+  },
+  {
+    "name": "pcr-191413",
+    "character": "Story 1914, 13",
+    "romaji": "goushin",
+    "aliases": [
+      "Story 1914",
+      "1914",
+      "191413"
+    ],
+    "unnamed": true,
+    "storyModel": "191413",
+    "storyCharacter": "1914"
   },
   {
     "name": "pcr-npc-0001",

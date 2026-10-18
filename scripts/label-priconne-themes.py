@@ -93,11 +93,25 @@ def npc_row(repo, name, names, silhouettes, chinese, language, aliases):
     }
 
 
-def named_row(name, names, chinese, language, aliases):
-    """Describe one named outfit: the story model is an independent theme."""
+def named_row(name, names, chinese, language, aliases, overrides):
+    """Describe one named outfit: the story model is an independent theme.
+
+    A story model ID carries the nameplate of the portrait actually drawn for it,
+    so a stem can contain portraits of different characters. ``overrides`` maps a
+    single model ID to its own name, or to an empty string when the portrait has
+    no reliable name even though the rest of the stem has one.
+    """
     stem = name[:4]
-    ja = names.get(stem) or f"Story {stem}"
-    chinese_name = chinese.get(stem, ja)
+    override = overrides.get(name)
+    if override == "":
+        ja = f"Story {stem}"
+        chinese_name = ja
+    elif override:
+        ja = override
+        chinese_name = chinese.get(stem, override)
+    else:
+        ja = names.get(stem) or f"Story {stem}"
+        chinese_name = chinese.get(stem, ja)
     unnamed = ja.startswith("Story ")
     label = f"{chinese_name}, {name[4:]}" if not unnamed else f"Story {stem}, {name[4:]}"
     terms = [ja, chinese_name, stem, name] + aliases.get(stem, [])
@@ -122,6 +136,7 @@ def build_catalog(repo):
     chinese = read_json(repo / "scripts/priconne-zh-names.json")
     language = read_json(repo / "scripts/priconne-romaji.json")
     aliases = read_json(repo / "scripts/priconne-english-aliases.json")
+    overrides = read_json(repo / "scripts/priconne-model-names.json")
     rows = []
     for path in sorted((repo / "assets/theme").glob("pcr-*")):
         name = path.name.removeprefix("pcr-")
@@ -130,7 +145,7 @@ def build_catalog(repo):
             continue
         if split_model(name) is None:
             raise SystemExit(f"unexpected theme name {name}")
-        rows.append(named_row(name, names, chinese, language, aliases))
+        rows.append(named_row(name, names, chinese, language, aliases, overrides))
     rows.sort(key=lambda row: (row["unnamed"], row["name"]))
     return rows
 
