@@ -696,10 +696,10 @@ useHead({
   border-radius: 0.85rem;
   /* Very wide portraits fill the frame and fade out at both edges instead of
      spilling over the panel. Centred images narrower than the frame keep their
-     own edges, because the transparent mask stops live outside them. */
+     own edges, because the transparent mask stops live outside them. The mask
+     belongs to the portrait itself: masking the stage would fade its own
+     background and rounded corners too. */
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .preview-image {
@@ -707,6 +707,8 @@ useHead({
   max-height: 18rem;
   object-fit: contain;
   object-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .preview-loading {
@@ -935,10 +937,9 @@ useHead({
   width: 100%;
   height: 8.5rem;
   margin-bottom: 0.35rem;
-  /* Wide portraits stay centred and fade out where they leave the card. */
+  /* Wide portraits stay centred and fade out where they leave the card; the
+     mask sits on the image so the skeleton ramp keeps its full width. */
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 /* Reference's skeleton-cycle ramp behind each card image until it loads. */
@@ -955,6 +956,8 @@ useHead({
   width: 100%;
   height: 100%;
   object-fit: contain;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .theme-card strong {
