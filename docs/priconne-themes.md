@@ -71,6 +71,14 @@ pnpm --dir web generate
 
 启动开发服务后，打开 `/themes?theme=pcr-105811`，在“公主连结！Re:Dive”分组选择角色，检查计数器预览；重复请求 `/@demo?theme=pcr-105811` 可以看到不同眼嘴组合。也可检查可可萝 `pcr-105911`、凯露 `pcr-106011`、莉玛 `pcr-105211`、纯 `pcr-104711`。
 
+剧情脚本里取到姓名的角色现在能在主题库里按名字搜到，选中后预览面板显示对应角色；`/@demo` 直接返回同一个主题的计数图：
+
+![主题库按角色名搜索](images/priconne-web-gallery.webp)
+
+![选中合并主题后的预览与角色信息](images/priconne-web-preview.webp)
+
+![同一批命名主题的计数图](images/priconne-web-counters.webp)
+
 ![角色预览](images/priconne-preview.webp)
 
 相同角色的不同剧情造型独立成主题，避免跨造型随机拼出错位组合：
