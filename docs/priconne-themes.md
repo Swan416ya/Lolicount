@@ -1,24 +1,24 @@
 # 公主连结剧情立绘主题
 
-新增公主连结静态立绘主题。有名字的角色继续使用 `pcr-<story-model-id>`，每套服装和剧情姿势各自独立；无可靠姓名的路人使用 `pcr-npc-<story-character-id>`，同一 NPC 的多套服装合并到一个主题。剧情立绘在姓名冻结前就已按编号合并的主题保持 `pcr-npc-<story-character-id>` 形式，其中后来确认了姓名的角色沿用该主题：只把标题、罗马音与搜索别名换成角色名，不重新拆分，以免改动已经逐层校验过的分层快照。这些「已命名但保留合并主题」的编号显式列在 [priconne-consolidated-named.json](../scripts/priconne-consolidated-named.json)，新增条目需要同时提供主题，否则测试会要求回到每套服装一个主题。
+新增公主连结静态立绘主题。**每个保留的剧情立绘模型各自成主题**，命名沿用 `pcr-<story-model-id>`；编号前四位是剧情批次编号而不是角色编号（同一批次里可能同时出现不同角色、吉祥物或道具），因此既不用它归并主题，也不用它当名字：角色名逐立绘取自剧情脚本的名牌，取不到名牌的立绘标题写 `Story <批次号>, <后缀>` 并带上名牌作为搜索别名。变化数低于 10 的主题整个删除（`scripts/priconne-low-variant-themes.json` 记录被删除的编号），避免出现点一下几乎不变或直接换角色的主题；`config.json` 的互斥 `sets` 格式仍然受支持，但当前快照没有用它。
 
 主题覆盖两份资源清单中的角色立绘，包含剧情姿势、现实世界服装和 NPC；导出数量与验证结果见本页下方的快照验证记录。
 
-快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影和所有最终变化数为 1 的主题后，由 **1,657 套可见服装**整理为 **1,406 个主题**（1,217 个有名角色主题与 189 个无名主题，后者合计 401 套服装），包含 **47,763 张去重分层与 353,443 种组合**，分层 WebP 合计约 **544.0 MiB**。像素完全相同的 NPC 服装合并时只保留一套。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
+快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影和所有变化数低于 10 的主题后，保留 **1,495 套可见服装**并整理为 **1,495 个主题**（1,194 个有名角色主题与 301 个仅带名牌别名的主题），包含 **47,197 张去重分层与 353,118 种组合**，分层 WebP 合计约 **499.7 MiB**。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
 
 ## 素材范围与来源
 
 - 快照清单：[priconne-manifest.txt](../scripts/priconne-manifest.txt)，合并 `spine2` 与 `storydata2` 中的 `spine_full_<id>` / `storydata_spine_full_<id>` 资源，按模型 ID 去重后保留 2,104 条记录，包括资源路径与内容寻址 hash。相同 ID 优先使用第一份资源包；例如日和莉、佩可莉姆的图集、骨骼与身体/眼嘴配置相同，仅资源包命名不同。
-- [priconne-exclusions.json](../scripts/priconne-exclusions.json) 明确列出 128 个非立绘资源（答题面板、标题特效、道具或占位项）。另删除 [priconne-silhouettes.json](../scripts/priconne-silhouettes.json) 中 102 个角色未登场半透明剪影，并按 [priconne-single-variant-themes.json](../scripts/priconne-single-variant-themes.json) 删除合并后仍只有一种变化的全部 134 个主题，不区分有名角色、反派或 NPC。覆盖本次清单中的目标素材，不代表全部游戏素材或未来版本。
+- [priconne-exclusions.json](../scripts/priconne-exclusions.json) 明确列出 128 个非立绘资源（答题面板、标题特效、道具或占位项）。另删除 [priconne-silhouettes.json](../scripts/priconne-silhouettes.json) 中 102 个角色未登场半透明剪影，并按变化数下限删除 162 个主题（低于 10 个变化，不区分有名角色、反派或路人）；另有 217 个模型与此前已排除的条目因为与保留立绘像素完全相同或早已排除而没有独立主题。全部未发布编号记录在 [priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json)。覆盖本次清单中的目标素材，不代表全部游戏素材或未来版本。
 - 公开提取工具：[lskyset/priconne-asset-extractor](https://github.com/lskyset/priconne-asset-extractor) 支持下载游戏资源清单、提取 Unity 图片与文本；[MightyZanark/PriconneUtils](https://github.com/MightyZanark/PriconneUtils) 也提供日服资源下载流程。它们是工具仓库，并非完整美术素材镜像。
 - 原始资源来自游戏公开 CDN `https://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/<hash 前两位>/<hash>`。本 PR 提交处理后的静态分层，不提交 Unity 资源包或游戏数据库。
-- 名称有两个来源：游戏主数据库的单位/角色记录，以及剧情脚本本身。剧情文本用 [Overseer-Council/PrincessConnectRedive_story_extraction](https://github.com/Overseer-Council/PrincessConnectRedive_story_extraction) 的命令清单（仓库里 2,165 个故事各存两份逐字节相同的拷贝，共 4,330 个文件），每个 `focus`（台词＋名牌）前最近的 `type`/`visible`/`jump`/`in_*` 参数就是该立绘的角色编号（清单里的编号去掉前导零，例如 `2711` 对应资产 `002711`）；按编号投票，只接受跨两个以上文件一致的名牌，得到逐 **立绘编号**（不是前四位前缀）的角色名。日文与中文名称分别冻结在 [priconne-names.json](../scripts/priconne-names.json) 和 [priconne-zh-names.json](../scripts/priconne-zh-names.json)，罗马音与英文别名在 [priconne-romaji.json](../scripts/priconne-romaji.json) 和 [priconne-english-aliases.json](../scripts/priconne-english-aliases.json)，中文另对照 [wthee/pcr-tool-sql-diff](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/cn/data/unit_data.sql) 与[公开数据库字段映射](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/jp_hash)。没有可靠姓名的立绘按编号前四位归并为 189 个保留主题，重新导出后像素内容完全相同的服装只保留一套；已确认姓名的剧情角色沿用同编号的合并主题，只改用角色名与搜索别名，保留主题的所有源模型编号仍是搜索别名。少数角色（`0027` スバル、`1000` 主人公）在主数据库里没有单位行，前者的名牌来自剧情脚本，后者的剧情名牌只出现过一次（属于宫子占身桥段）因此不作为依据，仍按主角立绘本身命名，属于中等置信。
-- 名牌里描述性的称呼（`男孩`、`女孩子`、`村长`、`ギャング１`、`兵士１`、`スライム（赤）` 等）不算姓名：这些主题保持无名，只把名牌加进搜索别名。部分名牌本身就是日文原文（`ゼーン`、`モーラ`、`ゴウシン` 等），此时中日两列都用该原文，不另做回译；另有 `princess-connect`、`priconne` 等通用标签与 `pcr-npc-*` 的源服装编号仍可搜索。编号前四位与角色的对应只在逐个立绘核对过时才使用：`1914` 的 `191411` 是 `ゴウシン`（旧版按前缀错标成可可萝，已按剧情文本修正），同编号的 `191412`/`191413`（另一位造型不同的人物）在剧情文本里没有名牌，[priconne-model-names.json](../scripts/priconne-model-names.json) 显式把它们留作无名；`1916` 的主题整组是吉祥物立绘，`1927` 的立绘与雪菲（`unit 192701`）已知的全部形态都不相似，两者都刻意保持无名，不按前缀命名。
+- 名称有两个来源：游戏主数据库的单位/角色记录，以及剧情脚本本身。剧情文本用 [Overseer-Council/PrincessConnectRedive_story_extraction](https://github.com/Overseer-Council/PrincessConnectRedive_story_extraction) 的命令清单（仓库里 2,165 个故事各存两份逐字节相同的拷贝，共 4,330 个文件），每个 `focus`（台词＋名牌）前最近的 `type`/`visible`/`jump`/`in_*` 参数就是该立绘的角色编号（清单里的编号去掉前导零，例如 `2711` 对应资产 `002711`）；按编号投票，只接受跨两个以上文件一致的名牌，得到逐 **立绘编号**的角色名，逐立绘的覆盖结果冻结在 [priconne-model-names.json](../scripts/priconne-model-names.json)，主数据库里只有单位记录的角色仍用 [priconne-names.json](../scripts/priconne-names.json)。罗马音与英文别名在 [priconne-romaji.json](../scripts/priconne-romaji.json) 和 [priconne-english-aliases.json](../scripts/priconne-english-aliases.json)，中文另对照 [wthee/pcr-tool-sql-diff](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/cn/data/unit_data.sql) 与[公开数据库字段映射](https://github.com/wthee/pcr-tool-sql-diff/tree/708213df9b6fe9aad632801dadc98e0ffc30cbab/jp_hash)。`0027` スバル、`1000` 主人公、`1900` アメス这些只有剧情立绘的角色同样逐立绘记录；后两者没有可用的剧情名牌，属于按立绘与角色资料判断的中置信条目。
+- 名牌里描述性的称呼（`男孩`、`女孩子`、`村长`、`ギャング１`、`兵士１`、`スライム（赤）` 等）不算姓名：这些主题标题写 `Story <批次号>, <后缀>`，只把名牌加进搜索别名，原模型编号也仍是搜索别名。部分名牌本身就是日文原文（`ゼーン`、`モーラ`、`ゴウシン` 等），此时中日两列都用该原文，不另做回译。编号前四位只在逐个立绘核对过时才当作角色线索：`191411` 是 `ゴウシン`（旧版按前缀错标成可可萝，已按剧情文本修正），同批次里没有名牌的立绘保持无名。
 - 原游戏美术版权归 Cygames 等各权利方所有；工具仓库的代码许可不等同于游戏美术许可。
 
 ## 分层格式与处理
 
-每个目录包含 `ren.json`、`config.json`、`display.json`、`meta.json` 和 `ren/*.webp`。画布最长边为 640–800px，默认显示高度 400px。`ren.json[0]` 为占位项，其余层从 1 开始；范围为数组的闭区间索引。同一类别在清单中连续排列，范围内不会混入其他类别。无名 NPC 的 `config.json.sets` 保存互斥服装：渲染时先等概率选择一套服装，再只从该服装的身体、眼睛和嘴巴范围取样，所以变化数是各服装组合数之和，不会把不同服装的部件相乘或错拼。
+每个目录包含 `ren.json`、`config.json`、`display.json`、`meta.json` 和 `ren/*.webp`。画布最长边为 640–800px，默认显示高度 400px。`ren.json[0]` 为占位项，其余层从 1 开始；范围为数组的闭区间索引。同一类别在清单中连续排列，范围内不会混入其他类别。当前快照每个主题只包含一个剧情立绘模型，变化数就是该模型身体 × 眼睛 × 嘴巴的组合数；`config.json.sets`（互斥服装，渲染时先选服装再在服装内部取表情）仍然受支持，用于以后需要把同一角色的多套服装放进一个主题的场景。
 
 导出器先将 Unity 图集的预乘 RGB 转换为普通透明度，再使用 Spine 3.6 在固定姿势、同一画布上逐个渲染部件。图集本身已含抗锯齿透明度，因此离线导出关闭额外 MSAA，避免重叠图层分开渲染时产生不同的边缘解析。透明图片按完整像素和坐标去重，以无损 WebP 保存，避免眼嘴接缝被有损压缩放大。缩放、图集旋转和裁切偏移由匹配版本的渲染器处理。
 
@@ -49,8 +49,8 @@ python scripts/gen-priconne-themes.py \
   --names scripts/priconne-names.json \
   --report /tmp/priconne-report.json
 
-python scripts/merge-priconne-npcs.py
 python scripts/update-priconne-validation.py
+python scripts/label-priconne-themes.py
 ```
 
 支持 `--only 105811 105911 106011` 生成指定模型，`--partition 0 3` 分片处理，`--max-edge 640` 控制素材分辨率，以及 `--resume` 根据同一报告继续。默认读取非立绘排除清单。生成器同时输出主题库 WebP 预览图。角色搜索信息在 [priconne-themes.json](../web/app/data/priconne-themes.json)，包含中文/日文名称、罗马音与素材编号。
@@ -67,7 +67,7 @@ go test ./internal/imgcore/...
 pnpm --dir web generate
 ```
 
-`TestPriconnePortraits` 从资源清单、姓名映射、[priconne-consolidated-named.json](../scripts/priconne-consolidated-named.json) 与排除规则推导期望主题集合，使用真实加载器读取每个 `pcr-` 主题，检查每套服装的类别区间、所有分层尺寸与坐标，并以不同选择验证生产懒加载合成的 SVG 格式、图层数量和组合变化。测试同时保证无名角色已按人物归并、不同服装保持互斥，并且只有显式列出的角色可以沿用合并主题。
+`TestPriconnePortraits` 从资源清单、姓名映射、[priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json) 与排除规则推导期望主题集合，使用真实加载器读取每个 `pcr-` 主题，检查每个立绘的类别区间、所有分层尺寸与坐标，并以不同选择验证生产懒加载合成的 SVG 格式、图层数量和组合变化。测试同时保证每个模型各自成主题、变化数不低于 10，并且变化数低于下限的主题确实已被排除。
 
 启动开发服务后，打开 `/themes?theme=pcr-105811`，在“公主连结！Re:Dive”分组选择角色，检查计数器预览；重复请求 `/@demo?theme=pcr-105811` 可以看到不同眼嘴组合。也可检查可可萝 `pcr-105911`、凯露 `pcr-106011`、莉玛 `pcr-105211`、纯 `pcr-104711`。
 

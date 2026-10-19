@@ -16,6 +16,10 @@ import (
 	"github.com/miaoledor/lolicount/internal/imgcore/composer"
 )
 
+// minimumPriconneVariants is the variant floor below which a Princess Connect
+// portrait is dropped entirely instead of shipping a nearly static theme.
+const minimumPriconneVariants = 10
+
 // TestPriconnePortraits exercises the real loader and SVG composition for every
 // contributed portrait, including alternate draw orders and body-only models.
 func TestPriconnePortraits(t *testing.T) {
@@ -39,6 +43,9 @@ func TestPriconnePortraits(t *testing.T) {
 	if err := json.Unmarshal(nameJSON, &names); err != nil {
 		t.Fatal(err)
 	}
+	if len(names) == 0 {
+		t.Fatal("scripts/priconne-names.json holds no names")
+	}
 	silhouetteJSON, err := os.ReadFile("../../../scripts/priconne-silhouettes.json")
 	if err != nil {
 		t.Fatal(err)
@@ -47,7 +54,7 @@ func TestPriconnePortraits(t *testing.T) {
 	if err := json.Unmarshal(silhouetteJSON, &silhouettes); err != nil {
 		t.Fatal(err)
 	}
-	singleVariantJSON, err := os.ReadFile("../../../scripts/priconne-single-variant-themes.json")
+	singleVariantJSON, err := os.ReadFile("../../../scripts/priconne-excluded-themes.json")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -58,18 +65,6 @@ func TestPriconnePortraits(t *testing.T) {
 	singleVariants := make(map[string]bool, len(singleVariantNames))
 	for _, name := range singleVariantNames {
 		singleVariants[name] = true
-	}
-	consolidatedNamedJSON, err := os.ReadFile("../../../scripts/priconne-consolidated-named.json")
-	if err != nil {
-		t.Fatal(err)
-	}
-	var consolidatedNamedStems []string
-	if err := json.Unmarshal(consolidatedNamedJSON, &consolidatedNamedStems); err != nil {
-		t.Fatal(err)
-	}
-	consolidatedNamed := make(map[string]bool, len(consolidatedNamedStems))
-	for _, stem := range consolidatedNamedStems {
-		consolidatedNamed[stem] = true
 	}
 	root, err := fs.Sub(assets.FS, "theme")
 	if err != nil {
@@ -88,14 +83,10 @@ func TestPriconnePortraits(t *testing.T) {
 		if _, silhouette := silhouettes[modelID]; silhouette {
 			continue
 		}
-		label := names[modelID[:4]]
+		// Every retained story model is its own theme: the leading digits of a
+		// model ID are a story batch, not a character, so consolidating by them
+		// would shuffle between unrelated characters on each render.
 		themeName := "pcr-" + modelID
-		if label == "" || strings.HasPrefix(label, "Story ") || consolidatedNamed[modelID[:4]] {
-			// Unnamed portraits stay consolidated per story character. A character
-			// named only after that consolidation is listed explicitly so naming a
-			// new character still requires an outfit theme unless the list grows.
-			themeName = "pcr-npc-" + modelID[:4]
-		}
 		if !singleVariants[themeName] {
 			expected[themeName] = true
 		}
@@ -165,8 +156,8 @@ func TestPriconnePortraits(t *testing.T) {
 			if catalog.Variants != expectedVariants {
 				t.Fatalf("catalog variants = %d, want additive set total %d", catalog.Variants, expectedVariants)
 			}
-			if catalog.Variants == 1 {
-				t.Fatal("single-variation Princess Connect themes must be excluded")
+			if catalog.Variants < minimumPriconneVariants {
+				t.Fatalf("Princess Connect themes below %d variants must be excluded, got %d", minimumPriconneVariants, catalog.Variants)
 			}
 			var first string
 			varies := false

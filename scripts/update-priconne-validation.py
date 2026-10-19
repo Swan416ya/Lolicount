@@ -83,16 +83,13 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     excluded = read_json(repo / "scripts/priconne-exclusions.json")
     silhouettes = read_json(repo / "scripts/priconne-silhouettes.json")
-    single_variant = set(read_json(repo / "scripts/priconne-single-variant-themes.json"))
-    names = read_json(repo / "scripts/priconne-names.json")
+    low_variant = set(read_json(repo / "scripts/priconne-excluded-themes.json"))
 
-    def generated_theme(model):
-        label = names.get(model[:4], f"Story {model[:4]}")
-        return f"pcr-npc-{model[:4]}" if label.startswith("Story ") else f"pcr-{model}"
-
+    # Every retained story model is its own theme; the leading four digits of a
+    # model ID are a story batch, not a character, so they never name a theme.
     source_models = [
         model for model in manifest_models(repo)
-        if model not in excluded and model not in silhouettes and generated_theme(model) not in single_variant
+        if model not in excluded and model not in silhouettes and f"pcr-{model}" not in low_variant
     ]
     validation_path = repo / "docs/priconne-validation.json"
     reports = read_existing_validation(validation_path)
@@ -155,7 +152,7 @@ def main():
         "assetBytes": asset_bytes,
         "excludedNonPortraitModels": len(excluded),
         "excludedSilhouetteModels": len(silhouettes),
-        "excludedSingleVariantThemes": len(single_variant),
+        "excludedThemes": len(low_variant),
         "manifestSHA256_UTF8_LF": hashlib.sha256(manifest).hexdigest(),
     }
     write_json(validation_path, {"summary": summary, "models": models})

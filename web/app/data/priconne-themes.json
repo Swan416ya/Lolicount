@@ -1,5 +1,147 @@
 [
   {
+    "name": "pcr-000112",
+    "character": "男孩子, 12",
+    "romaji": "",
+    "aliases": [
+      "男孩子",
+      "0001",
+      "000112",
+      "男孩"
+    ],
+    "unnamed": false,
+    "storyModel": "000112",
+    "storyCharacter": "0001"
+  },
+  {
+    "name": "pcr-002611",
+    "character": "帕克, 11",
+    "romaji": "pakku",
+    "aliases": [
+      "帕克",
+      "0026",
+      "002611",
+      "Puck"
+    ],
+    "unnamed": false,
+    "storyModel": "002611",
+    "storyCharacter": "0026"
+  },
+  {
+    "name": "pcr-002711",
+    "character": "昴, 11",
+    "romaji": "subaru",
+    "aliases": [
+      "昴",
+      "0027",
+      "002711",
+      "Subaru Natsuki",
+      "Subaru",
+      "Natsuki Subaru"
+    ],
+    "unnamed": false,
+    "storyModel": "002711",
+    "storyCharacter": "0027"
+  },
+  {
+    "name": "pcr-002811",
+    "character": "ペテルギウス, 11",
+    "romaji": "peterugiusu",
+    "aliases": [
+      "ペテルギウス",
+      "0028",
+      "002811",
+      "Petelgeuse"
+    ],
+    "unnamed": false,
+    "storyModel": "002811",
+    "storyCharacter": "0028"
+  },
+  {
+    "name": "pcr-003211",
+    "character": "女老师, 11",
+    "romaji": "",
+    "aliases": [
+      "女老师",
+      "0032",
+      "003211"
+    ],
+    "unnamed": false,
+    "storyModel": "003211",
+    "storyCharacter": "0032"
+  },
+  {
+    "name": "pcr-003511",
+    "character": "男人, 11",
+    "romaji": "",
+    "aliases": [
+      "男人",
+      "0035",
+      "003511"
+    ],
+    "unnamed": false,
+    "storyModel": "003511",
+    "storyCharacter": "0035"
+  },
+  {
+    "name": "pcr-003911",
+    "character": "サンタクロース, 11",
+    "romaji": "",
+    "aliases": [
+      "サンタクロース",
+      "0039",
+      "003911"
+    ],
+    "unnamed": false,
+    "storyModel": "003911",
+    "storyCharacter": "0039"
+  },
+  {
+    "name": "pcr-004211",
+    "character": "モーラ, 11",
+    "romaji": "moora",
+    "aliases": [
+      "モーラ",
+      "0042",
+      "004211",
+      "Mora"
+    ],
+    "unnamed": false,
+    "storyModel": "004211",
+    "storyCharacter": "0042"
+  },
+  {
+    "name": "pcr-011411",
+    "character": "恶霸地方官, 11",
+    "romaji": "",
+    "aliases": [
+      "恶霸地方官",
+      "0114",
+      "011411"
+    ],
+    "unnamed": false,
+    "storyModel": "011411",
+    "storyCharacter": "0114"
+  },
+  {
+    "name": "pcr-100012",
+    "character": "？？？, 12",
+    "romaji": "shujinkou",
+    "aliases": [
+      "？？？",
+      "1000",
+      "100012",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": false,
+    "storyModel": "100012",
+    "storyCharacter": "1000"
+  },
+  {
     "name": "pcr-100111",
     "character": "日和莉, 11",
     "romaji": "hiyori",
@@ -1138,20 +1280,6 @@
     "storyCharacter": "1018"
   },
   {
-    "name": "pcr-101821",
-    "character": "伊绪, 21",
-    "romaji": "io",
-    "aliases": [
-      "イオ",
-      "伊绪",
-      "1018",
-      "101821"
-    ],
-    "unnamed": false,
-    "storyModel": "101821",
-    "storyCharacter": "1018"
-  },
-  {
     "name": "pcr-101831",
     "character": "伊绪, 31",
     "romaji": "io",
@@ -1639,20 +1767,6 @@
     ],
     "unnamed": false,
     "storyModel": "102811",
-    "storyCharacter": "1028"
-  },
-  {
-    "name": "pcr-102821",
-    "character": "咲恋, 21",
-    "romaji": "saren",
-    "aliases": [
-      "サレン",
-      "咲恋",
-      "1028",
-      "102821"
-    ],
-    "unnamed": false,
-    "storyModel": "102821",
     "storyCharacter": "1028"
   },
   {
@@ -2494,21 +2608,6 @@
     ],
     "unnamed": false,
     "storyModel": "104311",
-    "storyCharacter": "1043"
-  },
-  {
-    "name": "pcr-104321",
-    "character": "真琴, 21",
-    "romaji": "makoto",
-    "aliases": [
-      "マコト",
-      "真琴",
-      "1043",
-      "104321",
-      "Makoto"
-    ],
-    "unnamed": false,
-    "storyModel": "104321",
     "storyCharacter": "1043"
   },
   {
@@ -3536,21 +3635,6 @@
     "storyCharacter": "1058"
   },
   {
-    "name": "pcr-105814",
-    "character": "佩可莉姆, 14",
-    "romaji": "pekoriinu",
-    "aliases": [
-      "ペコリーヌ",
-      "佩可莉姆",
-      "1058",
-      "105814",
-      "Pecorine"
-    ],
-    "unnamed": false,
-    "storyModel": "105814",
-    "storyCharacter": "1058"
-  },
-  {
     "name": "pcr-105831",
     "character": "佩可莉姆, 31",
     "romaji": "pekoriinu",
@@ -3638,21 +3722,6 @@
     ],
     "unnamed": false,
     "storyModel": "105914",
-    "storyCharacter": "1059"
-  },
-  {
-    "name": "pcr-105921",
-    "character": "可可萝, 21",
-    "romaji": "kokkoro",
-    "aliases": [
-      "コッコロ",
-      "可可萝",
-      "1059",
-      "105921",
-      "Kokkoro"
-    ],
-    "unnamed": false,
-    "storyModel": "105921",
     "storyCharacter": "1059"
   },
   {
@@ -3989,6 +4058,37 @@
     "unnamed": false,
     "storyModel": "106141",
     "storyCharacter": "1061"
+  },
+  {
+    "name": "pcr-106211",
+    "character": "尾狗刀, 11",
+    "romaji": "okutoo",
+    "aliases": [
+      "尾狗刀",
+      "1062",
+      "106211",
+      "咏斗",
+      "尾狗刀 詠斗",
+      "Octo"
+    ],
+    "unnamed": false,
+    "storyModel": "106211",
+    "storyCharacter": "1062"
+  },
+  {
+    "name": "pcr-106231",
+    "character": "咏斗, 31",
+    "romaji": "okutoo",
+    "aliases": [
+      "咏斗",
+      "1062",
+      "106231",
+      "尾狗刀 詠斗",
+      "Octo"
+    ],
+    "unnamed": false,
+    "storyModel": "106231",
+    "storyCharacter": "1062"
   },
   {
     "name": "pcr-106311",
@@ -4768,20 +4868,6 @@
     "storyCharacter": "1071"
   },
   {
-    "name": "pcr-107112",
-    "character": "克莉丝提娜, 12",
-    "romaji": "kurisuteiina",
-    "aliases": [
-      "クリスティーナ",
-      "克莉丝提娜",
-      "1071",
-      "107112"
-    ],
-    "unnamed": false,
-    "storyModel": "107112",
-    "storyCharacter": "1071"
-  },
-  {
     "name": "pcr-107113",
     "character": "克莉丝提娜, 13",
     "romaji": "kurisuteiina",
@@ -4807,34 +4893,6 @@
     ],
     "unnamed": false,
     "storyModel": "107114",
-    "storyCharacter": "1071"
-  },
-  {
-    "name": "pcr-107115",
-    "character": "克莉丝提娜, 15",
-    "romaji": "kurisuteiina",
-    "aliases": [
-      "クリスティーナ",
-      "克莉丝提娜",
-      "1071",
-      "107115"
-    ],
-    "unnamed": false,
-    "storyModel": "107115",
-    "storyCharacter": "1071"
-  },
-  {
-    "name": "pcr-107116",
-    "character": "克莉丝提娜, 16",
-    "romaji": "kurisuteiina",
-    "aliases": [
-      "クリスティーナ",
-      "克莉丝提娜",
-      "1071",
-      "107116"
-    ],
-    "unnamed": false,
-    "storyModel": "107116",
     "storyCharacter": "1071"
   },
   {
@@ -4864,6 +4922,36 @@
     "unnamed": false,
     "storyModel": "107141",
     "storyCharacter": "1071"
+  },
+  {
+    "name": "pcr-107311",
+    "character": "拉基拉基, 11",
+    "romaji": "rajiraji",
+    "aliases": [
+      "拉基拉基",
+      "1073",
+      "107311",
+      "ラジクマール",
+      "拉基库马尔·拉基尼卡东"
+    ],
+    "unnamed": false,
+    "storyModel": "107311",
+    "storyCharacter": "1073"
+  },
+  {
+    "name": "pcr-107312",
+    "character": "ラジラジ, 12",
+    "romaji": "rajiraji",
+    "aliases": [
+      "ラジラジ",
+      "1073",
+      "107312",
+      "ラジクマール",
+      "拉基库马尔·拉基尼卡东"
+    ],
+    "unnamed": false,
+    "storyModel": "107312",
+    "storyCharacter": "1073"
   },
   {
     "name": "pcr-107511",
@@ -9546,20 +9634,6 @@
     "storyCharacter": "1231"
   },
   {
-    "name": "pcr-123112",
-    "character": "真步（探索者）, 12",
-    "romaji": "maho ( ekusupurooraa )",
-    "aliases": [
-      "マホ（エクスプローラー）",
-      "真步（探索者）",
-      "1231",
-      "123112"
-    ],
-    "unnamed": false,
-    "storyModel": "123112",
-    "storyCharacter": "1231"
-  },
-  {
     "name": "pcr-123131",
     "character": "真步（探索者）, 31",
     "romaji": "maho ( ekusupurooraa )",
@@ -10323,21 +10397,6 @@
     "storyCharacter": "1253"
   },
   {
-    "name": "pcr-125314",
-    "character": "kokkoro ( renjaa ), 14",
-    "romaji": "kokkoro ( renjaa )",
-    "aliases": [
-      "コッコロ（レンジャー）",
-      "kokkoro ( renjaa )",
-      "1253",
-      "125314",
-      "Kokkoro"
-    ],
-    "unnamed": false,
-    "storyModel": "125314",
-    "storyCharacter": "1253"
-  },
-  {
     "name": "pcr-125331",
     "character": "kokkoro ( renjaa ), 31",
     "romaji": "kokkoro ( renjaa )",
@@ -10605,48 +10664,6 @@
     "storyCharacter": "1258"
   },
   {
-    "name": "pcr-125821",
-    "character": "riri ( foorun ), 21",
-    "romaji": "riri ( foorun )",
-    "aliases": [
-      "リリ（フォールン）",
-      "riri ( foorun )",
-      "1258",
-      "125821"
-    ],
-    "unnamed": false,
-    "storyModel": "125821",
-    "storyCharacter": "1258"
-  },
-  {
-    "name": "pcr-125822",
-    "character": "riri ( foorun ), 22",
-    "romaji": "riri ( foorun )",
-    "aliases": [
-      "リリ（フォールン）",
-      "riri ( foorun )",
-      "1258",
-      "125822"
-    ],
-    "unnamed": false,
-    "storyModel": "125822",
-    "storyCharacter": "1258"
-  },
-  {
-    "name": "pcr-125823",
-    "character": "riri ( foorun ), 23",
-    "romaji": "riri ( foorun )",
-    "aliases": [
-      "リリ（フォールン）",
-      "riri ( foorun )",
-      "1258",
-      "125823"
-    ],
-    "unnamed": false,
-    "storyModel": "125823",
-    "storyCharacter": "1258"
-  },
-  {
     "name": "pcr-125831",
     "character": "riri ( foorun ), 31",
     "romaji": "riri ( foorun )",
@@ -10731,48 +10748,6 @@
     "storyCharacter": "1260"
   },
   {
-    "name": "pcr-126021",
-    "character": "kuria ( foorun ), 21",
-    "romaji": "kuria ( foorun )",
-    "aliases": [
-      "クリア（フォールン）",
-      "kuria ( foorun )",
-      "1260",
-      "126021"
-    ],
-    "unnamed": false,
-    "storyModel": "126021",
-    "storyCharacter": "1260"
-  },
-  {
-    "name": "pcr-126022",
-    "character": "kuria ( foorun ), 22",
-    "romaji": "kuria ( foorun )",
-    "aliases": [
-      "クリア（フォールン）",
-      "kuria ( foorun )",
-      "1260",
-      "126022"
-    ],
-    "unnamed": false,
-    "storyModel": "126022",
-    "storyCharacter": "1260"
-  },
-  {
-    "name": "pcr-126023",
-    "character": "kuria ( foorun ), 23",
-    "romaji": "kuria ( foorun )",
-    "aliases": [
-      "クリア（フォールン）",
-      "kuria ( foorun )",
-      "1260",
-      "126023"
-    ],
-    "unnamed": false,
-    "storyModel": "126023",
-    "storyCharacter": "1260"
-  },
-  {
     "name": "pcr-126031",
     "character": "kuria ( foorun ), 31",
     "romaji": "kuria ( foorun )",
@@ -10840,48 +10815,6 @@
     ],
     "unnamed": false,
     "storyModel": "126113",
-    "storyCharacter": "1261"
-  },
-  {
-    "name": "pcr-126121",
-    "character": "pureshia ( foorun ), 21",
-    "romaji": "pureshia ( foorun )",
-    "aliases": [
-      "プレシア（フォールン）",
-      "pureshia ( foorun )",
-      "1261",
-      "126121"
-    ],
-    "unnamed": false,
-    "storyModel": "126121",
-    "storyCharacter": "1261"
-  },
-  {
-    "name": "pcr-126122",
-    "character": "pureshia ( foorun ), 22",
-    "romaji": "pureshia ( foorun )",
-    "aliases": [
-      "プレシア（フォールン）",
-      "pureshia ( foorun )",
-      "1261",
-      "126122"
-    ],
-    "unnamed": false,
-    "storyModel": "126122",
-    "storyCharacter": "1261"
-  },
-  {
-    "name": "pcr-126123",
-    "character": "pureshia ( foorun ), 23",
-    "romaji": "pureshia ( foorun )",
-    "aliases": [
-      "プレシア（フォールン）",
-      "pureshia ( foorun )",
-      "1261",
-      "126123"
-    ],
-    "unnamed": false,
-    "storyModel": "126123",
     "storyCharacter": "1261"
   },
   {
@@ -11404,21 +11337,6 @@
     ],
     "unnamed": false,
     "storyModel": "127214",
-    "storyCharacter": "1272"
-  },
-  {
-    "name": "pcr-127215",
-    "character": "kyaru ( hennyuu nama ), 15",
-    "romaji": "kyaru ( hennyuu nama )",
-    "aliases": [
-      "キャル（編入生）",
-      "kyaru ( hennyuu nama )",
-      "1272",
-      "127215",
-      "Karyl"
-    ],
-    "unnamed": false,
-    "storyModel": "127215",
     "storyCharacter": "1272"
   },
   {
@@ -13450,20 +13368,6 @@
     "storyCharacter": "1330"
   },
   {
-    "name": "pcr-133017",
-    "character": "gureisu, 17",
-    "romaji": "gureisu",
-    "aliases": [
-      "グレイス",
-      "gureisu",
-      "1330",
-      "133017"
-    ],
-    "unnamed": false,
-    "storyModel": "133017",
-    "storyCharacter": "1330"
-  },
-  {
     "name": "pcr-133031",
     "character": "gureisu, 31",
     "romaji": "gureisu",
@@ -13587,20 +13491,6 @@
     ],
     "unnamed": false,
     "storyModel": "133116",
-    "storyCharacter": "1331"
-  },
-  {
-    "name": "pcr-133118",
-    "character": "vaioretto, 18",
-    "romaji": "vaioretto",
-    "aliases": [
-      "ヴァイオレット",
-      "vaioretto",
-      "1331",
-      "133118"
-    ],
-    "unnamed": false,
-    "storyModel": "133118",
     "storyCharacter": "1331"
   },
   {
@@ -14474,20 +14364,6 @@
     "storyCharacter": "1355"
   },
   {
-    "name": "pcr-135514",
-    "character": "aira, 14",
-    "romaji": "aira",
-    "aliases": [
-      "アイラ",
-      "aira",
-      "1355",
-      "135514"
-    ],
-    "unnamed": false,
-    "storyModel": "135514",
-    "storyCharacter": "1355"
-  },
-  {
     "name": "pcr-135531",
     "character": "aira, 31",
     "romaji": "aira",
@@ -14569,20 +14445,6 @@
     ],
     "unnamed": false,
     "storyModel": "135614",
-    "storyCharacter": "1356"
-  },
-  {
-    "name": "pcr-135616",
-    "character": "shinatsu, 16",
-    "romaji": "shinatsu",
-    "aliases": [
-      "シナツ",
-      "shinatsu",
-      "1356",
-      "135616"
-    ],
-    "unnamed": false,
-    "storyModel": "135616",
     "storyCharacter": "1356"
   },
   {
@@ -15236,20 +15098,6 @@
     "unnamed": false,
     "storyModel": "137131",
     "storyCharacter": "1371"
-  },
-  {
-    "name": "pcr-137211",
-    "character": "rabirisuta, 11",
-    "romaji": "rabirisuta",
-    "aliases": [
-      "ラビリスタ",
-      "rabirisuta",
-      "1372",
-      "137211"
-    ],
-    "unnamed": false,
-    "storyModel": "137211",
-    "storyCharacter": "1372"
   },
   {
     "name": "pcr-137411",
@@ -16537,20 +16385,6 @@
     "storyCharacter": "1408"
   },
   {
-    "name": "pcr-143011",
-    "character": "ruizumarii, 11",
-    "romaji": "ruizumarii",
-    "aliases": [
-      "ルイズマリー",
-      "ruizumarii",
-      "1430",
-      "143011"
-    ],
-    "unnamed": false,
-    "storyModel": "143011",
-    "storyCharacter": "1430"
-  },
-  {
     "name": "pcr-170111",
     "character": "环奈, 11",
     "romaji": "jiita",
@@ -16820,6 +16654,35 @@
     "storyCharacter": "1812"
   },
   {
+    "name": "pcr-190011",
+    "character": "爱梅斯, 11",
+    "romaji": "amesu",
+    "aliases": [
+      "爱梅斯",
+      "1900",
+      "190011",
+      "Ameth",
+      "Ames"
+    ],
+    "unnamed": false,
+    "storyModel": "190011",
+    "storyCharacter": "1900"
+  },
+  {
+    "name": "pcr-190711",
+    "character": "大吾, 11",
+    "romaji": "daigo",
+    "aliases": [
+      "大吾",
+      "1907",
+      "190711",
+      "Daigo"
+    ],
+    "unnamed": false,
+    "storyModel": "190711",
+    "storyCharacter": "1907"
+  },
+  {
     "name": "pcr-190811",
     "character": "花凛, 11",
     "romaji": "karin",
@@ -16890,6 +16753,48 @@
     "storyCharacter": "1908"
   },
   {
+    "name": "pcr-190911",
+    "character": "ネビア, 11",
+    "romaji": "nebia",
+    "aliases": [
+      "ネビア",
+      "1909",
+      "190911",
+      "Nebia"
+    ],
+    "unnamed": false,
+    "storyModel": "190911",
+    "storyCharacter": "1909"
+  },
+  {
+    "name": "pcr-191011",
+    "character": "真崎, 11",
+    "romaji": "masaki",
+    "aliases": [
+      "真崎",
+      "1910",
+      "191011",
+      "Masaki"
+    ],
+    "unnamed": false,
+    "storyModel": "191011",
+    "storyCharacter": "1910"
+  },
+  {
+    "name": "pcr-191111",
+    "character": "ミネルヴァβ, 11",
+    "romaji": "mineruvabeta",
+    "aliases": [
+      "ミネルヴァβ",
+      "1911",
+      "191111",
+      "Minerva"
+    ],
+    "unnamed": false,
+    "storyModel": "191111",
+    "storyCharacter": "1911"
+  },
+  {
     "name": "pcr-191411",
     "character": "ゴウシン, 11",
     "romaji": "goushin",
@@ -16901,6 +16806,47 @@
     "unnamed": false,
     "storyModel": "191411",
     "storyCharacter": "1914"
+  },
+  {
+    "name": "pcr-191412",
+    "character": "ゴウシン, 12",
+    "romaji": "goushin",
+    "aliases": [
+      "ゴウシン",
+      "1914",
+      "191412"
+    ],
+    "unnamed": false,
+    "storyModel": "191412",
+    "storyCharacter": "1914"
+  },
+  {
+    "name": "pcr-191413",
+    "character": "ゴウシン, 13",
+    "romaji": "goushin",
+    "aliases": [
+      "ゴウシン",
+      "1914",
+      "191413"
+    ],
+    "unnamed": false,
+    "storyModel": "191413",
+    "storyCharacter": "1914"
+  },
+  {
+    "name": "pcr-191711",
+    "character": "ゼーン, 11",
+    "romaji": "zeen",
+    "aliases": [
+      "ゼーン",
+      "1917",
+      "191711",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": false,
+    "storyModel": "191711",
+    "storyCharacter": "1917"
   },
   {
     "name": "pcr-900103",
@@ -16976,180 +16922,2876 @@
     "storyCharacter": "9272"
   },
   {
-    "name": "pcr-930901",
-    "character": "kururu, 01",
-    "romaji": "kururu",
+    "name": "pcr-000111",
+    "character": "Story 0001, 11",
+    "romaji": "",
     "aliases": [
-      "クルル",
-      "kururu",
-      "9309",
-      "930901"
+      "Story 0001",
+      "0001",
+      "000111",
+      "男孩",
+      "男孩子"
     ],
-    "unnamed": false,
-    "storyModel": "930901",
-    "storyCharacter": "9309"
+    "unnamed": true,
+    "storyModel": "000111",
+    "storyCharacter": "0001"
   },
   {
-    "name": "pcr-npc-0021",
-    "character": "噗吉",
-    "romaji": "pukichi",
+    "name": "pcr-000113",
+    "character": "Story 0001, 13",
+    "romaji": "",
     "aliases": [
-      "プキチ",
-      "噗吉",
-      "0021",
-      "Story 0021",
-      "002111",
-      "002112",
-      "002113",
-      "002114",
-      "002131"
+      "Story 0001",
+      "0001",
+      "000113",
+      "男孩",
+      "男孩子"
     ],
-    "unnamed": false,
-    "storyCharacter": "0021"
+    "unnamed": true,
+    "storyModel": "000113",
+    "storyCharacter": "0001"
   },
   {
-    "name": "pcr-npc-0024",
-    "character": "骷髅老爸",
-    "romaji": "dokurooyaji",
+    "name": "pcr-000131",
+    "character": "Story 0001, 31",
+    "romaji": "",
     "aliases": [
-      "ドクロ親父",
-      "骷髅老爸",
-      "0024",
-      "Story 0024",
-      "002411",
-      "002412",
-      "002413",
-      "002414",
-      "002415",
-      "002416"
+      "Story 0001",
+      "0001",
+      "000131",
+      "男孩",
+      "男孩子"
     ],
-    "unnamed": false,
-    "storyCharacter": "0024"
+    "unnamed": true,
+    "storyModel": "000131",
+    "storyCharacter": "0001"
   },
   {
-    "name": "pcr-npc-0026",
-    "character": "帕克",
+    "name": "pcr-000211",
+    "character": "Story 0002, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0002",
+      "0002",
+      "000211",
+      "女孩",
+      "女孩子"
+    ],
+    "unnamed": true,
+    "storyModel": "000211",
+    "storyCharacter": "0002"
+  },
+  {
+    "name": "pcr-000212",
+    "character": "Story 0002, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0002",
+      "0002",
+      "000212",
+      "女孩",
+      "女孩子"
+    ],
+    "unnamed": true,
+    "storyModel": "000212",
+    "storyCharacter": "0002"
+  },
+  {
+    "name": "pcr-000311",
+    "character": "Story 0003, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0003",
+      "0003",
+      "000311",
+      "男性",
+      "男子"
+    ],
+    "unnamed": true,
+    "storyModel": "000311",
+    "storyCharacter": "0003"
+  },
+  {
+    "name": "pcr-000312",
+    "character": "Story 0003, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0003",
+      "0003",
+      "000312",
+      "男性",
+      "男子"
+    ],
+    "unnamed": true,
+    "storyModel": "000312",
+    "storyCharacter": "0003"
+  },
+  {
+    "name": "pcr-000313",
+    "character": "Story 0003, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0003",
+      "0003",
+      "000313",
+      "男性",
+      "男子"
+    ],
+    "unnamed": true,
+    "storyModel": "000313",
+    "storyCharacter": "0003"
+  },
+  {
+    "name": "pcr-000314",
+    "character": "Story 0003, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0003",
+      "0003",
+      "000314",
+      "男性",
+      "男子"
+    ],
+    "unnamed": true,
+    "storyModel": "000314",
+    "storyCharacter": "0003"
+  },
+  {
+    "name": "pcr-000331",
+    "character": "Story 0003, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0003",
+      "0003",
+      "000331",
+      "男性",
+      "男子"
+    ],
+    "unnamed": true,
+    "storyModel": "000331",
+    "storyCharacter": "0003"
+  },
+  {
+    "name": "pcr-000415",
+    "character": "Story 0004, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 0004",
+      "0004",
+      "000415",
+      "女性",
+      "子供",
+      "母亲"
+    ],
+    "unnamed": true,
+    "storyModel": "000415",
+    "storyCharacter": "0004"
+  },
+  {
+    "name": "pcr-000416",
+    "character": "Story 0004, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 0004",
+      "0004",
+      "000416",
+      "女性",
+      "子供",
+      "母亲"
+    ],
+    "unnamed": true,
+    "storyModel": "000416",
+    "storyCharacter": "0004"
+  },
+  {
+    "name": "pcr-000417",
+    "character": "Story 0004, 17",
+    "romaji": "",
+    "aliases": [
+      "Story 0004",
+      "0004",
+      "000417",
+      "女性",
+      "子供",
+      "母亲"
+    ],
+    "unnamed": true,
+    "storyModel": "000417",
+    "storyCharacter": "0004"
+  },
+  {
+    "name": "pcr-000418",
+    "character": "Story 0004, 18",
+    "romaji": "",
+    "aliases": [
+      "Story 0004",
+      "0004",
+      "000418",
+      "女性",
+      "子供",
+      "母亲"
+    ],
+    "unnamed": true,
+    "storyModel": "000418",
+    "storyCharacter": "0004"
+  },
+  {
+    "name": "pcr-000419",
+    "character": "Story 0004, 19",
+    "romaji": "",
+    "aliases": [
+      "Story 0004",
+      "0004",
+      "000419",
+      "女性",
+      "子供",
+      "母亲"
+    ],
+    "unnamed": true,
+    "storyModel": "000419",
+    "storyCharacter": "0004"
+  },
+  {
+    "name": "pcr-000511",
+    "character": "Story 0005, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0005",
+      "0005",
+      "000511",
+      "村长"
+    ],
+    "unnamed": true,
+    "storyModel": "000511",
+    "storyCharacter": "0005"
+  },
+  {
+    "name": "pcr-000512",
+    "character": "Story 0005, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0005",
+      "0005",
+      "000512",
+      "村长"
+    ],
+    "unnamed": true,
+    "storyModel": "000512",
+    "storyCharacter": "0005"
+  },
+  {
+    "name": "pcr-000611",
+    "character": "Story 0006, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0006",
+      "0006",
+      "000611",
+      "老婆"
+    ],
+    "unnamed": true,
+    "storyModel": "000611",
+    "storyCharacter": "0006"
+  },
+  {
+    "name": "pcr-000811",
+    "character": "Story 0008, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0008",
+      "0008",
+      "000811",
+      "ギャング２"
+    ],
+    "unnamed": true,
+    "storyModel": "000811",
+    "storyCharacter": "0008"
+  },
+  {
+    "name": "pcr-000813",
+    "character": "Story 0008, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0008",
+      "0008",
+      "000813",
+      "ギャング２"
+    ],
+    "unnamed": true,
+    "storyModel": "000813",
+    "storyCharacter": "0008"
+  },
+  {
+    "name": "pcr-000814",
+    "character": "Story 0008, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0008",
+      "0008",
+      "000814",
+      "ギャング２"
+    ],
+    "unnamed": true,
+    "storyModel": "000814",
+    "storyCharacter": "0008"
+  },
+  {
+    "name": "pcr-000911",
+    "character": "Story 0009, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0009",
+      "0009",
+      "000911",
+      "ギャング１"
+    ],
+    "unnamed": true,
+    "storyModel": "000911",
+    "storyCharacter": "0009"
+  },
+  {
+    "name": "pcr-000913",
+    "character": "Story 0009, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0009",
+      "0009",
+      "000913",
+      "ギャング１"
+    ],
+    "unnamed": true,
+    "storyModel": "000913",
+    "storyCharacter": "0009"
+  },
+  {
+    "name": "pcr-000914",
+    "character": "Story 0009, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0009",
+      "0009",
+      "000914",
+      "ギャング１"
+    ],
+    "unnamed": true,
+    "storyModel": "000914",
+    "storyCharacter": "0009"
+  },
+  {
+    "name": "pcr-000915",
+    "character": "Story 0009, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 0009",
+      "0009",
+      "000915",
+      "ギャング１"
+    ],
+    "unnamed": true,
+    "storyModel": "000915",
+    "storyCharacter": "0009"
+  },
+  {
+    "name": "pcr-000917",
+    "character": "Story 0009, 17",
+    "romaji": "",
+    "aliases": [
+      "Story 0009",
+      "0009",
+      "000917",
+      "ギャング１"
+    ],
+    "unnamed": true,
+    "storyModel": "000917",
+    "storyCharacter": "0009"
+  },
+  {
+    "name": "pcr-001011",
+    "character": "Story 0010, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0010",
+      "0010",
+      "001011",
+      "男子2",
+      "年轻男子"
+    ],
+    "unnamed": true,
+    "storyModel": "001011",
+    "storyCharacter": "0010"
+  },
+  {
+    "name": "pcr-001012",
+    "character": "Story 0010, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0010",
+      "0010",
+      "001012",
+      "男子2",
+      "年轻男子"
+    ],
+    "unnamed": true,
+    "storyModel": "001012",
+    "storyCharacter": "0010"
+  },
+  {
+    "name": "pcr-001013",
+    "character": "Story 0010, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0010",
+      "0010",
+      "001013",
+      "男子2",
+      "年轻男子"
+    ],
+    "unnamed": true,
+    "storyModel": "001013",
+    "storyCharacter": "0010"
+  },
+  {
+    "name": "pcr-001031",
+    "character": "Story 0010, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0010",
+      "0010",
+      "001031",
+      "男子2",
+      "年轻男子"
+    ],
+    "unnamed": true,
+    "storyModel": "001031",
+    "storyCharacter": "0010"
+  },
+  {
+    "name": "pcr-001111",
+    "character": "Story 0011, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0011",
+      "0011",
+      "001111",
+      "现场监工",
+      "小混混"
+    ],
+    "unnamed": true,
+    "storyModel": "001111",
+    "storyCharacter": "0011"
+  },
+  {
+    "name": "pcr-001112",
+    "character": "Story 0011, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0011",
+      "0011",
+      "001112",
+      "现场监工",
+      "小混混"
+    ],
+    "unnamed": true,
+    "storyModel": "001112",
+    "storyCharacter": "0011"
+  },
+  {
+    "name": "pcr-001131",
+    "character": "Story 0011, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0011",
+      "0011",
+      "001131",
+      "现场监工",
+      "小混混"
+    ],
+    "unnamed": true,
+    "storyModel": "001131",
+    "storyCharacter": "0011"
+  },
+  {
+    "name": "pcr-001211",
+    "character": "Story 0012, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0012",
+      "0012",
+      "001211",
+      "女子",
+      "摄影师"
+    ],
+    "unnamed": true,
+    "storyModel": "001211",
+    "storyCharacter": "0012"
+  },
+  {
+    "name": "pcr-001212",
+    "character": "Story 0012, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0012",
+      "0012",
+      "001212",
+      "女子",
+      "摄影师"
+    ],
+    "unnamed": true,
+    "storyModel": "001212",
+    "storyCharacter": "0012"
+  },
+  {
+    "name": "pcr-001213",
+    "character": "Story 0012, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0012",
+      "0012",
+      "001213",
+      "女子",
+      "摄影师"
+    ],
+    "unnamed": true,
+    "storyModel": "001213",
+    "storyCharacter": "0012"
+  },
+  {
+    "name": "pcr-001331",
+    "character": "Story 0013, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0013",
+      "0013",
+      "001331",
+      "小弟"
+    ],
+    "unnamed": true,
+    "storyModel": "001331",
+    "storyCharacter": "0013"
+  },
+  {
+    "name": "pcr-001411",
+    "character": "Story 0014, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0014",
+      "0014",
+      "001411",
+      "男性",
+      "忍者宅邸管理员"
+    ],
+    "unnamed": true,
+    "storyModel": "001411",
+    "storyCharacter": "0014"
+  },
+  {
+    "name": "pcr-001412",
+    "character": "Story 0014, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0014",
+      "0014",
+      "001412",
+      "男性",
+      "忍者宅邸管理员"
+    ],
+    "unnamed": true,
+    "storyModel": "001412",
+    "storyCharacter": "0014"
+  },
+  {
+    "name": "pcr-001413",
+    "character": "Story 0014, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0014",
+      "0014",
+      "001413",
+      "男性",
+      "忍者宅邸管理员"
+    ],
+    "unnamed": true,
+    "storyModel": "001413",
+    "storyCharacter": "0014"
+  },
+  {
+    "name": "pcr-001414",
+    "character": "Story 0014, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0014",
+      "0014",
+      "001414",
+      "男性",
+      "忍者宅邸管理员"
+    ],
+    "unnamed": true,
+    "storyModel": "001414",
+    "storyCharacter": "0014"
+  },
+  {
+    "name": "pcr-001514",
+    "character": "Story 0015, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0015",
+      "0015",
+      "001514"
+    ],
+    "unnamed": true,
+    "storyModel": "001514",
+    "storyCharacter": "0015"
+  },
+  {
+    "name": "pcr-001515",
+    "character": "Story 0015, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 0015",
+      "0015",
+      "001515"
+    ],
+    "unnamed": true,
+    "storyModel": "001515",
+    "storyCharacter": "0015"
+  },
+  {
+    "name": "pcr-001516",
+    "character": "Story 0015, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 0015",
+      "0015",
+      "001516"
+    ],
+    "unnamed": true,
+    "storyModel": "001516",
+    "storyCharacter": "0015"
+  },
+  {
+    "name": "pcr-001812",
+    "character": "Story 0018, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0018",
+      "0018",
+      "001812",
+      "狗"
+    ],
+    "unnamed": true,
+    "storyModel": "001812",
+    "storyCharacter": "0018"
+  },
+  {
+    "name": "pcr-002312",
+    "character": "Story 0023, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0023",
+      "0023",
+      "002312"
+    ],
+    "unnamed": true,
+    "storyModel": "002312",
+    "storyCharacter": "0023"
+  },
+  {
+    "name": "pcr-002514",
+    "character": "Story 0025, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0025",
+      "0025",
+      "002514"
+    ],
+    "unnamed": true,
+    "storyModel": "002514",
+    "storyCharacter": "0025"
+  },
+  {
+    "name": "pcr-002515",
+    "character": "Story 0025, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 0025",
+      "0025",
+      "002515"
+    ],
+    "unnamed": true,
+    "storyModel": "002515",
+    "storyCharacter": "0025"
+  },
+  {
+    "name": "pcr-002516",
+    "character": "Story 0025, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 0025",
+      "0025",
+      "002516"
+    ],
+    "unnamed": true,
+    "storyModel": "002516",
+    "storyCharacter": "0025"
+  },
+  {
+    "name": "pcr-002612",
+    "character": "Story 0026, 12",
     "romaji": "pakku",
     "aliases": [
-      "パック",
-      "帕克",
-      "0026",
       "Story 0026",
-      "002611",
+      "0026",
       "002612",
       "Puck"
     ],
-    "unnamed": false,
+    "unnamed": true,
+    "storyModel": "002612",
     "storyCharacter": "0026"
   },
   {
-    "name": "pcr-npc-0027",
-    "character": "菜月昴",
-    "romaji": "subaru",
+    "name": "pcr-002911",
+    "character": "Story 0029, 11",
+    "romaji": "",
     "aliases": [
-      "スバル",
-      "菜月昴",
-      "0027",
-      "Story 0027",
-      "002711",
-      "Subaru Natsuki",
-      "Subaru",
-      "Natsuki Subaru",
-      "昴"
+      "Story 0029",
+      "0029",
+      "002911",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0027"
+    "unnamed": true,
+    "storyModel": "002911",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-0028",
-    "character": "培提尔其乌斯",
-    "romaji": "peterugiusu",
+    "name": "pcr-002912",
+    "character": "Story 0029, 12",
+    "romaji": "",
     "aliases": [
-      "ペテルギウス",
-      "培提尔其乌斯",
-      "0028",
-      "Story 0028",
-      "002811",
-      "002812",
-      "Petelgeuse"
+      "Story 0029",
+      "0029",
+      "002912",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0028"
+    "unnamed": true,
+    "storyModel": "002912",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-0042",
-    "character": "モーラ",
-    "romaji": "moora",
+    "name": "pcr-002913",
+    "character": "Story 0029, 13",
+    "romaji": "",
     "aliases": [
-      "モーラ",
-      "0042",
-      "Story 0042",
-      "004211",
-      "Mora"
+      "Story 0029",
+      "0029",
+      "002913",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0042"
+    "unnamed": true,
+    "storyModel": "002913",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-0108",
-    "character": "伽米",
-    "romaji": "gami",
+    "name": "pcr-002914",
+    "character": "Story 0029, 14",
+    "romaji": "",
     "aliases": [
-      "ガミ",
-      "伽米",
-      "0108",
-      "Story 0108",
-      "010811",
-      "010812",
-      "邪糕神伽米"
+      "Story 0029",
+      "0029",
+      "002914",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0108"
+    "unnamed": true,
+    "storyModel": "002914",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-0111",
-    "character": "哀叹女神",
-    "romaji": "aitenmegami",
+    "name": "pcr-002915",
+    "character": "Story 0029, 15",
+    "romaji": "",
     "aliases": [
-      "哀叹女神",
-      "0111",
-      "Story 0111",
-      "011111",
-      "011112",
-      "011113",
-      "Lamenting Goddess"
+      "Story 0029",
+      "0029",
+      "002915",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0111"
+    "unnamed": true,
+    "storyModel": "002915",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-0125",
-    "character": "ボストナカイ",
-    "romaji": "bosutonakai",
+    "name": "pcr-002931",
+    "character": "Story 0029, 31",
+    "romaji": "",
     "aliases": [
-      "ボストナカイ",
-      "0125",
-      "Story 0125",
-      "012511"
+      "Story 0029",
+      "0029",
+      "002931",
+      "女学生1"
     ],
-    "unnamed": false,
-    "storyCharacter": "0125"
+    "unnamed": true,
+    "storyModel": "002931",
+    "storyCharacter": "0029"
   },
   {
-    "name": "pcr-npc-1000",
-    "character": "主人公",
+    "name": "pcr-003013",
+    "character": "Story 0030, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0030",
+      "0030",
+      "003013"
+    ],
+    "unnamed": true,
+    "storyModel": "003013",
+    "storyCharacter": "0030"
+  },
+  {
+    "name": "pcr-003031",
+    "character": "Story 0030, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0030",
+      "0030",
+      "003031"
+    ],
+    "unnamed": true,
+    "storyModel": "003031",
+    "storyCharacter": "0030"
+  },
+  {
+    "name": "pcr-003111",
+    "character": "Story 0031, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0031",
+      "0031",
+      "003111",
+      "女学生2"
+    ],
+    "unnamed": true,
+    "storyModel": "003111",
+    "storyCharacter": "0031"
+  },
+  {
+    "name": "pcr-003112",
+    "character": "Story 0031, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0031",
+      "0031",
+      "003112",
+      "女学生2"
+    ],
+    "unnamed": true,
+    "storyModel": "003112",
+    "storyCharacter": "0031"
+  },
+  {
+    "name": "pcr-003113",
+    "character": "Story 0031, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0031",
+      "0031",
+      "003113",
+      "女学生2"
+    ],
+    "unnamed": true,
+    "storyModel": "003113",
+    "storyCharacter": "0031"
+  },
+  {
+    "name": "pcr-003114",
+    "character": "Story 0031, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0031",
+      "0031",
+      "003114",
+      "女学生2"
+    ],
+    "unnamed": true,
+    "storyModel": "003114",
+    "storyCharacter": "0031"
+  },
+  {
+    "name": "pcr-003311",
+    "character": "Story 0033, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0033",
+      "0033",
+      "003311",
+      "森林守卫"
+    ],
+    "unnamed": true,
+    "storyModel": "003311",
+    "storyCharacter": "0033"
+  },
+  {
+    "name": "pcr-003312",
+    "character": "Story 0033, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0033",
+      "0033",
+      "003312",
+      "森林守卫"
+    ],
+    "unnamed": true,
+    "storyModel": "003312",
+    "storyCharacter": "0033"
+  },
+  {
+    "name": "pcr-003313",
+    "character": "Story 0033, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0033",
+      "0033",
+      "003313",
+      "森林守卫"
+    ],
+    "unnamed": true,
+    "storyModel": "003313",
+    "storyCharacter": "0033"
+  },
+  {
+    "name": "pcr-003411",
+    "character": "Story 0034, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0034",
+      "0034",
+      "003411",
+      "小花"
+    ],
+    "unnamed": true,
+    "storyModel": "003411",
+    "storyCharacter": "0034"
+  },
+  {
+    "name": "pcr-003512",
+    "character": "Story 0035, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0035",
+      "0035",
+      "003512",
+      "男人"
+    ],
+    "unnamed": true,
+    "storyModel": "003512",
+    "storyCharacter": "0035"
+  },
+  {
+    "name": "pcr-004611",
+    "character": "Story 0046, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0046",
+      "0046",
+      "004611"
+    ],
+    "unnamed": true,
+    "storyModel": "004611",
+    "storyCharacter": "0046"
+  },
+  {
+    "name": "pcr-004711",
+    "character": "Story 0047, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0047",
+      "0047",
+      "004711"
+    ],
+    "unnamed": true,
+    "storyModel": "004711",
+    "storyCharacter": "0047"
+  },
+  {
+    "name": "pcr-004811",
+    "character": "Story 0048, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0048",
+      "0048",
+      "004811"
+    ],
+    "unnamed": true,
+    "storyModel": "004811",
+    "storyCharacter": "0048"
+  },
+  {
+    "name": "pcr-004911",
+    "character": "Story 0049, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0049",
+      "0049",
+      "004911"
+    ],
+    "unnamed": true,
+    "storyModel": "004911",
+    "storyCharacter": "0049"
+  },
+  {
+    "name": "pcr-005011",
+    "character": "Story 0050, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0050",
+      "0050",
+      "005011"
+    ],
+    "unnamed": true,
+    "storyModel": "005011",
+    "storyCharacter": "0050"
+  },
+  {
+    "name": "pcr-005012",
+    "character": "Story 0050, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0050",
+      "0050",
+      "005012"
+    ],
+    "unnamed": true,
+    "storyModel": "005012",
+    "storyCharacter": "0050"
+  },
+  {
+    "name": "pcr-005013",
+    "character": "Story 0050, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0050",
+      "0050",
+      "005013"
+    ],
+    "unnamed": true,
+    "storyModel": "005013",
+    "storyCharacter": "0050"
+  },
+  {
+    "name": "pcr-005111",
+    "character": "Story 0051, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0051",
+      "0051",
+      "005111"
+    ],
+    "unnamed": true,
+    "storyModel": "005111",
+    "storyCharacter": "0051"
+  },
+  {
+    "name": "pcr-005112",
+    "character": "Story 0051, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0051",
+      "0051",
+      "005112"
+    ],
+    "unnamed": true,
+    "storyModel": "005112",
+    "storyCharacter": "0051"
+  },
+  {
+    "name": "pcr-005211",
+    "character": "Story 0052, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0052",
+      "0052",
+      "005211"
+    ],
+    "unnamed": true,
+    "storyModel": "005211",
+    "storyCharacter": "0052"
+  },
+  {
+    "name": "pcr-005212",
+    "character": "Story 0052, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0052",
+      "0052",
+      "005212"
+    ],
+    "unnamed": true,
+    "storyModel": "005212",
+    "storyCharacter": "0052"
+  },
+  {
+    "name": "pcr-005312",
+    "character": "Story 0053, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0053",
+      "0053",
+      "005312"
+    ],
+    "unnamed": true,
+    "storyModel": "005312",
+    "storyCharacter": "0053"
+  },
+  {
+    "name": "pcr-005313",
+    "character": "Story 0053, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0053",
+      "0053",
+      "005313"
+    ],
+    "unnamed": true,
+    "storyModel": "005313",
+    "storyCharacter": "0053"
+  },
+  {
+    "name": "pcr-005411",
+    "character": "Story 0054, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0054",
+      "0054",
+      "005411"
+    ],
+    "unnamed": true,
+    "storyModel": "005411",
+    "storyCharacter": "0054"
+  },
+  {
+    "name": "pcr-005412",
+    "character": "Story 0054, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0054",
+      "0054",
+      "005412"
+    ],
+    "unnamed": true,
+    "storyModel": "005412",
+    "storyCharacter": "0054"
+  },
+  {
+    "name": "pcr-005413",
+    "character": "Story 0054, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0054",
+      "0054",
+      "005413"
+    ],
+    "unnamed": true,
+    "storyModel": "005413",
+    "storyCharacter": "0054"
+  },
+  {
+    "name": "pcr-005511",
+    "character": "Story 0055, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0055",
+      "0055",
+      "005511"
+    ],
+    "unnamed": true,
+    "storyModel": "005511",
+    "storyCharacter": "0055"
+  },
+  {
+    "name": "pcr-005611",
+    "character": "Story 0056, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005611"
+    ],
+    "unnamed": true,
+    "storyModel": "005611",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005612",
+    "character": "Story 0056, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005612"
+    ],
+    "unnamed": true,
+    "storyModel": "005612",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005613",
+    "character": "Story 0056, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005613"
+    ],
+    "unnamed": true,
+    "storyModel": "005613",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005614",
+    "character": "Story 0056, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005614"
+    ],
+    "unnamed": true,
+    "storyModel": "005614",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005615",
+    "character": "Story 0056, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005615"
+    ],
+    "unnamed": true,
+    "storyModel": "005615",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005616",
+    "character": "Story 0056, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 0056",
+      "0056",
+      "005616"
+    ],
+    "unnamed": true,
+    "storyModel": "005616",
+    "storyCharacter": "0056"
+  },
+  {
+    "name": "pcr-005711",
+    "character": "Story 0057, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0057",
+      "0057",
+      "005711"
+    ],
+    "unnamed": true,
+    "storyModel": "005711",
+    "storyCharacter": "0057"
+  },
+  {
+    "name": "pcr-005712",
+    "character": "Story 0057, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0057",
+      "0057",
+      "005712"
+    ],
+    "unnamed": true,
+    "storyModel": "005712",
+    "storyCharacter": "0057"
+  },
+  {
+    "name": "pcr-005811",
+    "character": "Story 0058, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0058",
+      "0058",
+      "005811"
+    ],
+    "unnamed": true,
+    "storyModel": "005811",
+    "storyCharacter": "0058"
+  },
+  {
+    "name": "pcr-005812",
+    "character": "Story 0058, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0058",
+      "0058",
+      "005812"
+    ],
+    "unnamed": true,
+    "storyModel": "005812",
+    "storyCharacter": "0058"
+  },
+  {
+    "name": "pcr-005912",
+    "character": "Story 0059, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0059",
+      "0059",
+      "005912"
+    ],
+    "unnamed": true,
+    "storyModel": "005912",
+    "storyCharacter": "0059"
+  },
+  {
+    "name": "pcr-006011",
+    "character": "Story 0060, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0060",
+      "0060",
+      "006011"
+    ],
+    "unnamed": true,
+    "storyModel": "006011",
+    "storyCharacter": "0060"
+  },
+  {
+    "name": "pcr-006012",
+    "character": "Story 0060, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0060",
+      "0060",
+      "006012"
+    ],
+    "unnamed": true,
+    "storyModel": "006012",
+    "storyCharacter": "0060"
+  },
+  {
+    "name": "pcr-006111",
+    "character": "Story 0061, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0061",
+      "0061",
+      "006111"
+    ],
+    "unnamed": true,
+    "storyModel": "006111",
+    "storyCharacter": "0061"
+  },
+  {
+    "name": "pcr-006112",
+    "character": "Story 0061, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0061",
+      "0061",
+      "006112"
+    ],
+    "unnamed": true,
+    "storyModel": "006112",
+    "storyCharacter": "0061"
+  },
+  {
+    "name": "pcr-006211",
+    "character": "Story 0062, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0062",
+      "0062",
+      "006211"
+    ],
+    "unnamed": true,
+    "storyModel": "006211",
+    "storyCharacter": "0062"
+  },
+  {
+    "name": "pcr-006311",
+    "character": "Story 0063, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0063",
+      "0063",
+      "006311"
+    ],
+    "unnamed": true,
+    "storyModel": "006311",
+    "storyCharacter": "0063"
+  },
+  {
+    "name": "pcr-006312",
+    "character": "Story 0063, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0063",
+      "0063",
+      "006312"
+    ],
+    "unnamed": true,
+    "storyModel": "006312",
+    "storyCharacter": "0063"
+  },
+  {
+    "name": "pcr-006411",
+    "character": "Story 0064, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0064",
+      "0064",
+      "006411"
+    ],
+    "unnamed": true,
+    "storyModel": "006411",
+    "storyCharacter": "0064"
+  },
+  {
+    "name": "pcr-006511",
+    "character": "Story 0065, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0065",
+      "0065",
+      "006511"
+    ],
+    "unnamed": true,
+    "storyModel": "006511",
+    "storyCharacter": "0065"
+  },
+  {
+    "name": "pcr-006631",
+    "character": "Story 0066, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0066",
+      "0066",
+      "006631"
+    ],
+    "unnamed": true,
+    "storyModel": "006631",
+    "storyCharacter": "0066"
+  },
+  {
+    "name": "pcr-006632",
+    "character": "Story 0066, 32",
+    "romaji": "",
+    "aliases": [
+      "Story 0066",
+      "0066",
+      "006632"
+    ],
+    "unnamed": true,
+    "storyModel": "006632",
+    "storyCharacter": "0066"
+  },
+  {
+    "name": "pcr-006633",
+    "character": "Story 0066, 33",
+    "romaji": "",
+    "aliases": [
+      "Story 0066",
+      "0066",
+      "006633"
+    ],
+    "unnamed": true,
+    "storyModel": "006633",
+    "storyCharacter": "0066"
+  },
+  {
+    "name": "pcr-006732",
+    "character": "Story 0067, 32",
+    "romaji": "",
+    "aliases": [
+      "Story 0067",
+      "0067",
+      "006732"
+    ],
+    "unnamed": true,
+    "storyModel": "006732",
+    "storyCharacter": "0067"
+  },
+  {
+    "name": "pcr-006831",
+    "character": "Story 0068, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0068",
+      "0068",
+      "006831"
+    ],
+    "unnamed": true,
+    "storyModel": "006831",
+    "storyCharacter": "0068"
+  },
+  {
+    "name": "pcr-006832",
+    "character": "Story 0068, 32",
+    "romaji": "",
+    "aliases": [
+      "Story 0068",
+      "0068",
+      "006832"
+    ],
+    "unnamed": true,
+    "storyModel": "006832",
+    "storyCharacter": "0068"
+  },
+  {
+    "name": "pcr-006833",
+    "character": "Story 0068, 33",
+    "romaji": "",
+    "aliases": [
+      "Story 0068",
+      "0068",
+      "006833"
+    ],
+    "unnamed": true,
+    "storyModel": "006833",
+    "storyCharacter": "0068"
+  },
+  {
+    "name": "pcr-006932",
+    "character": "Story 0069, 32",
+    "romaji": "",
+    "aliases": [
+      "Story 0069",
+      "0069",
+      "006932"
+    ],
+    "unnamed": true,
+    "storyModel": "006932",
+    "storyCharacter": "0069"
+  },
+  {
+    "name": "pcr-007011",
+    "character": "Story 0070, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0070",
+      "0070",
+      "007011"
+    ],
+    "unnamed": true,
+    "storyModel": "007011",
+    "storyCharacter": "0070"
+  },
+  {
+    "name": "pcr-007012",
+    "character": "Story 0070, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0070",
+      "0070",
+      "007012"
+    ],
+    "unnamed": true,
+    "storyModel": "007012",
+    "storyCharacter": "0070"
+  },
+  {
+    "name": "pcr-007111",
+    "character": "Story 0071, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0071",
+      "0071",
+      "007111"
+    ],
+    "unnamed": true,
+    "storyModel": "007111",
+    "storyCharacter": "0071"
+  },
+  {
+    "name": "pcr-007112",
+    "character": "Story 0071, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0071",
+      "0071",
+      "007112"
+    ],
+    "unnamed": true,
+    "storyModel": "007112",
+    "storyCharacter": "0071"
+  },
+  {
+    "name": "pcr-007113",
+    "character": "Story 0071, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0071",
+      "0071",
+      "007113"
+    ],
+    "unnamed": true,
+    "storyModel": "007113",
+    "storyCharacter": "0071"
+  },
+  {
+    "name": "pcr-007114",
+    "character": "Story 0071, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0071",
+      "0071",
+      "007114"
+    ],
+    "unnamed": true,
+    "storyModel": "007114",
+    "storyCharacter": "0071"
+  },
+  {
+    "name": "pcr-007411",
+    "character": "Story 0074, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0074",
+      "0074",
+      "007411"
+    ],
+    "unnamed": true,
+    "storyModel": "007411",
+    "storyCharacter": "0074"
+  },
+  {
+    "name": "pcr-007412",
+    "character": "Story 0074, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0074",
+      "0074",
+      "007412"
+    ],
+    "unnamed": true,
+    "storyModel": "007412",
+    "storyCharacter": "0074"
+  },
+  {
+    "name": "pcr-007511",
+    "character": "Story 0075, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0075",
+      "0075",
+      "007511"
+    ],
+    "unnamed": true,
+    "storyModel": "007511",
+    "storyCharacter": "0075"
+  },
+  {
+    "name": "pcr-007531",
+    "character": "Story 0075, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0075",
+      "0075",
+      "007531"
+    ],
+    "unnamed": true,
+    "storyModel": "007531",
+    "storyCharacter": "0075"
+  },
+  {
+    "name": "pcr-007711",
+    "character": "Story 0077, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0077",
+      "0077",
+      "007711"
+    ],
+    "unnamed": true,
+    "storyModel": "007711",
+    "storyCharacter": "0077"
+  },
+  {
+    "name": "pcr-007911",
+    "character": "Story 0079, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0079",
+      "0079",
+      "007911"
+    ],
+    "unnamed": true,
+    "storyModel": "007911",
+    "storyCharacter": "0079"
+  },
+  {
+    "name": "pcr-007912",
+    "character": "Story 0079, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0079",
+      "0079",
+      "007912"
+    ],
+    "unnamed": true,
+    "storyModel": "007912",
+    "storyCharacter": "0079"
+  },
+  {
+    "name": "pcr-008011",
+    "character": "Story 0080, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0080",
+      "0080",
+      "008011"
+    ],
+    "unnamed": true,
+    "storyModel": "008011",
+    "storyCharacter": "0080"
+  },
+  {
+    "name": "pcr-008031",
+    "character": "Story 0080, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0080",
+      "0080",
+      "008031"
+    ],
+    "unnamed": true,
+    "storyModel": "008031",
+    "storyCharacter": "0080"
+  },
+  {
+    "name": "pcr-008211",
+    "character": "Story 0082, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0082",
+      "0082",
+      "008211"
+    ],
+    "unnamed": true,
+    "storyModel": "008211",
+    "storyCharacter": "0082"
+  },
+  {
+    "name": "pcr-008311",
+    "character": "Story 0083, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0083",
+      "0083",
+      "008311"
+    ],
+    "unnamed": true,
+    "storyModel": "008311",
+    "storyCharacter": "0083"
+  },
+  {
+    "name": "pcr-008312",
+    "character": "Story 0083, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0083",
+      "0083",
+      "008312"
+    ],
+    "unnamed": true,
+    "storyModel": "008312",
+    "storyCharacter": "0083"
+  },
+  {
+    "name": "pcr-008511",
+    "character": "Story 0085, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0085",
+      "0085",
+      "008511"
+    ],
+    "unnamed": true,
+    "storyModel": "008511",
+    "storyCharacter": "0085"
+  },
+  {
+    "name": "pcr-008611",
+    "character": "Story 0086, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0086",
+      "0086",
+      "008611"
+    ],
+    "unnamed": true,
+    "storyModel": "008611",
+    "storyCharacter": "0086"
+  },
+  {
+    "name": "pcr-008711",
+    "character": "Story 0087, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0087",
+      "0087",
+      "008711"
+    ],
+    "unnamed": true,
+    "storyModel": "008711",
+    "storyCharacter": "0087"
+  },
+  {
+    "name": "pcr-008712",
+    "character": "Story 0087, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0087",
+      "0087",
+      "008712"
+    ],
+    "unnamed": true,
+    "storyModel": "008712",
+    "storyCharacter": "0087"
+  },
+  {
+    "name": "pcr-008811",
+    "character": "Story 0088, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0088",
+      "0088",
+      "008811"
+    ],
+    "unnamed": true,
+    "storyModel": "008811",
+    "storyCharacter": "0088"
+  },
+  {
+    "name": "pcr-008911",
+    "character": "Story 0089, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0089",
+      "0089",
+      "008911"
+    ],
+    "unnamed": true,
+    "storyModel": "008911",
+    "storyCharacter": "0089"
+  },
+  {
+    "name": "pcr-008912",
+    "character": "Story 0089, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0089",
+      "0089",
+      "008912"
+    ],
+    "unnamed": true,
+    "storyModel": "008912",
+    "storyCharacter": "0089"
+  },
+  {
+    "name": "pcr-009011",
+    "character": "Story 0090, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0090",
+      "0090",
+      "009011"
+    ],
+    "unnamed": true,
+    "storyModel": "009011",
+    "storyCharacter": "0090"
+  },
+  {
+    "name": "pcr-009111",
+    "character": "Story 0091, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0091",
+      "0091",
+      "009111"
+    ],
+    "unnamed": true,
+    "storyModel": "009111",
+    "storyCharacter": "0091"
+  },
+  {
+    "name": "pcr-009213",
+    "character": "Story 0092, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0092",
+      "0092",
+      "009213"
+    ],
+    "unnamed": true,
+    "storyModel": "009213",
+    "storyCharacter": "0092"
+  },
+  {
+    "name": "pcr-009311",
+    "character": "Story 0093, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0093",
+      "0093",
+      "009311"
+    ],
+    "unnamed": true,
+    "storyModel": "009311",
+    "storyCharacter": "0093"
+  },
+  {
+    "name": "pcr-009411",
+    "character": "Story 0094, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0094",
+      "0094",
+      "009411"
+    ],
+    "unnamed": true,
+    "storyModel": "009411",
+    "storyCharacter": "0094"
+  },
+  {
+    "name": "pcr-009412",
+    "character": "Story 0094, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0094",
+      "0094",
+      "009412"
+    ],
+    "unnamed": true,
+    "storyModel": "009412",
+    "storyCharacter": "0094"
+  },
+  {
+    "name": "pcr-009511",
+    "character": "Story 0095, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0095",
+      "0095",
+      "009511"
+    ],
+    "unnamed": true,
+    "storyModel": "009511",
+    "storyCharacter": "0095"
+  },
+  {
+    "name": "pcr-009512",
+    "character": "Story 0095, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0095",
+      "0095",
+      "009512"
+    ],
+    "unnamed": true,
+    "storyModel": "009512",
+    "storyCharacter": "0095"
+  },
+  {
+    "name": "pcr-009611",
+    "character": "Story 0096, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0096",
+      "0096",
+      "009611"
+    ],
+    "unnamed": true,
+    "storyModel": "009611",
+    "storyCharacter": "0096"
+  },
+  {
+    "name": "pcr-009612",
+    "character": "Story 0096, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0096",
+      "0096",
+      "009612"
+    ],
+    "unnamed": true,
+    "storyModel": "009612",
+    "storyCharacter": "0096"
+  },
+  {
+    "name": "pcr-009811",
+    "character": "Story 0098, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0098",
+      "0098",
+      "009811"
+    ],
+    "unnamed": true,
+    "storyModel": "009811",
+    "storyCharacter": "0098"
+  },
+  {
+    "name": "pcr-009911",
+    "character": "Story 0099, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0099",
+      "0099",
+      "009911"
+    ],
+    "unnamed": true,
+    "storyModel": "009911",
+    "storyCharacter": "0099"
+  },
+  {
+    "name": "pcr-009912",
+    "character": "Story 0099, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0099",
+      "0099",
+      "009912"
+    ],
+    "unnamed": true,
+    "storyModel": "009912",
+    "storyCharacter": "0099"
+  },
+  {
+    "name": "pcr-011413",
+    "character": "Story 0114, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0114",
+      "0114",
+      "011413",
+      "恶霸地方官"
+    ],
+    "unnamed": true,
+    "storyModel": "011413",
+    "storyCharacter": "0114"
+  },
+  {
+    "name": "pcr-015011",
+    "character": "Story 0150, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0150",
+      "0150",
+      "015011"
+    ],
+    "unnamed": true,
+    "storyModel": "015011",
+    "storyCharacter": "0150"
+  },
+  {
+    "name": "pcr-015012",
+    "character": "Story 0150, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0150",
+      "0150",
+      "015012"
+    ],
+    "unnamed": true,
+    "storyModel": "015012",
+    "storyCharacter": "0150"
+  },
+  {
+    "name": "pcr-015311",
+    "character": "Story 0153, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0153",
+      "0153",
+      "015311"
+    ],
+    "unnamed": true,
+    "storyModel": "015311",
+    "storyCharacter": "0153"
+  },
+  {
+    "name": "pcr-015314",
+    "character": "Story 0153, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 0153",
+      "0153",
+      "015314"
+    ],
+    "unnamed": true,
+    "storyModel": "015314",
+    "storyCharacter": "0153"
+  },
+  {
+    "name": "pcr-015811",
+    "character": "Story 0158, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0158",
+      "0158",
+      "015811"
+    ],
+    "unnamed": true,
+    "storyModel": "015811",
+    "storyCharacter": "0158"
+  },
+  {
+    "name": "pcr-015916",
+    "character": "Story 0159, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 0159",
+      "0159",
+      "015916"
+    ],
+    "unnamed": true,
+    "storyModel": "015916",
+    "storyCharacter": "0159"
+  },
+  {
+    "name": "pcr-016011",
+    "character": "Story 0160, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0160",
+      "0160",
+      "016011"
+    ],
+    "unnamed": true,
+    "storyModel": "016011",
+    "storyCharacter": "0160"
+  },
+  {
+    "name": "pcr-016012",
+    "character": "Story 0160, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0160",
+      "0160",
+      "016012"
+    ],
+    "unnamed": true,
+    "storyModel": "016012",
+    "storyCharacter": "0160"
+  },
+  {
+    "name": "pcr-016611",
+    "character": "Story 0166, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0166",
+      "0166",
+      "016611"
+    ],
+    "unnamed": true,
+    "storyModel": "016611",
+    "storyCharacter": "0166"
+  },
+  {
+    "name": "pcr-016612",
+    "character": "Story 0166, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0166",
+      "0166",
+      "016612"
+    ],
+    "unnamed": true,
+    "storyModel": "016612",
+    "storyCharacter": "0166"
+  },
+  {
+    "name": "pcr-016613",
+    "character": "Story 0166, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0166",
+      "0166",
+      "016613"
+    ],
+    "unnamed": true,
+    "storyModel": "016613",
+    "storyCharacter": "0166"
+  },
+  {
+    "name": "pcr-016711",
+    "character": "Story 0167, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0167",
+      "0167",
+      "016711"
+    ],
+    "unnamed": true,
+    "storyModel": "016711",
+    "storyCharacter": "0167"
+  },
+  {
+    "name": "pcr-016712",
+    "character": "Story 0167, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0167",
+      "0167",
+      "016712"
+    ],
+    "unnamed": true,
+    "storyModel": "016712",
+    "storyCharacter": "0167"
+  },
+  {
+    "name": "pcr-017011",
+    "character": "Story 0170, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0170",
+      "0170",
+      "017011"
+    ],
+    "unnamed": true,
+    "storyModel": "017011",
+    "storyCharacter": "0170"
+  },
+  {
+    "name": "pcr-017211",
+    "character": "Story 0172, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0172",
+      "0172",
+      "017211"
+    ],
+    "unnamed": true,
+    "storyModel": "017211",
+    "storyCharacter": "0172"
+  },
+  {
+    "name": "pcr-017311",
+    "character": "Story 0173, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0173",
+      "0173",
+      "017311"
+    ],
+    "unnamed": true,
+    "storyModel": "017311",
+    "storyCharacter": "0173"
+  },
+  {
+    "name": "pcr-017312",
+    "character": "Story 0173, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0173",
+      "0173",
+      "017312"
+    ],
+    "unnamed": true,
+    "storyModel": "017312",
+    "storyCharacter": "0173"
+  },
+  {
+    "name": "pcr-017511",
+    "character": "Story 0175, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0175",
+      "0175",
+      "017511"
+    ],
+    "unnamed": true,
+    "storyModel": "017511",
+    "storyCharacter": "0175"
+  },
+  {
+    "name": "pcr-017512",
+    "character": "Story 0175, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0175",
+      "0175",
+      "017512"
+    ],
+    "unnamed": true,
+    "storyModel": "017512",
+    "storyCharacter": "0175"
+  },
+  {
+    "name": "pcr-018211",
+    "character": "Story 0182, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0182",
+      "0182",
+      "018211"
+    ],
+    "unnamed": true,
+    "storyModel": "018211",
+    "storyCharacter": "0182"
+  },
+  {
+    "name": "pcr-018711",
+    "character": "Story 0187, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0187",
+      "0187",
+      "018711"
+    ],
+    "unnamed": true,
+    "storyModel": "018711",
+    "storyCharacter": "0187"
+  },
+  {
+    "name": "pcr-020011",
+    "character": "Story 0200, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0200",
+      "0200",
+      "020011"
+    ],
+    "unnamed": true,
+    "storyModel": "020011",
+    "storyCharacter": "0200"
+  },
+  {
+    "name": "pcr-020012",
+    "character": "Story 0200, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0200",
+      "0200",
+      "020012"
+    ],
+    "unnamed": true,
+    "storyModel": "020012",
+    "storyCharacter": "0200"
+  },
+  {
+    "name": "pcr-020111",
+    "character": "Story 0201, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0201",
+      "0201",
+      "020111"
+    ],
+    "unnamed": true,
+    "storyModel": "020111",
+    "storyCharacter": "0201"
+  },
+  {
+    "name": "pcr-050611",
+    "character": "Story 0506, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0506",
+      "0506",
+      "050611"
+    ],
+    "unnamed": true,
+    "storyModel": "050611",
+    "storyCharacter": "0506"
+  },
+  {
+    "name": "pcr-050711",
+    "character": "Story 0507, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0507",
+      "0507",
+      "050711"
+    ],
+    "unnamed": true,
+    "storyModel": "050711",
+    "storyCharacter": "0507"
+  },
+  {
+    "name": "pcr-050811",
+    "character": "Story 0508, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0508",
+      "0508",
+      "050811"
+    ],
+    "unnamed": true,
+    "storyModel": "050811",
+    "storyCharacter": "0508"
+  },
+  {
+    "name": "pcr-050812",
+    "character": "Story 0508, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0508",
+      "0508",
+      "050812"
+    ],
+    "unnamed": true,
+    "storyModel": "050812",
+    "storyCharacter": "0508"
+  },
+  {
+    "name": "pcr-050911",
+    "character": "Story 0509, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0509",
+      "0509",
+      "050911"
+    ],
+    "unnamed": true,
+    "storyModel": "050911",
+    "storyCharacter": "0509"
+  },
+  {
+    "name": "pcr-050912",
+    "character": "Story 0509, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0509",
+      "0509",
+      "050912"
+    ],
+    "unnamed": true,
+    "storyModel": "050912",
+    "storyCharacter": "0509"
+  },
+  {
+    "name": "pcr-051011",
+    "character": "Story 0510, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0510",
+      "0510",
+      "051011"
+    ],
+    "unnamed": true,
+    "storyModel": "051011",
+    "storyCharacter": "0510"
+  },
+  {
+    "name": "pcr-051111",
+    "character": "Story 0511, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0511",
+      "0511",
+      "051111"
+    ],
+    "unnamed": true,
+    "storyModel": "051111",
+    "storyCharacter": "0511"
+  },
+  {
+    "name": "pcr-051311",
+    "character": "Story 0513, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0513",
+      "0513",
+      "051311"
+    ],
+    "unnamed": true,
+    "storyModel": "051311",
+    "storyCharacter": "0513"
+  },
+  {
+    "name": "pcr-051411",
+    "character": "Story 0514, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0514",
+      "0514",
+      "051411"
+    ],
+    "unnamed": true,
+    "storyModel": "051411",
+    "storyCharacter": "0514"
+  },
+  {
+    "name": "pcr-051412",
+    "character": "Story 0514, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0514",
+      "0514",
+      "051412"
+    ],
+    "unnamed": true,
+    "storyModel": "051412",
+    "storyCharacter": "0514"
+  },
+  {
+    "name": "pcr-051611",
+    "character": "Story 0516, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0516",
+      "0516",
+      "051611"
+    ],
+    "unnamed": true,
+    "storyModel": "051611",
+    "storyCharacter": "0516"
+  },
+  {
+    "name": "pcr-051711",
+    "character": "Story 0517, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0517",
+      "0517",
+      "051711"
+    ],
+    "unnamed": true,
+    "storyModel": "051711",
+    "storyCharacter": "0517"
+  },
+  {
+    "name": "pcr-051712",
+    "character": "Story 0517, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0517",
+      "0517",
+      "051712"
+    ],
+    "unnamed": true,
+    "storyModel": "051712",
+    "storyCharacter": "0517"
+  },
+  {
+    "name": "pcr-051811",
+    "character": "Story 0518, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0518",
+      "0518",
+      "051811"
+    ],
+    "unnamed": true,
+    "storyModel": "051811",
+    "storyCharacter": "0518"
+  },
+  {
+    "name": "pcr-051812",
+    "character": "Story 0518, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0518",
+      "0518",
+      "051812"
+    ],
+    "unnamed": true,
+    "storyModel": "051812",
+    "storyCharacter": "0518"
+  },
+  {
+    "name": "pcr-051911",
+    "character": "Story 0519, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0519",
+      "0519",
+      "051911"
+    ],
+    "unnamed": true,
+    "storyModel": "051911",
+    "storyCharacter": "0519"
+  },
+  {
+    "name": "pcr-051912",
+    "character": "Story 0519, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0519",
+      "0519",
+      "051912"
+    ],
+    "unnamed": true,
+    "storyModel": "051912",
+    "storyCharacter": "0519"
+  },
+  {
+    "name": "pcr-052011",
+    "character": "Story 0520, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0520",
+      "0520",
+      "052011"
+    ],
+    "unnamed": true,
+    "storyModel": "052011",
+    "storyCharacter": "0520"
+  },
+  {
+    "name": "pcr-052111",
+    "character": "Story 0521, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0521",
+      "0521",
+      "052111"
+    ],
+    "unnamed": true,
+    "storyModel": "052111",
+    "storyCharacter": "0521"
+  },
+  {
+    "name": "pcr-052311",
+    "character": "Story 0523, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0523",
+      "0523",
+      "052311"
+    ],
+    "unnamed": true,
+    "storyModel": "052311",
+    "storyCharacter": "0523"
+  },
+  {
+    "name": "pcr-052312",
+    "character": "Story 0523, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0523",
+      "0523",
+      "052312"
+    ],
+    "unnamed": true,
+    "storyModel": "052312",
+    "storyCharacter": "0523"
+  },
+  {
+    "name": "pcr-052313",
+    "character": "Story 0523, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 0523",
+      "0523",
+      "052313"
+    ],
+    "unnamed": true,
+    "storyModel": "052313",
+    "storyCharacter": "0523"
+  },
+  {
+    "name": "pcr-052411",
+    "character": "Story 0524, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0524",
+      "0524",
+      "052411"
+    ],
+    "unnamed": true,
+    "storyModel": "052411",
+    "storyCharacter": "0524"
+  },
+  {
+    "name": "pcr-052412",
+    "character": "Story 0524, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0524",
+      "0524",
+      "052412"
+    ],
+    "unnamed": true,
+    "storyModel": "052412",
+    "storyCharacter": "0524"
+  },
+  {
+    "name": "pcr-052711",
+    "character": "Story 0527, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0527",
+      "0527",
+      "052711"
+    ],
+    "unnamed": true,
+    "storyModel": "052711",
+    "storyCharacter": "0527"
+  },
+  {
+    "name": "pcr-052712",
+    "character": "Story 0527, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0527",
+      "0527",
+      "052712"
+    ],
+    "unnamed": true,
+    "storyModel": "052712",
+    "storyCharacter": "0527"
+  },
+  {
+    "name": "pcr-052731",
+    "character": "Story 0527, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0527",
+      "0527",
+      "052731"
+    ],
+    "unnamed": true,
+    "storyModel": "052731",
+    "storyCharacter": "0527"
+  },
+  {
+    "name": "pcr-052831",
+    "character": "Story 0528, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0528",
+      "0528",
+      "052831"
+    ],
+    "unnamed": true,
+    "storyModel": "052831",
+    "storyCharacter": "0528"
+  },
+  {
+    "name": "pcr-052931",
+    "character": "Story 0529, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 0529",
+      "0529",
+      "052931"
+    ],
+    "unnamed": true,
+    "storyModel": "052931",
+    "storyCharacter": "0529"
+  },
+  {
+    "name": "pcr-053011",
+    "character": "Story 0530, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0530",
+      "0530",
+      "053011"
+    ],
+    "unnamed": true,
+    "storyModel": "053011",
+    "storyCharacter": "0530"
+  },
+  {
+    "name": "pcr-053012",
+    "character": "Story 0530, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0530",
+      "0530",
+      "053012"
+    ],
+    "unnamed": true,
+    "storyModel": "053012",
+    "storyCharacter": "0530"
+  },
+  {
+    "name": "pcr-053111",
+    "character": "Story 0531, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0531",
+      "0531",
+      "053111"
+    ],
+    "unnamed": true,
+    "storyModel": "053111",
+    "storyCharacter": "0531"
+  },
+  {
+    "name": "pcr-053211",
+    "character": "Story 0532, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0532",
+      "0532",
+      "053211"
+    ],
+    "unnamed": true,
+    "storyModel": "053211",
+    "storyCharacter": "0532"
+  },
+  {
+    "name": "pcr-100011",
+    "character": "Story 1000, 11",
     "romaji": "shujinkou",
     "aliases": [
-      "主人公",
-      "1000",
       "Story 1000",
+      "1000",
       "100011",
-      "100012",
-      "100013",
-      "100014",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": true,
+    "storyModel": "100011",
+    "storyCharacter": "1000"
+  },
+  {
+    "name": "pcr-100015",
+    "character": "Story 1000, 15",
+    "romaji": "shujinkou",
+    "aliases": [
+      "Story 1000",
+      "1000",
       "100015",
-      "100016",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": true,
+    "storyModel": "100015",
+    "storyCharacter": "1000"
+  },
+  {
+    "name": "pcr-100017",
+    "character": "Story 1000, 17",
+    "romaji": "shujinkou",
+    "aliases": [
+      "Story 1000",
+      "1000",
       "100017",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": true,
+    "storyModel": "100017",
+    "storyCharacter": "1000"
+  },
+  {
+    "name": "pcr-100018",
+    "character": "Story 1000, 18",
+    "romaji": "shujinkou",
+    "aliases": [
+      "Story 1000",
+      "1000",
       "100018",
       "Yuuki",
       "Protagonist",
@@ -17157,2670 +19799,1173 @@
       "ユウキ",
       "主角"
     ],
-    "unnamed": false,
+    "unnamed": true,
+    "storyModel": "100018",
     "storyCharacter": "1000"
   },
   {
-    "name": "pcr-npc-1062",
-    "character": "尾狗刀",
+    "name": "pcr-106241",
+    "character": "Story 1062, 41",
     "romaji": "okutoo",
     "aliases": [
-      "オクトー",
-      "尾狗刀",
-      "1062",
       "Story 1062",
-      "106211",
-      "106231",
+      "1062",
       "106241",
       "咏斗",
       "尾狗刀 詠斗",
       "Octo"
     ],
-    "unnamed": false,
+    "unnamed": true,
+    "storyModel": "106241",
     "storyCharacter": "1062"
   },
   {
-    "name": "pcr-npc-1073",
-    "character": "拉基拉基",
+    "name": "pcr-107211",
+    "character": "Story 1072, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1072",
+      "1072",
+      "107211"
+    ],
+    "unnamed": true,
+    "storyModel": "107211",
+    "storyCharacter": "1072"
+  },
+  {
+    "name": "pcr-107231",
+    "character": "Story 1072, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 1072",
+      "1072",
+      "107231"
+    ],
+    "unnamed": true,
+    "storyModel": "107231",
+    "storyCharacter": "1072"
+  },
+  {
+    "name": "pcr-107331",
+    "character": "Story 1073, 31",
     "romaji": "rajiraji",
     "aliases": [
-      "ラジラジ",
-      "拉基拉基",
-      "1073",
       "Story 1073",
-      "107311",
-      "107312",
+      "1073",
       "107331",
       "ラジクマール",
       "拉基库马尔·拉基尼卡东"
     ],
-    "unnamed": false,
+    "unnamed": true,
+    "storyModel": "107331",
     "storyCharacter": "1073"
   },
   {
-    "name": "pcr-npc-1900",
-    "character": "爱梅斯",
-    "romaji": "amesu",
+    "name": "pcr-107411",
+    "character": "Story 1074, 11",
+    "romaji": "",
     "aliases": [
-      "アメス",
-      "爱梅斯",
-      "1900",
-      "Story 1900",
-      "190011",
-      "Ameth",
-      "Ames"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1900"
-  },
-  {
-    "name": "pcr-npc-1907",
-    "character": "大吾",
-    "romaji": "daigo",
-    "aliases": [
-      "ダイゴ",
-      "大吾",
-      "1907",
-      "Story 1907",
-      "190711",
-      "190712",
-      "190731",
-      "Daigo"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1907"
-  },
-  {
-    "name": "pcr-npc-1909",
-    "character": "涅比亚",
-    "romaji": "nebia",
-    "aliases": [
-      "ネビア",
-      "涅比亚",
-      "1909",
-      "Story 1909",
-      "190911",
-      "190912",
-      "Nebia"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1909"
-  },
-  {
-    "name": "pcr-npc-1910",
-    "character": "真崎",
-    "romaji": "masaki",
-    "aliases": [
-      "マサキ",
-      "真崎",
-      "1910",
-      "Story 1910",
-      "191011",
-      "191031",
-      "Masaki"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1910"
-  },
-  {
-    "name": "pcr-npc-1911",
-    "character": "米奈瓦β",
-    "romaji": "mineruvabeta",
-    "aliases": [
-      "ミネルヴァβ",
-      "米奈瓦β",
-      "1911",
-      "Story 1911",
-      "191111",
-      "191112",
-      "191113",
-      "191114",
-      "191115",
-      "Minerva"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1911"
-  },
-  {
-    "name": "pcr-npc-1917",
-    "character": "ゼーン",
-    "romaji": "zeen",
-    "aliases": [
-      "ゼーン",
-      "1917",
-      "Story 1917",
-      "191711",
-      "191712",
-      "191713",
-      "191714",
-      "191731",
-      "191732",
-      "191733",
-      "Zane",
-      "泽恩"
-    ],
-    "unnamed": false,
-    "storyCharacter": "1917"
-  },
-  {
-    "name": "pcr-191412",
-    "character": "Story 1914, 12",
-    "romaji": "goushin",
-    "aliases": [
-      "Story 1914",
-      "1914",
-      "191412"
-    ],
-    "unnamed": true,
-    "storyModel": "191412",
-    "storyCharacter": "1914"
-  },
-  {
-    "name": "pcr-191413",
-    "character": "Story 1914, 13",
-    "romaji": "goushin",
-    "aliases": [
-      "Story 1914",
-      "1914",
-      "191413"
-    ],
-    "unnamed": true,
-    "storyModel": "191413",
-    "storyCharacter": "1914"
-  },
-  {
-    "name": "pcr-npc-0001",
-    "character": "Story 0001",
-    "romaji": "Story 0001",
-    "aliases": [
-      "0001",
-      "Story 0001",
-      "000111",
-      "000112",
-      "000113",
-      "000131",
-      "男孩",
-      "男孩子"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0001"
-  },
-  {
-    "name": "pcr-npc-0002",
-    "character": "Story 0002",
-    "romaji": "Story 0002",
-    "aliases": [
-      "0002",
-      "Story 0002",
-      "000211",
-      "000212",
-      "女孩",
-      "女孩子"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0002"
-  },
-  {
-    "name": "pcr-npc-0003",
-    "character": "Story 0003",
-    "romaji": "Story 0003",
-    "aliases": [
-      "0003",
-      "Story 0003",
-      "000311",
-      "000312",
-      "000313",
-      "000314",
-      "000331",
-      "男性",
-      "男子"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0003"
-  },
-  {
-    "name": "pcr-npc-0004",
-    "character": "Story 0004",
-    "romaji": "Story 0004",
-    "aliases": [
-      "0004",
-      "Story 0004",
-      "000415",
-      "000416",
-      "000417",
-      "000418",
-      "000419",
-      "000421",
-      "女性",
-      "子供",
-      "母亲"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0004"
-  },
-  {
-    "name": "pcr-npc-0005",
-    "character": "Story 0005",
-    "romaji": "Story 0005",
-    "aliases": [
-      "0005",
-      "Story 0005",
-      "000511",
-      "000512",
-      "村长"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0005"
-  },
-  {
-    "name": "pcr-npc-0006",
-    "character": "Story 0006",
-    "romaji": "Story 0006",
-    "aliases": [
-      "0006",
-      "Story 0006",
-      "000611",
-      "老婆"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0006"
-  },
-  {
-    "name": "pcr-npc-0008",
-    "character": "Story 0008",
-    "romaji": "Story 0008",
-    "aliases": [
-      "0008",
-      "Story 0008",
-      "000811",
-      "000812",
-      "000813",
-      "000814",
-      "000815",
-      "ギャング２"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0008"
-  },
-  {
-    "name": "pcr-npc-0009",
-    "character": "Story 0009",
-    "romaji": "Story 0009",
-    "aliases": [
-      "0009",
-      "Story 0009",
-      "000911",
-      "000912",
-      "000913",
-      "000914",
-      "000915",
-      "000916",
-      "000917",
-      "ギャング１"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0009"
-  },
-  {
-    "name": "pcr-npc-0010",
-    "character": "Story 0010",
-    "romaji": "Story 0010",
-    "aliases": [
-      "0010",
-      "Story 0010",
-      "001011",
-      "001012",
-      "001013",
-      "001031",
-      "男子2",
-      "年轻男子"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0010"
-  },
-  {
-    "name": "pcr-npc-0011",
-    "character": "Story 0011",
-    "romaji": "Story 0011",
-    "aliases": [
-      "0011",
-      "Story 0011",
-      "001111",
-      "001112",
-      "001131",
-      "现场监工",
-      "小混混"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0011"
-  },
-  {
-    "name": "pcr-npc-0012",
-    "character": "Story 0012",
-    "romaji": "Story 0012",
-    "aliases": [
-      "0012",
-      "Story 0012",
-      "001211",
-      "001212",
-      "001213",
-      "女子",
-      "摄影师"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0012"
-  },
-  {
-    "name": "pcr-npc-0013",
-    "character": "Story 0013",
-    "romaji": "Story 0013",
-    "aliases": [
-      "0013",
-      "Story 0013",
-      "001331",
-      "小弟"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0013"
-  },
-  {
-    "name": "pcr-npc-0014",
-    "character": "Story 0014",
-    "romaji": "Story 0014",
-    "aliases": [
-      "0014",
-      "Story 0014",
-      "001411",
-      "001412",
-      "001413",
-      "001414",
-      "001421",
-      "男性",
-      "忍者宅邸管理员"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0014"
-  },
-  {
-    "name": "pcr-npc-0015",
-    "character": "Story 0015",
-    "romaji": "Story 0015",
-    "aliases": [
-      "0015",
-      "Story 0015",
-      "001514",
-      "001515",
-      "001516",
-      "001521"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0015"
-  },
-  {
-    "name": "pcr-npc-0017",
-    "character": "Story 0017",
-    "romaji": "Story 0017",
-    "aliases": [
-      "0017",
-      "Story 0017",
-      "001711",
-      "001712",
-      "001713",
-      "001714",
-      "001715",
-      "001731"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0017"
-  },
-  {
-    "name": "pcr-npc-0018",
-    "character": "Story 0018",
-    "romaji": "Story 0018",
-    "aliases": [
-      "0018",
-      "Story 0018",
-      "001811",
-      "001812",
-      "狗"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0018"
-  },
-  {
-    "name": "pcr-npc-0023",
-    "character": "Story 0023",
-    "romaji": "Story 0023",
-    "aliases": [
-      "0023",
-      "Story 0023",
-      "002312",
-      "002313"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0023"
-  },
-  {
-    "name": "pcr-npc-0025",
-    "character": "Story 0025",
-    "romaji": "Story 0025",
-    "aliases": [
-      "0025",
-      "Story 0025",
-      "002514",
-      "002515",
-      "002516"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0025"
-  },
-  {
-    "name": "pcr-npc-0029",
-    "character": "Story 0029",
-    "romaji": "Story 0029",
-    "aliases": [
-      "0029",
-      "Story 0029",
-      "002911",
-      "002912",
-      "002913",
-      "002914",
-      "002915",
-      "002931",
-      "女学生1"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0029"
-  },
-  {
-    "name": "pcr-npc-0030",
-    "character": "Story 0030",
-    "romaji": "Story 0030",
-    "aliases": [
-      "0030",
-      "Story 0030",
-      "003013",
-      "003031"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0030"
-  },
-  {
-    "name": "pcr-npc-0031",
-    "character": "Story 0031",
-    "romaji": "Story 0031",
-    "aliases": [
-      "0031",
-      "Story 0031",
-      "003111",
-      "003112",
-      "003113",
-      "003114",
-      "女学生2"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0031"
-  },
-  {
-    "name": "pcr-npc-0032",
-    "character": "Story 0032",
-    "romaji": "Story 0032",
-    "aliases": [
-      "0032",
-      "Story 0032",
-      "003211",
-      "女老师"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0032"
-  },
-  {
-    "name": "pcr-npc-0033",
-    "character": "Story 0033",
-    "romaji": "Story 0033",
-    "aliases": [
-      "0033",
-      "Story 0033",
-      "003311",
-      "003312",
-      "003313",
-      "森林守卫"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0033"
-  },
-  {
-    "name": "pcr-npc-0034",
-    "character": "Story 0034",
-    "romaji": "Story 0034",
-    "aliases": [
-      "0034",
-      "Story 0034",
-      "003411",
-      "小花"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0034"
-  },
-  {
-    "name": "pcr-npc-0035",
-    "character": "Story 0035",
-    "romaji": "Story 0035",
-    "aliases": [
-      "0035",
-      "Story 0035",
-      "003511",
-      "003512",
-      "男人"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0035"
-  },
-  {
-    "name": "pcr-npc-0039",
-    "character": "Story 0039",
-    "romaji": "Story 0039",
-    "aliases": [
-      "0039",
-      "Story 0039",
-      "003911",
-      "サンタクロース"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0039"
-  },
-  {
-    "name": "pcr-npc-0043",
-    "character": "Story 0043",
-    "romaji": "Story 0043",
-    "aliases": [
-      "0043",
-      "Story 0043",
-      "004311",
-      "004312",
-      "兵士１"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0043"
-  },
-  {
-    "name": "pcr-npc-0046",
-    "character": "Story 0046",
-    "romaji": "Story 0046",
-    "aliases": [
-      "0046",
-      "Story 0046",
-      "004611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0046"
-  },
-  {
-    "name": "pcr-npc-0047",
-    "character": "Story 0047",
-    "romaji": "Story 0047",
-    "aliases": [
-      "0047",
-      "Story 0047",
-      "004711"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0047"
-  },
-  {
-    "name": "pcr-npc-0048",
-    "character": "Story 0048",
-    "romaji": "Story 0048",
-    "aliases": [
-      "0048",
-      "Story 0048",
-      "004811"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0048"
-  },
-  {
-    "name": "pcr-npc-0049",
-    "character": "Story 0049",
-    "romaji": "Story 0049",
-    "aliases": [
-      "0049",
-      "Story 0049",
-      "004911"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0049"
-  },
-  {
-    "name": "pcr-npc-0050",
-    "character": "Story 0050",
-    "romaji": "Story 0050",
-    "aliases": [
-      "0050",
-      "Story 0050",
-      "005011",
-      "005012",
-      "005013"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0050"
-  },
-  {
-    "name": "pcr-npc-0051",
-    "character": "Story 0051",
-    "romaji": "Story 0051",
-    "aliases": [
-      "0051",
-      "Story 0051",
-      "005111",
-      "005112"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0051"
-  },
-  {
-    "name": "pcr-npc-0052",
-    "character": "Story 0052",
-    "romaji": "Story 0052",
-    "aliases": [
-      "0052",
-      "Story 0052",
-      "005211",
-      "005212"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0052"
-  },
-  {
-    "name": "pcr-npc-0053",
-    "character": "Story 0053",
-    "romaji": "Story 0053",
-    "aliases": [
-      "0053",
-      "Story 0053",
-      "005312",
-      "005313"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0053"
-  },
-  {
-    "name": "pcr-npc-0054",
-    "character": "Story 0054",
-    "romaji": "Story 0054",
-    "aliases": [
-      "0054",
-      "Story 0054",
-      "005411",
-      "005412",
-      "005413"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0054"
-  },
-  {
-    "name": "pcr-npc-0055",
-    "character": "Story 0055",
-    "romaji": "Story 0055",
-    "aliases": [
-      "0055",
-      "Story 0055",
-      "005511"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0055"
-  },
-  {
-    "name": "pcr-npc-0056",
-    "character": "Story 0056",
-    "romaji": "Story 0056",
-    "aliases": [
-      "0056",
-      "Story 0056",
-      "005611",
-      "005612",
-      "005613",
-      "005614",
-      "005615",
-      "005616"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0056"
-  },
-  {
-    "name": "pcr-npc-0057",
-    "character": "Story 0057",
-    "romaji": "Story 0057",
-    "aliases": [
-      "0057",
-      "Story 0057",
-      "005711",
-      "005712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0057"
-  },
-  {
-    "name": "pcr-npc-0058",
-    "character": "Story 0058",
-    "romaji": "Story 0058",
-    "aliases": [
-      "0058",
-      "Story 0058",
-      "005811",
-      "005812"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0058"
-  },
-  {
-    "name": "pcr-npc-0059",
-    "character": "Story 0059",
-    "romaji": "Story 0059",
-    "aliases": [
-      "0059",
-      "Story 0059",
-      "005912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0059"
-  },
-  {
-    "name": "pcr-npc-0060",
-    "character": "Story 0060",
-    "romaji": "Story 0060",
-    "aliases": [
-      "0060",
-      "Story 0060",
-      "006011",
-      "006012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0060"
-  },
-  {
-    "name": "pcr-npc-0061",
-    "character": "Story 0061",
-    "romaji": "Story 0061",
-    "aliases": [
-      "0061",
-      "Story 0061",
-      "006111",
-      "006112"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0061"
-  },
-  {
-    "name": "pcr-npc-0062",
-    "character": "Story 0062",
-    "romaji": "Story 0062",
-    "aliases": [
-      "0062",
-      "Story 0062",
-      "006211"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0062"
-  },
-  {
-    "name": "pcr-npc-0063",
-    "character": "Story 0063",
-    "romaji": "Story 0063",
-    "aliases": [
-      "0063",
-      "Story 0063",
-      "006311",
-      "006312"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0063"
-  },
-  {
-    "name": "pcr-npc-0064",
-    "character": "Story 0064",
-    "romaji": "Story 0064",
-    "aliases": [
-      "0064",
-      "Story 0064",
-      "006411"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0064"
-  },
-  {
-    "name": "pcr-npc-0065",
-    "character": "Story 0065",
-    "romaji": "Story 0065",
-    "aliases": [
-      "0065",
-      "Story 0065",
-      "006511"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0065"
-  },
-  {
-    "name": "pcr-npc-0066",
-    "character": "Story 0066",
-    "romaji": "Story 0066",
-    "aliases": [
-      "0066",
-      "Story 0066",
-      "006631",
-      "006632",
-      "006633"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0066"
-  },
-  {
-    "name": "pcr-npc-0067",
-    "character": "Story 0067",
-    "romaji": "Story 0067",
-    "aliases": [
-      "0067",
-      "Story 0067",
-      "006732"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0067"
-  },
-  {
-    "name": "pcr-npc-0068",
-    "character": "Story 0068",
-    "romaji": "Story 0068",
-    "aliases": [
-      "0068",
-      "Story 0068",
-      "006831",
-      "006832",
-      "006833"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0068"
-  },
-  {
-    "name": "pcr-npc-0069",
-    "character": "Story 0069",
-    "romaji": "Story 0069",
-    "aliases": [
-      "0069",
-      "Story 0069",
-      "006932"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0069"
-  },
-  {
-    "name": "pcr-npc-0070",
-    "character": "Story 0070",
-    "romaji": "Story 0070",
-    "aliases": [
-      "0070",
-      "Story 0070",
-      "007011",
-      "007012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0070"
-  },
-  {
-    "name": "pcr-npc-0071",
-    "character": "Story 0071",
-    "romaji": "Story 0071",
-    "aliases": [
-      "0071",
-      "Story 0071",
-      "007111",
-      "007112",
-      "007113",
-      "007114"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0071"
-  },
-  {
-    "name": "pcr-npc-0074",
-    "character": "Story 0074",
-    "romaji": "Story 0074",
-    "aliases": [
-      "0074",
-      "Story 0074",
-      "007411",
-      "007412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0074"
-  },
-  {
-    "name": "pcr-npc-0075",
-    "character": "Story 0075",
-    "romaji": "Story 0075",
-    "aliases": [
-      "0075",
-      "Story 0075",
-      "007511",
-      "007531",
-      "007532"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0075"
-  },
-  {
-    "name": "pcr-npc-0076",
-    "character": "Story 0076",
-    "romaji": "Story 0076",
-    "aliases": [
-      "0076",
-      "Story 0076",
-      "007611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0076"
-  },
-  {
-    "name": "pcr-npc-0077",
-    "character": "Story 0077",
-    "romaji": "Story 0077",
-    "aliases": [
-      "0077",
-      "Story 0077",
-      "007711"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0077"
-  },
-  {
-    "name": "pcr-npc-0079",
-    "character": "Story 0079",
-    "romaji": "Story 0079",
-    "aliases": [
-      "0079",
-      "Story 0079",
-      "007911",
-      "007912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0079"
-  },
-  {
-    "name": "pcr-npc-0080",
-    "character": "Story 0080",
-    "romaji": "Story 0080",
-    "aliases": [
-      "0080",
-      "Story 0080",
-      "008011",
-      "008031"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0080"
-  },
-  {
-    "name": "pcr-npc-0081",
-    "character": "Story 0081",
-    "romaji": "Story 0081",
-    "aliases": [
-      "0081",
-      "Story 0081",
-      "008111"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0081"
-  },
-  {
-    "name": "pcr-npc-0082",
-    "character": "Story 0082",
-    "romaji": "Story 0082",
-    "aliases": [
-      "0082",
-      "Story 0082",
-      "008211"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0082"
-  },
-  {
-    "name": "pcr-npc-0083",
-    "character": "Story 0083",
-    "romaji": "Story 0083",
-    "aliases": [
-      "0083",
-      "Story 0083",
-      "008311",
-      "008312"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0083"
-  },
-  {
-    "name": "pcr-npc-0085",
-    "character": "Story 0085",
-    "romaji": "Story 0085",
-    "aliases": [
-      "0085",
-      "Story 0085",
-      "008511"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0085"
-  },
-  {
-    "name": "pcr-npc-0086",
-    "character": "Story 0086",
-    "romaji": "Story 0086",
-    "aliases": [
-      "0086",
-      "Story 0086",
-      "008611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0086"
-  },
-  {
-    "name": "pcr-npc-0087",
-    "character": "Story 0087",
-    "romaji": "Story 0087",
-    "aliases": [
-      "0087",
-      "Story 0087",
-      "008711",
-      "008712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0087"
-  },
-  {
-    "name": "pcr-npc-0088",
-    "character": "Story 0088",
-    "romaji": "Story 0088",
-    "aliases": [
-      "0088",
-      "Story 0088",
-      "008811"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0088"
-  },
-  {
-    "name": "pcr-npc-0089",
-    "character": "Story 0089",
-    "romaji": "Story 0089",
-    "aliases": [
-      "0089",
-      "Story 0089",
-      "008911",
-      "008912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0089"
-  },
-  {
-    "name": "pcr-npc-0090",
-    "character": "Story 0090",
-    "romaji": "Story 0090",
-    "aliases": [
-      "0090",
-      "Story 0090",
-      "009011"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0090"
-  },
-  {
-    "name": "pcr-npc-0091",
-    "character": "Story 0091",
-    "romaji": "Story 0091",
-    "aliases": [
-      "0091",
-      "Story 0091",
-      "009111"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0091"
-  },
-  {
-    "name": "pcr-npc-0092",
-    "character": "Story 0092",
-    "romaji": "Story 0092",
-    "aliases": [
-      "0092",
-      "Story 0092",
-      "009213"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0092"
-  },
-  {
-    "name": "pcr-npc-0093",
-    "character": "Story 0093",
-    "romaji": "Story 0093",
-    "aliases": [
-      "0093",
-      "Story 0093",
-      "009311"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0093"
-  },
-  {
-    "name": "pcr-npc-0094",
-    "character": "Story 0094",
-    "romaji": "Story 0094",
-    "aliases": [
-      "0094",
-      "Story 0094",
-      "009411",
-      "009412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0094"
-  },
-  {
-    "name": "pcr-npc-0095",
-    "character": "Story 0095",
-    "romaji": "Story 0095",
-    "aliases": [
-      "0095",
-      "Story 0095",
-      "009511",
-      "009512"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0095"
-  },
-  {
-    "name": "pcr-npc-0096",
-    "character": "Story 0096",
-    "romaji": "Story 0096",
-    "aliases": [
-      "0096",
-      "Story 0096",
-      "009611",
-      "009612"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0096"
-  },
-  {
-    "name": "pcr-npc-0097",
-    "character": "Story 0097",
-    "romaji": "Story 0097",
-    "aliases": [
-      "0097",
-      "Story 0097",
-      "009711",
-      "009712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0097"
-  },
-  {
-    "name": "pcr-npc-0098",
-    "character": "Story 0098",
-    "romaji": "Story 0098",
-    "aliases": [
-      "0098",
-      "Story 0098",
-      "009811"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0098"
-  },
-  {
-    "name": "pcr-npc-0099",
-    "character": "Story 0099",
-    "romaji": "Story 0099",
-    "aliases": [
-      "0099",
-      "Story 0099",
-      "009911",
-      "009912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0099"
-  },
-  {
-    "name": "pcr-npc-0104",
-    "character": "Story 0104",
-    "romaji": "Story 0104",
-    "aliases": [
-      "0104",
-      "Story 0104",
-      "010411",
-      "010412",
-      "岛鲸"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0104"
-  },
-  {
-    "name": "pcr-npc-0105",
-    "character": "Story 0105",
-    "romaji": "Story 0105",
-    "aliases": [
-      "0105",
-      "Story 0105",
-      "010511",
-      "010512",
-      "南瓜灯",
-      "布丁南瓜灯"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0105"
-  },
-  {
-    "name": "pcr-npc-0112",
-    "character": "Story 0112",
-    "romaji": "Story 0112",
-    "aliases": [
-      "0112",
-      "Story 0112",
-      "011211",
-      "011212",
-      "巨人"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0112"
-  },
-  {
-    "name": "pcr-npc-0114",
-    "character": "Story 0114",
-    "romaji": "Story 0114",
-    "aliases": [
-      "0114",
-      "Story 0114",
-      "011411",
-      "011412",
-      "011413",
-      "恶霸地方官"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0114"
-  },
-  {
-    "name": "pcr-npc-0120",
-    "character": "Story 0120",
-    "romaji": "Story 0120",
-    "aliases": [
-      "0120",
-      "Story 0120",
-      "012011",
-      "012012",
-      "曼德拉草"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0120"
-  },
-  {
-    "name": "pcr-npc-0130",
-    "character": "Story 0130",
-    "romaji": "Story 0130",
-    "aliases": [
-      "0130",
-      "Story 0130",
-      "013011",
-      "013012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0130"
-  },
-  {
-    "name": "pcr-npc-0137",
-    "character": "Story 0137",
-    "romaji": "Story 0137",
-    "aliases": [
-      "0137",
-      "Story 0137",
-      "013711",
-      "013712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0137"
-  },
-  {
-    "name": "pcr-npc-0143",
-    "character": "Story 0143",
-    "romaji": "Story 0143",
-    "aliases": [
-      "0143",
-      "Story 0143",
-      "014311",
-      "014312",
-      "014313",
-      "014314"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0143"
-  },
-  {
-    "name": "pcr-npc-0148",
-    "character": "Story 0148",
-    "romaji": "Story 0148",
-    "aliases": [
-      "0148",
-      "Story 0148",
-      "014811",
-      "014812",
-      "014813"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0148"
-  },
-  {
-    "name": "pcr-npc-0149",
-    "character": "Story 0149",
-    "romaji": "Story 0149",
-    "aliases": [
-      "0149",
-      "Story 0149",
-      "014911",
-      "014912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0149"
-  },
-  {
-    "name": "pcr-npc-0150",
-    "character": "Story 0150",
-    "romaji": "Story 0150",
-    "aliases": [
-      "0150",
-      "Story 0150",
-      "015011",
-      "015012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0150"
-  },
-  {
-    "name": "pcr-npc-0153",
-    "character": "Story 0153",
-    "romaji": "Story 0153",
-    "aliases": [
-      "0153",
-      "Story 0153",
-      "015311",
-      "015312",
-      "015313",
-      "015314"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0153"
-  },
-  {
-    "name": "pcr-npc-0155",
-    "character": "Story 0155",
-    "romaji": "Story 0155",
-    "aliases": [
-      "0155",
-      "Story 0155",
-      "015511",
-      "015512",
-      "015513"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0155"
-  },
-  {
-    "name": "pcr-npc-0158",
-    "character": "Story 0158",
-    "romaji": "Story 0158",
-    "aliases": [
-      "0158",
-      "Story 0158",
-      "015811"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0158"
-  },
-  {
-    "name": "pcr-npc-0159",
-    "character": "Story 0159",
-    "romaji": "Story 0159",
-    "aliases": [
-      "0159",
-      "Story 0159",
-      "015911",
-      "015912",
-      "015913",
-      "015914",
-      "015915",
-      "015916",
-      "015917"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0159"
-  },
-  {
-    "name": "pcr-npc-0160",
-    "character": "Story 0160",
-    "romaji": "Story 0160",
-    "aliases": [
-      "0160",
-      "Story 0160",
-      "016011",
-      "016012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0160"
-  },
-  {
-    "name": "pcr-npc-0163",
-    "character": "Story 0163",
-    "romaji": "Story 0163",
-    "aliases": [
-      "0163",
-      "Story 0163",
-      "016311",
-      "016312"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0163"
-  },
-  {
-    "name": "pcr-npc-0164",
-    "character": "Story 0164",
-    "romaji": "Story 0164",
-    "aliases": [
-      "0164",
-      "Story 0164",
-      "016411",
-      "016412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0164"
-  },
-  {
-    "name": "pcr-npc-0166",
-    "character": "Story 0166",
-    "romaji": "Story 0166",
-    "aliases": [
-      "0166",
-      "Story 0166",
-      "016611",
-      "016612",
-      "016613"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0166"
-  },
-  {
-    "name": "pcr-npc-0167",
-    "character": "Story 0167",
-    "romaji": "Story 0167",
-    "aliases": [
-      "0167",
-      "Story 0167",
-      "016711",
-      "016712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0167"
-  },
-  {
-    "name": "pcr-npc-0170",
-    "character": "Story 0170",
-    "romaji": "Story 0170",
-    "aliases": [
-      "0170",
-      "Story 0170",
-      "017011"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0170"
-  },
-  {
-    "name": "pcr-npc-0172",
-    "character": "Story 0172",
-    "romaji": "Story 0172",
-    "aliases": [
-      "0172",
-      "Story 0172",
-      "017211",
-      "017212"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0172"
-  },
-  {
-    "name": "pcr-npc-0173",
-    "character": "Story 0173",
-    "romaji": "Story 0173",
-    "aliases": [
-      "0173",
-      "Story 0173",
-      "017311",
-      "017312"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0173"
-  },
-  {
-    "name": "pcr-npc-0174",
-    "character": "Story 0174",
-    "romaji": "Story 0174",
-    "aliases": [
-      "0174",
-      "Story 0174",
-      "017411",
-      "017412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0174"
-  },
-  {
-    "name": "pcr-npc-0175",
-    "character": "Story 0175",
-    "romaji": "Story 0175",
-    "aliases": [
-      "0175",
-      "Story 0175",
-      "017511",
-      "017512"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0175"
-  },
-  {
-    "name": "pcr-npc-0177",
-    "character": "Story 0177",
-    "romaji": "Story 0177",
-    "aliases": [
-      "0177",
-      "Story 0177",
-      "017711",
-      "017712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0177"
-  },
-  {
-    "name": "pcr-npc-0182",
-    "character": "Story 0182",
-    "romaji": "Story 0182",
-    "aliases": [
-      "0182",
-      "Story 0182",
-      "018211"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0182"
-  },
-  {
-    "name": "pcr-npc-0184",
-    "character": "Story 0184",
-    "romaji": "Story 0184",
-    "aliases": [
-      "0184",
-      "Story 0184",
-      "018411",
-      "018412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0184"
-  },
-  {
-    "name": "pcr-npc-0186",
-    "character": "Story 0186",
-    "romaji": "Story 0186",
-    "aliases": [
-      "0186",
-      "Story 0186",
-      "018611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0186"
-  },
-  {
-    "name": "pcr-npc-0187",
-    "character": "Story 0187",
-    "romaji": "Story 0187",
-    "aliases": [
-      "0187",
-      "Story 0187",
-      "018711",
-      "018712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0187"
-  },
-  {
-    "name": "pcr-npc-0188",
-    "character": "Story 0188",
-    "romaji": "Story 0188",
-    "aliases": [
-      "0188",
-      "Story 0188",
-      "018811",
-      "018812"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0188"
-  },
-  {
-    "name": "pcr-npc-0189",
-    "character": "Story 0189",
-    "romaji": "Story 0189",
-    "aliases": [
-      "0189",
-      "Story 0189",
-      "018911",
-      "018912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0189"
-  },
-  {
-    "name": "pcr-npc-0192",
-    "character": "Story 0192",
-    "romaji": "Story 0192",
-    "aliases": [
-      "0192",
-      "Story 0192",
-      "019211",
-      "019212"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0192"
-  },
-  {
-    "name": "pcr-npc-0193",
-    "character": "Story 0193",
-    "romaji": "Story 0193",
-    "aliases": [
-      "0193",
-      "Story 0193",
-      "019311",
-      "019312"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0193"
-  },
-  {
-    "name": "pcr-npc-0195",
-    "character": "Story 0195",
-    "romaji": "Story 0195",
-    "aliases": [
-      "0195",
-      "Story 0195",
-      "019511",
-      "019512"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0195"
-  },
-  {
-    "name": "pcr-npc-0197",
-    "character": "Story 0197",
-    "romaji": "Story 0197",
-    "aliases": [
-      "0197",
-      "Story 0197",
-      "019711",
-      "019712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0197"
-  },
-  {
-    "name": "pcr-npc-0200",
-    "character": "Story 0200",
-    "romaji": "Story 0200",
-    "aliases": [
-      "0200",
-      "Story 0200",
-      "020011",
-      "020012"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0200"
-  },
-  {
-    "name": "pcr-npc-0201",
-    "character": "Story 0201",
-    "romaji": "Story 0201",
-    "aliases": [
-      "0201",
-      "Story 0201",
-      "020111"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0201"
-  },
-  {
-    "name": "pcr-npc-0502",
-    "character": "Story 0502",
-    "romaji": "Story 0502",
-    "aliases": [
-      "0502",
-      "Story 0502",
-      "050211",
-      "050212"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0502"
-  },
-  {
-    "name": "pcr-npc-0505",
-    "character": "Story 0505",
-    "romaji": "Story 0505",
-    "aliases": [
-      "0505",
-      "Story 0505",
-      "050511",
-      "050512"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0505"
-  },
-  {
-    "name": "pcr-npc-0506",
-    "character": "Story 0506",
-    "romaji": "Story 0506",
-    "aliases": [
-      "0506",
-      "Story 0506",
-      "050611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0506"
-  },
-  {
-    "name": "pcr-npc-0507",
-    "character": "Story 0507",
-    "romaji": "Story 0507",
-    "aliases": [
-      "0507",
-      "Story 0507",
-      "050711"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0507"
-  },
-  {
-    "name": "pcr-npc-0508",
-    "character": "Story 0508",
-    "romaji": "Story 0508",
-    "aliases": [
-      "0508",
-      "Story 0508",
-      "050811",
-      "050812"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0508"
-  },
-  {
-    "name": "pcr-npc-0509",
-    "character": "Story 0509",
-    "romaji": "Story 0509",
-    "aliases": [
-      "0509",
-      "Story 0509",
-      "050911",
-      "050912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0509"
-  },
-  {
-    "name": "pcr-npc-0510",
-    "character": "Story 0510",
-    "romaji": "Story 0510",
-    "aliases": [
-      "0510",
-      "Story 0510",
-      "051011"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0510"
-  },
-  {
-    "name": "pcr-npc-0511",
-    "character": "Story 0511",
-    "romaji": "Story 0511",
-    "aliases": [
-      "0511",
-      "Story 0511",
-      "051111"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0511"
-  },
-  {
-    "name": "pcr-npc-0513",
-    "character": "Story 0513",
-    "romaji": "Story 0513",
-    "aliases": [
-      "0513",
-      "Story 0513",
-      "051311"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0513"
-  },
-  {
-    "name": "pcr-npc-0514",
-    "character": "Story 0514",
-    "romaji": "Story 0514",
-    "aliases": [
-      "0514",
-      "Story 0514",
-      "051411",
-      "051412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0514"
-  },
-  {
-    "name": "pcr-npc-0515",
-    "character": "Story 0515",
-    "romaji": "Story 0515",
-    "aliases": [
-      "0515",
-      "Story 0515",
-      "051511",
-      "051512"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0515"
-  },
-  {
-    "name": "pcr-npc-0516",
-    "character": "Story 0516",
-    "romaji": "Story 0516",
-    "aliases": [
-      "0516",
-      "Story 0516",
-      "051611"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0516"
-  },
-  {
-    "name": "pcr-npc-0517",
-    "character": "Story 0517",
-    "romaji": "Story 0517",
-    "aliases": [
-      "0517",
-      "Story 0517",
-      "051711",
-      "051712"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0517"
-  },
-  {
-    "name": "pcr-npc-0518",
-    "character": "Story 0518",
-    "romaji": "Story 0518",
-    "aliases": [
-      "0518",
-      "Story 0518",
-      "051811",
-      "051812"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0518"
-  },
-  {
-    "name": "pcr-npc-0519",
-    "character": "Story 0519",
-    "romaji": "Story 0519",
-    "aliases": [
-      "0519",
-      "Story 0519",
-      "051911",
-      "051912"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0519"
-  },
-  {
-    "name": "pcr-npc-0520",
-    "character": "Story 0520",
-    "romaji": "Story 0520",
-    "aliases": [
-      "0520",
-      "Story 0520",
-      "052011"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0520"
-  },
-  {
-    "name": "pcr-npc-0521",
-    "character": "Story 0521",
-    "romaji": "Story 0521",
-    "aliases": [
-      "0521",
-      "Story 0521",
-      "052111"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0521"
-  },
-  {
-    "name": "pcr-npc-0523",
-    "character": "Story 0523",
-    "romaji": "Story 0523",
-    "aliases": [
-      "0523",
-      "Story 0523",
-      "052311",
-      "052312",
-      "052313"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0523"
-  },
-  {
-    "name": "pcr-npc-0524",
-    "character": "Story 0524",
-    "romaji": "Story 0524",
-    "aliases": [
-      "0524",
-      "Story 0524",
-      "052411",
-      "052412"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0524"
-  },
-  {
-    "name": "pcr-npc-0526",
-    "character": "Story 0526",
-    "romaji": "Story 0526",
-    "aliases": [
-      "0526",
-      "Story 0526",
-      "052611",
-      "052612",
-      "052613",
-      "052614"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0526"
-  },
-  {
-    "name": "pcr-npc-0527",
-    "character": "Story 0527",
-    "romaji": "Story 0527",
-    "aliases": [
-      "0527",
-      "Story 0527",
-      "052711",
-      "052712",
-      "052731"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0527"
-  },
-  {
-    "name": "pcr-npc-0528",
-    "character": "Story 0528",
-    "romaji": "Story 0528",
-    "aliases": [
-      "0528",
-      "Story 0528",
-      "052831"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0528"
-  },
-  {
-    "name": "pcr-npc-0529",
-    "character": "Story 0529",
-    "romaji": "Story 0529",
-    "aliases": [
-      "0529",
-      "Story 0529",
-      "052931"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0529"
-  },
-  {
-    "name": "pcr-npc-0530",
-    "character": "Story 0530",
-    "romaji": "Story 0530",
-    "aliases": [
-      "0530",
-      "Story 0530",
-      "053011",
-      "053012",
-      "053013"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0530"
-  },
-  {
-    "name": "pcr-npc-0531",
-    "character": "Story 0531",
-    "romaji": "Story 0531",
-    "aliases": [
-      "0531",
-      "Story 0531",
-      "053111",
-      "053112"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0531"
-  },
-  {
-    "name": "pcr-npc-0532",
-    "character": "Story 0532",
-    "romaji": "Story 0532",
-    "aliases": [
-      "0532",
-      "Story 0532",
-      "053211"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0532"
-  },
-  {
-    "name": "pcr-npc-0533",
-    "character": "Story 0533",
-    "romaji": "Story 0533",
-    "aliases": [
-      "0533",
-      "Story 0533",
-      "053311",
-      "053312",
-      "053313"
-    ],
-    "unnamed": true,
-    "storyCharacter": "0533"
-  },
-  {
-    "name": "pcr-npc-1072",
-    "character": "Story 1072",
-    "romaji": "Story 1072",
-    "aliases": [
-      "1072",
-      "Story 1072",
-      "107211",
-      "107212",
-      "107231"
-    ],
-    "unnamed": true,
-    "storyCharacter": "1072"
-  },
-  {
-    "name": "pcr-npc-1074",
-    "character": "Story 1074",
-    "romaji": "Story 1074",
-    "aliases": [
-      "1074",
       "Story 1074",
-      "107411",
-      "107412",
-      "107413",
-      "107414",
-      "107415",
-      "107416",
-      "107418"
+      "1074",
+      "107411"
     ],
     "unnamed": true,
+    "storyModel": "107411",
     "storyCharacter": "1074"
   },
   {
-    "name": "pcr-npc-1291",
-    "character": "Story 1291",
-    "romaji": "Story 1291",
+    "name": "pcr-107412",
+    "character": "Story 1074, 12",
+    "romaji": "",
     "aliases": [
-      "1291",
+      "Story 1074",
+      "1074",
+      "107412"
+    ],
+    "unnamed": true,
+    "storyModel": "107412",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-107413",
+    "character": "Story 1074, 13",
+    "romaji": "",
+    "aliases": [
+      "Story 1074",
+      "1074",
+      "107413"
+    ],
+    "unnamed": true,
+    "storyModel": "107413",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-107414",
+    "character": "Story 1074, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 1074",
+      "1074",
+      "107414"
+    ],
+    "unnamed": true,
+    "storyModel": "107414",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-107415",
+    "character": "Story 1074, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 1074",
+      "1074",
+      "107415"
+    ],
+    "unnamed": true,
+    "storyModel": "107415",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-107416",
+    "character": "Story 1074, 16",
+    "romaji": "",
+    "aliases": [
+      "Story 1074",
+      "1074",
+      "107416"
+    ],
+    "unnamed": true,
+    "storyModel": "107416",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-107418",
+    "character": "Story 1074, 18",
+    "romaji": "",
+    "aliases": [
+      "Story 1074",
+      "1074",
+      "107418"
+    ],
+    "unnamed": true,
+    "storyModel": "107418",
+    "storyCharacter": "1074"
+  },
+  {
+    "name": "pcr-129111",
+    "character": "Story 1291, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1291",
+      "1291",
       "129111"
     ],
     "unnamed": true,
+    "storyModel": "129111",
     "storyCharacter": "1291"
   },
   {
-    "name": "pcr-npc-1292",
-    "character": "Story 1292",
-    "romaji": "Story 1292",
+    "name": "pcr-129211",
+    "character": "Story 1292, 11",
+    "romaji": "",
     "aliases": [
-      "1292",
       "Story 1292",
+      "1292",
       "129211"
     ],
     "unnamed": true,
+    "storyModel": "129211",
     "storyCharacter": "1292"
   },
   {
-    "name": "pcr-npc-1303",
-    "character": "Story 1303",
-    "romaji": "Story 1303",
+    "name": "pcr-130311",
+    "character": "Story 1303, 11",
+    "romaji": "",
     "aliases": [
-      "1303",
       "Story 1303",
+      "1303",
       "130311"
     ],
     "unnamed": true,
+    "storyModel": "130311",
     "storyCharacter": "1303"
   },
   {
-    "name": "pcr-npc-1304",
-    "character": "Story 1304",
-    "romaji": "Story 1304",
+    "name": "pcr-130411",
+    "character": "Story 1304, 11",
+    "romaji": "",
     "aliases": [
-      "1304",
       "Story 1304",
+      "1304",
       "130411"
     ],
     "unnamed": true,
+    "storyModel": "130411",
     "storyCharacter": "1304"
   },
   {
-    "name": "pcr-npc-1305",
-    "character": "Story 1305",
-    "romaji": "Story 1305",
+    "name": "pcr-130512",
+    "character": "Story 1305, 12",
+    "romaji": "",
     "aliases": [
-      "1305",
       "Story 1305",
-      "130512",
-      "130513"
+      "1305",
+      "130512"
     ],
     "unnamed": true,
+    "storyModel": "130512",
     "storyCharacter": "1305"
   },
   {
-    "name": "pcr-npc-1326",
-    "character": "Story 1326",
-    "romaji": "Story 1326",
+    "name": "pcr-130513",
+    "character": "Story 1305, 13",
+    "romaji": "",
     "aliases": [
-      "1326",
-      "Story 1326",
-      "132611",
-      "132612"
+      "Story 1305",
+      "1305",
+      "130513"
     ],
     "unnamed": true,
+    "storyModel": "130513",
+    "storyCharacter": "1305"
+  },
+  {
+    "name": "pcr-132611",
+    "character": "Story 1326, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1326",
+      "1326",
+      "132611"
+    ],
+    "unnamed": true,
+    "storyModel": "132611",
     "storyCharacter": "1326"
   },
   {
-    "name": "pcr-npc-1327",
-    "character": "Story 1327",
-    "romaji": "Story 1327",
+    "name": "pcr-132612",
+    "character": "Story 1326, 12",
+    "romaji": "",
     "aliases": [
-      "1327",
-      "Story 1327",
-      "132711",
-      "132712",
-      "132741"
+      "Story 1326",
+      "1326",
+      "132612"
     ],
     "unnamed": true,
+    "storyModel": "132612",
+    "storyCharacter": "1326"
+  },
+  {
+    "name": "pcr-132711",
+    "character": "Story 1327, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1327",
+      "1327",
+      "132711"
+    ],
+    "unnamed": true,
+    "storyModel": "132711",
     "storyCharacter": "1327"
   },
   {
-    "name": "pcr-npc-1333",
-    "character": "Story 1333",
-    "romaji": "Story 1333",
+    "name": "pcr-132712",
+    "character": "Story 1327, 12",
+    "romaji": "",
     "aliases": [
-      "1333",
+      "Story 1327",
+      "1327",
+      "132712"
+    ],
+    "unnamed": true,
+    "storyModel": "132712",
+    "storyCharacter": "1327"
+  },
+  {
+    "name": "pcr-132741",
+    "character": "Story 1327, 41",
+    "romaji": "",
+    "aliases": [
+      "Story 1327",
+      "1327",
+      "132741"
+    ],
+    "unnamed": true,
+    "storyModel": "132741",
+    "storyCharacter": "1327"
+  },
+  {
+    "name": "pcr-133311",
+    "character": "Story 1333, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1333",
+      "1333",
       "133311"
     ],
     "unnamed": true,
+    "storyModel": "133311",
     "storyCharacter": "1333"
   },
   {
-    "name": "pcr-npc-1334",
-    "character": "Story 1334",
-    "romaji": "Story 1334",
+    "name": "pcr-133411",
+    "character": "Story 1334, 11",
+    "romaji": "",
     "aliases": [
-      "1334",
       "Story 1334",
+      "1334",
       "133411"
     ],
     "unnamed": true,
+    "storyModel": "133411",
     "storyCharacter": "1334"
   },
   {
-    "name": "pcr-npc-1370",
-    "character": "Story 1370",
-    "romaji": "Story 1370",
+    "name": "pcr-137711",
+    "character": "Story 1377, 11",
+    "romaji": "",
     "aliases": [
-      "1370",
-      "Story 1370",
-      "137011"
-    ],
-    "unnamed": true,
-    "storyCharacter": "1370"
-  },
-  {
-    "name": "pcr-npc-1377",
-    "character": "Story 1377",
-    "romaji": "Story 1377",
-    "aliases": [
-      "1377",
       "Story 1377",
+      "1377",
       "137711"
     ],
     "unnamed": true,
+    "storyModel": "137711",
     "storyCharacter": "1377"
   },
   {
-    "name": "pcr-npc-1384",
-    "character": "Story 1384",
-    "romaji": "Story 1384",
+    "name": "pcr-138411",
+    "character": "Story 1384, 11",
+    "romaji": "",
     "aliases": [
-      "1384",
       "Story 1384",
+      "1384",
       "138411"
     ],
     "unnamed": true,
+    "storyModel": "138411",
     "storyCharacter": "1384"
   },
   {
-    "name": "pcr-npc-1385",
-    "character": "Story 1385",
-    "romaji": "Story 1385",
+    "name": "pcr-138511",
+    "character": "Story 1385, 11",
+    "romaji": "",
     "aliases": [
-      "1385",
       "Story 1385",
+      "1385",
       "138511"
     ],
     "unnamed": true,
+    "storyModel": "138511",
     "storyCharacter": "1385"
   },
   {
-    "name": "pcr-npc-1409",
-    "character": "Story 1409",
-    "romaji": "Story 1409",
+    "name": "pcr-140911",
+    "character": "Story 1409, 11",
+    "romaji": "",
     "aliases": [
-      "1409",
       "Story 1409",
-      "140911",
-      "140912",
-      "140931"
+      "1409",
+      "140911"
     ],
     "unnamed": true,
+    "storyModel": "140911",
     "storyCharacter": "1409"
   },
   {
-    "name": "pcr-npc-1417",
-    "character": "Story 1417",
-    "romaji": "Story 1417",
+    "name": "pcr-140912",
+    "character": "Story 1409, 12",
+    "romaji": "",
     "aliases": [
-      "1417",
+      "Story 1409",
+      "1409",
+      "140912"
+    ],
+    "unnamed": true,
+    "storyModel": "140912",
+    "storyCharacter": "1409"
+  },
+  {
+    "name": "pcr-140931",
+    "character": "Story 1409, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 1409",
+      "1409",
+      "140931"
+    ],
+    "unnamed": true,
+    "storyModel": "140931",
+    "storyCharacter": "1409"
+  },
+  {
+    "name": "pcr-141711",
+    "character": "Story 1417, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1417",
+      "1417",
       "141711"
     ],
     "unnamed": true,
+    "storyModel": "141711",
     "storyCharacter": "1417"
   },
   {
-    "name": "pcr-npc-1418",
-    "character": "Story 1418",
-    "romaji": "Story 1418",
+    "name": "pcr-141811",
+    "character": "Story 1418, 11",
+    "romaji": "",
     "aliases": [
-      "1418",
       "Story 1418",
+      "1418",
       "141811"
     ],
     "unnamed": true,
+    "storyModel": "141811",
     "storyCharacter": "1418"
   },
   {
-    "name": "pcr-npc-1422",
-    "character": "Story 1422",
-    "romaji": "Story 1422",
+    "name": "pcr-142211",
+    "character": "Story 1422, 11",
+    "romaji": "",
     "aliases": [
-      "1422",
       "Story 1422",
+      "1422",
       "142211"
     ],
     "unnamed": true,
+    "storyModel": "142211",
     "storyCharacter": "1422"
   },
   {
-    "name": "pcr-npc-1423",
-    "character": "Story 1423",
-    "romaji": "Story 1423",
+    "name": "pcr-142311",
+    "character": "Story 1423, 11",
+    "romaji": "",
     "aliases": [
-      "1423",
       "Story 1423",
+      "1423",
       "142311"
     ],
     "unnamed": true,
+    "storyModel": "142311",
     "storyCharacter": "1423"
   },
   {
-    "name": "pcr-npc-1916",
-    "character": "Story 1916",
-    "romaji": "Story 1916",
+    "name": "pcr-190712",
+    "character": "Story 1907, 12",
+    "romaji": "daigo",
     "aliases": [
-      "1916",
-      "Story 1916",
-      "191612",
-      "191613",
-      "191614",
-      "スライム（赤）",
-      "史莱姆"
+      "Story 1907",
+      "1907",
+      "190712",
+      "Daigo"
     ],
     "unnamed": true,
-    "storyCharacter": "1916"
+    "storyModel": "190712",
+    "storyCharacter": "1907"
   },
   {
-    "name": "pcr-npc-1919",
-    "character": "Story 1919",
-    "romaji": "Story 1919",
+    "name": "pcr-190731",
+    "character": "Story 1907, 31",
+    "romaji": "daigo",
     "aliases": [
-      "1919",
+      "Story 1907",
+      "1907",
+      "190731",
+      "Daigo"
+    ],
+    "unnamed": true,
+    "storyModel": "190731",
+    "storyCharacter": "1907"
+  },
+  {
+    "name": "pcr-190912",
+    "character": "Story 1909, 12",
+    "romaji": "nebia",
+    "aliases": [
+      "Story 1909",
+      "1909",
+      "190912",
+      "Nebia"
+    ],
+    "unnamed": true,
+    "storyModel": "190912",
+    "storyCharacter": "1909"
+  },
+  {
+    "name": "pcr-191031",
+    "character": "Story 1910, 31",
+    "romaji": "masaki",
+    "aliases": [
+      "Story 1910",
+      "1910",
+      "191031",
+      "Masaki"
+    ],
+    "unnamed": true,
+    "storyModel": "191031",
+    "storyCharacter": "1910"
+  },
+  {
+    "name": "pcr-191112",
+    "character": "Story 1911, 12",
+    "romaji": "mineruvabeta",
+    "aliases": [
+      "Story 1911",
+      "1911",
+      "191112",
+      "Minerva"
+    ],
+    "unnamed": true,
+    "storyModel": "191112",
+    "storyCharacter": "1911"
+  },
+  {
+    "name": "pcr-191114",
+    "character": "Story 1911, 14",
+    "romaji": "mineruvabeta",
+    "aliases": [
+      "Story 1911",
+      "1911",
+      "191114",
+      "Minerva"
+    ],
+    "unnamed": true,
+    "storyModel": "191114",
+    "storyCharacter": "1911"
+  },
+  {
+    "name": "pcr-191712",
+    "character": "Story 1917, 12",
+    "romaji": "zeen",
+    "aliases": [
+      "Story 1917",
+      "1917",
+      "191712",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": true,
+    "storyModel": "191712",
+    "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191713",
+    "character": "Story 1917, 13",
+    "romaji": "zeen",
+    "aliases": [
+      "Story 1917",
+      "1917",
+      "191713",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": true,
+    "storyModel": "191713",
+    "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191714",
+    "character": "Story 1917, 14",
+    "romaji": "zeen",
+    "aliases": [
+      "Story 1917",
+      "1917",
+      "191714",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": true,
+    "storyModel": "191714",
+    "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191731",
+    "character": "Story 1917, 31",
+    "romaji": "zeen",
+    "aliases": [
+      "Story 1917",
+      "1917",
+      "191731",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": true,
+    "storyModel": "191731",
+    "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191732",
+    "character": "Story 1917, 32",
+    "romaji": "zeen",
+    "aliases": [
+      "Story 1917",
+      "1917",
+      "191732",
+      "Zane",
+      "泽恩"
+    ],
+    "unnamed": true,
+    "storyModel": "191732",
+    "storyCharacter": "1917"
+  },
+  {
+    "name": "pcr-191916",
+    "character": "Story 1919, 16",
+    "romaji": "",
+    "aliases": [
       "Story 1919",
-      "191914",
-      "191915",
+      "1919",
       "191916"
     ],
     "unnamed": true,
+    "storyModel": "191916",
     "storyCharacter": "1919"
   },
   {
-    "name": "pcr-npc-1920",
-    "character": "Story 1920",
-    "romaji": "Story 1920",
+    "name": "pcr-192011",
+    "character": "Story 1920, 11",
+    "romaji": "",
     "aliases": [
-      "1920",
       "Story 1920",
-      "192011",
-      "192012",
-      "192013",
-      "192014",
-      "192015"
+      "1920",
+      "192011"
     ],
     "unnamed": true,
+    "storyModel": "192011",
     "storyCharacter": "1920"
   },
   {
-    "name": "pcr-npc-1922",
-    "character": "Story 1922",
-    "romaji": "Story 1922",
+    "name": "pcr-192012",
+    "character": "Story 1920, 12",
+    "romaji": "",
     "aliases": [
-      "1922",
+      "Story 1920",
+      "1920",
+      "192012"
+    ],
+    "unnamed": true,
+    "storyModel": "192012",
+    "storyCharacter": "1920"
+  },
+  {
+    "name": "pcr-192014",
+    "character": "Story 1920, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 1920",
+      "1920",
+      "192014"
+    ],
+    "unnamed": true,
+    "storyModel": "192014",
+    "storyCharacter": "1920"
+  },
+  {
+    "name": "pcr-192211",
+    "character": "Story 1922, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1922",
+      "1922",
       "192211"
     ],
     "unnamed": true,
+    "storyModel": "192211",
     "storyCharacter": "1922"
   },
   {
-    "name": "pcr-npc-1923",
-    "character": "Story 1923",
-    "romaji": "Story 1923",
+    "name": "pcr-192311",
+    "character": "Story 1923, 11",
+    "romaji": "",
     "aliases": [
-      "1923",
       "Story 1923",
+      "1923",
       "192311"
     ],
     "unnamed": true,
+    "storyModel": "192311",
     "storyCharacter": "1923"
   },
   {
-    "name": "pcr-npc-1924",
-    "character": "Story 1924",
-    "romaji": "Story 1924",
+    "name": "pcr-192411",
+    "character": "Story 1924, 11",
+    "romaji": "",
     "aliases": [
-      "1924",
       "Story 1924",
+      "1924",
       "192411"
     ],
     "unnamed": true,
+    "storyModel": "192411",
     "storyCharacter": "1924"
   },
   {
-    "name": "pcr-npc-1926",
-    "character": "Story 1926",
-    "romaji": "Story 1926",
+    "name": "pcr-192611",
+    "character": "Story 1926, 11",
+    "romaji": "",
     "aliases": [
-      "1926",
       "Story 1926",
-      "192611",
-      "192612",
-      "192613",
-      "192614"
+      "1926",
+      "192611"
     ],
     "unnamed": true,
+    "storyModel": "192611",
     "storyCharacter": "1926"
   },
   {
-    "name": "pcr-npc-1927",
-    "character": "Story 1927",
-    "romaji": "Story 1927",
+    "name": "pcr-192613",
+    "character": "Story 1926, 13",
+    "romaji": "",
     "aliases": [
-      "1927",
-      "Story 1927",
-      "192722",
-      "192723"
+      "Story 1926",
+      "1926",
+      "192613"
     ],
     "unnamed": true,
+    "storyModel": "192613",
+    "storyCharacter": "1926"
+  },
+  {
+    "name": "pcr-192614",
+    "character": "Story 1926, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 1926",
+      "1926",
+      "192614"
+    ],
+    "unnamed": true,
+    "storyModel": "192614",
+    "storyCharacter": "1926"
+  },
+  {
+    "name": "pcr-192722",
+    "character": "Story 1927, 22",
+    "romaji": "",
+    "aliases": [
+      "Story 1927",
+      "1927",
+      "192722"
+    ],
+    "unnamed": true,
+    "storyModel": "192722",
     "storyCharacter": "1927"
   },
   {
-    "name": "pcr-npc-1928",
-    "character": "Story 1928",
-    "romaji": "Story 1928",
+    "name": "pcr-192723",
+    "character": "Story 1927, 23",
+    "romaji": "",
     "aliases": [
-      "1928",
+      "Story 1927",
+      "1927",
+      "192723"
+    ],
+    "unnamed": true,
+    "storyModel": "192723",
+    "storyCharacter": "1927"
+  },
+  {
+    "name": "pcr-192811",
+    "character": "Story 1928, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1928",
+      "1928",
       "192811"
     ],
     "unnamed": true,
+    "storyModel": "192811",
     "storyCharacter": "1928"
   },
   {
-    "name": "pcr-npc-1929",
-    "character": "Story 1929",
-    "romaji": "Story 1929",
+    "name": "pcr-192911",
+    "character": "Story 1929, 11",
+    "romaji": "",
     "aliases": [
-      "1929",
       "Story 1929",
-      "192911",
-      "192921",
-      "192922",
-      "192923"
+      "1929",
+      "192911"
     ],
     "unnamed": true,
+    "storyModel": "192911",
     "storyCharacter": "1929"
   },
   {
-    "name": "pcr-npc-1932",
-    "character": "Story 1932",
-    "romaji": "Story 1932",
+    "name": "pcr-192921",
+    "character": "Story 1929, 21",
+    "romaji": "",
     "aliases": [
-      "1932",
+      "Story 1929",
+      "1929",
+      "192921"
+    ],
+    "unnamed": true,
+    "storyModel": "192921",
+    "storyCharacter": "1929"
+  },
+  {
+    "name": "pcr-192922",
+    "character": "Story 1929, 22",
+    "romaji": "",
+    "aliases": [
+      "Story 1929",
+      "1929",
+      "192922"
+    ],
+    "unnamed": true,
+    "storyModel": "192922",
+    "storyCharacter": "1929"
+  },
+  {
+    "name": "pcr-192923",
+    "character": "Story 1929, 23",
+    "romaji": "",
+    "aliases": [
+      "Story 1929",
+      "1929",
+      "192923"
+    ],
+    "unnamed": true,
+    "storyModel": "192923",
+    "storyCharacter": "1929"
+  },
+  {
+    "name": "pcr-193211",
+    "character": "Story 1932, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1932",
+      "1932",
       "193211"
     ],
     "unnamed": true,
+    "storyModel": "193211",
     "storyCharacter": "1932"
   },
   {
-    "name": "pcr-npc-1935",
-    "character": "Story 1935",
-    "romaji": "Story 1935",
+    "name": "pcr-193511",
+    "character": "Story 1935, 11",
+    "romaji": "",
     "aliases": [
-      "1935",
       "Story 1935",
+      "1935",
       "193511"
     ],
     "unnamed": true,
+    "storyModel": "193511",
     "storyCharacter": "1935"
   },
   {
-    "name": "pcr-npc-1936",
-    "character": "Story 1936",
-    "romaji": "Story 1936",
+    "name": "pcr-193611",
+    "character": "Story 1936, 11",
+    "romaji": "",
     "aliases": [
-      "1936",
       "Story 1936",
-      "193611",
-      "193631"
+      "1936",
+      "193611"
     ],
     "unnamed": true,
+    "storyModel": "193611",
     "storyCharacter": "1936"
   },
   {
-    "name": "pcr-npc-1937",
-    "character": "Story 1937",
-    "romaji": "Story 1937",
+    "name": "pcr-193631",
+    "character": "Story 1936, 31",
+    "romaji": "",
     "aliases": [
-      "1937",
+      "Story 1936",
+      "1936",
+      "193631"
+    ],
+    "unnamed": true,
+    "storyModel": "193631",
+    "storyCharacter": "1936"
+  },
+  {
+    "name": "pcr-193732",
+    "character": "Story 1937, 32",
+    "romaji": "",
+    "aliases": [
       "Story 1937",
+      "1937",
       "193732"
     ],
     "unnamed": true,
+    "storyModel": "193732",
     "storyCharacter": "1937"
   },
   {
-    "name": "pcr-npc-1939",
-    "character": "Story 1939",
-    "romaji": "Story 1939",
+    "name": "pcr-193913",
+    "character": "Story 1939, 13",
+    "romaji": "",
     "aliases": [
-      "1939",
       "Story 1939",
+      "1939",
       "193913"
     ],
     "unnamed": true,
+    "storyModel": "193913",
     "storyCharacter": "1939"
   },
   {
-    "name": "pcr-npc-1942",
-    "character": "Story 1942",
-    "romaji": "Story 1942",
+    "name": "pcr-194231",
+    "character": "Story 1942, 31",
+    "romaji": "",
     "aliases": [
-      "1942",
       "Story 1942",
-      "194211",
-      "194212",
+      "1942",
       "194231"
     ],
     "unnamed": true,
+    "storyModel": "194231",
     "storyCharacter": "1942"
   },
   {
-    "name": "pcr-npc-1943",
-    "character": "Story 1943",
-    "romaji": "Story 1943",
+    "name": "pcr-194311",
+    "character": "Story 1943, 11",
+    "romaji": "",
     "aliases": [
-      "1943",
       "Story 1943",
-      "194311",
-      "194312",
-      "194313",
-      "194314",
-      "194315",
-      "194331",
-      "194332"
+      "1943",
+      "194311"
     ],
     "unnamed": true,
+    "storyModel": "194311",
     "storyCharacter": "1943"
   },
   {
-    "name": "pcr-npc-1956",
-    "character": "Story 1956",
-    "romaji": "Story 1956",
+    "name": "pcr-194312",
+    "character": "Story 1943, 12",
+    "romaji": "",
     "aliases": [
-      "1956",
-      "Story 1956",
-      "195611",
-      "195612",
-      "195613"
+      "Story 1943",
+      "1943",
+      "194312"
     ],
     "unnamed": true,
+    "storyModel": "194312",
+    "storyCharacter": "1943"
+  },
+  {
+    "name": "pcr-194314",
+    "character": "Story 1943, 14",
+    "romaji": "",
+    "aliases": [
+      "Story 1943",
+      "1943",
+      "194314"
+    ],
+    "unnamed": true,
+    "storyModel": "194314",
+    "storyCharacter": "1943"
+  },
+  {
+    "name": "pcr-194315",
+    "character": "Story 1943, 15",
+    "romaji": "",
+    "aliases": [
+      "Story 1943",
+      "1943",
+      "194315"
+    ],
+    "unnamed": true,
+    "storyModel": "194315",
+    "storyCharacter": "1943"
+  },
+  {
+    "name": "pcr-194331",
+    "character": "Story 1943, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 1943",
+      "1943",
+      "194331"
+    ],
+    "unnamed": true,
+    "storyModel": "194331",
+    "storyCharacter": "1943"
+  },
+  {
+    "name": "pcr-194332",
+    "character": "Story 1943, 32",
+    "romaji": "",
+    "aliases": [
+      "Story 1943",
+      "1943",
+      "194332"
+    ],
+    "unnamed": true,
+    "storyModel": "194332",
+    "storyCharacter": "1943"
+  },
+  {
+    "name": "pcr-195611",
+    "character": "Story 1956, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1956",
+      "1956",
+      "195611"
+    ],
+    "unnamed": true,
+    "storyModel": "195611",
     "storyCharacter": "1956"
   },
   {
-    "name": "pcr-npc-1957",
-    "character": "Story 1957",
-    "romaji": "Story 1957",
+    "name": "pcr-195613",
+    "character": "Story 1956, 13",
+    "romaji": "",
     "aliases": [
-      "1957",
+      "Story 1956",
+      "1956",
+      "195613"
+    ],
+    "unnamed": true,
+    "storyModel": "195613",
+    "storyCharacter": "1956"
+  },
+  {
+    "name": "pcr-195713",
+    "character": "Story 1957, 13",
+    "romaji": "",
+    "aliases": [
       "Story 1957",
+      "1957",
       "195713"
     ],
     "unnamed": true,
+    "storyModel": "195713",
     "storyCharacter": "1957"
   },
   {
-    "name": "pcr-npc-1958",
-    "character": "Story 1958",
-    "romaji": "Story 1958",
+    "name": "pcr-195811",
+    "character": "Story 1958, 11",
+    "romaji": "",
     "aliases": [
-      "1958",
       "Story 1958",
-      "195811",
-      "195812"
+      "1958",
+      "195811"
     ],
     "unnamed": true,
+    "storyModel": "195811",
     "storyCharacter": "1958"
   },
   {
-    "name": "pcr-npc-1959",
-    "character": "Story 1959",
-    "romaji": "Story 1959",
+    "name": "pcr-195812",
+    "character": "Story 1958, 12",
+    "romaji": "",
     "aliases": [
-      "1959",
-      "Story 1959",
-      "195911",
-      "195912"
+      "Story 1958",
+      "1958",
+      "195812"
     ],
     "unnamed": true,
+    "storyModel": "195812",
+    "storyCharacter": "1958"
+  },
+  {
+    "name": "pcr-195911",
+    "character": "Story 1959, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1959",
+      "1959",
+      "195911"
+    ],
+    "unnamed": true,
+    "storyModel": "195911",
     "storyCharacter": "1959"
   },
   {
-    "name": "pcr-npc-1960",
-    "character": "Story 1960",
-    "romaji": "Story 1960",
+    "name": "pcr-195912",
+    "character": "Story 1959, 12",
+    "romaji": "",
     "aliases": [
-      "1960",
-      "Story 1960",
-      "196011",
-      "196012"
+      "Story 1959",
+      "1959",
+      "195912"
     ],
     "unnamed": true,
-    "storyCharacter": "1960"
+    "storyModel": "195912",
+    "storyCharacter": "1959"
   },
   {
-    "name": "pcr-npc-1961",
-    "character": "Story 1961",
-    "romaji": "Story 1961",
+    "name": "pcr-196111",
+    "character": "Story 1961, 11",
+    "romaji": "",
     "aliases": [
-      "1961",
       "Story 1961",
-      "196111",
-      "196112",
-      "196131"
+      "1961",
+      "196111"
     ],
     "unnamed": true,
+    "storyModel": "196111",
     "storyCharacter": "1961"
   },
   {
-    "name": "pcr-npc-1962",
-    "character": "Story 1962",
-    "romaji": "Story 1962",
+    "name": "pcr-196112",
+    "character": "Story 1961, 12",
+    "romaji": "",
     "aliases": [
-      "1962",
-      "Story 1962",
-      "196211",
-      "196212"
+      "Story 1961",
+      "1961",
+      "196112"
     ],
     "unnamed": true,
+    "storyModel": "196112",
+    "storyCharacter": "1961"
+  },
+  {
+    "name": "pcr-196131",
+    "character": "Story 1961, 31",
+    "romaji": "",
+    "aliases": [
+      "Story 1961",
+      "1961",
+      "196131"
+    ],
+    "unnamed": true,
+    "storyModel": "196131",
+    "storyCharacter": "1961"
+  },
+  {
+    "name": "pcr-196211",
+    "character": "Story 1962, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 1962",
+      "1962",
+      "196211"
+    ],
+    "unnamed": true,
+    "storyModel": "196211",
     "storyCharacter": "1962"
   },
   {
-    "name": "pcr-npc-1963",
-    "character": "Story 1963",
-    "romaji": "Story 1963",
+    "name": "pcr-196212",
+    "character": "Story 1962, 12",
+    "romaji": "",
     "aliases": [
-      "1963",
+      "Story 1962",
+      "1962",
+      "196212"
+    ],
+    "unnamed": true,
+    "storyModel": "196212",
+    "storyCharacter": "1962"
+  },
+  {
+    "name": "pcr-196311",
+    "character": "Story 1963, 11",
+    "romaji": "",
+    "aliases": [
       "Story 1963",
+      "1963",
       "196311"
     ],
     "unnamed": true,
+    "storyModel": "196311",
     "storyCharacter": "1963"
   }
 ]

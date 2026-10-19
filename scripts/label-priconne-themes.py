@@ -107,8 +107,10 @@ def named_row(name, names, chinese, language, aliases, overrides):
         ja = f"Story {stem}"
         chinese_name = ja
     elif override:
+        # The override is the nameplate printed for that single portrait, so it
+        # titles the theme even when the rest of the stem carries another name.
         ja = override
-        chinese_name = chinese.get(stem, override)
+        chinese_name = override
     else:
         ja = names.get(stem) or f"Story {stem}"
         chinese_name = chinese.get(stem, ja)
