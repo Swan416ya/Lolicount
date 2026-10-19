@@ -1,10 +1,10 @@
 # 公主连结剧情立绘主题
 
-新增公主连结静态立绘主题。**每个保留的剧情立绘模型各自成主题**，命名沿用 `pcr-<story-model-id>`；编号前四位是剧情批次编号而不是角色编号（同一批次里可能同时出现不同角色、吉祥物或道具），因此既不用它归并主题，也不用它当名字：角色名逐立绘取自剧情脚本的名牌，取不到名牌的立绘标题写 `Story <批次号>, <后缀>` 并带上名牌作为搜索别名。**同一个角色名、后缀十位数相同的立绘合并成一个主题**（[merge-priconne-themes.py](../scripts/merge-priconne-themes.py)）：合并主题在 `config.json` 里为每套立绘保留一个互斥的 `sets` 记录，渲染时先抽一套立绘、再在这套里挑表情，所以变化数是相加而不是相乘，卡片也不会在角色之间乱跳。十位数不同表示同一角色的另一套皮肤，不合并。无名的 `Story <批次号>` 主题要先逐个立绘确认是同一角色才合并：这些批次的四位数是剧情里的 NPC 槽位，同一个十位数经常混着不同角色（`Story 0056` 同组里就有狐耳少女、魔法师、女仆和少年），目视审计确认混角色的 13 个批次整批不合并，名单见 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json)。变化数低于 10 的主题整个删除；后缀十位数为 `4` 的立绘也不单独发布，它们是同一姿势、同一套服装的**暮色差分**（整体偏暗偏紫，通常还去掉了武器或道具），另有 5 个立绘因为画面只有局部身体、人物偏出画框或所在分组会混角色被人工删除（被删除的编号连同此前已排除的模型记在 [priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json)，共 490 条：162 条变化数低于下限、217 条此前就没有主题、5 条人工删除、106 条暮色差分；规则写在 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json)）。
+新增公主连结静态立绘主题。**每个保留的剧情立绘模型各自成主题**，命名沿用 `pcr-<story-model-id>`；编号前四位是剧情批次编号而不是角色编号（同一批次里可能同时出现不同角色、吉祥物或道具），因此既不用它归并主题，也不用它当名字：角色名逐立绘取自剧情脚本的名牌，取不到名牌的立绘标题写 `Story <批次号>, <后缀>` 并带上名牌作为搜索别名。**同一个角色名、后缀十位数相同的立绘合并成一个主题**（[merge-priconne-themes.py](../scripts/merge-priconne-themes.py)）：合并主题在 `config.json` 里为每套立绘保留一个互斥的 `sets` 记录，渲染时先抽一套立绘、再在这套里挑表情，所以变化数是相加而不是相乘，卡片也不会在角色之间乱跳。十位数不同表示同一角色的另一套皮肤，不合并。无名的 `Story <批次号>` 主题要先逐个立绘确认是同一角色才合并：这些批次的四位数是剧情里的 NPC 槽位，同一个十位数经常混着不同角色（`Story 0056` 同组里就有狐耳少女、魔法师、女仆和少年），目视审计确认混角色的 13 个批次整批不合并，名单见 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json)。变化数低于 10 的主题整个删除；后缀十位数为 `4` 的立绘也不单独发布，它们是同一姿势、同一套服装的**暮色差分**（整体偏暗偏紫，通常还去掉了武器或道具）；另有 5 个立绘因为画面只有局部身体、人物偏出画框或所在分组会混角色被人工删除。**同一个角色的现实世界立绘（后缀 `31`）会在多个皮肤批次里逐字节重复**——剧情发生在 VR 游戏里，皮肤只改游戏内形象，现实立绘是同一张——所以按内容指纹去重：每组只保留一个主题（优先保留不带皮肤括号的名字），其余编号记入 [priconne-deduped-themes.json](../scripts/priconne-deduped-themes.json)，它们的标题与编号并入保留主题的搜索别名（[dedupe-priconne-themes.py](../scripts/dedupe-priconne-themes.py) 在合并之后运行）。被删除的编号连同此前已排除的模型记在 [priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json)，共 559 条：162 条变化数低于下限、217 条此前就没有主题、5 条人工删除、106 条暮色差分、69 条重复立绘；规则写在 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json)。
 
 主题覆盖两份资源清单中的角色立绘，包含剧情姿势、现实世界服装和 NPC；导出数量与验证结果见本页下方的快照验证记录。
 
-快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影、变化数低于 10、暮色差分与人工删除的立绘后，保留 **1,384 套可见服装**并整理为 **921 个主题**（712 个有名角色主题与 209 个仅带名牌别名的主题，其中 297 个主题合并了 760 套同名立绘），包含 **43,382 张去重分层与 321,340 种组合**，分层 WebP 合计约 **461.1 MiB**。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
+快照验证记录：清单中 2,104 个 `spine_full` 模型去掉非立绘、未登场剪影、变化数低于 10、暮色差分、重复立绘与人工删除的立绘后，保留 **1,315 套可见服装**并整理为 **852 个主题**（643 个有名角色主题与 209 个仅带名牌别名的主题，其中 297 个主题合并了 760 套同名立绘），包含 **41,292 张去重分层与 306,891 种组合**，分层 WebP 合计约 **443.3 MiB**。逐主题计数、回拼误差与资源清单 SHA-256 见 [验证记录](./priconne-validation.json)。
 
 ## 素材范围与来源
 
@@ -50,9 +50,13 @@ python scripts/gen-priconne-themes.py \
   --names scripts/priconne-names.json \
   --report /tmp/priconne-report.json
 
+python scripts/merge-priconne-themes.py
+python scripts/dedupe-priconne-themes.py
 python scripts/update-priconne-validation.py
 python scripts/label-priconne-themes.py
 ```
+
+合并与去重都在生成之后按同一份规则重跑：`merge-priconne-themes.py` 按「名字 + 后缀十位数」合并并删除例外名单里的立绘，`dedupe-priconne-themes.py` 按内容指纹去掉重复立绘；两者都以当前主题树为准，先 `git checkout` 回逐立绘状态再重跑即可复现快照。
 
 支持 `--only 105811 105911 106011` 生成指定模型，`--partition 0 3` 分片处理，`--max-edge 640` 控制素材分辨率，以及 `--resume` 根据同一报告继续。默认读取非立绘排除清单。生成器同时输出主题库 WebP 预览图。角色搜索信息在 [priconne-themes.json](../web/app/data/priconne-themes.json)，包含中文/日文名称、罗马音与素材编号。
 
@@ -68,7 +72,7 @@ go test ./internal/imgcore/...
 pnpm --dir web generate
 ```
 
-`TestPriconnePortraits` 从资源清单、姓名映射、[priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json)、[priconne-merged-themes.json](../scripts/priconne-merged-themes.json) 与 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json) 推导期望主题集合，使用真实加载器读取每个 `pcr-` 主题，检查每个立绘的类别区间、所有分层尺寸与坐标，并以不同选择验证生产懒加载合成的 SVG 格式、图层数量和组合变化。测试同时保证每个模型都落在某个主题里、合并主题的互斥集合与合并计划逐条一致、变化数不低于 10，并且变化数低于下限或被删除的主题确实已被排除。
+`TestPriconnePortraits` 从资源清单、姓名映射、[priconne-excluded-themes.json](../scripts/priconne-excluded-themes.json)、[priconne-merged-themes.json](../scripts/priconne-merged-themes.json)、[priconne-deduped-themes.json](../scripts/priconne-deduped-themes.json) 与 [priconne-merge-exceptions.json](../scripts/priconne-merge-exceptions.json) 推导期望主题集合，使用真实加载器读取每个 `pcr-` 主题，检查每个立绘的类别区间、所有分层尺寸与坐标，并以不同选择验证生产懒加载合成的 SVG 格式、图层数量和组合变化。测试同时保证每个模型都落在某个主题里、合并主题的互斥集合与合并计划逐条一致、去重计划里的重复立绘确实不再发布且已记入排除清单、变化数不低于 10，并且变化数低于下限或被删除的主题确实已被排除。
 
 启动开发服务后，打开 `/themes?theme=pcr-105811`，在“公主连结！Re:Dive”分组选择角色，检查计数器预览；重复请求 `/@demo?theme=pcr-105811` 可以看到不同眼嘴组合。也可检查可可萝 `pcr-105911`、凯露 `pcr-106011`、莉玛 `pcr-105211`、纯 `pcr-104711`。
 

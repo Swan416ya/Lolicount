@@ -119,6 +119,33 @@ func TestPriconnePortraits(t *testing.T) {
 			t.Fatalf("deleted portrait %s must not appear in the merge plan", model)
 		}
 	}
+	// Duplicated artwork ships once: the plan keeps the survivor and drops the
+	// portraits whose identical art appears under another costume.
+	dedupeJSON, err := os.ReadFile("../../../scripts/priconne-deduped-themes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var deduped map[string][]string
+	if err := json.Unmarshal(dedupeJSON, &deduped); err != nil {
+		t.Fatal(err)
+	}
+	for survivor, dropped := range deduped {
+		if len(dropped) == 0 {
+			t.Fatalf("dedupe plan keeps %s with nothing dropped", survivor)
+		}
+		survivorModel := strings.TrimPrefix(survivor, "pcr-")
+		if singleVariants[survivor] {
+			t.Fatalf("dedupe survivor %s is recorded as excluded", survivor)
+		}
+		for _, model := range dropped {
+			if !singleVariants["pcr-"+model] {
+				t.Fatalf("duplicate portrait %s must be recorded in priconne-excluded-themes.json", model)
+			}
+			if model == survivorModel {
+				t.Fatalf("dedupe plan drops the survivor %s", survivor)
+			}
+		}
+	}
 	root, err := fs.Sub(assets.FS, "theme")
 	if err != nil {
 		t.Fatal(err)

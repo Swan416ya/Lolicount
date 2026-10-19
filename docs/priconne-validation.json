@@ -1,17 +1,17 @@
 {
   "summary": {
-    "themes": 921,
-    "sourceModels": 1384,
-    "sourceManifestModels": 1384,
-    "layers": 43382,
-    "combinations": 321340,
-    "references": 9430,
+    "themes": 852,
+    "sourceModels": 1315,
+    "sourceManifestModels": 1315,
+    "layers": 41292,
+    "combinations": 306891,
+    "references": 8985,
     "maximumReferenceError": 6,
     "bodyOnlyThemes": 0,
-    "assetBytes": 483503130,
+    "assetBytes": 464882578,
     "excludedNonPortraitModels": 128,
     "excludedSilhouetteModels": 102,
-    "excludedThemes": 490,
+    "excludedThemes": 559,
     "manifestSHA256_UTF8_LF": "a85fb192a951edaf54d92fba8abc121024bf151460c00db63331456136f97081"
   },
   "models": [
@@ -7270,18 +7270,6 @@
       ]
     },
     {
-      "name": "pcr-107831",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-107911",
       "outfits": 2,
       "layers": 60,
@@ -8556,18 +8544,6 @@
       ]
     },
     {
-      "name": "pcr-112031",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-112111",
       "layers": 30,
       "counts": {
@@ -8860,18 +8836,6 @@
         "mouth": 17
       },
       "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-113231",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
       "references": 6,
       "maximumReferenceError": 2
     },
@@ -9312,18 +9276,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-114731",
-      "layers": 36,
-      "counts": {
-        "body": 1,
-        "eye": 15,
-        "mouth": 20
-      },
-      "combinations": 300,
-      "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-115011",
       "layers": 30,
       "counts": {
@@ -9378,18 +9330,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-115531",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-115611",
@@ -9493,18 +9433,6 @@
       },
       "combinations": 209,
       "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-115931",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 6,
       "maximumReferenceError": 2
     },
     {
@@ -9612,18 +9540,6 @@
         "mouth": 18
       },
       "combinations": 234,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-116531",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 17
-      },
-      "combinations": 221,
       "references": 7,
       "maximumReferenceError": 2
     },
@@ -9959,18 +9875,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-117831",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-117911",
       "layers": 29,
       "counts": {
@@ -10079,31 +9983,7 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-118331",
-      "layers": 33,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 19
-      },
-      "combinations": 247,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-118411",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-118431",
       "layers": 31,
       "counts": {
         "body": 1,
@@ -10322,18 +10202,6 @@
       ]
     },
     {
-      "name": "pcr-119131",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 18
-      },
-      "combinations": 198,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-119211",
       "layers": 27,
       "counts": {
@@ -10367,18 +10235,6 @@
       },
       "combinations": 165,
       "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-119331",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 7,
       "maximumReferenceError": 2
     },
     {
@@ -10672,18 +10528,6 @@
       ]
     },
     {
-      "name": "pcr-120931",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 16
-      },
-      "combinations": 176,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-121011",
       "layers": 37,
       "counts": {
@@ -10696,18 +10540,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-121031",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 16
-      },
-      "combinations": 176,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-121111",
       "layers": 40,
       "counts": {
@@ -10717,18 +10549,6 @@
       },
       "combinations": 360,
       "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-121131",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
       "maximumReferenceError": 2
     },
     {
@@ -10900,18 +10720,6 @@
       ]
     },
     {
-      "name": "pcr-121631",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 17
-      },
-      "combinations": 221,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-121711",
       "layers": 28,
       "counts": {
@@ -11012,18 +10820,6 @@
       ]
     },
     {
-      "name": "pcr-122031",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-122111",
       "layers": 32,
       "counts": {
@@ -11036,18 +10832,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-122131",
-      "layers": 20,
-      "counts": {
-        "body": 1,
-        "eye": 4,
-        "mouth": 15
-      },
-      "combinations": 60,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-122211",
       "layers": 38,
       "counts": {
@@ -11056,18 +10840,6 @@
         "mouth": 23
       },
       "combinations": 322,
-      "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-122231",
-      "layers": 37,
-      "counts": {
-        "body": 1,
-        "eye": 16,
-        "mouth": 20
-      },
-      "combinations": 320,
       "references": 8,
       "maximumReferenceError": 2
     },
@@ -11320,18 +11092,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-123231",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-123311",
       "outfits": 2,
       "layers": 55,
@@ -11388,18 +11148,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-123531",
-      "layers": 26,
-      "counts": {
-        "body": 1,
-        "eye": 10,
-        "mouth": 15
-      },
-      "combinations": 150,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-123611",
       "layers": 36,
       "counts": {
@@ -11409,18 +11157,6 @@
       },
       "combinations": 294,
       "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-123631",
-      "layers": 32,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 19
-      },
-      "combinations": 228,
-      "references": 6,
       "maximumReferenceError": 2
     },
     {
@@ -11460,18 +11196,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-123831",
-      "layers": 33,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 19
-      },
-      "combinations": 247,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-123911",
       "outfits": 2,
       "layers": 66,
@@ -11502,18 +11226,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-123931",
-      "layers": 35,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 21
-      },
-      "combinations": 273,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-124011",
@@ -11742,18 +11454,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-124731",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-124811",
       "outfits": 2,
       "layers": 54,
@@ -11784,18 +11484,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-124831",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-124911",
@@ -12109,18 +11797,6 @@
       ]
     },
     {
-      "name": "pcr-125531",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-125611",
       "outfits": 4,
       "layers": 132,
@@ -12419,18 +12095,6 @@
       ]
     },
     {
-      "name": "pcr-126231",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 16
-      },
-      "combinations": 176,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-126311",
       "layers": 24,
       "counts": {
@@ -12632,18 +12296,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-126731",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-126811",
       "layers": 35,
       "counts": {
@@ -12653,18 +12305,6 @@
       },
       "combinations": 273,
       "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-126831",
-      "layers": 37,
-      "counts": {
-        "body": 1,
-        "eye": 16,
-        "mouth": 20
-      },
-      "combinations": 320,
-      "references": 8,
       "maximumReferenceError": 2
     },
     {
@@ -12724,18 +12364,6 @@
       ]
     },
     {
-      "name": "pcr-127031",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 18
-      },
-      "combinations": 198,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-127111",
       "outfits": 2,
       "layers": 58,
@@ -12766,18 +12394,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-127131",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-127211",
@@ -12832,18 +12448,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-127231",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-127311",
@@ -13241,18 +12845,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-128331",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 17
-      },
-      "combinations": 221,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-128411",
       "outfits": 2,
       "layers": 78,
@@ -13285,18 +12877,6 @@
       ]
     },
     {
-      "name": "pcr-128431",
-      "layers": 33,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 19
-      },
-      "combinations": 247,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-128511",
       "layers": 35,
       "counts": {
@@ -13306,18 +12886,6 @@
       },
       "combinations": 273,
       "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-128531",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
       "maximumReferenceError": 2
     },
     {
@@ -13693,18 +13261,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-129831",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-129911",
       "layers": 40,
       "counts": {
@@ -14006,18 +13562,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-130831",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-130911",
       "outfits": 2,
       "layers": 76,
@@ -14074,18 +13618,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-131031",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-131111",
       "outfits": 2,
       "layers": 58,
@@ -14116,18 +13648,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-131131",
-      "layers": 26,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 14
-      },
-      "combinations": 154,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-131211",
@@ -14273,18 +13793,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-131831",
-      "layers": 24,
-      "counts": {
-        "body": 1,
-        "eye": 6,
-        "mouth": 17
-      },
-      "combinations": 102,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-131911",
@@ -14437,18 +13945,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-132231",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-132311",
@@ -14964,18 +14460,6 @@
       ]
     },
     {
-      "name": "pcr-133231",
-      "layers": 27,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 15
-      },
-      "combinations": 165,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-133311",
       "layers": 37,
       "counts": {
@@ -15120,18 +14604,6 @@
       ]
     },
     {
-      "name": "pcr-133731",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-133811",
       "outfits": 3,
       "layers": 93,
@@ -15175,18 +14647,6 @@
       ]
     },
     {
-      "name": "pcr-133831",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-133911",
       "outfits": 2,
       "layers": 62,
@@ -15217,18 +14677,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-133931",
-      "layers": 33,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 19
-      },
-      "combinations": 247,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-134011",
@@ -15264,18 +14712,6 @@
       },
       "combinations": 330,
       "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-134331",
-      "layers": 34,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 20
-      },
-      "combinations": 260,
-      "references": 7,
       "maximumReferenceError": 2
     },
     {
@@ -15355,18 +14791,6 @@
           "maximumReferenceError": 1
         }
       ]
-    },
-    {
-      "name": "pcr-134531",
-      "layers": 24,
-      "counts": {
-        "body": 1,
-        "eye": 8,
-        "mouth": 15
-      },
-      "combinations": 120,
-      "references": 5,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-134611",
@@ -15588,18 +15012,6 @@
       ]
     },
     {
-      "name": "pcr-135031",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-135111",
       "layers": 48,
       "counts": {
@@ -15636,18 +15048,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-135231",
-      "layers": 31,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 18
-      },
-      "combinations": 216,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-135311",
       "layers": 42,
       "counts": {
@@ -15681,18 +15081,6 @@
       },
       "combinations": 368,
       "references": 10,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-135431",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 17
-      },
-      "combinations": 187,
-      "references": 6,
       "maximumReferenceError": 2
     },
     {
@@ -16177,18 +15565,6 @@
       ]
     },
     {
-      "name": "pcr-136331",
-      "layers": 33,
-      "counts": {
-        "body": 1,
-        "eye": 13,
-        "mouth": 19
-      },
-      "combinations": 247,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-136411",
       "outfits": 4,
       "layers": 202,
@@ -16243,18 +15619,6 @@
       ]
     },
     {
-      "name": "pcr-136431",
-      "layers": 40,
-      "counts": {
-        "body": 1,
-        "eye": 16,
-        "mouth": 23
-      },
-      "combinations": 368,
-      "references": 8,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-136511",
       "layers": 30,
       "counts": {
@@ -16264,18 +15628,6 @@
       },
       "combinations": 198,
       "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-136531",
-      "layers": 25,
-      "counts": {
-        "body": 1,
-        "eye": 9,
-        "mouth": 15
-      },
-      "combinations": 135,
-      "references": 5,
       "maximumReferenceError": 2
     },
     {
@@ -16335,18 +15687,6 @@
       "maximumReferenceError": 2
     },
     {
-      "name": "pcr-137131",
-      "layers": 29,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 16
-      },
-      "combinations": 192,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-137411",
       "outfits": 2,
       "layers": 62,
@@ -16377,18 +15717,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-137431",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-137611",
@@ -16479,18 +15807,6 @@
       ]
     },
     {
-      "name": "pcr-137931",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-138011",
       "outfits": 2,
       "layers": 68,
@@ -16521,18 +15837,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-138031",
-      "layers": 36,
-      "counts": {
-        "body": 1,
-        "eye": 14,
-        "mouth": 21
-      },
-      "combinations": 294,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-138111",
@@ -16589,18 +15893,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-138231",
-      "layers": 36,
-      "counts": {
-        "body": 1,
-        "eye": 14,
-        "mouth": 21
-      },
-      "combinations": 294,
-      "references": 7,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-138311",
@@ -17066,18 +16358,6 @@
       ]
     },
     {
-      "name": "pcr-139531",
-      "layers": 36,
-      "counts": {
-        "body": 1,
-        "eye": 14,
-        "mouth": 21
-      },
-      "combinations": 294,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-139611",
       "outfits": 2,
       "layers": 64,
@@ -17108,18 +16388,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-139631",
-      "layers": 32,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 19
-      },
-      "combinations": 228,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-139711",
@@ -17175,18 +16443,6 @@
       },
       "combinations": 459,
       "references": 9,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-139831",
-      "layers": 32,
-      "counts": {
-        "body": 1,
-        "eye": 14,
-        "mouth": 17
-      },
-      "combinations": 238,
-      "references": 7,
       "maximumReferenceError": 2
     },
     {
@@ -17299,18 +16555,6 @@
       ]
     },
     {
-      "name": "pcr-140031",
-      "layers": 34,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 21
-      },
-      "combinations": 252,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-140111",
       "outfits": 3,
       "layers": 79,
@@ -17352,18 +16596,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-140131",
-      "layers": 40,
-      "counts": {
-        "body": 1,
-        "eye": 14,
-        "mouth": 25
-      },
-      "combinations": 350,
-      "references": 9,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-140211",
@@ -17547,18 +16779,6 @@
       ]
     },
     {
-      "name": "pcr-140631",
-      "layers": 24,
-      "counts": {
-        "body": 1,
-        "eye": 8,
-        "mouth": 15
-      },
-      "combinations": 120,
-      "references": 5,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-140711",
       "outfits": 2,
       "layers": 74,
@@ -17589,18 +16809,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-140731",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-140811",
@@ -17843,31 +17051,7 @@
       ]
     },
     {
-      "name": "pcr-180431",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 11,
-        "mouth": 16
-      },
-      "combinations": 176,
-      "references": 7,
-      "maximumReferenceError": 2
-    },
-    {
       "name": "pcr-180511",
-      "layers": 30,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 17
-      },
-      "combinations": 204,
-      "references": 6,
-      "maximumReferenceError": 2
-    },
-    {
-      "name": "pcr-180531",
       "layers": 30,
       "counts": {
         "body": 1,
@@ -17909,18 +17093,6 @@
           "maximumReferenceError": 2
         }
       ]
-    },
-    {
-      "name": "pcr-180631",
-      "layers": 28,
-      "counts": {
-        "body": 1,
-        "eye": 12,
-        "mouth": 15
-      },
-      "combinations": 180,
-      "references": 6,
-      "maximumReferenceError": 2
     },
     {
       "name": "pcr-181211",
