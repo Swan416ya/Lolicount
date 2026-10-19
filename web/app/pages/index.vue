@@ -104,9 +104,15 @@ const groups = computed<ThemeGroup[]>(() => {
     hot.forEach((x) => consumed.add(x.name))
   }
   for (const key of gameOptions.value) {
-    const items = filteredThemes.value.filter(
-      (tth) => !consumed.has(tth.name) && (tth.meta?.gameKey ?? 'other') === key,
-    )
+    // Princess Connect lists named characters first and unnamed NPC themes at
+    // the end of the group, matching how the portraits are named.
+    const items = filteredThemes.value
+      .filter((tth) => !consumed.has(tth.name) && (tth.meta?.gameKey ?? 'other') === key)
+      .sort((a, b) => {
+        if (key !== 'princess-connect') return 0
+        const unnamedOrder = Number(a.meta?.unnamed ?? false) - Number(b.meta?.unnamed ?? false)
+        return unnamedOrder || a.name.localeCompare(b.name)
+      })
     if (items.length > 0) {
       out.push({ key, label: gameLabel(key), hot: false, items })
     }
@@ -688,11 +694,21 @@ useHead({
   cursor: pointer;
   background: var(--loli-surface);
   border-radius: 0.85rem;
+  /* Very wide portraits fill the frame and fade out at both edges instead of
+     spilling over the panel. Centred images narrower than the frame keep their
+     own edges, because the transparent mask stops live outside them. The mask
+     belongs to the portrait itself: masking the stage would fade its own
+     background and rounded corners too. */
+  overflow: hidden;
 }
 
 .preview-image {
+  width: 100%;
   max-height: 18rem;
   object-fit: contain;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .preview-loading {
@@ -921,6 +937,9 @@ useHead({
   width: 100%;
   height: 8.5rem;
   margin-bottom: 0.35rem;
+  /* Wide portraits stay centred and fade out where they leave the card; the
+     mask sits on the image so the skeleton ramp keeps its full width. */
+  overflow: hidden;
 }
 
 /* Reference's skeleton-cycle ramp behind each card image until it loads. */
@@ -937,6 +956,8 @@ useHead({
   width: 100%;
   height: 100%;
   object-fit: contain;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .theme-card strong {

@@ -18,6 +18,17 @@ type CharacterConfig struct {
 	CanvasW int                  `json:"canvasW"`
 	CanvasH int                  `json:"canvasH"`
 	Ranges  map[string]PartRange `json:"ranges"`
+	Sets    []CharacterSet       `json:"sets,omitempty"`
+}
+
+// CharacterSet keeps the selectable parts and layout of one mutually
+// exclusive outfit. The renderer picks one set before selecting parts inside
+// it, which prevents eyes or mouths from being combined across outfits.
+type CharacterSet struct {
+	Name    string               `json:"name"`
+	CanvasW int                  `json:"canvasW"`
+	CanvasH int                  `json:"canvasH"`
+	Ranges  map[string]PartRange `json:"ranges"`
 }
 
 // PartRange is a 1-based closed interval [First, Last] of layer indices
@@ -78,7 +89,7 @@ func readCharacterManifest(fsys fs.FS, dir string) ([]CharacterManifest, *Charac
 	if err := json.Unmarshal(craw, &cfg); err != nil {
 		return nil, nil, fmt.Errorf("parse %s: %w", configPath, err)
 	}
-	if cfg.CanvasW <= 0 || cfg.CanvasH <= 0 || len(cfg.Ranges) == 0 {
+	if !validCharacterConfig(&cfg) {
 		return nil, nil, fmt.Errorf("%s: invalid config (canvas/ranges)", configPath)
 	}
 	return manifest, &cfg, nil
@@ -159,7 +170,7 @@ func LoadCharacterTheme(fsys fs.FS, themeDir string) (*CharacterTheme, error) {
 		if err := json.Unmarshal(raw, &cfg); err != nil {
 			return nil, fmt.Errorf("parse %s: %w", configPath, err)
 		}
-		if cfg.CanvasW > 0 && cfg.CanvasH > 0 && len(cfg.Ranges) > 0 {
+		if validCharacterConfig(&cfg) {
 			ch.Config = &cfg
 		}
 	}
@@ -175,6 +186,21 @@ func LoadCharacterTheme(fsys fs.FS, themeDir string) (*CharacterTheme, error) {
 		}
 	}
 	return ch, nil
+}
+
+func validCharacterConfig(cfg *CharacterConfig) bool {
+	if cfg.CanvasW > 0 && cfg.CanvasH > 0 && len(cfg.Ranges) > 0 {
+		return true
+	}
+	if len(cfg.Sets) == 0 {
+		return false
+	}
+	for _, set := range cfg.Sets {
+		if set.CanvasW <= 0 || set.CanvasH <= 0 || len(set.Ranges) == 0 {
+			return false
+		}
+	}
+	return true
 }
 
 // CharacterThemeToTheme converts a CharacterTheme into a *theme.Theme
