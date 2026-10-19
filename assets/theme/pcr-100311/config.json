@@ -20,7 +20,7 @@
       }
     },
     {
-      "name": "100312",
+      "name": "100313",
       "canvasW": 632,
       "canvasH": 644,
       "ranges": {
@@ -30,30 +30,11 @@
         },
         "eye": {
           "first": 41,
-          "last": 52
+          "last": 54
         },
         "mouth": {
-          "first": 53,
-          "last": 64
-        }
-      }
-    },
-    {
-      "name": "100313",
-      "canvasW": 632,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 65,
-          "last": 65
-        },
-        "eye": {
-          "first": 66,
-          "last": 79
-        },
-        "mouth": {
-          "first": 80,
-          "last": 100
+          "first": 55,
+          "last": 75
         }
       }
     }

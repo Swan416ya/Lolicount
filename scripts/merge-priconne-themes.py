@@ -36,15 +36,35 @@ def write_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
-def group_name(theme_model, names, overrides):
+def group_name(model, names, overrides):
     """Return the character label that decides which portraits belong together."""
-    stem = theme_model[:4]
-    override = overrides.get(theme_model)
+    stem = model[:4]
+    override = overrides.get(model)
     if override == "":
         return f"Story {stem}"
     if override:
         return override
     return names.get(stem) or f"Story {stem}"
+
+
+def group_identity(model, names, chinese, overrides, romaji):
+    """Return the identity two portraits must share to be consolidated.
+
+    The same character's nameplate appears in either language depending on the story
+    file (``ラジラジ`` and ``拉基拉基``), so a portrait whose nameplate is the stem's
+    Japanese or Chinese name groups under the stem's romanized name. A portrait whose
+    nameplate is something else names another character inside the same batch and
+    keeps its own identity, which is what stops a mixed batch from merging.
+    """
+    stem = model[:4]
+    stem_name = names.get(stem) or f"Story {stem}"
+    override = overrides.get(model)
+    if override == "" or stem_name.startswith("Story "):
+        return f"Story {stem}"
+    resolved = override or stem_name
+    if resolved in {stem_name, chinese.get(stem)}:
+        return romaji.get(stem) or stem_name
+    return resolved
 
 
 def replace_file(source, target):
@@ -102,7 +122,7 @@ def merge_group(repo, stage, destination_name, source_names, label):
     return destination_name
 
 
-def build_plan(repo, theme_names, names, overrides, deleted, standalone, standalone_batches):
+def build_plan(repo, theme_names, names, chinese, overrides, romaji, deleted, standalone, standalone_batches):
     """Return the merge plan: representative theme name -> sorted member model ids.
 
     Themes that carry a real character name are grouped, and so are story-only
@@ -116,10 +136,10 @@ def build_plan(repo, theme_names, names, overrides, deleted, standalone, standal
         model = theme_name.removeprefix("pcr-")
         if theme_name in deleted or theme_name in standalone:
             continue
-        label = group_name(model, names, overrides)
-        if label.startswith("Story ") and model[:4] in standalone_batches:
+        identity = group_identity(model, names, chinese, overrides, romaji)
+        if identity.startswith("Story ") and model[:4] in standalone_batches:
             continue
-        key = (label, model[4])
+        key = (identity, model[4])
         groups.setdefault(key, []).append(model)
     plan = {}
     for key, members in groups.items():
@@ -140,6 +160,8 @@ def main():
     thumb_root = repo / "web/public/images/theme-thumbs"
 
     names = read_json(repo / "scripts/priconne-names.json")
+    chinese = read_json(repo / "scripts/priconne-zh-names.json")
+    romaji = read_json(repo / "scripts/priconne-romaji.json")
     overrides = read_json(repo / "scripts/priconne-model-names.json")
     exceptions = read_json(repo / "scripts/priconne-merge-exceptions.json")
     deleted = {f"pcr-{model}" for model in exceptions["deleted"]}
@@ -160,7 +182,7 @@ def main():
     missing = sorted(name for name in deleted if name not in theme_names)
     if missing:
         raise SystemExit(f"deletion list names themes that are not shipped: {missing}")
-    plan = build_plan(repo, theme_names, names, overrides, deleted, standalone, standalone_batches)
+    plan = build_plan(repo, theme_names, names, chinese, overrides, romaji, deleted, standalone, standalone_batches)
     members = {member for group in plan.values() for member in group}
     print(f"shipped themes: {len(theme_names)}")
     print(f"deleted by request: {len(deleted) - len(dusk)} {sorted(deleted - dusk)}")

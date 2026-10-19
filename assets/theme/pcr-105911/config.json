@@ -75,25 +75,6 @@
           "last": 116
         }
       }
-    },
-    {
-      "name": "119511",
-      "canvasW": 593,
-      "canvasH": 804,
-      "ranges": {
-        "body": {
-          "first": 117,
-          "last": 117
-        },
-        "eye": {
-          "first": 118,
-          "last": 129
-        },
-        "mouth": {
-          "first": 130,
-          "last": 146
-        }
-      }
     }
   ]
 }

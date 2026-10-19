@@ -99,7 +99,11 @@
       "100112",
       "hiyori, 12",
       "100113",
-      "hiyori, 13"
+      "hiyori, 13",
+      "900103",
+      "9001",
+      "Story 9001",
+      "hiyori, 03"
     ],
     "unnamed": false,
     "storyModel": "100111",
@@ -124,7 +128,33 @@
       "hiyori, 31",
       "Hiyori",
       "100132",
-      "hiyori, 32"
+      "hiyori, 32",
+      "108731",
+      "1087",
+      "Story 1087",
+      "日和莉（新年）",
+      "ヒヨリ（ニューイヤー）",
+      "hiyori ( nyuuiyaa )",
+      "hiyori ( nyuuiyaa ), 31",
+      "128731",
+      "1287",
+      "Story 1287",
+      "hiyori ( asutoraru )",
+      "ヒヨリ（アストラル）",
+      "hiyori ( asutoraru ), 31",
+      "135731",
+      "1357",
+      "Story 1357",
+      "hiyori ( sarasaria )",
+      "ヒヨリ（サラサリア）",
+      "hiyori ( sarasaria ), 31",
+      "180131",
+      "1801",
+      "Story 1801",
+      "日和莉（公主）",
+      "ヒヨリ（プリンセス）",
+      "hiyori ( purinsesu )",
+      "hiyori ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100131",
@@ -157,8 +187,7 @@
     "storyCharacter": "1002",
     "models": [
       "100211",
-      "100212",
-      "100213"
+      "100212"
     ]
   },
   {
@@ -175,7 +204,40 @@
       "yui, 31",
       "Yui",
       "100232",
-      "yui, 32"
+      "yui, 32",
+      "108831",
+      "1088",
+      "Story 1088",
+      "优衣（新年）",
+      "ユイ（ニューイヤー）",
+      "yui ( nyuuiyaa )",
+      "yui ( nyuuiyaa ), 31",
+      "115631",
+      "1156",
+      "Story 1156",
+      "优衣（礼服）",
+      "ユイ（儀装束）",
+      "yui ( gi shouzoku )",
+      "yui ( gi shouzoku ), 31",
+      "128931",
+      "1289",
+      "Story 1289",
+      "yui ( asutoraru )",
+      "ユイ（アストラル）",
+      "yui ( asutoraru ), 31",
+      "136431",
+      "1364",
+      "Story 1364",
+      "yui ( kurisumasu )",
+      "ユイ（クリスマス）",
+      "yui ( kurisumasu ), 31",
+      "180231",
+      "1802",
+      "Story 1802",
+      "优衣（公主）",
+      "ユイ（プリンセス）",
+      "yui ( purinsesu )",
+      "yui ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100231",
@@ -198,17 +260,16 @@
       "rei",
       "rei, 11",
       "Rei",
-      "100312",
-      "rei, 12",
       "100313",
-      "rei, 13"
+      "rei, 13",
+      "100312",
+      "rei, 12"
     ],
     "unnamed": false,
     "storyModel": "100311",
     "storyCharacter": "1003",
     "models": [
       "100311",
-      "100312",
       "100313"
     ]
   },
@@ -226,7 +287,27 @@
       "rei, 31",
       "Rei",
       "100332",
-      "rei, 32"
+      "rei, 32",
+      "114031",
+      "1140",
+      "Story 1140",
+      "怜（万圣节）",
+      "レイ（ハロウィン）",
+      "rei ( harouin )",
+      "rei ( harouin ), 31",
+      "128831",
+      "1288",
+      "Story 1288",
+      "rei ( asutoraru )",
+      "レイ（アストラル）",
+      "rei ( asutoraru ), 31",
+      "180331",
+      "1803",
+      "Story 1803",
+      "怜（公主）",
+      "レイ（プリンセス）",
+      "rei ( purinsesu )",
+      "rei ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100331",
@@ -319,7 +400,20 @@
       "茉莉",
       "Story 1005",
       "matsuri",
-      "matsuri, 31"
+      "matsuri, 31",
+      "114131",
+      "1141",
+      "Story 1141",
+      "茉莉（万圣节）",
+      "マツリ（ハロウィン）",
+      "matsuri ( harouin )",
+      "matsuri ( harouin ), 31",
+      "123931",
+      "1239",
+      "Story 1239",
+      "matsuri ( wairudo )",
+      "マツリ（ワイルド）",
+      "matsuri ( wairudo ), 31"
     ],
     "unnamed": false,
     "storyModel": "100531",
@@ -361,7 +455,13 @@
       "akari",
       "akari, 31",
       "100632",
-      "akari, 32"
+      "akari, 32",
+      "124031",
+      "1240",
+      "Story 1240",
+      "akari ( kurisumasu )",
+      "アカリ（クリスマス）",
+      "akari ( kurisumasu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100631",
@@ -402,7 +502,21 @@
       "宫子",
       "Story 1007",
       "miyako",
-      "miyako, 31"
+      "miyako, 31",
+      "108231",
+      "1082",
+      "Story 1082",
+      "宫子（万圣节）",
+      "ミヤコ（ハロウィン）",
+      "miyako ( harouin )",
+      "miyako ( harouin ), 31",
+      "119931",
+      "1199",
+      "Story 1199",
+      "宫子（圣诞节）",
+      "ミヤコ（クリスマス）",
+      "miyako ( kurisumasu )",
+      "miyako ( kurisumasu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100731",
@@ -444,7 +558,20 @@
       "yuki",
       "yuki, 31",
       "100832",
-      "yuki, 32"
+      "yuki, 32",
+      "117631",
+      "1176",
+      "Story 1176",
+      "雪（大江户）",
+      "ユキ（オーエド）",
+      "yuki ( ooedo )",
+      "yuki ( ooedo ), 31",
+      "126331",
+      "1263",
+      "Story 1263",
+      "yuki ( gi shouzoku )",
+      "ユキ（儀装束）",
+      "yuki ( gi shouzoku ), 31"
     ],
     "unnamed": false,
     "storyModel": "100831",
@@ -492,7 +619,14 @@
       "杏奈（夏日）",
       "アンナ（サマー）",
       "anna ( samaa )",
-      "anna ( samaa ), 31"
+      "anna ( samaa ), 31",
+      "121931",
+      "1219",
+      "Story 1219",
+      "杏奈（海盗）",
+      "アンナ（パイレーツ）",
+      "anna ( paireetsu )",
+      "anna ( paireetsu ), 31"
     ],
     "unnamed": false,
     "storyModel": "100931",
@@ -534,7 +668,34 @@
       "maho",
       "maho, 31",
       "101032",
-      "maho, 32"
+      "maho, 32",
+      "110631",
+      "1106",
+      "Story 1106",
+      "真步（夏日）",
+      "マホ（サマー）",
+      "maho ( samaa )",
+      "maho ( samaa ), 31",
+      "116031",
+      "1160",
+      "Story 1160",
+      "真步（灰姑娘）",
+      "マホ（シンデレラ）",
+      "maho ( shinderera )",
+      "maho ( shinderera ), 31",
+      "123131",
+      "1231",
+      "Story 1231",
+      "真步（探索者）",
+      "マホ（エクスプローラー）",
+      "maho ( ekusupurooraa )",
+      "maho ( ekusupurooraa ), 31",
+      "131031",
+      "1310",
+      "Story 1310",
+      "maho ( doriimupaaku )",
+      "マホ（ドリームパーク）",
+      "maho ( doriimupaaku ), 31"
     ],
     "unnamed": false,
     "storyModel": "101031",
@@ -578,7 +739,27 @@
       "璃乃",
       "Story 1011",
       "rino",
-      "rino, 31"
+      "rino, 31",
+      "112931",
+      "1129",
+      "Story 1129",
+      "璃乃（仙境）",
+      "リノ（ワンダー）",
+      "rino ( wandaa )",
+      "rino ( wandaa ), 31",
+      "119331",
+      "1193",
+      "Story 1193",
+      "璃乃（圣诞节）",
+      "リノ（クリスマス）",
+      "rino ( kurisumasu )",
+      "rino ( kurisumasu ), 31",
+      "137931",
+      "1379",
+      "Story 1379",
+      "rino ( nyuuiyaa )",
+      "リノ（ニューイヤー）",
+      "rino ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "101131",
@@ -618,7 +799,27 @@
       "初音",
       "Story 1012",
       "hatsune",
-      "hatsune, 31"
+      "hatsune, 31",
+      "113431",
+      "1134",
+      "Story 1134",
+      "初音（夏日）",
+      "ハツネ（サマー）",
+      "hatsune ( samaa )",
+      "hatsune ( samaa ), 31",
+      "118331",
+      "1183",
+      "Story 1183",
+      "初音（初音＆栞）",
+      "ハツネ（ハツネ&シオリ）",
+      "hatsune ( hatsune & shiori )",
+      "hatsune ( hatsune & shiori ), 31",
+      "128431",
+      "1284",
+      "Story 1284",
+      "hatsune ( nyuuiyaa )",
+      "ハツネ（ニューイヤー）",
+      "hatsune ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "101231",
@@ -660,7 +861,20 @@
       "nanaka",
       "nanaka, 31",
       "101332",
-      "nanaka, 32"
+      "nanaka, 32",
+      "113331",
+      "1133",
+      "Story 1133",
+      "七七香（夏日）",
+      "ナナカ（サマー）",
+      "nanaka ( samaa )",
+      "nanaka ( samaa ), 31",
+      "123731",
+      "1237",
+      "Story 1237",
+      "nanaka ( harouin )",
+      "ナナカ（ハロウィン）",
+      "nanaka ( harouin ), 31"
     ],
     "unnamed": false,
     "storyModel": "101331",
@@ -724,7 +938,33 @@
       "香澄",
       "Story 1014",
       "kasumi",
-      "kasumi, 31"
+      "kasumi, 31",
+      "112231",
+      "1122",
+      "Story 1122",
+      "香澄（魔法少女）",
+      "カスミ（マジカル）",
+      "kasumi ( majikaru )",
+      "kasumi ( majikaru ), 31",
+      "115731",
+      "1157",
+      "Story 1157",
+      "香澄（夏日）",
+      "カスミ（サマー）",
+      "kasumi ( samaa )",
+      "kasumi ( samaa ), 31",
+      "128531",
+      "1285",
+      "Story 1285",
+      "kasumi ( nyuuiyaa )",
+      "カスミ（ニューイヤー）",
+      "kasumi ( nyuuiyaa ), 31",
+      "137431",
+      "1374",
+      "Story 1374",
+      "kasumi ( shisutaa )",
+      "カスミ（シスター）",
+      "kasumi ( shisutaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "101431",
@@ -771,7 +1011,20 @@
       "101532",
       "misato, 32",
       "101533",
-      "misato, 33"
+      "misato, 33",
+      "113531",
+      "1135",
+      "Story 1135",
+      "美里（夏日）",
+      "ミサト（サマー）",
+      "misato ( samaa )",
+      "misato ( samaa ), 31",
+      "124631",
+      "1246",
+      "Story 1246",
+      "misato ( nyuuiyaa )",
+      "ミサト（ニューイヤー）",
+      "misato ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "101531",
@@ -815,7 +1068,20 @@
       "suzuna",
       "suzuna, 31",
       "101632",
-      "suzuna, 32"
+      "suzuna, 32",
+      "117931",
+      "1179",
+      "Story 1179",
+      "铃奈（万圣节）",
+      "スズナ（ハロウィン）",
+      "suzuna ( harouin )",
+      "suzuna ( harouin ), 31",
+      "127331",
+      "1273",
+      "Story 1273",
+      "suzuna ( hennyuu nama )",
+      "スズナ（編入生）",
+      "suzuna ( hennyuu nama ), 31"
     ],
     "unnamed": false,
     "storyModel": "101631",
@@ -860,7 +1126,14 @@
       "101732",
       "kaori, 32",
       "101733",
-      "kaori, 33"
+      "kaori, 33",
+      "117731",
+      "1177",
+      "Story 1177",
+      "香织（万圣节）",
+      "カオリ（ハロウィン）",
+      "kaori ( harouin )",
+      "kaori ( harouin ), 31"
     ],
     "unnamed": false,
     "storyModel": "101731",
@@ -910,7 +1183,27 @@
       "io",
       "io, 31",
       "101832",
-      "io, 32"
+      "io, 32",
+      "110131",
+      "1101",
+      "Story 1101",
+      "伊绪（夏日）",
+      "イオ（サマー）",
+      "io ( samaa )",
+      "io ( samaa ), 31",
+      "119031",
+      "1190",
+      "Story 1190",
+      "伊绪（黑暗）",
+      "イオ（ノワール）",
+      "io ( nowaaru )",
+      "io ( nowaaru ), 31",
+      "132931",
+      "1329",
+      "Story 1329",
+      "io ( kurisumasu )",
+      "イオ（クリスマス）",
+      "io ( kurisumasu ), 31"
     ],
     "unnamed": false,
     "storyModel": "101831",
@@ -956,7 +1249,21 @@
       "mimi",
       "mimi, 31",
       "102032",
-      "mimi, 32"
+      "mimi, 32",
+      "111331",
+      "1113",
+      "Story 1113",
+      "美美（万圣节）",
+      "ミミ（ハロウィン）",
+      "mimi ( harouin )",
+      "mimi ( harouin ), 31",
+      "122931",
+      "1229",
+      "Story 1229",
+      "美美（夏日）",
+      "ミミ（サマー）",
+      "mimi ( samaa )",
+      "mimi ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "102031",
@@ -997,7 +1304,21 @@
       "胡桃",
       "Story 1021",
       "kurumi",
-      "kurumi, 31"
+      "kurumi, 31",
+      "108531",
+      "1085",
+      "Story 1085",
+      "胡桃（圣诞节）",
+      "クルミ（クリスマス）",
+      "kurumi ( kurisumasu )",
+      "kurumi ( kurisumasu ), 31",
+      "121331",
+      "1213",
+      "Story 1213",
+      "胡桃（舞台）",
+      "クルミ（ステージ）",
+      "kurumi ( suteeji )",
+      "kurumi ( suteeji ), 31"
     ],
     "unnamed": false,
     "storyModel": "102131",
@@ -1042,7 +1363,20 @@
       "yori",
       "yori, 31",
       "102232",
-      "yori, 32"
+      "yori, 32",
+      "113831",
+      "1138",
+      "Story 1138",
+      "依里（天使）",
+      "ヨリ（エンジェル）",
+      "yori ( enjieru )",
+      "yori ( enjieru ), 31",
+      "124131",
+      "1241",
+      "Story 1241",
+      "yori ( kurisumasu )",
+      "ヨリ（クリスマス）",
+      "yori ( kurisumasu ), 31"
     ],
     "unnamed": false,
     "storyModel": "102231",
@@ -1074,8 +1408,7 @@
     "storyCharacter": "1023",
     "models": [
       "102311",
-      "102312",
-      "102313"
+      "102312"
     ]
   },
   {
@@ -1111,7 +1444,21 @@
       "ayane",
       "ayane, 31",
       "102332",
-      "ayane, 32"
+      "ayane, 32",
+      "108631",
+      "1086",
+      "Story 1086",
+      "绫音（圣诞节）",
+      "アヤネ（クリスマス）",
+      "ayane ( kurisumasu )",
+      "ayane ( kurisumasu ), 31",
+      "123231",
+      "1232",
+      "Story 1232",
+      "绫音（探索者）",
+      "アヤネ（エクスプローラー）",
+      "ayane ( ekusupurooraa )",
+      "ayane ( ekusupurooraa ), 31"
     ],
     "unnamed": false,
     "storyModel": "102331",
@@ -1152,7 +1499,27 @@
       "铃莓",
       "Story 1025",
       "suzume",
-      "suzume, 31"
+      "suzume, 31",
+      "107731",
+      "1077",
+      "Story 1077",
+      "铃莓（夏日）",
+      "スズメ（サマー）",
+      "suzume ( samaa )",
+      "suzume ( samaa ), 31",
+      "112131",
+      "1121",
+      "Story 1121",
+      "铃莓（新年）",
+      "スズメ（ニューイヤー）",
+      "suzume ( nyuuiyaa )",
+      "suzume ( nyuuiyaa ), 31",
+      "130831",
+      "1308",
+      "Story 1308",
+      "suzume ( supuringu )",
+      "スズメ（スプリング）",
+      "suzume ( supuringu ), 31"
     ],
     "unnamed": false,
     "storyModel": "102531",
@@ -1194,7 +1561,20 @@
       "rin",
       "rin, 31",
       "102632",
-      "rin, 32"
+      "rin, 32",
+      "112731",
+      "1127",
+      "Story 1127",
+      "铃（游骑兵）",
+      "リン（レンジャー）",
+      "rin ( renjaa )",
+      "rin ( renjaa ), 31",
+      "123531",
+      "1235",
+      "Story 1235",
+      "rin ( harouin )",
+      "リン（ハロウィン）",
+      "rin ( harouin ), 31"
     ],
     "unnamed": false,
     "storyModel": "102631",
@@ -1237,7 +1617,20 @@
       "eriko",
       "eriko, 31",
       "102732",
-      "eriko, 32"
+      "eriko, 32",
+      "109031",
+      "1090",
+      "Story 1090",
+      "惠理子（情人节）",
+      "エリコ（バレンタイン）",
+      "eriko ( barentain )",
+      "eriko ( barentain ), 31",
+      "129931",
+      "1299",
+      "Story 1299",
+      "eriko ( komandaa )",
+      "エリコ（コマンダー）",
+      "eriko ( komandaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "102731",
@@ -1280,7 +1673,32 @@
       "saren",
       "saren, 31",
       "102832",
-      "saren, 32"
+      "saren, 32",
+      "114531",
+      "1145",
+      "Story 1145",
+      "咲恋（圣诞节）",
+      "サレン（クリスマス）",
+      "saren ( kurisumasu )",
+      "saren ( kurisumasu ), 31",
+      "127531",
+      "1275",
+      "Story 1275",
+      "saren ( sarasaria )",
+      "サレン（サラサリア）",
+      "saren ( sarasaria ), 31",
+      "133531",
+      "1335",
+      "Story 1335",
+      "saren ( nyuuiyaa )",
+      "サレン（ニューイヤー）",
+      "saren ( nyuuiyaa ), 31",
+      "140731",
+      "1407",
+      "Story 1407",
+      "saren ( gannaa )",
+      "サレン（ガンナー）",
+      "saren ( gannaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "102831",
@@ -1327,7 +1745,26 @@
       "望",
       "Story 1029",
       "nozomi",
-      "nozomi, 31"
+      "nozomi, 31",
+      "117231",
+      "1172",
+      "Story 1172",
+      "望（夏日）",
+      "ノゾミ（サマー）",
+      "nozomi ( samaa )",
+      "nozomi ( samaa ), 31",
+      "124831",
+      "1248",
+      "Story 1248",
+      "nozomi ( ribereitaa )",
+      "ノゾミ（リベレイター）",
+      "nozomi ( ribereitaa ), 31",
+      "132231",
+      "1322",
+      "Story 1322",
+      "nozomi ( arukemisuto )",
+      "ノゾミ（アルケミスト）",
+      "nozomi ( arukemisuto ), 31"
     ],
     "unnamed": false,
     "storyModel": "102931",
@@ -1368,13 +1805,26 @@
       "Story 1030",
       "ninon",
       "ninon, 31",
+      "109631",
+      "1096",
+      "Story 1096",
+      "妮侬（大江户）",
+      "ニノン（オーエド）",
+      "ninon ( ooedo )",
+      "ninon ( ooedo ), 31",
       "117831",
       "1178",
       "Story 1178",
       "妮侬（万圣节）",
       "ニノン（ハロウィン）",
       "ninon ( harouin )",
-      "ninon ( harouin ), 31"
+      "ninon ( harouin ), 31",
+      "137131",
+      "1371",
+      "Story 1371",
+      "ninon ( samaa )",
+      "ニノン（サマー）",
+      "ninon ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "103031",
@@ -1424,7 +1874,27 @@
       "103132",
       "shinobu, 32",
       "103133",
-      "shinobu, 33"
+      "shinobu, 33",
+      "108131",
+      "1081",
+      "Story 1081",
+      "忍（万圣节）",
+      "シノブ（ハロウィン）",
+      "shinobu ( harouin )",
+      "shinobu ( harouin ), 31",
+      "122031",
+      "1220",
+      "Story 1220",
+      "忍（海盗）",
+      "シノブ（パイレーツ）",
+      "shinobu ( paireetsu )",
+      "shinobu ( paireetsu ), 31",
+      "127131",
+      "1271",
+      "Story 1271",
+      "shinobu ( samaa )",
+      "シノブ（サマー）",
+      "shinobu ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "103131",
@@ -1516,7 +1986,21 @@
       "103332",
       "mahiru, 32",
       "103333",
-      "mahiru, 33"
+      "mahiru, 33",
+      "112831",
+      "1128",
+      "Story 1128",
+      "真阳（游骑兵）",
+      "マヒル（レンジャー）",
+      "mahiru ( renjaa )",
+      "mahiru ( renjaa ), 31",
+      "119231",
+      "1192",
+      "Story 1192",
+      "真阳（圣诞节）",
+      "マヒル（クリスマス）",
+      "mahiru ( kurisumasu )",
+      "mahiru ( kurisumasu ), 31"
     ],
     "unnamed": false,
     "storyModel": "103331",
@@ -1565,7 +2049,27 @@
       "103432",
       "yukari, 32",
       "103433",
-      "yukari, 33"
+      "yukari, 33",
+      "114631",
+      "1146",
+      "Story 1146",
+      "由加莉（圣诞节）",
+      "ユカリ（クリスマス）",
+      "yukari ( kurisumasu )",
+      "yukari ( kurisumasu ), 31",
+      "122231",
+      "1222",
+      "Story 1222",
+      "由加莉（露营）",
+      "ユカリ（キャンプ）",
+      "yukari ( kyanpu )",
+      "yukari ( kyanpu ), 31",
+      "126831",
+      "1268",
+      "Story 1268",
+      "yukari ( samaa )",
+      "ユカリ（サマー）",
+      "yukari ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "103431",
@@ -1609,14 +2113,25 @@
       "kyouka",
       "kyouka, 31",
       "103633",
-      "kyouka, 33"
+      "kyouka, 33",
+      "130731",
+      "1307",
+      "Story 1307",
+      "kyouka ( supuringu )",
+      "キョウカ（スプリング）",
+      "kyouka ( supuringu ), 31",
+      "139031",
+      "1390",
+      "Story 1390",
+      "kyouka ( goshikku )",
+      "キョウカ（ゴシック）",
+      "kyouka ( goshikku ), 31"
     ],
     "unnamed": false,
     "storyModel": "103631",
     "storyCharacter": "1036",
     "models": [
-      "103631",
-      "103633"
+      "103631"
     ]
   },
   {
@@ -1655,7 +2170,20 @@
       "tomo",
       "tomo, 31",
       "103732",
-      "tomo, 32"
+      "tomo, 32",
+      "114331",
+      "1143",
+      "Story 1143",
+      "智（魔法少女）",
+      "トモ（マジカル）",
+      "tomo ( majikaru )",
+      "tomo ( majikaru ), 31",
+      "123631",
+      "1236",
+      "Story 1236",
+      "tomo ( harouin )",
+      "トモ（ハロウィン）",
+      "tomo ( harouin ), 31"
     ],
     "unnamed": false,
     "storyModel": "103731",
@@ -1704,7 +2232,27 @@
       "shiori",
       "shiori, 31",
       "103832",
-      "shiori, 32"
+      "shiori, 32",
+      "112331",
+      "1123",
+      "Story 1123",
+      "栞（魔法少女）",
+      "シオリ（マジカル）",
+      "shiori ( majikaru )",
+      "shiori ( majikaru ), 31",
+      "118431",
+      "1184",
+      "Story 1184",
+      "栞（初音＆栞）",
+      "シオリ（ハツネ&シオリ）",
+      "shiori ( hatsune & shiori )",
+      "shiori ( hatsune & shiori ), 31",
+      "125431",
+      "1254",
+      "Story 1254",
+      "shiori ( renjaa )",
+      "シオリ（レンジャー）",
+      "shiori ( renjaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "103831",
@@ -1749,7 +2297,27 @@
       "104032",
       "aoi, 32",
       "104033",
-      "aoi, 33"
+      "aoi, 33",
+      "116731",
+      "1167",
+      "Story 1167",
+      "碧（工作服）",
+      "アオイ（作業服）",
+      "aoi ( sagyoufuku )",
+      "aoi ( sagyoufuku ), 31",
+      "122131",
+      "1221",
+      "Story 1221",
+      "碧（露营）",
+      "アオイ（キャンプ）",
+      "aoi ( kyanpu )",
+      "aoi ( kyanpu ), 31",
+      "134631",
+      "1346",
+      "Story 1346",
+      "aoi ( pairotto )",
+      "アオイ（パイロット）",
+      "aoi ( pairotto ), 31"
     ],
     "unnamed": false,
     "storyModel": "104031",
@@ -1796,7 +2364,20 @@
       "chika",
       "chika, 31",
       "104232",
-      "chika, 32"
+      "chika, 32",
+      "117331",
+      "1173",
+      "Story 1173",
+      "千歌（夏日）",
+      "チカ（サマー）",
+      "chika ( samaa )",
+      "chika ( samaa ), 31",
+      "134431",
+      "1344",
+      "Story 1344",
+      "chika ( gi shouzoku )",
+      "チカ（儀装束）",
+      "chika ( gi shouzoku ), 31"
     ],
     "unnamed": false,
     "storyModel": "104231",
@@ -1839,7 +2420,27 @@
       "Story 1043",
       "makoto",
       "makoto, 31",
-      "Makoto"
+      "Makoto",
+      "110431",
+      "1104",
+      "Story 1104",
+      "真琴（夏日）",
+      "マコト（サマー）",
+      "makoto ( samaa )",
+      "makoto ( samaa ), 31",
+      "115931",
+      "1159",
+      "Story 1159",
+      "真琴（灰姑娘）",
+      "マコト（シンデレラ）",
+      "makoto ( shinderera )",
+      "makoto ( shinderera ), 31",
+      "129831",
+      "1298",
+      "Story 1298",
+      "makoto ( komandaa )",
+      "マコト（コマンダー）",
+      "makoto ( komandaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "104331",
@@ -1882,7 +2483,27 @@
       "伊莉亚",
       "Story 1044",
       "iriya",
-      "iriya, 31"
+      "iriya, 31",
+      "111731",
+      "1117",
+      "Story 1117",
+      "伊莉亚（圣诞节）",
+      "イリヤ（クリスマス）",
+      "iriya ( kurisumasu )",
+      "iriya ( kurisumasu ), 31",
+      "120931",
+      "1209",
+      "Story 1209",
+      "伊莉亚（新年）",
+      "イリヤ（ニューイヤー）",
+      "iriya ( nyuuiyaa )",
+      "iriya ( nyuuiyaa ), 31",
+      "126231",
+      "1262",
+      "Story 1262",
+      "iriya ( gi shouzoku )",
+      "イリヤ（儀装束）",
+      "iriya ( gi shouzoku ), 31"
     ],
     "unnamed": false,
     "storyModel": "104431",
@@ -1904,7 +2525,14 @@
       "kuuka",
       "kuuka, 11",
       "104512",
-      "kuuka, 12"
+      "kuuka, 12",
+      "120211",
+      "1202",
+      "Story 1202",
+      "空花（黑暗）",
+      "クウカ（ノワール）",
+      "kuuka ( nowaaru )",
+      "kuuka ( nowaaru ), 11"
     ],
     "unnamed": false,
     "storyModel": "104511",
@@ -1927,7 +2555,27 @@
       "kuuka",
       "kuuka, 31",
       "104532",
-      "kuuka, 32"
+      "kuuka, 32",
+      "109531",
+      "1095",
+      "Story 1095",
+      "空花（大江户）",
+      "クウカ（オーエド）",
+      "kuuka ( ooedo )",
+      "kuuka ( ooedo ), 31",
+      "119131",
+      "1191",
+      "Story 1191",
+      "空花（黑暗）",
+      "クウカ（ノワール）",
+      "kuuka ( nowaaru )",
+      "kuuka ( nowaaru ), 31",
+      "127031",
+      "1270",
+      "Story 1270",
+      "kuuka ( samaa )",
+      "クウカ（サマー）",
+      "kuuka ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "104531",
@@ -1970,7 +2618,13 @@
       "tamaki",
       "tamaki, 31",
       "104632",
-      "tamaki, 32"
+      "tamaki, 32",
+      "125131",
+      "1251",
+      "Story 1251",
+      "tamaki ( kafe )",
+      "タマキ（カフェ）",
+      "tamaki ( kafe ), 31"
     ],
     "unnamed": false,
     "storyModel": "104631",
@@ -2060,7 +2714,14 @@
       "104832",
       "mifuyu, 32",
       "104833",
-      "mifuyu, 33"
+      "mifuyu, 33",
+      "116931",
+      "1169",
+      "Story 1169",
+      "美冬（工作服）",
+      "ミフユ（作業服）",
+      "mifuyu ( sagyoufuku )",
+      "mifuyu ( sagyoufuku ), 31"
     ],
     "unnamed": false,
     "storyModel": "104831",
@@ -2086,7 +2747,16 @@
       "104912",
       "shizuru, 12",
       "104914",
-      "shizuru, 14"
+      "shizuru, 14",
+      "120012",
+      "1200",
+      "Story 1200",
+      "静流（黑暗）",
+      "シズル（ノワール）",
+      "shizuru ( nowaaru )",
+      "shizuru ( nowaaru ), 12",
+      "120015",
+      "shizuru ( nowaaru ), 15"
     ],
     "unnamed": false,
     "storyModel": "104911",
@@ -2110,7 +2780,27 @@
       "shizuru",
       "shizuru, 31",
       "104932",
-      "shizuru, 32"
+      "shizuru, 32",
+      "109131",
+      "1091",
+      "Story 1091",
+      "静流（情人节）",
+      "シズル（バレンタイン）",
+      "shizuru ( barentain )",
+      "shizuru ( barentain ), 31",
+      "120031",
+      "1200",
+      "Story 1200",
+      "静流（黑暗）",
+      "シズル（ノワール）",
+      "shizuru ( nowaaru )",
+      "shizuru ( nowaaru ), 31",
+      "136531",
+      "1365",
+      "Story 1365",
+      "shizuru ( nyuuiyaa )",
+      "シズル（ニューイヤー）",
+      "shizuru ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "104931",
@@ -2153,7 +2843,21 @@
       "misaki",
       "misaki, 31",
       "105032",
-      "misaki, 32"
+      "misaki, 32",
+      "108331",
+      "1083",
+      "Story 1083",
+      "美咲（万圣节）",
+      "ミサキ（ハロウィン）",
+      "misaki ( harouin )",
+      "misaki ( harouin ), 31",
+      "121431",
+      "1214",
+      "Story 1214",
+      "美咲（舞台）",
+      "ミサキ（ステージ）",
+      "misaki ( suteeji )",
+      "misaki ( suteeji ), 31"
     ],
     "unnamed": false,
     "storyModel": "105031",
@@ -2196,7 +2900,20 @@
       "mitsuki",
       "mitsuki, 31",
       "105132",
-      "mitsuki, 32"
+      "mitsuki, 32",
+      "117531",
+      "1175",
+      "Story 1175",
+      "深月（大江户）",
+      "ミツキ（オーエド）",
+      "mitsuki ( ooedo )",
+      "mitsuki ( ooedo ), 31",
+      "124731",
+      "1247",
+      "Story 1247",
+      "mitsuki ( nyuuiyaa )",
+      "ミツキ（ニューイヤー）",
+      "mitsuki ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "105131",
@@ -2250,7 +2967,14 @@
       "rima, 31",
       "Lima",
       "105232",
-      "rima, 32"
+      "rima, 32",
+      "115831",
+      "1158",
+      "Story 1158",
+      "莉玛（灰姑娘）",
+      "リマ（シンデレラ）",
+      "rima ( shinderera )",
+      "rima ( shinderera ), 31"
     ],
     "unnamed": false,
     "storyModel": "105231",
@@ -2296,7 +3020,26 @@
       "monika",
       "monika, 31",
       "105332",
-      "monika, 32"
+      "monika, 32",
+      "114231",
+      "1142",
+      "Story 1142",
+      "莫妮卡（魔法少女）",
+      "モニカ（マジカル）",
+      "monika ( majikaru )",
+      "monika ( majikaru ), 31",
+      "125231",
+      "1252",
+      "Story 1252",
+      "monika ( kafe )",
+      "モニカ（カフェ）",
+      "monika ( kafe ), 31",
+      "133231",
+      "1332",
+      "Story 1332",
+      "monika ( nyuuiyaa )",
+      "モニカ（ニューイヤー）",
+      "monika ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "105331",
@@ -2342,7 +3085,20 @@
       "tsumugi",
       "tsumugi, 31",
       "105432",
-      "tsumugi, 32"
+      "tsumugi, 32",
+      "113931",
+      "1139",
+      "Story 1139",
+      "纺希（万圣节）",
+      "ツムギ（ハロウィン）",
+      "tsumugi ( harouin )",
+      "tsumugi ( harouin ), 31",
+      "134831",
+      "1348",
+      "Story 1348",
+      "tsumugi ( jio・gehena )",
+      "ツムギ（ジオ・ゲヘナ）",
+      "tsumugi ( jio・gehena ), 31"
     ],
     "unnamed": false,
     "storyModel": "105431",
@@ -2385,7 +3141,21 @@
       "ayumi",
       "ayumi, 31",
       "105532",
-      "ayumi, 32"
+      "ayumi, 32",
+      "113031",
+      "1130",
+      "Story 1130",
+      "步美（仙境）",
+      "アユミ（ワンダー）",
+      "ayumi ( wandaa )",
+      "ayumi ( wandaa ), 31",
+      "121531",
+      "1215",
+      "Story 1215",
+      "步美（怪盗）",
+      "アユミ（怪盗）",
+      "ayumi ( kaitou )",
+      "ayumi ( kaitou ), 31"
     ],
     "unnamed": false,
     "storyModel": "105531",
@@ -2451,7 +3221,14 @@
       "ruka",
       "ruka, 31",
       "105632",
-      "ruka, 32"
+      "ruka, 32",
+      "120831",
+      "1208",
+      "Story 1208",
+      "流夏（新年）",
+      "ルカ（ニューイヤー）",
+      "ruka ( nyuuiyaa )",
+      "ruka ( nyuuiyaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "105631",
@@ -2534,7 +3311,34 @@
       "pekoriinu, 13",
       "119411",
       "1194",
-      "Story 1194"
+      "Story 1194",
+      "107531",
+      "1075",
+      "Story 1075",
+      "佩可莉姆（夏日）",
+      "ペコリーヌ（サマー）",
+      "pekoriinu ( samaa )",
+      "pekoriinu ( samaa ), 31",
+      "121031",
+      "1210",
+      "Story 1210",
+      "佩可莉姆（超负荷）",
+      "ペコリーヌ（オーバーロード）",
+      "pekoriinu ( oobaaroodo )",
+      "pekoriinu ( oobaaroodo ), 31",
+      "127931",
+      "1279",
+      "Story 1279",
+      "pekoriinu ( kurisumasu )",
+      "ペコリーヌ（クリスマス）",
+      "pekoriinu ( kurisumasu ), 31",
+      "180431",
+      "1804",
+      "Story 1804",
+      "佩可莉姆（公主）",
+      "ペコリーヌ（プリンセス）",
+      "pekoriinu ( purinsesu )",
+      "pekoriinu ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "105811",
@@ -2558,7 +3362,13 @@
       "Story 1058",
       "pekoriinu",
       "pekoriinu, 31",
-      "Pecorine"
+      "Pecorine",
+      "138331",
+      "1383",
+      "Story 1383",
+      "pekoriinu ( asutoraia )",
+      "ペコリーヌ（アストライア）",
+      "pekoriinu ( asutoraia ), 31"
     ],
     "unnamed": false,
     "storyModel": "105831",
@@ -2586,9 +3396,12 @@
       "kokkoro, 13",
       "105914",
       "kokkoro, 14",
-      "119511",
-      "1195",
-      "Story 1195"
+      "191411",
+      "1914",
+      "Story 1914",
+      "ゴウシン",
+      "goushin",
+      "goushin, 11"
     ],
     "unnamed": false,
     "storyModel": "105911",
@@ -2597,8 +3410,7 @@
       "105911",
       "105912",
       "105913",
-      "105914",
-      "119511"
+      "105914"
     ]
   },
   {
@@ -2621,7 +3433,44 @@
       "105934",
       "kokkoro, 34",
       "105935",
-      "kokkoro, 35"
+      "kokkoro, 35",
+      "111931",
+      "1119",
+      "Story 1119",
+      "可可萝（新年）",
+      "コッコロ（ニューイヤー）",
+      "kokkoro ( nyuuiyaa )",
+      "kokkoro ( nyuuiyaa ), 31",
+      "115531",
+      "1155",
+      "Story 1155",
+      "可可萝（礼服）",
+      "コッコロ（儀装束）",
+      "kokkoro ( gi shouzoku )",
+      "kokkoro ( gi shouzoku ), 31",
+      "119511",
+      "1195",
+      "Story 1195",
+      "kokkoro, 11",
+      "125331",
+      "1253",
+      "Story 1253",
+      "kokkoro ( renjaa )",
+      "コッコロ（レンジャー）",
+      "kokkoro ( renjaa ), 31",
+      "137631",
+      "1376",
+      "Story 1376",
+      "kokkoro ( kyoudou youkun )",
+      "コッコロ（嚮導幼君）",
+      "kokkoro ( kyoudou youkun ), 31",
+      "180531",
+      "1805",
+      "Story 1805",
+      "可可萝（公主）",
+      "コッコロ（プリンセス）",
+      "kokkoro ( purinsesu )",
+      "kokkoro ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "105931",
@@ -2654,10 +3503,7 @@
       "106014",
       "kyaru, 14",
       "106015",
-      "kyaru, 15",
-      "119611",
-      "1196",
-      "Story 1196"
+      "kyaru, 15"
     ],
     "unnamed": false,
     "storyModel": "106011",
@@ -2667,8 +3513,7 @@
       "106012",
       "106013",
       "106014",
-      "106015",
-      "119611"
+      "106015"
     ]
   },
   {
@@ -2698,6 +3543,10 @@
       "キャル（ニューイヤー）",
       "kyaru ( nyuuiyaa )",
       "kyaru ( nyuuiyaa ), 31",
+      "119611",
+      "1196",
+      "Story 1196",
+      "kyaru, 11",
       "121131",
       "1211",
       "Story 1211",
@@ -2711,6 +3560,12 @@
       "kyaru ( hennyuu nama )",
       "キャル（編入生）",
       "kyaru ( hennyuu nama ), 31",
+      "139131",
+      "1391",
+      "Story 1391",
+      "kyaru ( ha hitomi ten hoshi )",
+      "キャル（覇瞳天星）",
+      "kyaru ( ha hitomi ten hoshi ), 31",
       "180631",
       "1806",
       "Story 1806",
@@ -2727,42 +3582,39 @@
     ]
   },
   {
-    "name": "pcr-106111",
-    "character": "muimi, 11",
+    "name": "pcr-106112",
+    "character": "muimi, 12",
     "romaji": "muimi",
     "aliases": [
       "ムイミ",
       "1061",
-      "106111",
+      "106112",
       "矛依未",
       "Story 1061",
       "muimi",
-      "muimi, 11",
-      "106112",
       "muimi, 12",
-      "106113",
-      "muimi, 13",
       "106114",
       "muimi, 14",
       "106115",
       "muimi, 15",
-      "106116",
-      "muimi, 16",
       "106117",
       "muimi, 17",
       "106118",
-      "muimi, 18"
+      "muimi, 18",
+      "106111",
+      "muimi, 11",
+      "106113",
+      "muimi, 13",
+      "106116",
+      "muimi, 16"
     ],
     "unnamed": false,
-    "storyModel": "106111",
+    "storyModel": "106112",
     "storyCharacter": "1061",
     "models": [
-      "106111",
       "106112",
-      "106113",
       "106114",
       "106115",
-      "106116",
       "106117",
       "106118"
     ]
@@ -2895,15 +3747,12 @@
       "shiefi, 12",
       "106413",
       "shiefi, 13",
+      "106416",
+      "shiefi, 16",
       "106414",
       "shiefi, 14",
       "106415",
-      "shiefi, 15",
-      "106416",
-      "shiefi, 16",
-      "119711",
-      "1197",
-      "Story 1197"
+      "shiefi, 15"
     ],
     "unnamed": false,
     "storyModel": "106411",
@@ -2912,10 +3761,7 @@
       "106411",
       "106412",
       "106413",
-      "106414",
-      "106415",
-      "106416",
-      "119711"
+      "106416"
     ]
   },
   {
@@ -2932,7 +3778,36 @@
       "shiefi, 31",
       "Sheffy",
       "106432",
-      "shiefi, 32"
+      "shiefi, 32",
+      "119711",
+      "1197",
+      "Story 1197",
+      "shiefi, 11",
+      "120731",
+      "1207",
+      "Story 1207",
+      "雪菲（新年）",
+      "シェフィ（ニューイヤー）",
+      "shiefi ( nyuuiyaa )",
+      "shiefi ( nyuuiyaa ), 31",
+      "135131",
+      "1351",
+      "Story 1351",
+      "shiefi ( samaa )",
+      "シェフィ（サマー）",
+      "shiefi ( samaa ), 31",
+      "139831",
+      "1398",
+      "Story 1398",
+      "shiefi ( vaadorahhe )",
+      "シェフィ（ヴァードラッヘ）",
+      "shiefi ( vaadorahhe ), 31",
+      "181231",
+      "1812",
+      "Story 1812",
+      "shiefi ( purinsesu )",
+      "シェフィ（プリンセス）",
+      "shiefi ( purinsesu ), 31"
     ],
     "unnamed": false,
     "storyModel": "106431",
@@ -2975,7 +3850,20 @@
       "kaya",
       "kaya, 31",
       "106532",
-      "kaya, 32"
+      "kaya, 32",
+      "116631",
+      "1166",
+      "Story 1166",
+      "嘉夜（时间旅行）",
+      "カヤ（タイムトラベル）",
+      "kaya ( taimutoraberu )",
+      "kaya ( taimutoraberu ), 31",
+      "124931",
+      "1249",
+      "Story 1249",
+      "kaya ( ribereitaa )",
+      "カヤ（リベレイター）",
+      "kaya ( ribereitaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "106531",
@@ -3000,15 +3888,18 @@
       "106612",
       "inori, 12",
       "106613",
-      "inori, 13"
+      "inori, 13",
+      "906601",
+      "9066",
+      "Story 9066",
+      "inori, 01"
     ],
     "unnamed": false,
     "storyModel": "106611",
     "storyCharacter": "1066",
     "models": [
       "106611",
-      "106612",
-      "106613"
+      "106612"
     ]
   },
   {
@@ -3094,7 +3985,19 @@
       "帆稀",
       "Story 1067",
       "homare",
-      "homare, 31"
+      "homare, 31",
+      "124531",
+      "1245",
+      "Story 1245",
+      "homare ( nyuuiyaa )",
+      "ホマレ（ニューイヤー）",
+      "homare ( nyuuiyaa ), 31",
+      "131831",
+      "1318",
+      "Story 1318",
+      "homare ( samaa )",
+      "ホマレ（サマー）",
+      "homare ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "106731",
@@ -3159,7 +4062,20 @@
       "106832",
       "rabirisuta, 32",
       "106834",
-      "rabirisuta, 34"
+      "rabirisuta, 34",
+      "121231",
+      "1212",
+      "Story 1212",
+      "菈比莉斯塔（超负荷）",
+      "ラビリスタ（オーバーロード）",
+      "rabirisuta ( oobaaroodo )",
+      "rabirisuta ( oobaaroodo ), 31",
+      "133731",
+      "1337",
+      "Story 1337",
+      "rabirisuta ( arufa )",
+      "ラビリスタ（アルファ）",
+      "rabirisuta ( arufa ), 31"
     ],
     "unnamed": false,
     "storyModel": "106831",
@@ -3184,21 +4100,20 @@
       "kaizaainsaito, 11",
       "Omniscient Kaiser",
       "Kaiser Insight",
-      "106912",
-      "kaizaainsaito, 12",
       "106913",
       "kaizaainsaito, 13",
       "106914",
       "kaizaainsaito, 14",
       "106915",
-      "kaizaainsaito, 15"
+      "kaizaainsaito, 15",
+      "106912",
+      "kaizaainsaito, 12"
     ],
     "unnamed": false,
     "storyModel": "106911",
     "storyCharacter": "1069",
     "models": [
       "106911",
-      "106912",
       "106913",
       "106914",
       "106915"
@@ -3240,12 +4155,12 @@
       "neneka, 11",
       "107012",
       "neneka, 12",
-      "107013",
-      "neneka, 13",
       "107014",
       "neneka, 14",
       "107015",
-      "neneka, 15"
+      "neneka, 15",
+      "107013",
+      "neneka, 13"
     ],
     "unnamed": false,
     "storyModel": "107011",
@@ -3253,7 +4168,6 @@
     "models": [
       "107011",
       "107012",
-      "107013",
       "107014",
       "107015"
     ]
@@ -3271,14 +4185,32 @@
       "neneka",
       "neneka, 31",
       "107032",
-      "neneka, 32"
+      "neneka, 32",
+      "115031",
+      "1150",
+      "Story 1150",
+      "似似花（新年）",
+      "ネネカ（ニューイヤー）",
+      "neneka ( nyuuiyaa )",
+      "neneka ( nyuuiyaa ), 31",
+      "126631",
+      "1266",
+      "Story 1266",
+      "neneka ( samaa )",
+      "ネネカ（サマー）",
+      "neneka ( samaa ), 31",
+      "133831",
+      "1338",
+      "Story 1338",
+      "neneka ( arufa )",
+      "ネネカ（アルファ）",
+      "neneka ( arufa ), 31"
     ],
     "unnamed": false,
     "storyModel": "107031",
     "storyCharacter": "1070",
     "models": [
-      "107031",
-      "107032"
+      "107031"
     ]
   },
   {
@@ -3319,6 +4251,19 @@
       "Story 1071",
       "kurisuteiina",
       "kurisuteiina, 31",
+      "111531",
+      "1115",
+      "Story 1115",
+      "克莉丝提娜（圣诞节）",
+      "クリスティーナ（クリスマス）",
+      "kurisuteiina ( kurisumasu )",
+      "kurisuteiina ( kurisumasu ), 31",
+      "123831",
+      "1238",
+      "Story 1238",
+      "kurisuteiina ( wairudo )",
+      "クリスティーナ（ワイルド）",
+      "kurisuteiina ( wairudo ), 31",
       "133931",
       "1339",
       "Story 1339",
@@ -3345,34 +4290,16 @@
       "rajiraji",
       "rajiraji, 11",
       "ラジクマール",
-      "拉基库马尔·拉基尼卡东"
+      "拉基库马尔·拉基尼卡东",
+      "107312",
+      "ラジラジ",
+      "rajiraji, 12"
     ],
     "unnamed": false,
     "storyModel": "107311",
     "storyCharacter": "1073",
     "models": [
-      "107311"
-    ]
-  },
-  {
-    "name": "pcr-107312",
-    "character": "rajiraji, 12",
-    "romaji": "rajiraji",
-    "aliases": [
-      "ラジラジ",
-      "1073",
-      "107312",
-      "拉基拉基",
-      "Story 1073",
-      "rajiraji",
-      "rajiraji, 12",
-      "ラジクマール",
-      "拉基库马尔·拉基尼卡东"
-    ],
-    "unnamed": false,
-    "storyModel": "107312",
-    "storyCharacter": "1073",
-    "models": [
+      "107311",
       "107312"
     ]
   },
@@ -3401,41 +4328,6 @@
     ]
   },
   {
-    "name": "pcr-107531",
-    "character": "pekoriinu ( samaa ), 31",
-    "romaji": "pekoriinu ( samaa )",
-    "aliases": [
-      "ペコリーヌ（サマー）",
-      "1075",
-      "107531",
-      "佩可莉姆（夏日）",
-      "Story 1075",
-      "pekoriinu ( samaa )",
-      "pekoriinu ( samaa ), 31",
-      "Pecorine",
-      "121031",
-      "1210",
-      "Story 1210",
-      "佩可莉姆（超负荷）",
-      "ペコリーヌ（オーバーロード）",
-      "pekoriinu ( oobaaroodo )",
-      "pekoriinu ( oobaaroodo ), 31",
-      "180431",
-      "1804",
-      "Story 1804",
-      "佩可莉姆（公主）",
-      "ペコリーヌ（プリンセス）",
-      "pekoriinu ( purinsesu )",
-      "pekoriinu ( purinsesu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "107531",
-    "storyCharacter": "1075",
-    "models": [
-      "107531"
-    ]
-  },
-  {
     "name": "pcr-107611",
     "character": "kokkoro ( samaa ), 11",
     "romaji": "kokkoro ( samaa )",
@@ -3449,7 +4341,11 @@
       "kokkoro ( samaa ), 11",
       "Kokkoro",
       "107612",
-      "kokkoro ( samaa ), 12"
+      "kokkoro ( samaa ), 12",
+      "907601",
+      "9076",
+      "Story 9076",
+      "kokkoro ( samaa ), 01"
     ],
     "unnamed": false,
     "storyModel": "107611",
@@ -3501,32 +4397,6 @@
     "models": [
       "107711",
       "107712"
-    ]
-  },
-  {
-    "name": "pcr-107731",
-    "character": "suzume ( samaa ), 31",
-    "romaji": "suzume ( samaa )",
-    "aliases": [
-      "スズメ（サマー）",
-      "1077",
-      "107731",
-      "铃莓（夏日）",
-      "Story 1077",
-      "suzume ( samaa )",
-      "suzume ( samaa ), 31",
-      "130831",
-      "1308",
-      "Story 1308",
-      "suzume ( supuringu )",
-      "スズメ（スプリング）",
-      "suzume ( supuringu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "107731",
-    "storyCharacter": "1077",
-    "models": [
-      "107731"
     ]
   },
   {
@@ -3663,39 +4533,6 @@
     ]
   },
   {
-    "name": "pcr-108131",
-    "character": "shinobu ( harouin ), 31",
-    "romaji": "shinobu ( harouin )",
-    "aliases": [
-      "シノブ（ハロウィン）",
-      "1081",
-      "108131",
-      "忍（万圣节）",
-      "Story 1081",
-      "shinobu ( harouin )",
-      "shinobu ( harouin ), 31",
-      "122031",
-      "1220",
-      "Story 1220",
-      "忍（海盗）",
-      "シノブ（パイレーツ）",
-      "shinobu ( paireetsu )",
-      "shinobu ( paireetsu ), 31",
-      "127131",
-      "1271",
-      "Story 1271",
-      "shinobu ( samaa )",
-      "シノブ（サマー）",
-      "shinobu ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "108131",
-    "storyCharacter": "1081",
-    "models": [
-      "108131"
-    ]
-  },
-  {
     "name": "pcr-108211",
     "character": "miyako ( harouin ), 11",
     "romaji": "miyako ( harouin )",
@@ -3716,26 +4553,6 @@
     ]
   },
   {
-    "name": "pcr-108231",
-    "character": "miyako ( harouin ), 31",
-    "romaji": "miyako ( harouin )",
-    "aliases": [
-      "ミヤコ（ハロウィン）",
-      "1082",
-      "108231",
-      "宫子（万圣节）",
-      "Story 1082",
-      "miyako ( harouin )",
-      "miyako ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "108231",
-    "storyCharacter": "1082",
-    "models": [
-      "108231"
-    ]
-  },
-  {
     "name": "pcr-108311",
     "character": "misaki ( harouin ), 11",
     "romaji": "misaki ( harouin )",
@@ -3753,26 +4570,6 @@
     "storyCharacter": "1083",
     "models": [
       "108311"
-    ]
-  },
-  {
-    "name": "pcr-108331",
-    "character": "misaki ( harouin ), 31",
-    "romaji": "misaki ( harouin )",
-    "aliases": [
-      "ミサキ（ハロウィン）",
-      "1083",
-      "108331",
-      "美咲（万圣节）",
-      "Story 1083",
-      "misaki ( harouin )",
-      "misaki ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "108331",
-    "storyCharacter": "1083",
-    "models": [
-      "108331"
     ]
   },
   {
@@ -3836,26 +4633,6 @@
     ]
   },
   {
-    "name": "pcr-108531",
-    "character": "kurumi ( kurisumasu ), 31",
-    "romaji": "kurumi ( kurisumasu )",
-    "aliases": [
-      "クルミ（クリスマス）",
-      "1085",
-      "108531",
-      "胡桃（圣诞节）",
-      "Story 1085",
-      "kurumi ( kurisumasu )",
-      "kurumi ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "108531",
-    "storyCharacter": "1085",
-    "models": [
-      "108531"
-    ]
-  },
-  {
     "name": "pcr-108611",
     "character": "ayane ( kurisumasu ), 11",
     "romaji": "ayane ( kurisumasu )",
@@ -3873,33 +4650,6 @@
     "storyCharacter": "1086",
     "models": [
       "108611"
-    ]
-  },
-  {
-    "name": "pcr-108631",
-    "character": "ayane ( kurisumasu ), 31",
-    "romaji": "ayane ( kurisumasu )",
-    "aliases": [
-      "アヤネ（クリスマス）",
-      "1086",
-      "108631",
-      "绫音（圣诞节）",
-      "Story 1086",
-      "ayane ( kurisumasu )",
-      "ayane ( kurisumasu ), 31",
-      "123231",
-      "1232",
-      "Story 1232",
-      "绫音（探索者）",
-      "アヤネ（エクスプローラー）",
-      "ayane ( ekusupurooraa )",
-      "ayane ( ekusupurooraa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "108631",
-    "storyCharacter": "1086",
-    "models": [
-      "108631"
     ]
   },
   {
@@ -3924,26 +4674,23 @@
     ]
   },
   {
-    "name": "pcr-108731",
-    "character": "hiyori ( nyuuiyaa ), 31",
+    "name": "pcr-108732",
+    "character": "hiyori ( nyuuiyaa ), 32",
     "romaji": "hiyori ( nyuuiyaa )",
     "aliases": [
       "ヒヨリ（ニューイヤー）",
       "1087",
-      "108731",
+      "108732",
       "日和莉（新年）",
       "Story 1087",
       "hiyori ( nyuuiyaa )",
-      "hiyori ( nyuuiyaa ), 31",
-      "Hiyori",
-      "108732",
-      "hiyori ( nyuuiyaa ), 32"
+      "hiyori ( nyuuiyaa ), 32",
+      "Hiyori"
     ],
     "unnamed": false,
-    "storyModel": "108731",
+    "storyModel": "108732",
     "storyCharacter": "1087",
     "models": [
-      "108731",
       "108732"
     ]
   },
@@ -3969,26 +4716,23 @@
     ]
   },
   {
-    "name": "pcr-108831",
-    "character": "yui ( nyuuiyaa ), 31",
+    "name": "pcr-108832",
+    "character": "yui ( nyuuiyaa ), 32",
     "romaji": "yui ( nyuuiyaa )",
     "aliases": [
       "ユイ（ニューイヤー）",
       "1088",
-      "108831",
+      "108832",
       "优衣（新年）",
       "Story 1088",
       "yui ( nyuuiyaa )",
-      "yui ( nyuuiyaa ), 31",
-      "Yui",
-      "108832",
-      "yui ( nyuuiyaa ), 32"
+      "yui ( nyuuiyaa ), 32",
+      "Yui"
     ],
     "unnamed": false,
-    "storyModel": "108831",
+    "storyModel": "108832",
     "storyCharacter": "1088",
     "models": [
-      "108831",
       "108832"
     ]
   },
@@ -4061,26 +4805,6 @@
     ]
   },
   {
-    "name": "pcr-109031",
-    "character": "eriko ( barentain ), 31",
-    "romaji": "eriko ( barentain )",
-    "aliases": [
-      "エリコ（バレンタイン）",
-      "1090",
-      "109031",
-      "惠理子（情人节）",
-      "Story 1090",
-      "eriko ( barentain )",
-      "eriko ( barentain ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "109031",
-    "storyCharacter": "1090",
-    "models": [
-      "109031"
-    ]
-  },
-  {
     "name": "pcr-109111",
     "character": "shizuru ( barentain ), 11",
     "romaji": "shizuru ( barentain )",
@@ -4091,33 +4815,20 @@
       "静流（情人节）",
       "Story 1091",
       "shizuru ( barentain )",
-      "shizuru ( barentain ), 11"
+      "shizuru ( barentain ), 11",
+      "120013",
+      "1200",
+      "Story 1200",
+      "静流（黑暗）",
+      "シズル（ノワール）",
+      "shizuru ( nowaaru )",
+      "shizuru ( nowaaru ), 13"
     ],
     "unnamed": false,
     "storyModel": "109111",
     "storyCharacter": "1091",
     "models": [
       "109111"
-    ]
-  },
-  {
-    "name": "pcr-109131",
-    "character": "shizuru ( barentain ), 31",
-    "romaji": "shizuru ( barentain )",
-    "aliases": [
-      "シズル（バレンタイン）",
-      "1091",
-      "109131",
-      "静流（情人节）",
-      "Story 1091",
-      "shizuru ( barentain )",
-      "shizuru ( barentain ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "109131",
-    "storyCharacter": "1091",
-    "models": [
-      "109131"
     ]
   },
   {
@@ -4201,39 +4912,6 @@
     ]
   },
   {
-    "name": "pcr-109531",
-    "character": "kuuka ( ooedo ), 31",
-    "romaji": "kuuka ( ooedo )",
-    "aliases": [
-      "クウカ（オーエド）",
-      "1095",
-      "109531",
-      "空花（大江户）",
-      "Story 1095",
-      "kuuka ( ooedo )",
-      "kuuka ( ooedo ), 31",
-      "119131",
-      "1191",
-      "Story 1191",
-      "空花（黑暗）",
-      "クウカ（ノワール）",
-      "kuuka ( nowaaru )",
-      "kuuka ( nowaaru ), 31",
-      "127031",
-      "1270",
-      "Story 1270",
-      "kuuka ( samaa )",
-      "クウカ（サマー）",
-      "kuuka ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "109531",
-    "storyCharacter": "1095",
-    "models": [
-      "109531"
-    ]
-  },
-  {
     "name": "pcr-109611",
     "character": "ninon ( ooedo ), 11",
     "romaji": "ninon ( ooedo )",
@@ -4251,32 +4929,6 @@
     "storyCharacter": "1096",
     "models": [
       "109611"
-    ]
-  },
-  {
-    "name": "pcr-109631",
-    "character": "ninon ( ooedo ), 31",
-    "romaji": "ninon ( ooedo )",
-    "aliases": [
-      "ニノン（オーエド）",
-      "1096",
-      "109631",
-      "妮侬（大江户）",
-      "Story 1096",
-      "ninon ( ooedo )",
-      "ninon ( ooedo ), 31",
-      "137131",
-      "1371",
-      "Story 1371",
-      "ninon ( samaa )",
-      "ニノン（サマー）",
-      "ninon ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "109631",
-    "storyCharacter": "1096",
-    "models": [
-      "109631"
     ]
   },
   {
@@ -4298,8 +4950,7 @@
     "storyModel": "109711",
     "storyCharacter": "1097",
     "models": [
-      "109711",
-      "109712"
+      "109711"
     ]
   },
   {
@@ -4406,26 +5057,6 @@
     ]
   },
   {
-    "name": "pcr-110131",
-    "character": "io ( samaa ), 31",
-    "romaji": "io ( samaa )",
-    "aliases": [
-      "イオ（サマー）",
-      "1101",
-      "110131",
-      "伊绪（夏日）",
-      "Story 1101",
-      "io ( samaa )",
-      "io ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "110131",
-    "storyCharacter": "1101",
-    "models": [
-      "110131"
-    ]
-  },
-  {
     "name": "pcr-110211",
     "character": "misaki ( samaa ), 11",
     "romaji": "misaki ( samaa )",
@@ -4507,40 +5138,6 @@
     ]
   },
   {
-    "name": "pcr-110431",
-    "character": "makoto ( samaa ), 31",
-    "romaji": "makoto ( samaa )",
-    "aliases": [
-      "マコト（サマー）",
-      "1104",
-      "110431",
-      "真琴（夏日）",
-      "Story 1104",
-      "makoto ( samaa )",
-      "makoto ( samaa ), 31",
-      "Makoto",
-      "115931",
-      "1159",
-      "Story 1159",
-      "真琴（灰姑娘）",
-      "マコト（シンデレラ）",
-      "makoto ( shinderera )",
-      "makoto ( shinderera ), 31",
-      "129831",
-      "1298",
-      "Story 1298",
-      "makoto ( komandaa )",
-      "マコト（コマンダー）",
-      "makoto ( komandaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "110431",
-    "storyCharacter": "1104",
-    "models": [
-      "110431"
-    ]
-  },
-  {
     "name": "pcr-110511",
     "character": "kaori ( samaa ), 11",
     "romaji": "kaori ( samaa )",
@@ -4598,26 +5195,6 @@
     "storyCharacter": "1106",
     "models": [
       "110611"
-    ]
-  },
-  {
-    "name": "pcr-110631",
-    "character": "maho ( samaa ), 31",
-    "romaji": "maho ( samaa )",
-    "aliases": [
-      "マホ（サマー）",
-      "1106",
-      "110631",
-      "真步（夏日）",
-      "Story 1106",
-      "maho ( samaa )",
-      "maho ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "110631",
-    "storyCharacter": "1106",
-    "models": [
-      "110631"
     ]
   },
   {
@@ -4699,7 +5276,14 @@
       "kuroe",
       "kuroe, 31",
       "110832",
-      "kuroe, 32"
+      "kuroe, 32",
+      "116231",
+      "1162",
+      "Story 1162",
+      "克罗依（圣学祭）",
+      "クロエ（聖学祭）",
+      "kuroe ( seigaku matsuri )",
+      "kuroe ( seigaku matsuri ), 31"
     ],
     "unnamed": false,
     "storyModel": "110831",
@@ -4742,7 +5326,14 @@
       "chieru",
       "chieru, 31",
       "110932",
-      "chieru, 32"
+      "chieru, 32",
+      "116331",
+      "1163",
+      "Story 1163",
+      "千爱瑠（圣学祭）",
+      "チエル（聖学祭）",
+      "chieru ( seigaku matsuri )",
+      "chieru ( seigaku matsuri ), 31"
     ],
     "unnamed": false,
     "storyModel": "110931",
@@ -4785,7 +5376,14 @@
       "yuni",
       "yuni, 31",
       "111032",
-      "yuni, 32"
+      "yuni, 32",
+      "116431",
+      "1164",
+      "Story 1164",
+      "优妮（圣学祭）",
+      "ユニ（聖学祭）",
+      "yuni ( seigaku matsuri )",
+      "yuni ( seigaku matsuri ), 31"
     ],
     "unnamed": false,
     "storyModel": "111031",
@@ -4896,26 +5494,6 @@
     ]
   },
   {
-    "name": "pcr-111331",
-    "character": "mimi ( harouin ), 31",
-    "romaji": "mimi ( harouin )",
-    "aliases": [
-      "ミミ（ハロウィン）",
-      "1113",
-      "111331",
-      "美美（万圣节）",
-      "Story 1113",
-      "mimi ( harouin )",
-      "mimi ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "111331",
-    "storyCharacter": "1113",
-    "models": [
-      "111331"
-    ]
-  },
-  {
     "name": "pcr-111411",
     "character": "runa, 11",
     "romaji": "runa",
@@ -4979,32 +5557,6 @@
     ]
   },
   {
-    "name": "pcr-111531",
-    "character": "kurisuteiina ( kurisumasu ), 31",
-    "romaji": "kurisuteiina ( kurisumasu )",
-    "aliases": [
-      "クリスティーナ（クリスマス）",
-      "1115",
-      "111531",
-      "克莉丝提娜（圣诞节）",
-      "Story 1115",
-      "kurisuteiina ( kurisumasu )",
-      "kurisuteiina ( kurisumasu ), 31",
-      "123831",
-      "1238",
-      "Story 1238",
-      "kurisuteiina ( wairudo )",
-      "クリスティーナ（ワイルド）",
-      "kurisuteiina ( wairudo ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "111531",
-    "storyCharacter": "1115",
-    "models": [
-      "111531"
-    ]
-  },
-  {
     "name": "pcr-111611",
     "character": "nozomi ( kurisumasu ), 11",
     "romaji": "nozomi ( kurisumasu )",
@@ -5065,39 +5617,6 @@
     "models": [
       "111711",
       "111712"
-    ]
-  },
-  {
-    "name": "pcr-111731",
-    "character": "iriya ( kurisumasu ), 31",
-    "romaji": "iriya ( kurisumasu )",
-    "aliases": [
-      "イリヤ（クリスマス）",
-      "1117",
-      "111731",
-      "伊莉亚（圣诞节）",
-      "Story 1117",
-      "iriya ( kurisumasu )",
-      "iriya ( kurisumasu ), 31",
-      "120931",
-      "1209",
-      "Story 1209",
-      "伊莉亚（新年）",
-      "イリヤ（ニューイヤー）",
-      "iriya ( nyuuiyaa )",
-      "iriya ( nyuuiyaa ), 31",
-      "126231",
-      "1262",
-      "Story 1262",
-      "iriya ( gi shouzoku )",
-      "イリヤ（儀装束）",
-      "iriya ( gi shouzoku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "111731",
-    "storyCharacter": "1117",
-    "models": [
-      "111731"
     ]
   },
   {
@@ -5170,41 +5689,6 @@
     ]
   },
   {
-    "name": "pcr-111931",
-    "character": "kokkoro ( nyuuiyaa ), 31",
-    "romaji": "kokkoro ( nyuuiyaa )",
-    "aliases": [
-      "コッコロ（ニューイヤー）",
-      "1119",
-      "111931",
-      "可可萝（新年）",
-      "Story 1119",
-      "kokkoro ( nyuuiyaa )",
-      "kokkoro ( nyuuiyaa ), 31",
-      "Kokkoro",
-      "115531",
-      "1155",
-      "Story 1155",
-      "可可萝（礼服）",
-      "コッコロ（儀装束）",
-      "kokkoro ( gi shouzoku )",
-      "kokkoro ( gi shouzoku ), 31",
-      "180531",
-      "1805",
-      "Story 1805",
-      "可可萝（公主）",
-      "コッコロ（プリンセス）",
-      "kokkoro ( purinsesu )",
-      "kokkoro ( purinsesu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "111931",
-    "storyCharacter": "1119",
-    "models": [
-      "111931"
-    ]
-  },
-  {
     "name": "pcr-112011",
     "character": "kyaru ( nyuuiyaa ), 11",
     "romaji": "kyaru ( nyuuiyaa )",
@@ -5249,26 +5733,6 @@
     ]
   },
   {
-    "name": "pcr-112131",
-    "character": "suzume ( nyuuiyaa ), 31",
-    "romaji": "suzume ( nyuuiyaa )",
-    "aliases": [
-      "スズメ（ニューイヤー）",
-      "1121",
-      "112131",
-      "铃莓（新年）",
-      "Story 1121",
-      "suzume ( nyuuiyaa )",
-      "suzume ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112131",
-    "storyCharacter": "1121",
-    "models": [
-      "112131"
-    ]
-  },
-  {
     "name": "pcr-112211",
     "character": "kasumi ( majikaru ), 11",
     "romaji": "kasumi ( majikaru )",
@@ -5289,32 +5753,6 @@
     ]
   },
   {
-    "name": "pcr-112231",
-    "character": "kasumi ( majikaru ), 31",
-    "romaji": "kasumi ( majikaru )",
-    "aliases": [
-      "カスミ（マジカル）",
-      "1122",
-      "112231",
-      "香澄（魔法少女）",
-      "Story 1122",
-      "kasumi ( majikaru )",
-      "kasumi ( majikaru ), 31",
-      "137431",
-      "1374",
-      "Story 1374",
-      "kasumi ( shisutaa )",
-      "カスミ（シスター）",
-      "kasumi ( shisutaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112231",
-    "storyCharacter": "1122",
-    "models": [
-      "112231"
-    ]
-  },
-  {
     "name": "pcr-112311",
     "character": "shiori ( majikaru ), 11",
     "romaji": "shiori ( majikaru )",
@@ -5332,33 +5770,6 @@
     "storyCharacter": "1123",
     "models": [
       "112311"
-    ]
-  },
-  {
-    "name": "pcr-112331",
-    "character": "shiori ( majikaru ), 31",
-    "romaji": "shiori ( majikaru )",
-    "aliases": [
-      "シオリ（マジカル）",
-      "1123",
-      "112331",
-      "栞（魔法少女）",
-      "Story 1123",
-      "shiori ( majikaru )",
-      "shiori ( majikaru ), 31",
-      "118431",
-      "1184",
-      "Story 1184",
-      "栞（初音＆栞）",
-      "シオリ（ハツネ&シオリ）",
-      "shiori ( hatsune & shiori )",
-      "shiori ( hatsune & shiori ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112331",
-    "storyCharacter": "1123",
-    "models": [
-      "112331"
     ]
   },
   {
@@ -5502,32 +5913,6 @@
     ]
   },
   {
-    "name": "pcr-112731",
-    "character": "rin ( renjaa ), 31",
-    "romaji": "rin ( renjaa )",
-    "aliases": [
-      "リン（レンジャー）",
-      "1127",
-      "112731",
-      "铃（游骑兵）",
-      "Story 1127",
-      "rin ( renjaa )",
-      "rin ( renjaa ), 31",
-      "123531",
-      "1235",
-      "Story 1235",
-      "rin ( harouin )",
-      "リン（ハロウィン）",
-      "rin ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112731",
-    "storyCharacter": "1127",
-    "models": [
-      "112731"
-    ]
-  },
-  {
     "name": "pcr-112811",
     "character": "mahiru ( renjaa ), 11",
     "romaji": "mahiru ( renjaa )",
@@ -5545,26 +5930,6 @@
     "storyCharacter": "1128",
     "models": [
       "112811"
-    ]
-  },
-  {
-    "name": "pcr-112831",
-    "character": "mahiru ( renjaa ), 31",
-    "romaji": "mahiru ( renjaa )",
-    "aliases": [
-      "マヒル（レンジャー）",
-      "1128",
-      "112831",
-      "真阳（游骑兵）",
-      "Story 1128",
-      "mahiru ( renjaa )",
-      "mahiru ( renjaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112831",
-    "storyCharacter": "1128",
-    "models": [
-      "112831"
     ]
   },
   {
@@ -5591,39 +5956,6 @@
     ]
   },
   {
-    "name": "pcr-112931",
-    "character": "rino ( wandaa ), 31",
-    "romaji": "rino ( wandaa )",
-    "aliases": [
-      "リノ（ワンダー）",
-      "1129",
-      "112931",
-      "璃乃（仙境）",
-      "Story 1129",
-      "rino ( wandaa )",
-      "rino ( wandaa ), 31",
-      "119331",
-      "1193",
-      "Story 1193",
-      "璃乃（圣诞节）",
-      "リノ（クリスマス）",
-      "rino ( kurisumasu )",
-      "rino ( kurisumasu ), 31",
-      "137931",
-      "1379",
-      "Story 1379",
-      "rino ( nyuuiyaa )",
-      "リノ（ニューイヤー）",
-      "rino ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "112931",
-    "storyCharacter": "1129",
-    "models": [
-      "112931"
-    ]
-  },
-  {
     "name": "pcr-113011",
     "character": "ayumi ( wandaa ), 11",
     "romaji": "ayumi ( wandaa )",
@@ -5641,26 +5973,6 @@
     "storyCharacter": "1130",
     "models": [
       "113011"
-    ]
-  },
-  {
-    "name": "pcr-113031",
-    "character": "ayumi ( wandaa ), 31",
-    "romaji": "ayumi ( wandaa )",
-    "aliases": [
-      "アユミ（ワンダー）",
-      "1130",
-      "113031",
-      "步美（仙境）",
-      "Story 1130",
-      "ayumi ( wandaa )",
-      "ayumi ( wandaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113031",
-    "storyCharacter": "1130",
-    "models": [
-      "113031"
     ]
   },
   {
@@ -5744,26 +6056,6 @@
     ]
   },
   {
-    "name": "pcr-113331",
-    "character": "nanaka ( samaa ), 31",
-    "romaji": "nanaka ( samaa )",
-    "aliases": [
-      "ナナカ（サマー）",
-      "1133",
-      "113331",
-      "七七香（夏日）",
-      "Story 1133",
-      "nanaka ( samaa )",
-      "nanaka ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113331",
-    "storyCharacter": "1133",
-    "models": [
-      "113331"
-    ]
-  },
-  {
     "name": "pcr-113411",
     "character": "hatsune ( samaa ), 11",
     "romaji": "hatsune ( samaa )",
@@ -5787,39 +6079,6 @@
     ]
   },
   {
-    "name": "pcr-113431",
-    "character": "hatsune ( samaa ), 31",
-    "romaji": "hatsune ( samaa )",
-    "aliases": [
-      "ハツネ（サマー）",
-      "1134",
-      "113431",
-      "初音（夏日）",
-      "Story 1134",
-      "hatsune ( samaa )",
-      "hatsune ( samaa ), 31",
-      "118331",
-      "1183",
-      "Story 1183",
-      "初音（初音＆栞）",
-      "ハツネ（ハツネ&シオリ）",
-      "hatsune ( hatsune & shiori )",
-      "hatsune ( hatsune & shiori ), 31",
-      "128431",
-      "1284",
-      "Story 1284",
-      "hatsune ( nyuuiyaa )",
-      "ハツネ（ニューイヤー）",
-      "hatsune ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113431",
-    "storyCharacter": "1134",
-    "models": [
-      "113431"
-    ]
-  },
-  {
     "name": "pcr-113511",
     "character": "misato ( samaa ), 11",
     "romaji": "misato ( samaa )",
@@ -5837,26 +6096,6 @@
     "storyCharacter": "1135",
     "models": [
       "113511"
-    ]
-  },
-  {
-    "name": "pcr-113531",
-    "character": "misato ( samaa ), 31",
-    "romaji": "misato ( samaa )",
-    "aliases": [
-      "ミサト（サマー）",
-      "1135",
-      "113531",
-      "美里（夏日）",
-      "Story 1135",
-      "misato ( samaa )",
-      "misato ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113531",
-    "storyCharacter": "1135",
-    "models": [
-      "113531"
     ]
   },
   {
@@ -5902,8 +6141,7 @@
     "storyModel": "113711",
     "storyCharacter": "1137",
     "models": [
-      "113711",
-      "113712"
+      "113711"
     ]
   },
   {
@@ -5950,26 +6188,6 @@
     ]
   },
   {
-    "name": "pcr-113831",
-    "character": "yori ( enjieru ), 31",
-    "romaji": "yori ( enjieru )",
-    "aliases": [
-      "ヨリ（エンジェル）",
-      "1138",
-      "113831",
-      "依里（天使）",
-      "Story 1138",
-      "yori ( enjieru )",
-      "yori ( enjieru ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113831",
-    "storyCharacter": "1138",
-    "models": [
-      "113831"
-    ]
-  },
-  {
     "name": "pcr-113911",
     "character": "tsumugi ( harouin ), 11",
     "romaji": "tsumugi ( harouin )",
@@ -5987,26 +6205,6 @@
     "storyCharacter": "1139",
     "models": [
       "113911"
-    ]
-  },
-  {
-    "name": "pcr-113931",
-    "character": "tsumugi ( harouin ), 31",
-    "romaji": "tsumugi ( harouin )",
-    "aliases": [
-      "ツムギ（ハロウィン）",
-      "1139",
-      "113931",
-      "纺希（万圣节）",
-      "Story 1139",
-      "tsumugi ( harouin )",
-      "tsumugi ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "113931",
-    "storyCharacter": "1139",
-    "models": [
-      "113931"
     ]
   },
   {
@@ -6031,27 +6229,6 @@
     ]
   },
   {
-    "name": "pcr-114031",
-    "character": "rei ( harouin ), 31",
-    "romaji": "rei ( harouin )",
-    "aliases": [
-      "レイ（ハロウィン）",
-      "1140",
-      "114031",
-      "怜（万圣节）",
-      "Story 1140",
-      "rei ( harouin )",
-      "rei ( harouin ), 31",
-      "Rei"
-    ],
-    "unnamed": false,
-    "storyModel": "114031",
-    "storyCharacter": "1140",
-    "models": [
-      "114031"
-    ]
-  },
-  {
     "name": "pcr-114111",
     "character": "matsuri ( harouin ), 11",
     "romaji": "matsuri ( harouin )",
@@ -6069,32 +6246,6 @@
     "storyCharacter": "1141",
     "models": [
       "114111"
-    ]
-  },
-  {
-    "name": "pcr-114131",
-    "character": "matsuri ( harouin ), 31",
-    "romaji": "matsuri ( harouin )",
-    "aliases": [
-      "マツリ（ハロウィン）",
-      "1141",
-      "114131",
-      "茉莉（万圣节）",
-      "Story 1141",
-      "matsuri ( harouin )",
-      "matsuri ( harouin ), 31",
-      "123931",
-      "1239",
-      "Story 1239",
-      "matsuri ( wairudo )",
-      "マツリ（ワイルド）",
-      "matsuri ( wairudo ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "114131",
-    "storyCharacter": "1141",
-    "models": [
-      "114131"
     ]
   },
   {
@@ -6118,32 +6269,6 @@
     ]
   },
   {
-    "name": "pcr-114231",
-    "character": "monika ( majikaru ), 31",
-    "romaji": "monika ( majikaru )",
-    "aliases": [
-      "モニカ（マジカル）",
-      "1142",
-      "114231",
-      "莫妮卡（魔法少女）",
-      "Story 1142",
-      "monika ( majikaru )",
-      "monika ( majikaru ), 31",
-      "133231",
-      "1332",
-      "Story 1332",
-      "monika ( nyuuiyaa )",
-      "モニカ（ニューイヤー）",
-      "monika ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "114231",
-    "storyCharacter": "1142",
-    "models": [
-      "114231"
-    ]
-  },
-  {
     "name": "pcr-114311",
     "character": "tomo ( majikaru ), 11",
     "romaji": "tomo ( majikaru )",
@@ -6161,32 +6286,6 @@
     "storyCharacter": "1143",
     "models": [
       "114311"
-    ]
-  },
-  {
-    "name": "pcr-114331",
-    "character": "tomo ( majikaru ), 31",
-    "romaji": "tomo ( majikaru )",
-    "aliases": [
-      "トモ（マジカル）",
-      "1143",
-      "114331",
-      "智（魔法少女）",
-      "Story 1143",
-      "tomo ( majikaru )",
-      "tomo ( majikaru ), 31",
-      "123631",
-      "1236",
-      "Story 1236",
-      "tomo ( harouin )",
-      "トモ（ハロウィン）",
-      "tomo ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "114331",
-    "storyCharacter": "1143",
-    "models": [
-      "114331"
     ]
   },
   {
@@ -6256,26 +6355,6 @@
     ]
   },
   {
-    "name": "pcr-114531",
-    "character": "saren ( kurisumasu ), 31",
-    "romaji": "saren ( kurisumasu )",
-    "aliases": [
-      "サレン（クリスマス）",
-      "1145",
-      "114531",
-      "咲恋（圣诞节）",
-      "Story 1145",
-      "saren ( kurisumasu )",
-      "saren ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "114531",
-    "storyCharacter": "1145",
-    "models": [
-      "114531"
-    ]
-  },
-  {
     "name": "pcr-114611",
     "character": "yukari ( kurisumasu ), 11",
     "romaji": "yukari ( kurisumasu )",
@@ -6296,39 +6375,6 @@
     "models": [
       "114611",
       "114612"
-    ]
-  },
-  {
-    "name": "pcr-114631",
-    "character": "yukari ( kurisumasu ), 31",
-    "romaji": "yukari ( kurisumasu )",
-    "aliases": [
-      "ユカリ（クリスマス）",
-      "1146",
-      "114631",
-      "由加莉（圣诞节）",
-      "Story 1146",
-      "yukari ( kurisumasu )",
-      "yukari ( kurisumasu ), 31",
-      "122231",
-      "1222",
-      "Story 1222",
-      "由加莉（露营）",
-      "ユカリ（キャンプ）",
-      "yukari ( kyanpu )",
-      "yukari ( kyanpu ), 31",
-      "126831",
-      "1268",
-      "Story 1268",
-      "yukari ( samaa )",
-      "ユカリ（サマー）",
-      "yukari ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "114631",
-    "storyCharacter": "1146",
-    "models": [
-      "114631"
     ]
   },
   {
@@ -6369,26 +6415,6 @@
     "storyCharacter": "1150",
     "models": [
       "115011"
-    ]
-  },
-  {
-    "name": "pcr-115031",
-    "character": "neneka ( nyuuiyaa ), 31",
-    "romaji": "neneka ( nyuuiyaa )",
-    "aliases": [
-      "ネネカ（ニューイヤー）",
-      "1150",
-      "115031",
-      "似似花（新年）",
-      "Story 1150",
-      "neneka ( nyuuiyaa )",
-      "neneka ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "115031",
-    "storyCharacter": "1150",
-    "models": [
-      "115031"
     ]
   },
   {
@@ -6437,27 +6463,6 @@
     ]
   },
   {
-    "name": "pcr-115631",
-    "character": "yui ( gi shouzoku ), 31",
-    "romaji": "yui ( gi shouzoku )",
-    "aliases": [
-      "ユイ（儀装束）",
-      "1156",
-      "115631",
-      "优衣（礼服）",
-      "Story 1156",
-      "yui ( gi shouzoku )",
-      "yui ( gi shouzoku ), 31",
-      "Yui"
-    ],
-    "unnamed": false,
-    "storyModel": "115631",
-    "storyCharacter": "1156",
-    "models": [
-      "115631"
-    ]
-  },
-  {
     "name": "pcr-115711",
     "character": "kasumi ( samaa ), 11",
     "romaji": "kasumi ( samaa )",
@@ -6475,32 +6480,6 @@
     "storyCharacter": "1157",
     "models": [
       "115711"
-    ]
-  },
-  {
-    "name": "pcr-115731",
-    "character": "kasumi ( samaa ), 31",
-    "romaji": "kasumi ( samaa )",
-    "aliases": [
-      "カスミ（サマー）",
-      "1157",
-      "115731",
-      "香澄（夏日）",
-      "Story 1157",
-      "kasumi ( samaa )",
-      "kasumi ( samaa ), 31",
-      "128531",
-      "1285",
-      "Story 1285",
-      "kasumi ( nyuuiyaa )",
-      "カスミ（ニューイヤー）",
-      "kasumi ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "115731",
-    "storyCharacter": "1157",
-    "models": [
-      "115731"
     ]
   },
   {
@@ -6525,27 +6504,6 @@
     "models": [
       "115811",
       "115812"
-    ]
-  },
-  {
-    "name": "pcr-115831",
-    "character": "rima ( shinderera ), 31",
-    "romaji": "rima ( shinderera )",
-    "aliases": [
-      "リマ（シンデレラ）",
-      "1158",
-      "115831",
-      "莉玛（灰姑娘）",
-      "Story 1158",
-      "rima ( shinderera )",
-      "rima ( shinderera ), 31",
-      "Lima"
-    ],
-    "unnamed": false,
-    "storyModel": "115831",
-    "storyCharacter": "1158",
-    "models": [
-      "115831"
     ]
   },
   {
@@ -6590,26 +6548,6 @@
     ]
   },
   {
-    "name": "pcr-116031",
-    "character": "maho ( shinderera ), 31",
-    "romaji": "maho ( shinderera )",
-    "aliases": [
-      "マホ（シンデレラ）",
-      "1160",
-      "116031",
-      "真步（灰姑娘）",
-      "Story 1160",
-      "maho ( shinderera )",
-      "maho ( shinderera ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116031",
-    "storyCharacter": "1160",
-    "models": [
-      "116031"
-    ]
-  },
-  {
     "name": "pcr-116211",
     "character": "kuroe ( seigaku matsuri ), 11",
     "romaji": "kuroe ( seigaku matsuri )",
@@ -6627,26 +6565,6 @@
     "storyCharacter": "1162",
     "models": [
       "116211"
-    ]
-  },
-  {
-    "name": "pcr-116231",
-    "character": "kuroe ( seigaku matsuri ), 31",
-    "romaji": "kuroe ( seigaku matsuri )",
-    "aliases": [
-      "クロエ（聖学祭）",
-      "1162",
-      "116231",
-      "克罗依（圣学祭）",
-      "Story 1162",
-      "kuroe ( seigaku matsuri )",
-      "kuroe ( seigaku matsuri ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116231",
-    "storyCharacter": "1162",
-    "models": [
-      "116231"
     ]
   },
   {
@@ -6670,26 +6588,6 @@
     ]
   },
   {
-    "name": "pcr-116331",
-    "character": "chieru ( seigaku matsuri ), 31",
-    "romaji": "chieru ( seigaku matsuri )",
-    "aliases": [
-      "チエル（聖学祭）",
-      "1163",
-      "116331",
-      "千爱瑠（圣学祭）",
-      "Story 1163",
-      "chieru ( seigaku matsuri )",
-      "chieru ( seigaku matsuri ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116331",
-    "storyCharacter": "1163",
-    "models": [
-      "116331"
-    ]
-  },
-  {
     "name": "pcr-116411",
     "character": "yuni ( seigaku matsuri ), 11",
     "romaji": "yuni ( seigaku matsuri )",
@@ -6707,26 +6605,6 @@
     "storyCharacter": "1164",
     "models": [
       "116411"
-    ]
-  },
-  {
-    "name": "pcr-116431",
-    "character": "yuni ( seigaku matsuri ), 31",
-    "romaji": "yuni ( seigaku matsuri )",
-    "aliases": [
-      "ユニ（聖学祭）",
-      "1164",
-      "116431",
-      "优妮（圣学祭）",
-      "Story 1164",
-      "yuni ( seigaku matsuri )",
-      "yuni ( seigaku matsuri ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116431",
-    "storyCharacter": "1164",
-    "models": [
-      "116431"
     ]
   },
   {
@@ -6770,26 +6648,6 @@
     ]
   },
   {
-    "name": "pcr-116631",
-    "character": "kaya ( taimutoraberu ), 31",
-    "romaji": "kaya ( taimutoraberu )",
-    "aliases": [
-      "カヤ（タイムトラベル）",
-      "1166",
-      "116631",
-      "嘉夜（时间旅行）",
-      "Story 1166",
-      "kaya ( taimutoraberu )",
-      "kaya ( taimutoraberu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116631",
-    "storyCharacter": "1166",
-    "models": [
-      "116631"
-    ]
-  },
-  {
     "name": "pcr-116711",
     "character": "aoi ( sagyoufuku ), 11",
     "romaji": "aoi ( sagyoufuku )",
@@ -6810,36 +6668,7 @@
     "storyModel": "116711",
     "storyCharacter": "1167",
     "models": [
-      "116711",
-      "116712",
-      "116713"
-    ]
-  },
-  {
-    "name": "pcr-116731",
-    "character": "aoi ( sagyoufuku ), 31",
-    "romaji": "aoi ( sagyoufuku )",
-    "aliases": [
-      "アオイ（作業服）",
-      "1167",
-      "116731",
-      "碧（工作服）",
-      "Story 1167",
-      "aoi ( sagyoufuku )",
-      "aoi ( sagyoufuku ), 31",
-      "122131",
-      "1221",
-      "Story 1221",
-      "碧（露营）",
-      "アオイ（キャンプ）",
-      "aoi ( kyanpu )",
-      "aoi ( kyanpu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116731",
-    "storyCharacter": "1167",
-    "models": [
-      "116731"
+      "116711"
     ]
   },
   {
@@ -6900,26 +6729,6 @@
     "storyCharacter": "1169",
     "models": [
       "116911"
-    ]
-  },
-  {
-    "name": "pcr-116931",
-    "character": "mifuyu ( sagyoufuku ), 31",
-    "romaji": "mifuyu ( sagyoufuku )",
-    "aliases": [
-      "ミフユ（作業服）",
-      "1169",
-      "116931",
-      "美冬（工作服）",
-      "Story 1169",
-      "mifuyu ( sagyoufuku )",
-      "mifuyu ( sagyoufuku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "116931",
-    "storyCharacter": "1169",
-    "models": [
-      "116931"
     ]
   },
   {
@@ -7023,38 +6832,6 @@
     ]
   },
   {
-    "name": "pcr-117231",
-    "character": "nozomi ( samaa ), 31",
-    "romaji": "nozomi ( samaa )",
-    "aliases": [
-      "ノゾミ（サマー）",
-      "1172",
-      "117231",
-      "望（夏日）",
-      "Story 1172",
-      "nozomi ( samaa )",
-      "nozomi ( samaa ), 31",
-      "124831",
-      "1248",
-      "Story 1248",
-      "nozomi ( ribereitaa )",
-      "ノゾミ（リベレイター）",
-      "nozomi ( ribereitaa ), 31",
-      "132231",
-      "1322",
-      "Story 1322",
-      "nozomi ( arukemisuto )",
-      "ノゾミ（アルケミスト）",
-      "nozomi ( arukemisuto ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117231",
-    "storyCharacter": "1172",
-    "models": [
-      "117231"
-    ]
-  },
-  {
     "name": "pcr-117311",
     "character": "chika ( samaa ), 11",
     "romaji": "chika ( samaa )",
@@ -7072,26 +6849,6 @@
     "storyCharacter": "1173",
     "models": [
       "117311"
-    ]
-  },
-  {
-    "name": "pcr-117331",
-    "character": "chika ( samaa ), 31",
-    "romaji": "chika ( samaa )",
-    "aliases": [
-      "チカ（サマー）",
-      "1173",
-      "117331",
-      "千歌（夏日）",
-      "Story 1173",
-      "chika ( samaa )",
-      "chika ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117331",
-    "storyCharacter": "1173",
-    "models": [
-      "117331"
     ]
   },
   {
@@ -7155,32 +6912,6 @@
     ]
   },
   {
-    "name": "pcr-117531",
-    "character": "mitsuki ( ooedo ), 31",
-    "romaji": "mitsuki ( ooedo )",
-    "aliases": [
-      "ミツキ（オーエド）",
-      "1175",
-      "117531",
-      "深月（大江户）",
-      "Story 1175",
-      "mitsuki ( ooedo )",
-      "mitsuki ( ooedo ), 31",
-      "124731",
-      "1247",
-      "Story 1247",
-      "mitsuki ( nyuuiyaa )",
-      "ミツキ（ニューイヤー）",
-      "mitsuki ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117531",
-    "storyCharacter": "1175",
-    "models": [
-      "117531"
-    ]
-  },
-  {
     "name": "pcr-117611",
     "character": "yuki ( ooedo ), 11",
     "romaji": "yuki ( ooedo )",
@@ -7201,26 +6932,6 @@
     ]
   },
   {
-    "name": "pcr-117631",
-    "character": "yuki ( ooedo ), 31",
-    "romaji": "yuki ( ooedo )",
-    "aliases": [
-      "ユキ（オーエド）",
-      "1176",
-      "117631",
-      "雪（大江户）",
-      "Story 1176",
-      "yuki ( ooedo )",
-      "yuki ( ooedo ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117631",
-    "storyCharacter": "1176",
-    "models": [
-      "117631"
-    ]
-  },
-  {
     "name": "pcr-117711",
     "character": "kaori ( harouin ), 11",
     "romaji": "kaori ( harouin )",
@@ -7238,26 +6949,6 @@
     "storyCharacter": "1177",
     "models": [
       "117711"
-    ]
-  },
-  {
-    "name": "pcr-117731",
-    "character": "kaori ( harouin ), 31",
-    "romaji": "kaori ( harouin )",
-    "aliases": [
-      "カオリ（ハロウィン）",
-      "1177",
-      "117731",
-      "香织（万圣节）",
-      "Story 1177",
-      "kaori ( harouin )",
-      "kaori ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117731",
-    "storyCharacter": "1177",
-    "models": [
-      "117731"
     ]
   },
   {
@@ -7298,26 +6989,6 @@
     "storyCharacter": "1179",
     "models": [
       "117911"
-    ]
-  },
-  {
-    "name": "pcr-117931",
-    "character": "suzuna ( harouin ), 31",
-    "romaji": "suzuna ( harouin )",
-    "aliases": [
-      "スズナ（ハロウィン）",
-      "1179",
-      "117931",
-      "铃奈（万圣节）",
-      "Story 1179",
-      "suzuna ( harouin )",
-      "suzuna ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "117931",
-    "storyCharacter": "1179",
-    "models": [
-      "117931"
     ]
   },
   {
@@ -7397,7 +7068,19 @@
       "兰法",
       "Story 1181",
       "ranfa",
-      "ranfa, 31"
+      "ranfa, 31",
+      "126931",
+      "1269",
+      "Story 1269",
+      "ranfa ( samaa )",
+      "ランファ（サマー）",
+      "ranfa ( samaa ), 31",
+      "134331",
+      "1343",
+      "Story 1343",
+      "ranfa ( gi shouzoku )",
+      "ランファ（儀装束）",
+      "ranfa ( gi shouzoku ), 31"
     ],
     "unnamed": false,
     "storyModel": "118131",
@@ -7416,7 +7099,11 @@
       "118211",
       "misora",
       "Story 1182",
-      "misora, 11"
+      "misora, 11",
+      "192012",
+      "1920",
+      "Story 1920",
+      "Story 1920, 12"
     ],
     "unnamed": false,
     "storyModel": "118211",
@@ -7436,6 +7123,12 @@
       "misora",
       "Story 1182",
       "misora, 31",
+      "131231",
+      "1312",
+      "Story 1312",
+      "misora ( samaa )",
+      "ミソラ（サマー）",
+      "misora ( samaa ), 31",
       "136331",
       "1363",
       "Story 1363",
@@ -7534,7 +7227,13 @@
       "花凛",
       "Story 1185",
       "karin",
-      "karin, 31"
+      "karin, 31",
+      "125731",
+      "1257",
+      "Story 1257",
+      "karin ( arukemisuto )",
+      "カリン（アルケミスト）",
+      "karin ( arukemisuto ), 31"
     ],
     "unnamed": false,
     "storyModel": "118531",
@@ -7596,26 +7295,6 @@
     ]
   },
   {
-    "name": "pcr-119031",
-    "character": "io ( nowaaru ), 31",
-    "romaji": "io ( nowaaru )",
-    "aliases": [
-      "イオ（ノワール）",
-      "1190",
-      "119031",
-      "伊绪（黑暗）",
-      "Story 1190",
-      "io ( nowaaru )",
-      "io ( nowaaru ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "119031",
-    "storyCharacter": "1190",
-    "models": [
-      "119031"
-    ]
-  },
-  {
     "name": "pcr-119111",
     "character": "kuuka ( nowaaru ), 11",
     "romaji": "kuuka ( nowaaru )",
@@ -7628,18 +7307,14 @@
       "kuuka ( nowaaru )",
       "kuuka ( nowaaru ), 11",
       "119112",
-      "kuuka ( nowaaru ), 12",
-      "120211",
-      "1202",
-      "Story 1202"
+      "kuuka ( nowaaru ), 12"
     ],
     "unnamed": false,
     "storyModel": "119111",
     "storyCharacter": "1191",
     "models": [
       "119111",
-      "119112",
-      "120211"
+      "119112"
     ]
   },
   {
@@ -7660,26 +7335,6 @@
     "storyCharacter": "1192",
     "models": [
       "119211"
-    ]
-  },
-  {
-    "name": "pcr-119231",
-    "character": "mahiru ( kurisumasu ), 31",
-    "romaji": "mahiru ( kurisumasu )",
-    "aliases": [
-      "マヒル（クリスマス）",
-      "1192",
-      "119231",
-      "真阳（圣诞节）",
-      "Story 1192",
-      "mahiru ( kurisumasu )",
-      "mahiru ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "119231",
-    "storyCharacter": "1192",
-    "models": [
-      "119231"
     ]
   },
   {
@@ -7723,26 +7378,6 @@
     ]
   },
   {
-    "name": "pcr-119931",
-    "character": "miyako ( kurisumasu ), 31",
-    "romaji": "miyako ( kurisumasu )",
-    "aliases": [
-      "ミヤコ（クリスマス）",
-      "1199",
-      "119931",
-      "宫子（圣诞节）",
-      "Story 1199",
-      "miyako ( kurisumasu )",
-      "miyako ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "119931",
-    "storyCharacter": "1199",
-    "models": [
-      "119931"
-    ]
-  },
-  {
     "name": "pcr-120011",
     "character": "shizuru ( nowaaru ), 11",
     "romaji": "shizuru ( nowaaru )",
@@ -7754,14 +7389,8 @@
       "Story 1200",
       "shizuru ( nowaaru )",
       "shizuru ( nowaaru ), 11",
-      "120012",
-      "shizuru ( nowaaru ), 12",
-      "120013",
-      "shizuru ( nowaaru ), 13",
       "120014",
       "shizuru ( nowaaru ), 14",
-      "120015",
-      "shizuru ( nowaaru ), 15",
       "120016",
       "shizuru ( nowaaru ), 16",
       "120017",
@@ -7775,39 +7404,8 @@
     "storyCharacter": "1200",
     "models": [
       "120011",
-      "120012",
-      "120013",
       "120014",
-      "120015",
-      "120016",
-      "120017",
-      "120311"
-    ]
-  },
-  {
-    "name": "pcr-120031",
-    "character": "shizuru ( nowaaru ), 31",
-    "romaji": "shizuru ( nowaaru )",
-    "aliases": [
-      "シズル（ノワール）",
-      "1200",
-      "120031",
-      "静流（黑暗）",
-      "Story 1200",
-      "shizuru ( nowaaru )",
-      "shizuru ( nowaaru ), 31",
-      "136531",
-      "1365",
-      "Story 1365",
-      "shizuru ( nyuuiyaa )",
-      "シズル（ニューイヤー）",
-      "shizuru ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "120031",
-    "storyCharacter": "1200",
-    "models": [
-      "120031"
+      "120016"
     ]
   },
   {
@@ -7898,33 +7496,6 @@
     ]
   },
   {
-    "name": "pcr-120731",
-    "character": "shiefi ( nyuuiyaa ), 31",
-    "romaji": "shiefi ( nyuuiyaa )",
-    "aliases": [
-      "シェフィ（ニューイヤー）",
-      "1207",
-      "120731",
-      "雪菲（新年）",
-      "Story 1207",
-      "shiefi ( nyuuiyaa )",
-      "shiefi ( nyuuiyaa ), 31",
-      "Sheffy",
-      "139831",
-      "1398",
-      "Story 1398",
-      "shiefi ( vaadorahhe )",
-      "シェフィ（ヴァードラッヘ）",
-      "shiefi ( vaadorahhe ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "120731",
-    "storyCharacter": "1207",
-    "models": [
-      "120731"
-    ]
-  },
-  {
     "name": "pcr-120811",
     "character": "ruka ( nyuuiyaa ), 11",
     "romaji": "ruka ( nyuuiyaa )",
@@ -7942,26 +7513,6 @@
     "storyCharacter": "1208",
     "models": [
       "120811"
-    ]
-  },
-  {
-    "name": "pcr-120831",
-    "character": "ruka ( nyuuiyaa ), 31",
-    "romaji": "ruka ( nyuuiyaa )",
-    "aliases": [
-      "ルカ（ニューイヤー）",
-      "1208",
-      "120831",
-      "流夏（新年）",
-      "Story 1208",
-      "ruka ( nyuuiyaa )",
-      "ruka ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "120831",
-    "storyCharacter": "1208",
-    "models": [
-      "120831"
     ]
   },
   {
@@ -8053,32 +7604,6 @@
     ]
   },
   {
-    "name": "pcr-121231",
-    "character": "rabirisuta ( oobaaroodo ), 31",
-    "romaji": "rabirisuta ( oobaaroodo )",
-    "aliases": [
-      "ラビリスタ（オーバーロード）",
-      "1212",
-      "121231",
-      "菈比莉斯塔（超负荷）",
-      "Story 1212",
-      "rabirisuta ( oobaaroodo )",
-      "rabirisuta ( oobaaroodo ), 31",
-      "133731",
-      "1337",
-      "Story 1337",
-      "rabirisuta ( arufa )",
-      "ラビリスタ（アルファ）",
-      "rabirisuta ( arufa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "121231",
-    "storyCharacter": "1212",
-    "models": [
-      "121231"
-    ]
-  },
-  {
     "name": "pcr-121311",
     "character": "kurumi ( suteeji ), 11",
     "romaji": "kurumi ( suteeji )",
@@ -8096,26 +7621,6 @@
     "storyCharacter": "1213",
     "models": [
       "121311"
-    ]
-  },
-  {
-    "name": "pcr-121331",
-    "character": "kurumi ( suteeji ), 31",
-    "romaji": "kurumi ( suteeji )",
-    "aliases": [
-      "クルミ（ステージ）",
-      "1213",
-      "121331",
-      "胡桃（舞台）",
-      "Story 1213",
-      "kurumi ( suteeji )",
-      "kurumi ( suteeji ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "121331",
-    "storyCharacter": "1213",
-    "models": [
-      "121331"
     ]
   },
   {
@@ -8139,26 +7644,6 @@
     ]
   },
   {
-    "name": "pcr-121431",
-    "character": "misaki ( suteeji ), 31",
-    "romaji": "misaki ( suteeji )",
-    "aliases": [
-      "ミサキ（ステージ）",
-      "1214",
-      "121431",
-      "美咲（舞台）",
-      "Story 1214",
-      "misaki ( suteeji )",
-      "misaki ( suteeji ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "121431",
-    "storyCharacter": "1214",
-    "models": [
-      "121431"
-    ]
-  },
-  {
     "name": "pcr-121511",
     "character": "ayumi ( kaitou ), 11",
     "romaji": "ayumi ( kaitou )",
@@ -8177,28 +7662,7 @@
     "storyModel": "121511",
     "storyCharacter": "1215",
     "models": [
-      "121511",
-      "121512"
-    ]
-  },
-  {
-    "name": "pcr-121531",
-    "character": "ayumi ( kaitou ), 31",
-    "romaji": "ayumi ( kaitou )",
-    "aliases": [
-      "アユミ（怪盗）",
-      "1215",
-      "121531",
-      "步美（怪盗）",
-      "Story 1215",
-      "ayumi ( kaitou )",
-      "ayumi ( kaitou ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "121531",
-    "storyCharacter": "1215",
-    "models": [
-      "121531"
+      "121511"
     ]
   },
   {
@@ -8285,26 +7749,6 @@
     "models": [
       "121911",
       "121912"
-    ]
-  },
-  {
-    "name": "pcr-121931",
-    "character": "anna ( paireetsu ), 31",
-    "romaji": "anna ( paireetsu )",
-    "aliases": [
-      "アンナ（パイレーツ）",
-      "1219",
-      "121931",
-      "杏奈（海盗）",
-      "Story 1219",
-      "anna ( paireetsu )",
-      "anna ( paireetsu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "121931",
-    "storyCharacter": "1219",
-    "models": [
-      "121931"
     ]
   },
   {
@@ -8403,7 +7847,13 @@
       "vanpii",
       "vanpii, 31",
       "122332",
-      "vanpii, 32"
+      "vanpii, 32",
+      "140231",
+      "1402",
+      "Story 1402",
+      "vanpii ( samaa )",
+      "ヴァンピィ（サマー）",
+      "vanpii ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "122331",
@@ -8640,26 +8090,6 @@
     ]
   },
   {
-    "name": "pcr-122931",
-    "character": "mimi ( samaa ), 31",
-    "romaji": "mimi ( samaa )",
-    "aliases": [
-      "ミミ（サマー）",
-      "1229",
-      "122931",
-      "美美（夏日）",
-      "Story 1229",
-      "mimi ( samaa )",
-      "mimi ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "122931",
-    "storyCharacter": "1229",
-    "models": [
-      "122931"
-    ]
-  },
-  {
     "name": "pcr-123011",
     "character": "amesu, 11",
     "romaji": "amesu",
@@ -8670,13 +8100,19 @@
       "爱梅斯",
       "Story 1230",
       "amesu",
-      "amesu, 11"
+      "amesu, 11",
+      "190011",
+      "1900",
+      "Story 1900",
+      "Ameth",
+      "Ames"
     ],
     "unnamed": false,
     "storyModel": "123011",
     "storyCharacter": "1230",
     "models": [
-      "123011"
+      "123011",
+      "190011"
     ]
   },
   {
@@ -8690,7 +8126,13 @@
       "爱梅斯",
       "Story 1230",
       "amesu",
-      "amesu, 31"
+      "amesu, 31",
+      "140831",
+      "1408",
+      "Story 1408",
+      "amesu ( gannaa )",
+      "アメス（ガンナー）",
+      "amesu ( gannaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "123031",
@@ -8717,32 +8159,6 @@
     "storyCharacter": "1231",
     "models": [
       "123111"
-    ]
-  },
-  {
-    "name": "pcr-123131",
-    "character": "maho ( ekusupurooraa ), 31",
-    "romaji": "maho ( ekusupurooraa )",
-    "aliases": [
-      "マホ（エクスプローラー）",
-      "1231",
-      "123131",
-      "真步（探索者）",
-      "Story 1231",
-      "maho ( ekusupurooraa )",
-      "maho ( ekusupurooraa ), 31",
-      "131031",
-      "1310",
-      "Story 1310",
-      "maho ( doriimupaaku )",
-      "マホ（ドリームパーク）",
-      "maho ( doriimupaaku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "123131",
-    "storyCharacter": "1231",
-    "models": [
-      "123131"
     ]
   },
   {
@@ -8783,8 +8199,7 @@
     "storyModel": "123311",
     "storyCharacter": "1233",
     "models": [
-      "123311",
-      "123312"
+      "123311"
     ]
   },
   {
@@ -8870,25 +8285,6 @@
     ]
   },
   {
-    "name": "pcr-123731",
-    "character": "nanaka ( harouin ), 31",
-    "romaji": "nanaka ( harouin )",
-    "aliases": [
-      "ナナカ（ハロウィン）",
-      "1237",
-      "123731",
-      "nanaka ( harouin )",
-      "Story 1237",
-      "nanaka ( harouin ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "123731",
-    "storyCharacter": "1237",
-    "models": [
-      "123731"
-    ]
-  },
-  {
     "name": "pcr-123811",
     "character": "kurisuteiina ( wairudo ), 11",
     "romaji": "kurisuteiina ( wairudo )",
@@ -8952,25 +8348,6 @@
     ]
   },
   {
-    "name": "pcr-124031",
-    "character": "akari ( kurisumasu ), 31",
-    "romaji": "akari ( kurisumasu )",
-    "aliases": [
-      "アカリ（クリスマス）",
-      "1240",
-      "124031",
-      "akari ( kurisumasu )",
-      "Story 1240",
-      "akari ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "124031",
-    "storyCharacter": "1240",
-    "models": [
-      "124031"
-    ]
-  },
-  {
     "name": "pcr-124111",
     "character": "yori ( kurisumasu ), 11",
     "romaji": "yori ( kurisumasu )",
@@ -8990,25 +8367,6 @@
     "models": [
       "124111",
       "124112"
-    ]
-  },
-  {
-    "name": "pcr-124131",
-    "character": "yori ( kurisumasu ), 31",
-    "romaji": "yori ( kurisumasu )",
-    "aliases": [
-      "ヨリ（クリスマス）",
-      "1241",
-      "124131",
-      "yori ( kurisumasu )",
-      "Story 1241",
-      "yori ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "124131",
-    "storyCharacter": "1241",
-    "models": [
-      "124131"
     ]
   },
   {
@@ -9098,31 +8456,6 @@
     ]
   },
   {
-    "name": "pcr-124531",
-    "character": "homare ( nyuuiyaa ), 31",
-    "romaji": "homare ( nyuuiyaa )",
-    "aliases": [
-      "ホマレ（ニューイヤー）",
-      "1245",
-      "124531",
-      "homare ( nyuuiyaa )",
-      "Story 1245",
-      "homare ( nyuuiyaa ), 31",
-      "131831",
-      "1318",
-      "Story 1318",
-      "homare ( samaa )",
-      "ホマレ（サマー）",
-      "homare ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "124531",
-    "storyCharacter": "1245",
-    "models": [
-      "124531"
-    ]
-  },
-  {
     "name": "pcr-124611",
     "character": "misato ( nyuuiyaa ), 11",
     "romaji": "misato ( nyuuiyaa )",
@@ -9139,25 +8472,6 @@
     "storyCharacter": "1246",
     "models": [
       "124611"
-    ]
-  },
-  {
-    "name": "pcr-124631",
-    "character": "misato ( nyuuiyaa ), 31",
-    "romaji": "misato ( nyuuiyaa )",
-    "aliases": [
-      "ミサト（ニューイヤー）",
-      "1246",
-      "124631",
-      "misato ( nyuuiyaa )",
-      "Story 1246",
-      "misato ( nyuuiyaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "124631",
-    "storyCharacter": "1246",
-    "models": [
-      "124631"
     ]
   },
   {
@@ -9221,25 +8535,6 @@
     ]
   },
   {
-    "name": "pcr-124931",
-    "character": "kaya ( ribereitaa ), 31",
-    "romaji": "kaya ( ribereitaa )",
-    "aliases": [
-      "カヤ（リベレイター）",
-      "1249",
-      "124931",
-      "kaya ( ribereitaa )",
-      "Story 1249",
-      "kaya ( ribereitaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "124931",
-    "storyCharacter": "1249",
-    "models": [
-      "124931"
-    ]
-  },
-  {
     "name": "pcr-125011",
     "character": "muimi ( ribereitaa ), 11",
     "romaji": "muimi ( ribereitaa )",
@@ -9250,19 +8545,18 @@
       "muimi ( ribereitaa )",
       "Story 1250",
       "muimi ( ribereitaa ), 11",
-      "125012",
-      "muimi ( ribereitaa ), 12",
       "125013",
       "muimi ( ribereitaa ), 13",
       "125014",
-      "muimi ( ribereitaa ), 14"
+      "muimi ( ribereitaa ), 14",
+      "125012",
+      "muimi ( ribereitaa ), 12"
     ],
     "unnamed": false,
     "storyModel": "125011",
     "storyCharacter": "1250",
     "models": [
       "125011",
-      "125012",
       "125013",
       "125014"
     ]
@@ -9306,25 +8600,6 @@
     ]
   },
   {
-    "name": "pcr-125131",
-    "character": "tamaki ( kafe ), 31",
-    "romaji": "tamaki ( kafe )",
-    "aliases": [
-      "タマキ（カフェ）",
-      "1251",
-      "125131",
-      "tamaki ( kafe )",
-      "Story 1251",
-      "tamaki ( kafe ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "125131",
-    "storyCharacter": "1251",
-    "models": [
-      "125131"
-    ]
-  },
-  {
     "name": "pcr-125211",
     "character": "monika ( kafe ), 11",
     "romaji": "monika ( kafe )",
@@ -9344,25 +8619,6 @@
     "models": [
       "125211",
       "125212"
-    ]
-  },
-  {
-    "name": "pcr-125231",
-    "character": "monika ( kafe ), 31",
-    "romaji": "monika ( kafe )",
-    "aliases": [
-      "モニカ（カフェ）",
-      "1252",
-      "125231",
-      "monika ( kafe )",
-      "Story 1252",
-      "monika ( kafe ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "125231",
-    "storyCharacter": "1252",
-    "models": [
-      "125231"
     ]
   },
   {
@@ -9387,28 +8643,7 @@
     "storyCharacter": "1253",
     "models": [
       "125311",
-      "125312",
-      "125313"
-    ]
-  },
-  {
-    "name": "pcr-125331",
-    "character": "kokkoro ( renjaa ), 31",
-    "romaji": "kokkoro ( renjaa )",
-    "aliases": [
-      "コッコロ（レンジャー）",
-      "1253",
-      "125331",
-      "kokkoro ( renjaa )",
-      "Story 1253",
-      "kokkoro ( renjaa ), 31",
-      "Kokkoro"
-    ],
-    "unnamed": false,
-    "storyModel": "125331",
-    "storyCharacter": "1253",
-    "models": [
-      "125331"
+      "125312"
     ]
   },
   {
@@ -9435,27 +8670,7 @@
     "models": [
       "125411",
       "125412",
-      "125413",
-      "125414"
-    ]
-  },
-  {
-    "name": "pcr-125431",
-    "character": "shiori ( renjaa ), 31",
-    "romaji": "shiori ( renjaa )",
-    "aliases": [
-      "シオリ（レンジャー）",
-      "1254",
-      "125431",
-      "shiori ( renjaa )",
-      "Story 1254",
-      "shiori ( renjaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "125431",
-    "storyCharacter": "1254",
-    "models": [
-      "125431"
+      "125413"
     ]
   },
   {
@@ -9504,8 +8719,7 @@
     "models": [
       "125611",
       "125612",
-      "125613",
-      "125614"
+      "125613"
     ]
   },
   {
@@ -9547,25 +8761,6 @@
     ]
   },
   {
-    "name": "pcr-125731",
-    "character": "karin ( arukemisuto ), 31",
-    "romaji": "karin ( arukemisuto )",
-    "aliases": [
-      "カリン（アルケミスト）",
-      "1257",
-      "125731",
-      "karin ( arukemisuto )",
-      "Story 1257",
-      "karin ( arukemisuto ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "125731",
-    "storyCharacter": "1257",
-    "models": [
-      "125731"
-    ]
-  },
-  {
     "name": "pcr-125811",
     "character": "riri ( foorun ), 11",
     "romaji": "riri ( foorun )",
@@ -9601,6 +8796,12 @@
       "riri ( foorun )",
       "Story 1258",
       "riri ( foorun ), 31",
+      "131631",
+      "1316",
+      "Story 1316",
+      "riri ( samaa )",
+      "リリ（サマー）",
+      "riri ( samaa ), 31",
       "139531",
       "1395",
       "Story 1395",
@@ -9653,7 +8854,19 @@
       "126031",
       "kuria ( foorun )",
       "Story 1260",
-      "kuria ( foorun ), 31"
+      "kuria ( foorun ), 31",
+      "135331",
+      "1353",
+      "Story 1353",
+      "kuria ( samaa )",
+      "クリア（サマー）",
+      "kuria ( samaa ), 31",
+      "139631",
+      "1396",
+      "Story 1396",
+      "kuria ( varukyuria )",
+      "クリア（ヴァルキュリア）",
+      "kuria ( varukyuria ), 31"
     ],
     "unnamed": false,
     "storyModel": "126031",
@@ -9703,7 +8916,13 @@
       "Story 1352",
       "pureshia ( samaa )",
       "プレシア（サマー）",
-      "pureshia ( samaa ), 31"
+      "pureshia ( samaa ), 31",
+      "139731",
+      "1397",
+      "Story 1397",
+      "pureshia ( varukyuria )",
+      "プレシア（ヴァルキュリア）",
+      "pureshia ( varukyuria ), 31"
     ],
     "unnamed": false,
     "storyModel": "126131",
@@ -9751,25 +8970,6 @@
     "storyCharacter": "1263",
     "models": [
       "126311"
-    ]
-  },
-  {
-    "name": "pcr-126331",
-    "character": "yuki ( gi shouzoku ), 31",
-    "romaji": "yuki ( gi shouzoku )",
-    "aliases": [
-      "ユキ（儀装束）",
-      "1263",
-      "126331",
-      "yuki ( gi shouzoku )",
-      "Story 1263",
-      "yuki ( gi shouzoku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "126331",
-    "storyCharacter": "1263",
-    "models": [
-      "126331"
     ]
   },
   {
@@ -9867,7 +9067,19 @@
       "126532",
       "rairaeru, 32",
       "126533",
-      "rairaeru, 33"
+      "rairaeru, 33",
+      "132831",
+      "1328",
+      "Story 1328",
+      "rairaeru ( kurisumasu )",
+      "ライラエル（クリスマス）",
+      "rairaeru ( kurisumasu ), 31",
+      "138131",
+      "1381",
+      "Story 1381",
+      "rairaeru ( parufekuto )",
+      "ライラエル（パルフェクト）",
+      "rairaeru ( parufekuto ), 31"
     ],
     "unnamed": false,
     "storyModel": "126531",
@@ -9895,31 +9107,6 @@
     "storyCharacter": "1266",
     "models": [
       "126611"
-    ]
-  },
-  {
-    "name": "pcr-126631",
-    "character": "neneka ( samaa ), 31",
-    "romaji": "neneka ( samaa )",
-    "aliases": [
-      "ネネカ（サマー）",
-      "1266",
-      "126631",
-      "neneka ( samaa )",
-      "Story 1266",
-      "neneka ( samaa ), 31",
-      "133831",
-      "1338",
-      "Story 1338",
-      "neneka ( arufa )",
-      "ネネカ（アルファ）",
-      "neneka ( arufa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "126631",
-    "storyCharacter": "1266",
-    "models": [
-      "126631"
     ]
   },
   {
@@ -9980,31 +9167,6 @@
     ]
   },
   {
-    "name": "pcr-126931",
-    "character": "ranfa ( samaa ), 31",
-    "romaji": "ranfa ( samaa )",
-    "aliases": [
-      "ランファ（サマー）",
-      "1269",
-      "126931",
-      "ranfa ( samaa )",
-      "Story 1269",
-      "ranfa ( samaa ), 31",
-      "134331",
-      "1343",
-      "Story 1343",
-      "ranfa ( gi shouzoku )",
-      "ランファ（儀装束）",
-      "ranfa ( gi shouzoku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "126931",
-    "storyCharacter": "1269",
-    "models": [
-      "126931"
-    ]
-  },
-  {
     "name": "pcr-127011",
     "character": "kuuka ( samaa ), 11",
     "romaji": "kuuka ( samaa )",
@@ -10060,8 +9222,6 @@
       "Story 1272",
       "kyaru ( hennyuu nama ), 11",
       "Karyl",
-      "127212",
-      "kyaru ( hennyuu nama ), 12",
       "127213",
       "kyaru ( hennyuu nama ), 13",
       "127214",
@@ -10072,9 +9232,7 @@
     "storyCharacter": "1272",
     "models": [
       "127211",
-      "127212",
-      "127213",
-      "127214"
+      "127213"
     ]
   },
   {
@@ -10100,25 +9258,6 @@
     ]
   },
   {
-    "name": "pcr-127331",
-    "character": "suzuna ( hennyuu nama ), 31",
-    "romaji": "suzuna ( hennyuu nama )",
-    "aliases": [
-      "スズナ（編入生）",
-      "1273",
-      "127331",
-      "suzuna ( hennyuu nama )",
-      "Story 1273",
-      "suzuna ( hennyuu nama ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "127331",
-    "storyCharacter": "1273",
-    "models": [
-      "127331"
-    ]
-  },
-  {
     "name": "pcr-127511",
     "character": "saren ( sarasaria ), 11",
     "romaji": "saren ( sarasaria )",
@@ -10138,25 +9277,6 @@
     "models": [
       "127511",
       "127512"
-    ]
-  },
-  {
-    "name": "pcr-127531",
-    "character": "saren ( sarasaria ), 31",
-    "romaji": "saren ( sarasaria )",
-    "aliases": [
-      "サレン（サラサリア）",
-      "1275",
-      "127531",
-      "saren ( sarasaria )",
-      "Story 1275",
-      "saren ( sarasaria ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "127531",
-    "storyCharacter": "1275",
-    "models": [
-      "127531"
     ]
   },
   {
@@ -10281,7 +9401,13 @@
       "Story 1278",
       "vurumu, 31",
       "127832",
-      "vurumu, 32"
+      "vurumu, 32",
+      "140531",
+      "1405",
+      "Story 1405",
+      "vurumu ( varumudorahhe )",
+      "ヴルム（ヴァルムドラッヘ）",
+      "vurumu ( varumudorahhe ), 31"
     ],
     "unnamed": false,
     "storyModel": "127831",
@@ -10309,26 +9435,6 @@
     "storyCharacter": "1279",
     "models": [
       "127911"
-    ]
-  },
-  {
-    "name": "pcr-127931",
-    "character": "pekoriinu ( kurisumasu ), 31",
-    "romaji": "pekoriinu ( kurisumasu )",
-    "aliases": [
-      "ペコリーヌ（クリスマス）",
-      "1279",
-      "127931",
-      "pekoriinu ( kurisumasu )",
-      "Story 1279",
-      "pekoriinu ( kurisumasu ), 31",
-      "Pecorine"
-    ],
-    "unnamed": false,
-    "storyModel": "127931",
-    "storyCharacter": "1279",
-    "models": [
-      "127931"
     ]
   },
   {
@@ -10450,8 +9556,7 @@
     "storyModel": "128411",
     "storyCharacter": "1284",
     "models": [
-      "128411",
-      "128412"
+      "128411"
     ]
   },
   {
@@ -10494,26 +9599,6 @@
     ]
   },
   {
-    "name": "pcr-128731",
-    "character": "hiyori ( asutoraru ), 31",
-    "romaji": "hiyori ( asutoraru )",
-    "aliases": [
-      "ヒヨリ（アストラル）",
-      "1287",
-      "128731",
-      "hiyori ( asutoraru )",
-      "Story 1287",
-      "hiyori ( asutoraru ), 31",
-      "Hiyori"
-    ],
-    "unnamed": false,
-    "storyModel": "128731",
-    "storyCharacter": "1287",
-    "models": [
-      "128731"
-    ]
-  },
-  {
     "name": "pcr-128811",
     "character": "rei ( asutoraru ), 11",
     "romaji": "rei ( asutoraru )",
@@ -10537,26 +9622,6 @@
     ]
   },
   {
-    "name": "pcr-128831",
-    "character": "rei ( asutoraru ), 31",
-    "romaji": "rei ( asutoraru )",
-    "aliases": [
-      "レイ（アストラル）",
-      "1288",
-      "128831",
-      "rei ( asutoraru )",
-      "Story 1288",
-      "rei ( asutoraru ), 31",
-      "Rei"
-    ],
-    "unnamed": false,
-    "storyModel": "128831",
-    "storyCharacter": "1288",
-    "models": [
-      "128831"
-    ]
-  },
-  {
     "name": "pcr-128911",
     "character": "yui ( asutoraru ), 11",
     "romaji": "yui ( asutoraru )",
@@ -10574,32 +9639,6 @@
     "storyCharacter": "1289",
     "models": [
       "128911"
-    ]
-  },
-  {
-    "name": "pcr-128931",
-    "character": "yui ( asutoraru ), 31",
-    "romaji": "yui ( asutoraru )",
-    "aliases": [
-      "ユイ（アストラル）",
-      "1289",
-      "128931",
-      "yui ( asutoraru )",
-      "Story 1289",
-      "yui ( asutoraru ), 31",
-      "Yui",
-      "136431",
-      "1364",
-      "Story 1364",
-      "yui ( kurisumasu )",
-      "ユイ（クリスマス）",
-      "yui ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "128931",
-    "storyCharacter": "1289",
-    "models": [
-      "128931"
     ]
   },
   {
@@ -10805,8 +9844,7 @@
     "storyCharacter": "1297",
     "models": [
       "129711",
-      "129712",
-      "129714"
+      "129712"
     ]
   },
   {
@@ -10874,25 +9912,6 @@
     ]
   },
   {
-    "name": "pcr-129931",
-    "character": "eriko ( komandaa ), 31",
-    "romaji": "eriko ( komandaa )",
-    "aliases": [
-      "エリコ（コマンダー）",
-      "1299",
-      "129931",
-      "eriko ( komandaa )",
-      "Story 1299",
-      "eriko ( komandaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "129931",
-    "storyCharacter": "1299",
-    "models": [
-      "129931"
-    ]
-  },
-  {
     "name": "pcr-130011",
     "character": "yamato, 11",
     "romaji": "yamato",
@@ -10957,8 +9976,7 @@
     "storyCharacter": "1301",
     "models": [
       "130111",
-      "130112",
-      "130113"
+      "130112"
     ]
   },
   {
@@ -10973,7 +9991,13 @@
       "Story 1301",
       "wakana, 31",
       "130132",
-      "wakana, 32"
+      "wakana, 32",
+      "138731",
+      "1387",
+      "Story 1387",
+      "wakana ( uintaa )",
+      "ワカナ（ウィンター）",
+      "wakana ( uintaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "130131",
@@ -11004,8 +10028,7 @@
     "storyCharacter": "1302",
     "models": [
       "130211",
-      "130212",
-      "130213"
+      "130212"
     ]
   },
   {
@@ -11050,25 +10073,6 @@
     "storyCharacter": "1307",
     "models": [
       "130711"
-    ]
-  },
-  {
-    "name": "pcr-130731",
-    "character": "kyouka ( supuringu ), 31",
-    "romaji": "kyouka ( supuringu )",
-    "aliases": [
-      "キョウカ（スプリング）",
-      "1307",
-      "130731",
-      "kyouka ( supuringu )",
-      "Story 1307",
-      "kyouka ( supuringu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "130731",
-    "storyCharacter": "1307",
-    "models": [
-      "130731"
     ]
   },
   {
@@ -11201,25 +10205,6 @@
     ]
   },
   {
-    "name": "pcr-131231",
-    "character": "misora ( samaa ), 31",
-    "romaji": "misora ( samaa )",
-    "aliases": [
-      "ミソラ（サマー）",
-      "1312",
-      "131231",
-      "misora ( samaa )",
-      "Story 1312",
-      "misora ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "131231",
-    "storyCharacter": "1312",
-    "models": [
-      "131231"
-    ]
-  },
-  {
     "name": "pcr-131611",
     "character": "riri ( samaa ), 11",
     "romaji": "riri ( samaa )",
@@ -11236,25 +10221,6 @@
     "storyCharacter": "1316",
     "models": [
       "131611"
-    ]
-  },
-  {
-    "name": "pcr-131631",
-    "character": "riri ( samaa ), 31",
-    "romaji": "riri ( samaa )",
-    "aliases": [
-      "リリ（サマー）",
-      "1316",
-      "131631",
-      "riri ( samaa )",
-      "Story 1316",
-      "riri ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "131631",
-    "storyCharacter": "1316",
-    "models": [
-      "131631"
     ]
   },
   {
@@ -11297,8 +10263,7 @@
     "storyCharacter": "1318",
     "models": [
       "131811",
-      "131812",
-      "131813"
+      "131812"
     ]
   },
   {
@@ -11365,9 +10330,7 @@
     "storyCharacter": "1321",
     "models": [
       "132111",
-      "132112",
-      "132113",
-      "132114"
+      "132112"
     ]
   },
   {
@@ -11430,7 +10393,13 @@
       "132331",
       "ruizumarii",
       "Story 1323",
-      "ruizumarii, 31"
+      "ruizumarii, 31",
+      "139931",
+      "1399",
+      "Story 1399",
+      "ruizumarii ( samaa )",
+      "ルイズマリー（サマー）",
+      "ruizumarii ( samaa ), 31"
     ],
     "unnamed": false,
     "storyModel": "132331",
@@ -11544,25 +10513,6 @@
     ]
   },
   {
-    "name": "pcr-132831",
-    "character": "rairaeru ( kurisumasu ), 31",
-    "romaji": "rairaeru ( kurisumasu )",
-    "aliases": [
-      "ライラエル（クリスマス）",
-      "1328",
-      "132831",
-      "rairaeru ( kurisumasu )",
-      "Story 1328",
-      "rairaeru ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "132831",
-    "storyCharacter": "1328",
-    "models": [
-      "132831"
-    ]
-  },
-  {
     "name": "pcr-132911",
     "character": "io ( kurisumasu ), 11",
     "romaji": "io ( kurisumasu )",
@@ -11582,25 +10532,6 @@
     "models": [
       "132911",
       "132912"
-    ]
-  },
-  {
-    "name": "pcr-132931",
-    "character": "io ( kurisumasu ), 31",
-    "romaji": "io ( kurisumasu )",
-    "aliases": [
-      "イオ（クリスマス）",
-      "1329",
-      "132931",
-      "io ( kurisumasu )",
-      "Story 1329",
-      "io ( kurisumasu ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "132931",
-    "storyCharacter": "1329",
-    "models": [
-      "132931"
     ]
   },
   {
@@ -11646,7 +10577,13 @@
       "Story 1330",
       "gureisu, 31",
       "133032",
-      "gureisu, 32"
+      "gureisu, 32",
+      "138931",
+      "1389",
+      "Story 1389",
+      "gureisu ( banii )",
+      "グレイス（バニー）",
+      "gureisu ( banii ), 31"
     ],
     "unnamed": false,
     "storyModel": "133031",
@@ -11667,8 +10604,6 @@
       "vaioretto",
       "Story 1331",
       "vaioretto, 11",
-      "133112",
-      "vaioretto, 12",
       "133113",
       "vaioretto, 13",
       "133114",
@@ -11676,14 +10611,15 @@
       "133115",
       "vaioretto, 15",
       "133116",
-      "vaioretto, 16"
+      "vaioretto, 16",
+      "133112",
+      "vaioretto, 12"
     ],
     "unnamed": false,
     "storyModel": "133111",
     "storyCharacter": "1331",
     "models": [
       "133111",
-      "133112",
       "133113",
       "133114",
       "133115",
@@ -11776,31 +10712,6 @@
     "models": [
       "133511",
       "133512"
-    ]
-  },
-  {
-    "name": "pcr-133531",
-    "character": "saren ( nyuuiyaa ), 31",
-    "romaji": "saren ( nyuuiyaa )",
-    "aliases": [
-      "サレン（ニューイヤー）",
-      "1335",
-      "133531",
-      "saren ( nyuuiyaa )",
-      "Story 1335",
-      "saren ( nyuuiyaa ), 31",
-      "140731",
-      "1407",
-      "Story 1407",
-      "saren ( gannaa )",
-      "サレン（ガンナー）",
-      "saren ( gannaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "133531",
-    "storyCharacter": "1335",
-    "models": [
-      "133531"
     ]
   },
   {
@@ -11990,25 +10901,6 @@
     ]
   },
   {
-    "name": "pcr-134431",
-    "character": "chika ( gi shouzoku ), 31",
-    "romaji": "chika ( gi shouzoku )",
-    "aliases": [
-      "チカ（儀装束）",
-      "1344",
-      "134431",
-      "chika ( gi shouzoku )",
-      "Story 1344",
-      "chika ( gi shouzoku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "134431",
-    "storyCharacter": "1344",
-    "models": [
-      "134431"
-    ]
-  },
-  {
     "name": "pcr-134511",
     "character": "kurooche ( eariaru ), 11",
     "romaji": "kurooche ( eariaru )",
@@ -12019,19 +10911,18 @@
       "kurooche ( eariaru )",
       "Story 1345",
       "kurooche ( eariaru ), 11",
-      "134512",
-      "kurooche ( eariaru ), 12",
       "134513",
       "kurooche ( eariaru ), 13",
       "134514",
-      "kurooche ( eariaru ), 14"
+      "kurooche ( eariaru ), 14",
+      "134512",
+      "kurooche ( eariaru ), 12"
     ],
     "unnamed": false,
     "storyModel": "134511",
     "storyCharacter": "1345",
     "models": [
       "134511",
-      "134512",
       "134513",
       "134514"
     ]
@@ -12059,25 +10950,6 @@
     ]
   },
   {
-    "name": "pcr-134631",
-    "character": "aoi ( pairotto ), 31",
-    "romaji": "aoi ( pairotto )",
-    "aliases": [
-      "アオイ（パイロット）",
-      "1346",
-      "134631",
-      "aoi ( pairotto )",
-      "Story 1346",
-      "aoi ( pairotto ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "134631",
-    "storyCharacter": "1346",
-    "models": [
-      "134631"
-    ]
-  },
-  {
     "name": "pcr-134711",
     "character": "houou, 11",
     "romaji": "houou",
@@ -12091,7 +10963,13 @@
       "134712",
       "houou, 12",
       "134713",
-      "houou, 13"
+      "houou, 13",
+      "130512",
+      "1305",
+      "Story 1305",
+      "Story 1305, 12",
+      "130513",
+      "Story 1305, 13"
     ],
     "unnamed": false,
     "storyModel": "134711",
@@ -12144,25 +11022,6 @@
     ]
   },
   {
-    "name": "pcr-134831",
-    "character": "tsumugi ( jio・gehena ), 31",
-    "romaji": "tsumugi ( jio・gehena )",
-    "aliases": [
-      "ツムギ（ジオ・ゲヘナ）",
-      "1348",
-      "134831",
-      "tsumugi ( jio・gehena )",
-      "Story 1348",
-      "tsumugi ( jio・gehena ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "134831",
-    "storyCharacter": "1348",
-    "models": [
-      "134831"
-    ]
-  },
-  {
     "name": "pcr-134911",
     "character": "kanon, 11",
     "romaji": "kanon",
@@ -12174,7 +11033,11 @@
       "Story 1349",
       "kanon, 11",
       "134912",
-      "kanon, 12"
+      "kanon, 12",
+      "130311",
+      "1303",
+      "Story 1303",
+      "Story 1303, 11"
     ],
     "unnamed": false,
     "storyModel": "134911",
@@ -12246,26 +11109,6 @@
     ]
   },
   {
-    "name": "pcr-135131",
-    "character": "shiefi ( samaa ), 31",
-    "romaji": "shiefi ( samaa )",
-    "aliases": [
-      "シェフィ（サマー）",
-      "1351",
-      "135131",
-      "shiefi ( samaa )",
-      "Story 1351",
-      "shiefi ( samaa ), 31",
-      "Sheffy"
-    ],
-    "unnamed": false,
-    "storyModel": "135131",
-    "storyCharacter": "1351",
-    "models": [
-      "135131"
-    ]
-  },
-  {
     "name": "pcr-135211",
     "character": "pureshia ( samaa ), 11",
     "romaji": "pureshia ( samaa )",
@@ -12304,31 +11147,6 @@
     ]
   },
   {
-    "name": "pcr-135331",
-    "character": "kuria ( samaa ), 31",
-    "romaji": "kuria ( samaa )",
-    "aliases": [
-      "クリア（サマー）",
-      "1353",
-      "135331",
-      "kuria ( samaa )",
-      "Story 1353",
-      "kuria ( samaa ), 31",
-      "139631",
-      "1396",
-      "Story 1396",
-      "kuria ( varukyuria )",
-      "クリア（ヴァルキュリア）",
-      "kuria ( varukyuria ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "135331",
-    "storyCharacter": "1353",
-    "models": [
-      "135331"
-    ]
-  },
-  {
     "name": "pcr-135411",
     "character": "anemone ( samaa ), 11",
     "romaji": "anemone ( samaa )",
@@ -12359,7 +11177,11 @@
       "Story 1355",
       "aira, 11",
       "135512",
-      "aira, 12"
+      "aira, 12",
+      "129111",
+      "1291",
+      "Story 1291",
+      "Story 1291, 11"
     ],
     "unnamed": false,
     "storyModel": "135511",
@@ -12404,7 +11226,11 @@
       "135613",
       "shinatsu, 13",
       "135614",
-      "shinatsu, 14"
+      "shinatsu, 14",
+      "129211",
+      "1292",
+      "Story 1292",
+      "Story 1292, 11"
     ],
     "unnamed": false,
     "storyModel": "135611",
@@ -12454,28 +11280,7 @@
     "storyModel": "135711",
     "storyCharacter": "1357",
     "models": [
-      "135711",
-      "135712"
-    ]
-  },
-  {
-    "name": "pcr-135731",
-    "character": "hiyori ( sarasaria ), 31",
-    "romaji": "hiyori ( sarasaria )",
-    "aliases": [
-      "ヒヨリ（サラサリア）",
-      "1357",
-      "135731",
-      "hiyori ( sarasaria )",
-      "Story 1357",
-      "hiyori ( sarasaria ), 31",
-      "Hiyori"
-    ],
-    "unnamed": false,
-    "storyModel": "135731",
-    "storyCharacter": "1357",
-    "models": [
-      "135731"
+      "135711"
     ]
   },
   {
@@ -12748,8 +11553,7 @@
     "models": [
       "136411",
       "136412",
-      "136413",
-      "136414"
+      "136413"
     ]
   },
   {
@@ -12877,26 +11681,6 @@
     ]
   },
   {
-    "name": "pcr-137631",
-    "character": "kokkoro ( kyoudou youkun ), 31",
-    "romaji": "kokkoro ( kyoudou youkun )",
-    "aliases": [
-      "コッコロ（嚮導幼君）",
-      "1376",
-      "137631",
-      "kokkoro ( kyoudou youkun )",
-      "Story 1376",
-      "kokkoro ( kyoudou youkun ), 31",
-      "Kokkoro"
-    ],
-    "unnamed": false,
-    "storyModel": "137631",
-    "storyCharacter": "1376",
-    "models": [
-      "137631"
-    ]
-  },
-  {
     "name": "pcr-137911",
     "character": "rino ( nyuuiyaa ), 11",
     "romaji": "rino ( nyuuiyaa )",
@@ -12960,25 +11744,6 @@
     ]
   },
   {
-    "name": "pcr-138131",
-    "character": "rairaeru ( parufekuto ), 31",
-    "romaji": "rairaeru ( parufekuto )",
-    "aliases": [
-      "ライラエル（パルフェクト）",
-      "1381",
-      "138131",
-      "rairaeru ( parufekuto )",
-      "Story 1381",
-      "rairaeru ( parufekuto ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "138131",
-    "storyCharacter": "1381",
-    "models": [
-      "138131"
-    ]
-  },
-  {
     "name": "pcr-138211",
     "character": "nefi nefi nera ( kimen busshin ), 11",
     "romaji": "nefi nefi nera ( kimen busshin )",
@@ -13024,26 +11789,6 @@
     ]
   },
   {
-    "name": "pcr-138331",
-    "character": "pekoriinu ( asutoraia ), 31",
-    "romaji": "pekoriinu ( asutoraia )",
-    "aliases": [
-      "ペコリーヌ（アストライア）",
-      "1383",
-      "138331",
-      "pekoriinu ( asutoraia )",
-      "Story 1383",
-      "pekoriinu ( asutoraia ), 31",
-      "Pecorine"
-    ],
-    "unnamed": false,
-    "storyModel": "138331",
-    "storyCharacter": "1383",
-    "models": [
-      "138331"
-    ]
-  },
-  {
     "name": "pcr-138711",
     "character": "wakana ( uintaa ), 11",
     "romaji": "wakana ( uintaa )",
@@ -13063,25 +11808,6 @@
     "models": [
       "138711",
       "138712"
-    ]
-  },
-  {
-    "name": "pcr-138731",
-    "character": "wakana ( uintaa ), 31",
-    "romaji": "wakana ( uintaa )",
-    "aliases": [
-      "ワカナ（ウィンター）",
-      "1387",
-      "138731",
-      "wakana ( uintaa )",
-      "Story 1387",
-      "wakana ( uintaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "138731",
-    "storyCharacter": "1387",
-    "models": [
-      "138731"
     ]
   },
   {
@@ -13139,7 +11865,11 @@
       "138912",
       "gureisu ( banii ), 12",
       "138913",
-      "gureisu ( banii ), 13"
+      "gureisu ( banii ), 13",
+      "141711",
+      "1417",
+      "Story 1417",
+      "Story 1417, 11"
     ],
     "unnamed": false,
     "storyModel": "138911",
@@ -13148,25 +11878,6 @@
       "138911",
       "138912",
       "138913"
-    ]
-  },
-  {
-    "name": "pcr-138931",
-    "character": "gureisu ( banii ), 31",
-    "romaji": "gureisu ( banii )",
-    "aliases": [
-      "グレイス（バニー）",
-      "1389",
-      "138931",
-      "gureisu ( banii )",
-      "Story 1389",
-      "gureisu ( banii ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "138931",
-    "storyCharacter": "1389",
-    "models": [
-      "138931"
     ]
   },
   {
@@ -13181,7 +11892,11 @@
       "Story 1390",
       "kyouka ( goshikku ), 11",
       "139012",
-      "kyouka ( goshikku ), 12"
+      "kyouka ( goshikku ), 12",
+      "141811",
+      "1418",
+      "Story 1418",
+      "Story 1418, 11"
     ],
     "unnamed": false,
     "storyModel": "139011",
@@ -13189,25 +11904,6 @@
     "models": [
       "139011",
       "139012"
-    ]
-  },
-  {
-    "name": "pcr-139031",
-    "character": "kyouka ( goshikku ), 31",
-    "romaji": "kyouka ( goshikku )",
-    "aliases": [
-      "キョウカ（ゴシック）",
-      "1390",
-      "139031",
-      "kyouka ( goshikku )",
-      "Story 1390",
-      "kyouka ( goshikku ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "139031",
-    "storyCharacter": "1390",
-    "models": [
-      "139031"
     ]
   },
   {
@@ -13231,26 +11927,6 @@
     "models": [
       "139111",
       "139112"
-    ]
-  },
-  {
-    "name": "pcr-139131",
-    "character": "kyaru ( ha hitomi ten hoshi ), 31",
-    "romaji": "kyaru ( ha hitomi ten hoshi )",
-    "aliases": [
-      "キャル（覇瞳天星）",
-      "1391",
-      "139131",
-      "kyaru ( ha hitomi ten hoshi )",
-      "Story 1391",
-      "kyaru ( ha hitomi ten hoshi ), 31",
-      "Karyl"
-    ],
-    "unnamed": false,
-    "storyModel": "139131",
-    "storyCharacter": "1391",
-    "models": [
-      "139131"
     ]
   },
   {
@@ -13443,25 +12119,6 @@
     ]
   },
   {
-    "name": "pcr-139731",
-    "character": "pureshia ( varukyuria ), 31",
-    "romaji": "pureshia ( varukyuria )",
-    "aliases": [
-      "プレシア（ヴァルキュリア）",
-      "1397",
-      "139731",
-      "pureshia ( varukyuria )",
-      "Story 1397",
-      "pureshia ( varukyuria ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "139731",
-    "storyCharacter": "1397",
-    "models": [
-      "139731"
-    ]
-  },
-  {
     "name": "pcr-139811",
     "character": "shiefi ( vaadorahhe ), 11",
     "romaji": "shiefi ( vaadorahhe )",
@@ -13504,25 +12161,6 @@
     ]
   },
   {
-    "name": "pcr-139931",
-    "character": "ruizumarii ( samaa ), 31",
-    "romaji": "ruizumarii ( samaa )",
-    "aliases": [
-      "ルイズマリー（サマー）",
-      "1399",
-      "139931",
-      "ruizumarii ( samaa )",
-      "Story 1399",
-      "ruizumarii ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "139931",
-    "storyCharacter": "1399",
-    "models": [
-      "139931"
-    ]
-  },
-  {
     "name": "pcr-140011",
     "character": "kurejitta ( samaa ), 11",
     "romaji": "kurejitta ( samaa )",
@@ -13547,10 +12185,7 @@
     "storyCharacter": "1400",
     "models": [
       "140011",
-      "140012",
-      "140013",
-      "140014",
-      "140015"
+      "140012"
     ]
   },
   {
@@ -13588,32 +12223,17 @@
       "140211",
       "vanpii ( samaa )",
       "Story 1402",
-      "vanpii ( samaa ), 11"
+      "vanpii ( samaa ), 11",
+      "142311",
+      "1423",
+      "Story 1423",
+      "Story 1423, 11"
     ],
     "unnamed": false,
     "storyModel": "140211",
     "storyCharacter": "1402",
     "models": [
       "140211"
-    ]
-  },
-  {
-    "name": "pcr-140231",
-    "character": "vanpii ( samaa ), 31",
-    "romaji": "vanpii ( samaa )",
-    "aliases": [
-      "ヴァンピィ（サマー）",
-      "1402",
-      "140231",
-      "vanpii ( samaa )",
-      "Story 1402",
-      "vanpii ( samaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "140231",
-    "storyCharacter": "1402",
-    "models": [
-      "140231"
     ]
   },
   {
@@ -13626,7 +12246,11 @@
       "140311",
       "teia",
       "Story 1403",
-      "teia, 11"
+      "teia, 11",
+      "193211",
+      "1932",
+      "Story 1932",
+      "Story 1932, 11"
     ],
     "unnamed": false,
     "storyModel": "140311",
@@ -13681,8 +12305,7 @@
       "140411",
       "140412",
       "140413",
-      "140414",
-      "140415"
+      "140414"
     ]
   },
   {
@@ -13721,25 +12344,6 @@
     "storyCharacter": "1405",
     "models": [
       "140511"
-    ]
-  },
-  {
-    "name": "pcr-140531",
-    "character": "vurumu ( varumudorahhe ), 31",
-    "romaji": "vurumu ( varumudorahhe )",
-    "aliases": [
-      "ヴルム（ヴァルムドラッヘ）",
-      "1405",
-      "140531",
-      "vurumu ( varumudorahhe )",
-      "Story 1405",
-      "vurumu ( varumudorahhe ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "140531",
-    "storyCharacter": "1405",
-    "models": [
-      "140531"
     ]
   },
   {
@@ -13809,25 +12413,6 @@
     ]
   },
   {
-    "name": "pcr-140831",
-    "character": "amesu ( gannaa ), 31",
-    "romaji": "amesu ( gannaa )",
-    "aliases": [
-      "アメス（ガンナー）",
-      "1408",
-      "140831",
-      "amesu ( gannaa )",
-      "Story 1408",
-      "amesu ( gannaa ), 31"
-    ],
-    "unnamed": false,
-    "storyModel": "140831",
-    "storyCharacter": "1408",
-    "models": [
-      "140831"
-    ]
-  },
-  {
     "name": "pcr-180111",
     "character": "hiyori ( purinsesu ), 11",
     "romaji": "hiyori ( purinsesu )",
@@ -13846,27 +12431,6 @@
     "storyCharacter": "1801",
     "models": [
       "180111"
-    ]
-  },
-  {
-    "name": "pcr-180131",
-    "character": "hiyori ( purinsesu ), 31",
-    "romaji": "hiyori ( purinsesu )",
-    "aliases": [
-      "ヒヨリ（プリンセス）",
-      "1801",
-      "180131",
-      "日和莉（公主）",
-      "Story 1801",
-      "hiyori ( purinsesu )",
-      "hiyori ( purinsesu ), 31",
-      "Hiyori"
-    ],
-    "unnamed": false,
-    "storyModel": "180131",
-    "storyCharacter": "1801",
-    "models": [
-      "180131"
     ]
   },
   {
@@ -13891,27 +12455,6 @@
     ]
   },
   {
-    "name": "pcr-180231",
-    "character": "yui ( purinsesu ), 31",
-    "romaji": "yui ( purinsesu )",
-    "aliases": [
-      "ユイ（プリンセス）",
-      "1802",
-      "180231",
-      "优衣（公主）",
-      "Story 1802",
-      "yui ( purinsesu )",
-      "yui ( purinsesu ), 31",
-      "Yui"
-    ],
-    "unnamed": false,
-    "storyModel": "180231",
-    "storyCharacter": "1802",
-    "models": [
-      "180231"
-    ]
-  },
-  {
     "name": "pcr-180311",
     "character": "rei ( purinsesu ), 11",
     "romaji": "rei ( purinsesu )",
@@ -13930,27 +12473,6 @@
     "storyCharacter": "1803",
     "models": [
       "180311"
-    ]
-  },
-  {
-    "name": "pcr-180331",
-    "character": "rei ( purinsesu ), 31",
-    "romaji": "rei ( purinsesu )",
-    "aliases": [
-      "レイ（プリンセス）",
-      "1803",
-      "180331",
-      "怜（公主）",
-      "Story 1803",
-      "rei ( purinsesu )",
-      "rei ( purinsesu ), 31",
-      "Rei"
-    ],
-    "unnamed": false,
-    "storyModel": "180331",
-    "storyCharacter": "1803",
-    "models": [
-      "180331"
     ]
   },
   {
@@ -14041,49 +12563,7 @@
     "storyModel": "181211",
     "storyCharacter": "1812",
     "models": [
-      "181211",
-      "181212"
-    ]
-  },
-  {
-    "name": "pcr-181231",
-    "character": "shiefi ( purinsesu ), 31",
-    "romaji": "shiefi ( purinsesu )",
-    "aliases": [
-      "シェフィ（プリンセス）",
-      "1812",
-      "181231",
-      "shiefi ( purinsesu )",
-      "Story 1812",
-      "shiefi ( purinsesu ), 31",
-      "Sheffy"
-    ],
-    "unnamed": false,
-    "storyModel": "181231",
-    "storyCharacter": "1812",
-    "models": [
-      "181231"
-    ]
-  },
-  {
-    "name": "pcr-190011",
-    "character": "amesu, 11",
-    "romaji": "amesu",
-    "aliases": [
-      "爱梅斯",
-      "1900",
-      "190011",
-      "Story 1900",
-      "amesu",
-      "amesu, 11",
-      "Ameth",
-      "Ames"
-    ],
-    "unnamed": false,
-    "storyModel": "190011",
-    "storyCharacter": "1900",
-    "models": [
-      "190011"
+      "181211"
     ]
   },
   {
@@ -14148,25 +12628,6 @@
     ]
   },
   {
-    "name": "pcr-191411",
-    "character": "goushin, 11",
-    "romaji": "goushin",
-    "aliases": [
-      "ゴウシン",
-      "1914",
-      "191411",
-      "Story 1914",
-      "goushin",
-      "goushin, 11"
-    ],
-    "unnamed": false,
-    "storyModel": "191411",
-    "storyCharacter": "1914",
-    "models": [
-      "191411"
-    ]
-  },
-  {
     "name": "pcr-191711",
     "character": "zeen, 11",
     "romaji": "zeen",
@@ -14185,45 +12646,6 @@
     "storyCharacter": "1917",
     "models": [
       "191711"
-    ]
-  },
-  {
-    "name": "pcr-900103",
-    "character": "hiyori, 03",
-    "romaji": "hiyori",
-    "aliases": [
-      "ヒヨリ",
-      "9001",
-      "900103",
-      "hiyori",
-      "Story 9001",
-      "hiyori, 03",
-      "Hiyori"
-    ],
-    "unnamed": false,
-    "storyModel": "900103",
-    "storyCharacter": "9001",
-    "models": [
-      "900103"
-    ]
-  },
-  {
-    "name": "pcr-906601",
-    "character": "inori, 01",
-    "romaji": "inori",
-    "aliases": [
-      "イノリ",
-      "9066",
-      "906601",
-      "inori",
-      "Story 9066",
-      "inori, 01"
-    ],
-    "unnamed": false,
-    "storyModel": "906601",
-    "storyCharacter": "9066",
-    "models": [
-      "906601"
     ]
   },
   {
@@ -14246,26 +12668,6 @@
     ]
   },
   {
-    "name": "pcr-907601",
-    "character": "kokkoro ( samaa ), 01",
-    "romaji": "kokkoro ( samaa )",
-    "aliases": [
-      "コッコロ（サマー）",
-      "9076",
-      "907601",
-      "kokkoro ( samaa )",
-      "Story 9076",
-      "kokkoro ( samaa ), 01",
-      "Kokkoro"
-    ],
-    "unnamed": false,
-    "storyModel": "907601",
-    "storyCharacter": "9076",
-    "models": [
-      "907601"
-    ]
-  },
-  {
     "name": "pcr-927201",
     "character": "kyaru, 01",
     "romaji": "kyaru",
@@ -14276,7 +12678,13 @@
       "kyaru",
       "Story 9272",
       "kyaru, 01",
-      "Karyl"
+      "Karyl",
+      "127212",
+      "1272",
+      "Story 1272",
+      "kyaru ( hennyuu nama )",
+      "キャル（編入生）",
+      "kyaru ( hennyuu nama ), 12"
     ],
     "unnamed": false,
     "storyModel": "927201",
@@ -14341,7 +12749,11 @@
       "女孩",
       "女孩子",
       "000212",
-      "Story 0002, 12"
+      "Story 0002, 12",
+      "005615",
+      "0056",
+      "Story 0056",
+      "Story 0056, 15"
     ],
     "unnamed": true,
     "storyModel": "000211",
@@ -14367,7 +12779,11 @@
       "000313",
       "Story 0003, 13",
       "000314",
-      "Story 0003, 14"
+      "Story 0003, 14",
+      "005616",
+      "0056",
+      "Story 0056",
+      "Story 0056, 16"
     ],
     "unnamed": true,
     "storyModel": "000311",
@@ -14409,7 +12825,11 @@
       "Story 0004, 15",
       "女性",
       "子供",
-      "母亲"
+      "母亲",
+      "005614",
+      "0056",
+      "Story 0056",
+      "Story 0056, 14"
     ],
     "unnamed": true,
     "storyModel": "000415",
@@ -14752,7 +13172,11 @@
       "001111",
       "Story 0011, 11",
       "现场监工",
-      "小混混"
+      "小混混",
+      "005612",
+      "0056",
+      "Story 0056",
+      "Story 0056, 12"
     ],
     "unnamed": true,
     "storyModel": "001111",
@@ -14813,7 +13237,11 @@
       "001212",
       "Story 0012, 12",
       "001213",
-      "Story 0012, 13"
+      "Story 0012, 13",
+      "005613",
+      "0056",
+      "Story 0056",
+      "Story 0056, 13"
     ],
     "unnamed": true,
     "storyModel": "001211",
@@ -15286,7 +13714,11 @@
       "005012",
       "Story 0050, 12",
       "005013",
-      "Story 0050, 13"
+      "Story 0050, 13",
+      "192211",
+      "1922",
+      "Story 1922",
+      "Story 1922, 11"
     ],
     "unnamed": true,
     "storyModel": "005011",
@@ -15307,7 +13739,11 @@
       "005111",
       "Story 0051, 11",
       "005112",
-      "Story 0051, 12"
+      "Story 0051, 12",
+      "192411",
+      "1924",
+      "Story 1924",
+      "Story 1924, 11"
     ],
     "unnamed": true,
     "storyModel": "005111",
@@ -15327,7 +13763,11 @@
       "005211",
       "Story 0052, 11",
       "005212",
-      "Story 0052, 12"
+      "Story 0052, 12",
+      "192311",
+      "1923",
+      "Story 1923",
+      "Story 1923, 11"
     ],
     "unnamed": true,
     "storyModel": "005211",
@@ -15362,7 +13802,11 @@
       "Story 0053",
       "0053",
       "005313",
-      "Story 0053, 13"
+      "Story 0053, 13",
+      "192611",
+      "1926",
+      "Story 1926",
+      "Story 1926, 11"
     ],
     "unnamed": true,
     "storyModel": "005313",
@@ -15454,91 +13898,6 @@
     "storyCharacter": "0056",
     "models": [
       "005611"
-    ]
-  },
-  {
-    "name": "pcr-005612",
-    "character": "Story 0056, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0056",
-      "0056",
-      "005612",
-      "Story 0056, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "005612",
-    "storyCharacter": "0056",
-    "models": [
-      "005612"
-    ]
-  },
-  {
-    "name": "pcr-005613",
-    "character": "Story 0056, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 0056",
-      "0056",
-      "005613",
-      "Story 0056, 13"
-    ],
-    "unnamed": true,
-    "storyModel": "005613",
-    "storyCharacter": "0056",
-    "models": [
-      "005613"
-    ]
-  },
-  {
-    "name": "pcr-005614",
-    "character": "Story 0056, 14",
-    "romaji": "",
-    "aliases": [
-      "Story 0056",
-      "0056",
-      "005614",
-      "Story 0056, 14"
-    ],
-    "unnamed": true,
-    "storyModel": "005614",
-    "storyCharacter": "0056",
-    "models": [
-      "005614"
-    ]
-  },
-  {
-    "name": "pcr-005615",
-    "character": "Story 0056, 15",
-    "romaji": "",
-    "aliases": [
-      "Story 0056",
-      "0056",
-      "005615",
-      "Story 0056, 15"
-    ],
-    "unnamed": true,
-    "storyModel": "005615",
-    "storyCharacter": "0056",
-    "models": [
-      "005615"
-    ]
-  },
-  {
-    "name": "pcr-005616",
-    "character": "Story 0056, 16",
-    "romaji": "",
-    "aliases": [
-      "Story 0056",
-      "0056",
-      "005616",
-      "Story 0056, 16"
-    ],
-    "unnamed": true,
-    "storyModel": "005616",
-    "storyCharacter": "0056",
-    "models": [
-      "005616"
     ]
   },
   {
@@ -15832,10 +14191,10 @@
       "0071",
       "007111",
       "Story 0071, 11",
-      "007112",
-      "Story 0071, 12",
       "007113",
       "Story 0071, 13",
+      "007112",
+      "Story 0071, 12",
       "007114",
       "Story 0071, 14"
     ],
@@ -15844,9 +14203,7 @@
     "storyCharacter": "0071",
     "models": [
       "007111",
-      "007112",
-      "007113",
-      "007114"
+      "007113"
     ]
   },
   {
@@ -15950,8 +14307,7 @@
     "storyModel": "007911",
     "storyCharacter": "0079",
     "models": [
-      "007911",
-      "007912"
+      "007911"
     ]
   },
   {
@@ -16200,8 +14556,7 @@
     "storyModel": "009411",
     "storyCharacter": "0094",
     "models": [
-      "009411",
-      "009412"
+      "009411"
     ]
   },
   {
@@ -16240,8 +14595,7 @@
     "storyModel": "009611",
     "storyCharacter": "0096",
     "models": [
-      "009611",
-      "009612"
+      "009611"
     ]
   },
   {
@@ -16429,8 +14783,7 @@
     "storyCharacter": "0166",
     "models": [
       "016611",
-      "016612",
-      "016613"
+      "016612"
     ]
   },
   {
@@ -16665,8 +15018,7 @@
     "storyModel": "050911",
     "storyCharacter": "0509",
     "models": [
-      "050911",
-      "050912"
+      "050911"
     ]
   },
   {
@@ -16736,8 +15088,7 @@
     "storyModel": "051411",
     "storyCharacter": "0514",
     "models": [
-      "051411",
-      "051412"
+      "051411"
     ]
   },
   {
@@ -16748,7 +15099,11 @@
       "Story 0516",
       "0516",
       "051611",
-      "Story 0516, 11"
+      "Story 0516, 11",
+      "133411",
+      "1334",
+      "Story 1334",
+      "Story 1334, 11"
     ],
     "unnamed": true,
     "storyModel": "051611",
@@ -17228,57 +15583,6 @@
     ]
   },
   {
-    "name": "pcr-129111",
-    "character": "Story 1291, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1291",
-      "1291",
-      "129111",
-      "Story 1291, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "129111",
-    "storyCharacter": "1291",
-    "models": [
-      "129111"
-    ]
-  },
-  {
-    "name": "pcr-129211",
-    "character": "Story 1292, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1292",
-      "1292",
-      "129211",
-      "Story 1292, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "129211",
-    "storyCharacter": "1292",
-    "models": [
-      "129211"
-    ]
-  },
-  {
-    "name": "pcr-130311",
-    "character": "Story 1303, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1303",
-      "1303",
-      "130311",
-      "Story 1303, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "130311",
-    "storyCharacter": "1303",
-    "models": [
-      "130311"
-    ]
-  },
-  {
     "name": "pcr-130411",
     "character": "Story 1304, 11",
     "romaji": "",
@@ -17293,26 +15597,6 @@
     "storyCharacter": "1304",
     "models": [
       "130411"
-    ]
-  },
-  {
-    "name": "pcr-130512",
-    "character": "Story 1305, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 1305",
-      "1305",
-      "130512",
-      "Story 1305, 12",
-      "130513",
-      "Story 1305, 13"
-    ],
-    "unnamed": true,
-    "storyModel": "130512",
-    "storyCharacter": "1305",
-    "models": [
-      "130512",
-      "130513"
     ]
   },
   {
@@ -17373,23 +15657,6 @@
     ]
   },
   {
-    "name": "pcr-133411",
-    "character": "Story 1334, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1334",
-      "1334",
-      "133411",
-      "Story 1334, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "133411",
-    "storyCharacter": "1334",
-    "models": [
-      "133411"
-    ]
-  },
-  {
     "name": "pcr-137711",
     "character": "Story 1377, 11",
     "romaji": "",
@@ -17397,7 +15664,11 @@
       "Story 1377",
       "1377",
       "137711",
-      "Story 1377, 11"
+      "Story 1377, 11",
+      "193511",
+      "1935",
+      "Story 1935",
+      "Story 1935, 11"
     ],
     "unnamed": true,
     "storyModel": "137711",
@@ -17478,40 +15749,6 @@
     ]
   },
   {
-    "name": "pcr-141711",
-    "character": "Story 1417, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1417",
-      "1417",
-      "141711",
-      "Story 1417, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "141711",
-    "storyCharacter": "1417",
-    "models": [
-      "141711"
-    ]
-  },
-  {
-    "name": "pcr-141811",
-    "character": "Story 1418, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1418",
-      "1418",
-      "141811",
-      "Story 1418, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "141811",
-    "storyCharacter": "1418",
-    "models": [
-      "141811"
-    ]
-  },
-  {
     "name": "pcr-142211",
     "character": "Story 1422, 11",
     "romaji": "",
@@ -17526,23 +15763,6 @@
     "storyCharacter": "1422",
     "models": [
       "142211"
-    ]
-  },
-  {
-    "name": "pcr-142311",
-    "character": "Story 1423, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1423",
-      "1423",
-      "142311",
-      "Story 1423, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "142311",
-    "storyCharacter": "1423",
-    "models": [
-      "142311"
     ]
   },
   {
@@ -17739,8 +15959,6 @@
       "1920",
       "192011",
       "Story 1920, 11",
-      "192012",
-      "Story 1920, 12",
       "192014",
       "Story 1920, 14"
     ],
@@ -17749,76 +15967,7 @@
     "storyCharacter": "1920",
     "models": [
       "192011",
-      "192012",
       "192014"
-    ]
-  },
-  {
-    "name": "pcr-192211",
-    "character": "Story 1922, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1922",
-      "1922",
-      "192211",
-      "Story 1922, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "192211",
-    "storyCharacter": "1922",
-    "models": [
-      "192211"
-    ]
-  },
-  {
-    "name": "pcr-192311",
-    "character": "Story 1923, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1923",
-      "1923",
-      "192311",
-      "Story 1923, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "192311",
-    "storyCharacter": "1923",
-    "models": [
-      "192311"
-    ]
-  },
-  {
-    "name": "pcr-192411",
-    "character": "Story 1924, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1924",
-      "1924",
-      "192411",
-      "Story 1924, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "192411",
-    "storyCharacter": "1924",
-    "models": [
-      "192411"
-    ]
-  },
-  {
-    "name": "pcr-192611",
-    "character": "Story 1926, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1926",
-      "1926",
-      "192611",
-      "Story 1926, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "192611",
-    "storyCharacter": "1926",
-    "models": [
-      "192611"
     ]
   },
   {
@@ -17913,40 +16062,6 @@
       "192921",
       "192922",
       "192923"
-    ]
-  },
-  {
-    "name": "pcr-193211",
-    "character": "Story 1932, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1932",
-      "1932",
-      "193211",
-      "Story 1932, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "193211",
-    "storyCharacter": "1932",
-    "models": [
-      "193211"
-    ]
-  },
-  {
-    "name": "pcr-193511",
-    "character": "Story 1935, 11",
-    "romaji": "",
-    "aliases": [
-      "Story 1935",
-      "1935",
-      "193511",
-      "Story 1935, 11"
-    ],
-    "unnamed": true,
-    "storyModel": "193511",
-    "storyCharacter": "1935",
-    "models": [
-      "193511"
     ]
   },
   {
@@ -18079,8 +16194,7 @@
     "storyModel": "195611",
     "storyCharacter": "1956",
     "models": [
-      "195611",
-      "195613"
+      "195611"
     ]
   },
   {

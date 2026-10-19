@@ -20,7 +20,7 @@
       }
     },
     {
-      "name": "106912",
+      "name": "106913",
       "canvasW": 644,
       "canvasH": 622,
       "ranges": {
@@ -30,30 +30,11 @@
         },
         "eye": {
           "first": 30,
-          "last": 41
+          "last": 43
         },
         "mouth": {
-          "first": 42,
-          "last": 56
-        }
-      }
-    },
-    {
-      "name": "106913",
-      "canvasW": 644,
-      "canvasH": 622,
-      "ranges": {
-        "body": {
-          "first": 57,
-          "last": 57
-        },
-        "eye": {
-          "first": 58,
-          "last": 71
-        },
-        "mouth": {
-          "first": 72,
-          "last": 90
+          "first": 44,
+          "last": 62
         }
       }
     },
@@ -63,16 +44,16 @@
       "canvasH": 372,
       "ranges": {
         "body": {
-          "first": 91,
-          "last": 91
+          "first": 63,
+          "last": 63
         },
         "eye": {
-          "first": 92,
-          "last": 103
+          "first": 64,
+          "last": 75
         },
         "mouth": {
-          "first": 104,
-          "last": 122
+          "first": 76,
+          "last": 94
         }
       }
     },
@@ -82,16 +63,16 @@
       "canvasH": 417,
       "ranges": {
         "body": {
-          "first": 123,
-          "last": 123
+          "first": 95,
+          "last": 95
         },
         "eye": {
-          "first": 124,
-          "last": 135
+          "first": 96,
+          "last": 107
         },
         "mouth": {
-          "first": 136,
-          "last": 154
+          "first": 108,
+          "last": 126
         }
       }
     }

@@ -37,63 +37,6 @@
           "last": 76
         }
       }
-    },
-    {
-      "name": "140013",
-      "canvasW": 530,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 77,
-          "last": 77
-        },
-        "eye": {
-          "first": 78,
-          "last": 93
-        },
-        "mouth": {
-          "first": 94,
-          "last": 114
-        }
-      }
-    },
-    {
-      "name": "140014",
-      "canvasW": 530,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 115,
-          "last": 115
-        },
-        "eye": {
-          "first": 116,
-          "last": 131
-        },
-        "mouth": {
-          "first": 132,
-          "last": 152
-        }
-      }
-    },
-    {
-      "name": "140015",
-      "canvasW": 530,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 153,
-          "last": 153
-        },
-        "eye": {
-          "first": 154,
-          "last": 169
-        },
-        "mouth": {
-          "first": 170,
-          "last": 190
-        }
-      }
     }
   ]
 }

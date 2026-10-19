@@ -20,9 +20,9 @@
       }
     },
     {
-      "name": "192012",
-      "canvasW": 644,
-      "canvasH": 567,
+      "name": "192014",
+      "canvasW": 509,
+      "canvasH": 644,
       "ranges": {
         "body": {
           "first": 46,
@@ -35,25 +35,6 @@
         "mouth": {
           "first": 64,
           "last": 85
-        }
-      }
-    },
-    {
-      "name": "192014",
-      "canvasW": 509,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 86,
-          "last": 86
-        },
-        "eye": {
-          "first": 87,
-          "last": 103
-        },
-        "mouth": {
-          "first": 104,
-          "last": 125
         }
       }
     }

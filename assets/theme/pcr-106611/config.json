@@ -37,25 +37,6 @@
           "last": 65
         }
       }
-    },
-    {
-      "name": "106613",
-      "canvasW": 387,
-      "canvasH": 644,
-      "ranges": {
-        "body": {
-          "first": 66,
-          "last": 66
-        },
-        "eye": {
-          "first": 67,
-          "last": 79
-        },
-        "mouth": {
-          "first": 80,
-          "last": 97
-        }
-      }
     }
   ]
 }
