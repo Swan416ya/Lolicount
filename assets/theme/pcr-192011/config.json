@@ -1,18 +1,61 @@
 {
-  "canvasW": 419,
-  "canvasH": 644,
-  "ranges": {
-    "body": {
-      "first": 1,
-      "last": 1
+  "sets": [
+    {
+      "name": "192011",
+      "canvasW": 419,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 1,
+          "last": 1
+        },
+        "eye": {
+          "first": 2,
+          "last": 20
+        },
+        "mouth": {
+          "first": 21,
+          "last": 45
+        }
+      }
     },
-    "eye": {
-      "first": 2,
-      "last": 20
+    {
+      "name": "192012",
+      "canvasW": 644,
+      "canvasH": 567,
+      "ranges": {
+        "body": {
+          "first": 46,
+          "last": 46
+        },
+        "eye": {
+          "first": 47,
+          "last": 63
+        },
+        "mouth": {
+          "first": 64,
+          "last": 85
+        }
+      }
     },
-    "mouth": {
-      "first": 21,
-      "last": 45
+    {
+      "name": "192014",
+      "canvasW": 509,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 86,
+          "last": 86
+        },
+        "eye": {
+          "first": 87,
+          "last": 103
+        },
+        "mouth": {
+          "first": 104,
+          "last": 125
+        }
+      }
     }
-  }
+  ]
 }

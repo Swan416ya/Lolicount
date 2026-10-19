@@ -1,18 +1,156 @@
 {
-  "canvasW": 760,
-  "canvasH": 804,
-  "ranges": {
-    "body": {
-      "first": 1,
-      "last": 1
+  "sets": [
+    {
+      "name": "120011",
+      "canvasW": 760,
+      "canvasH": 804,
+      "ranges": {
+        "body": {
+          "first": 1,
+          "last": 1
+        },
+        "eye": {
+          "first": 2,
+          "last": 12
+        },
+        "mouth": {
+          "first": 13,
+          "last": 27
+        }
+      }
     },
-    "eye": {
-      "first": 2,
-      "last": 12
+    {
+      "name": "120012",
+      "canvasW": 804,
+      "canvasH": 722,
+      "ranges": {
+        "body": {
+          "first": 28,
+          "last": 28
+        },
+        "eye": {
+          "first": 29,
+          "last": 40
+        },
+        "mouth": {
+          "first": 41,
+          "last": 60
+        }
+      }
     },
-    "mouth": {
-      "first": 13,
-      "last": 27
+    {
+      "name": "120013",
+      "canvasW": 520,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 61,
+          "last": 61
+        },
+        "eye": {
+          "first": 62,
+          "last": 72
+        },
+        "mouth": {
+          "first": 73,
+          "last": 89
+        }
+      }
+    },
+    {
+      "name": "120014",
+      "canvasW": 498,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 90,
+          "last": 90
+        },
+        "eye": {
+          "first": 91,
+          "last": 101
+        },
+        "mouth": {
+          "first": 102,
+          "last": 119
+        }
+      }
+    },
+    {
+      "name": "120015",
+      "canvasW": 404,
+      "canvasH": 644,
+      "ranges": {
+        "body": {
+          "first": 120,
+          "last": 120
+        },
+        "eye": {
+          "first": 121,
+          "last": 131
+        },
+        "mouth": {
+          "first": 132,
+          "last": 148
+        }
+      }
+    },
+    {
+      "name": "120016",
+      "canvasW": 644,
+      "canvasH": 579,
+      "ranges": {
+        "body": {
+          "first": 149,
+          "last": 149
+        },
+        "eye": {
+          "first": 150,
+          "last": 160
+        },
+        "mouth": {
+          "first": 161,
+          "last": 176
+        }
+      }
+    },
+    {
+      "name": "120017",
+      "canvasW": 644,
+      "canvasH": 579,
+      "ranges": {
+        "body": {
+          "first": 177,
+          "last": 177
+        },
+        "eye": {
+          "first": 178,
+          "last": 188
+        },
+        "mouth": {
+          "first": 189,
+          "last": 204
+        }
+      }
+    },
+    {
+      "name": "120311",
+      "canvasW": 804,
+      "canvasH": 722,
+      "ranges": {
+        "body": {
+          "first": 205,
+          "last": 205
+        },
+        "eye": {
+          "first": 206,
+          "last": 216
+        },
+        "mouth": {
+          "first": 217,
+          "last": 232
+        }
+      }
     }
-  }
+  ]
 }

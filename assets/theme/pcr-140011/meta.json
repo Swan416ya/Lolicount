@@ -1,6 +1,6 @@
 {
   "name": "pcr-140011",
-  "description": "Princess Connect! Re:Dive / クレジッタ（サマー）; static story portrait, independent body, eyes and mouth.",
+  "description": "Princess Connect! Re:Dive / クレジッタ（サマー）; 5 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
@@ -8,5 +8,5 @@
     "プリコネ",
     "クレジッタ（サマー）"
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

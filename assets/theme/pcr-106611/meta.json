@@ -1,6 +1,6 @@
 {
   "name": "pcr-106611",
-  "description": "Princess Connect! Re:Dive / イノリ; static story portrait, independent body, eyes and mouth.",
+  "description": "Princess Connect! Re:Dive / イノリ; 3 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
@@ -8,5 +8,5 @@
     "プリコネ",
     "イノリ"
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

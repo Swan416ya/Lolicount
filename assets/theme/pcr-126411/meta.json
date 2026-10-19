@@ -1,6 +1,6 @@
 {
   "name": "pcr-126411",
-  "description": "Princess Connect! Re:Dive / クローチェ; static story portrait, independent body, eyes and mouth.",
+  "description": "Princess Connect! Re:Dive / クローチェ; 4 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
   "tags": [
     "princess-connect",
     "priconne",
@@ -8,5 +8,5 @@
     "プリコネ",
     "クローチェ"
   ],
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

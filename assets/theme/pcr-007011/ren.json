@@ -361,5 +361,115 @@
     "visible": 1,
     "layer_id": 36,
     "group_layer_id": 0
+  },
+  {
+    "name": "default_body",
+    "left": 2,
+    "top": 2,
+    "width": 692,
+    "height": 800,
+    "visible": 1,
+    "layer_id": 37,
+    "group_layer_id": 0
+  },
+  {
+    "name": "anger_eyeClose",
+    "left": 307,
+    "top": 217,
+    "width": 33,
+    "height": 46,
+    "visible": 1,
+    "layer_id": 38,
+    "group_layer_id": 0
+  },
+  {
+    "name": "anger_eyeOpen",
+    "left": 307,
+    "top": 217,
+    "width": 34,
+    "height": 46,
+    "visible": 1,
+    "layer_id": 39,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_eyeClose",
+    "left": 307,
+    "top": 217,
+    "width": 33,
+    "height": 46,
+    "visible": 1,
+    "layer_id": 40,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_eyeOpen",
+    "left": 307,
+    "top": 217,
+    "width": 34,
+    "height": 46,
+    "visible": 1,
+    "layer_id": 41,
+    "group_layer_id": 0
+  },
+  {
+    "name": "anger_mouthClose",
+    "left": 277,
+    "top": 265,
+    "width": 63,
+    "height": 37,
+    "visible": 1,
+    "layer_id": 42,
+    "group_layer_id": 0
+  },
+  {
+    "name": "anger_mouthOpen",
+    "left": 275,
+    "top": 268,
+    "width": 65,
+    "height": 34,
+    "visible": 1,
+    "layer_id": 43,
+    "group_layer_id": 0
+  },
+  {
+    "name": "anger_mouthOpen2",
+    "left": 275,
+    "top": 265,
+    "width": 65,
+    "height": 37,
+    "visible": 1,
+    "layer_id": 44,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthClose",
+    "left": 277,
+    "top": 268,
+    "width": 63,
+    "height": 34,
+    "visible": 1,
+    "layer_id": 45,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthOpen",
+    "left": 275,
+    "top": 268,
+    "width": 65,
+    "height": 34,
+    "visible": 1,
+    "layer_id": 46,
+    "group_layer_id": 0
+  },
+  {
+    "name": "normal_mouthOpen2",
+    "left": 275,
+    "top": 268,
+    "width": 65,
+    "height": 34,
+    "visible": 1,
+    "layer_id": 47,
+    "group_layer_id": 0
   }
 ]

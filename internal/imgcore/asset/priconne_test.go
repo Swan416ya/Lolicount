@@ -66,6 +66,59 @@ func TestPriconnePortraits(t *testing.T) {
 	for _, name := range singleVariantNames {
 		singleVariants[name] = true
 	}
+	// Portraits that show the same skin of one character are consolidated into a
+	// single theme whose config keeps one mutually exclusive set per portrait, so
+	// the plan below maps every portrait to the theme that ships it.
+	mergedJSON, err := os.ReadFile("../../../scripts/priconne-merged-themes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var mergedGroups map[string][]string
+	if err := json.Unmarshal(mergedJSON, &mergedGroups); err != nil {
+		t.Fatal(err)
+	}
+	exceptionJSON, err := os.ReadFile("../../../scripts/priconne-merge-exceptions.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var exceptions struct {
+		Deleted    []string `json:"deleted"`
+		Standalone []string `json:"standalone"`
+	}
+	if err := json.Unmarshal(exceptionJSON, &exceptions); err != nil {
+		t.Fatal(err)
+	}
+	representative := make(map[string]string)
+	groupMembers := make(map[string][]string, len(mergedGroups))
+	for themeName, group := range mergedGroups {
+		want := strings.TrimPrefix(themeName, "pcr-")
+		if len(group) < 2 {
+			t.Fatalf("merge plan keeps %s with %d portrait(s)", themeName, len(group))
+		}
+		if group[0] != want {
+			t.Fatalf("merge plan names %s after %s, want the first portrait", themeName, group[0])
+		}
+		groupMembers[want] = group
+		representative[want] = want
+		for _, member := range group {
+			representative[member] = want
+		}
+	}
+	standalone := make(map[string]bool, len(exceptions.Standalone))
+	for _, model := range exceptions.Standalone {
+		standalone[model] = true
+		if _, merged := representative[model]; merged {
+			t.Fatalf("portrait %s is declared standalone but appears in the merge plan", model)
+		}
+	}
+	for _, model := range exceptions.Deleted {
+		if !singleVariants["pcr-"+model] {
+			t.Fatalf("deleted portrait %s must be recorded in priconne-excluded-themes.json", model)
+		}
+		if _, merged := representative[model]; merged {
+			t.Fatalf("deleted portrait %s must not appear in the merge plan", model)
+		}
+	}
 	root, err := fs.Sub(assets.FS, "theme")
 	if err != nil {
 		t.Fatal(err)
@@ -83,10 +136,14 @@ func TestPriconnePortraits(t *testing.T) {
 		if _, silhouette := silhouettes[modelID]; silhouette {
 			continue
 		}
-		// Every retained story model is its own theme: the leading digits of a
-		// model ID are a story batch, not a character, so consolidating by them
-		// would shuffle between unrelated characters on each render.
-		themeName := "pcr-" + modelID
+		// A portrait ships either as its own theme or inside the theme of the
+		// portrait that opens its merge group; same-name same-skin portraits are
+		// the only ones grouped, so a card never shuffles between characters.
+		shippedAs := modelID
+		if value, merged := representative[modelID]; merged {
+			shippedAs = value
+		}
+		themeName := "pcr-" + shippedAs
 		if !singleVariants[themeName] {
 			expected[themeName] = true
 		}
@@ -152,6 +209,17 @@ func TestPriconnePortraits(t *testing.T) {
 			catalog := catalogs[entry.Name()]
 			if catalog == nil {
 				t.Fatal("portrait is absent from the production theme catalog")
+			}
+			if group, merged := groupMembers[strings.TrimPrefix(entry.Name(), "pcr-")]; merged {
+				var shipped []string
+				for _, configured := range portrait.Config.Sets {
+					shipped = append(shipped, configured.Name)
+				}
+				if strings.Join(shipped, ",") != strings.Join(group, ",") {
+					t.Fatalf("mutually exclusive sets %v do not match the merge plan %v", shipped, group)
+				}
+			} else if len(portrait.Config.Sets) > 0 {
+				t.Fatalf("%s ships mutually exclusive sets but is absent from the merge plan", entry.Name())
 			}
 			if catalog.Variants != expectedVariants {
 				t.Fatalf("catalog variants = %d, want additive set total %d", catalog.Variants, expectedVariants)

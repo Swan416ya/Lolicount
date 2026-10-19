@@ -57,12 +57,7 @@ NPC = "npc-"
 
 
 def npc_row(repo, name, names, silhouettes, chinese, language, aliases):
-    """Describe one consolidated story portrait theme; every source outfit stays searchable.
-
-    Consolidation happens before the names are frozen, so a theme that later gains a
-    reliable name keeps its merged shape and switches from the placeholder label to
-    the character name instead of being split back into one theme per outfit.
-    """
+    """Describe one consolidated story portrait theme; every source outfit stays searchable."""
     key = name.removeprefix(NPC)
     outfits = sorted(
         configured["name"]
@@ -93,42 +88,53 @@ def npc_row(repo, name, names, silhouettes, chinese, language, aliases):
     }
 
 
-def named_row(name, names, chinese, language, aliases, overrides):
-    """Describe one named outfit: the story model is an independent theme.
+def merged_models(repo, name):
+    """Return the story models inside one theme, in set order.
 
-    A story model ID carries the nameplate of the portrait actually drawn for it,
-    so a stem can contain portraits of different characters. ``overrides`` maps a
-    single model ID to its own name, or to an empty string when the portrait has
-    no reliable name even though the rest of the stem has one.
+    A theme consolidated from several portraits keeps one mutually exclusive set
+    per portrait, so its members are the set names rather than the directory name.
     """
-    stem = name[:4]
-    override = overrides.get(name)
+    config = read_json(repo / "assets/theme" / f"pcr-{name}" / "config.json")
+    if config.get("sets"):
+        return [configured["name"] for configured in config["sets"]]
+    return [name]
+
+
+def named_row(model, names, romaji, aliases, overrides, members):
+    """Describe one named theme: the gallery title is the romanized character name.
+
+    Chinese names are deliberately not used: several of them are wrong, so every
+    title shows the romanized name plus the story suffix. A theme consolidated
+    from several portraits is titled after the portrait that names the directory,
+    and every member stays searchable through the aliases.
+    """
+    stem = model[:4]
+    override = overrides.get(model)
     if override == "":
-        ja = f"Story {stem}"
-        chinese_name = ja
+        japanese = f"Story {stem}"
     elif override:
-        # The override is the nameplate printed for that single portrait, so it
-        # titles the theme even when the rest of the stem carries another name.
-        ja = override
-        chinese_name = override
+        japanese = override
     else:
-        ja = names.get(stem) or f"Story {stem}"
-        chinese_name = chinese.get(stem, ja)
-    unnamed = ja.startswith("Story ")
-    label = f"{chinese_name}, {name[4:]}" if not unnamed else f"Story {stem}, {name[4:]}"
-    terms = [ja, chinese_name, stem, name] + aliases.get(stem, [])
-    if unnamed:
-        terms.append(f"Story {stem}")
-    row = {
-        "name": f"pcr-{name}",
-        "character": label,
-        "romaji": language.get(stem, ""),
+        japanese = names.get(stem) or f"Story {stem}"
+    unnamed = japanese.startswith("Story ")
+    terms = [japanese, stem, model]
+    for member in members:
+        member_stem = member[:4]
+        terms.extend([member, member_stem, f"Story {member_stem}"])
+        terms.extend(aliases.get(member_stem, []))
+    display = japanese if unnamed else (romaji.get(stem) or japanese)
+    terms.append(display)
+    terms.append(f"{display}, {model[4:6]}")
+    return {
+        "name": f"pcr-{model}",
+        "character": f"{display}, {model[4:6]}",
+        "romaji": romaji.get(stem, ""),
         "aliases": list(dict.fromkeys(term for term in terms if term)),
         "unnamed": unnamed,
-        "storyModel": name,
+        "storyModel": model,
         "storyCharacter": stem,
+        "models": members,
     }
-    return row
 
 
 def build_catalog(repo):
@@ -147,7 +153,7 @@ def build_catalog(repo):
             continue
         if split_model(name) is None:
             raise SystemExit(f"unexpected theme name {name}")
-        rows.append(named_row(name, names, chinese, language, aliases, overrides))
+        rows.append(named_row(name, names, language, aliases, overrides, merged_models(repo, name)))
     rows.sort(key=lambda row: (row["unnamed"], row["name"]))
     return rows
 
