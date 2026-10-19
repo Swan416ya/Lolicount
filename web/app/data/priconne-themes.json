@@ -1,19 +1,5 @@
 [
   {
-    "name": "pcr-000112",
-    "character": "男孩子, 12",
-    "romaji": "",
-    "aliases": [
-      "男孩子",
-      "0001",
-      "000112",
-      "男孩"
-    ],
-    "unnamed": false,
-    "storyModel": "000112",
-    "storyCharacter": "0001"
-  },
-  {
     "name": "pcr-002611",
     "character": "帕克, 11",
     "romaji": "pakku",
@@ -58,45 +44,6 @@
     "storyCharacter": "0028"
   },
   {
-    "name": "pcr-003211",
-    "character": "女老师, 11",
-    "romaji": "",
-    "aliases": [
-      "女老师",
-      "0032",
-      "003211"
-    ],
-    "unnamed": false,
-    "storyModel": "003211",
-    "storyCharacter": "0032"
-  },
-  {
-    "name": "pcr-003511",
-    "character": "男人, 11",
-    "romaji": "",
-    "aliases": [
-      "男人",
-      "0035",
-      "003511"
-    ],
-    "unnamed": false,
-    "storyModel": "003511",
-    "storyCharacter": "0035"
-  },
-  {
-    "name": "pcr-003911",
-    "character": "サンタクロース, 11",
-    "romaji": "",
-    "aliases": [
-      "サンタクロース",
-      "0039",
-      "003911"
-    ],
-    "unnamed": false,
-    "storyModel": "003911",
-    "storyCharacter": "0039"
-  },
-  {
     "name": "pcr-004211",
     "character": "モーラ, 11",
     "romaji": "moora",
@@ -109,37 +56,6 @@
     "unnamed": false,
     "storyModel": "004211",
     "storyCharacter": "0042"
-  },
-  {
-    "name": "pcr-011411",
-    "character": "恶霸地方官, 11",
-    "romaji": "",
-    "aliases": [
-      "恶霸地方官",
-      "0114",
-      "011411"
-    ],
-    "unnamed": false,
-    "storyModel": "011411",
-    "storyCharacter": "0114"
-  },
-  {
-    "name": "pcr-100012",
-    "character": "？？？, 12",
-    "romaji": "shujinkou",
-    "aliases": [
-      "？？？",
-      "1000",
-      "100012",
-      "Yuuki",
-      "Protagonist",
-      "佑树",
-      "ユウキ",
-      "主角"
-    ],
-    "unnamed": false,
-    "storyModel": "100012",
-    "storyCharacter": "1000"
   },
   {
     "name": "pcr-100111",
@@ -16808,32 +16724,6 @@
     "storyCharacter": "1914"
   },
   {
-    "name": "pcr-191412",
-    "character": "ゴウシン, 12",
-    "romaji": "goushin",
-    "aliases": [
-      "ゴウシン",
-      "1914",
-      "191412"
-    ],
-    "unnamed": false,
-    "storyModel": "191412",
-    "storyCharacter": "1914"
-  },
-  {
-    "name": "pcr-191413",
-    "character": "ゴウシン, 13",
-    "romaji": "goushin",
-    "aliases": [
-      "ゴウシン",
-      "1914",
-      "191413"
-    ],
-    "unnamed": false,
-    "storyModel": "191413",
-    "storyCharacter": "1914"
-  },
-  {
     "name": "pcr-191711",
     "character": "ゼーン, 11",
     "romaji": "zeen",
@@ -16934,6 +16824,21 @@
     ],
     "unnamed": true,
     "storyModel": "000111",
+    "storyCharacter": "0001"
+  },
+  {
+    "name": "pcr-000112",
+    "character": "Story 0001, 12",
+    "romaji": "",
+    "aliases": [
+      "Story 0001",
+      "0001",
+      "000112",
+      "男孩",
+      "男孩子"
+    ],
+    "unnamed": true,
+    "storyModel": "000112",
     "storyCharacter": "0001"
   },
   {
@@ -17815,6 +17720,20 @@
     "storyCharacter": "0031"
   },
   {
+    "name": "pcr-003211",
+    "character": "Story 0032, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0032",
+      "0032",
+      "003211",
+      "女老师"
+    ],
+    "unnamed": true,
+    "storyModel": "003211",
+    "storyCharacter": "0032"
+  },
+  {
     "name": "pcr-003311",
     "character": "Story 0033, 11",
     "romaji": "",
@@ -17871,6 +17790,20 @@
     "storyCharacter": "0034"
   },
   {
+    "name": "pcr-003511",
+    "character": "Story 0035, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0035",
+      "0035",
+      "003511",
+      "男人"
+    ],
+    "unnamed": true,
+    "storyModel": "003511",
+    "storyCharacter": "0035"
+  },
+  {
     "name": "pcr-003512",
     "character": "Story 0035, 12",
     "romaji": "",
@@ -17883,6 +17816,20 @@
     "unnamed": true,
     "storyModel": "003512",
     "storyCharacter": "0035"
+  },
+  {
+    "name": "pcr-003911",
+    "character": "Story 0039, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0039",
+      "0039",
+      "003911",
+      "サンタクロース"
+    ],
+    "unnamed": true,
+    "storyModel": "003911",
+    "storyCharacter": "0039"
   },
   {
     "name": "pcr-004611",
@@ -18964,6 +18911,20 @@
     "storyCharacter": "0099"
   },
   {
+    "name": "pcr-011411",
+    "character": "Story 0114, 11",
+    "romaji": "",
+    "aliases": [
+      "Story 0114",
+      "0114",
+      "011411",
+      "恶霸地方官"
+    ],
+    "unnamed": true,
+    "storyModel": "011411",
+    "storyCharacter": "0114"
+  },
+  {
     "name": "pcr-011413",
     "character": "Story 0114, 13",
     "romaji": "",
@@ -19750,6 +19711,24 @@
     "storyCharacter": "1000"
   },
   {
+    "name": "pcr-100012",
+    "character": "Story 1000, 12",
+    "romaji": "shujinkou",
+    "aliases": [
+      "Story 1000",
+      "1000",
+      "100012",
+      "Yuuki",
+      "Protagonist",
+      "佑树",
+      "ユウキ",
+      "主角"
+    ],
+    "unnamed": true,
+    "storyModel": "100012",
+    "storyCharacter": "1000"
+  },
+  {
     "name": "pcr-100015",
     "character": "Story 1000, 15",
     "romaji": "shujinkou",
@@ -20333,6 +20312,32 @@
     "unnamed": true,
     "storyModel": "191114",
     "storyCharacter": "1911"
+  },
+  {
+    "name": "pcr-191412",
+    "character": "Story 1914, 12",
+    "romaji": "goushin",
+    "aliases": [
+      "Story 1914",
+      "1914",
+      "191412"
+    ],
+    "unnamed": true,
+    "storyModel": "191412",
+    "storyCharacter": "1914"
+  },
+  {
+    "name": "pcr-191413",
+    "character": "Story 1914, 13",
+    "romaji": "goushin",
+    "aliases": [
+      "Story 1914",
+      "1914",
+      "191413"
+    ],
+    "unnamed": true,
+    "storyModel": "191413",
+    "storyCharacter": "1914"
   },
   {
     "name": "pcr-191712",
