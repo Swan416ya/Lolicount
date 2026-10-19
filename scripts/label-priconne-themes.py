@@ -100,13 +100,14 @@ def merged_models(repo, name):
     return [name]
 
 
-def named_row(model, names, romaji, aliases, overrides, members):
+def named_row(model, names, chinese, romaji, aliases, overrides, members):
     """Describe one named theme: the gallery title is the romanized character name.
 
-    Chinese names are deliberately not used: several of them are wrong, so every
-    title shows the romanized name plus the story suffix. A theme consolidated
-    from several portraits is titled after the portrait that names the directory,
-    and every member stays searchable through the aliases.
+    Chinese names are deliberately not used as titles: several of them are wrong,
+    so every title shows the romanized name plus the story suffix. They stay search
+    aliases, which keeps Chinese input working. A theme consolidated from several
+    portraits is titled after the portrait that names the directory, and every
+    member stays searchable through the aliases.
     """
     stem = model[:4]
     override = overrides.get(model)
@@ -117,10 +118,10 @@ def named_row(model, names, romaji, aliases, overrides, members):
     else:
         japanese = names.get(stem) or f"Story {stem}"
     unnamed = japanese.startswith("Story ")
-    terms = [japanese, stem, model]
+    terms = [japanese, stem, model, chinese.get(stem)]
     for member in members:
         member_stem = member[:4]
-        terms.extend([member, member_stem, f"Story {member_stem}"])
+        terms.extend([member, member_stem, f"Story {member_stem}", chinese.get(member_stem)])
         terms.extend(aliases.get(member_stem, []))
     display = japanese if unnamed else (romaji.get(stem) or japanese)
     terms.append(display)
@@ -153,7 +154,7 @@ def build_catalog(repo):
             continue
         if split_model(name) is None:
             raise SystemExit(f"unexpected theme name {name}")
-        rows.append(named_row(name, names, language, aliases, overrides, merged_models(repo, name)))
+        rows.append(named_row(name, names, chinese, language, aliases, overrides, merged_models(repo, name)))
     rows.sort(key=lambda row: (row["unnamed"], row["name"]))
     return rows
 
