@@ -155,7 +155,7 @@ def build_catalog(repo):
         if split_model(name) is None:
             raise SystemExit(f"unexpected theme name {name}")
         rows.append(named_row(name, names, chinese, language, aliases, overrides, merged_models(repo, name)))
-    rows.sort(key=lambda row: (row["unnamed"], row["name"]))
+    rows.sort(key=lambda row: (row["unnamed"], row["character"], row["name"]))
     return rows
 
 
