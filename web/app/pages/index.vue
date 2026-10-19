@@ -694,11 +694,19 @@ useHead({
   cursor: pointer;
   background: var(--loli-surface);
   border-radius: 0.85rem;
+  /* Very wide portraits fill the frame and fade out at both edges instead of
+     spilling over the panel. Centred images narrower than the frame keep their
+     own edges, because the transparent mask stops live outside them. */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 .preview-image {
+  width: 100%;
   max-height: 18rem;
   object-fit: contain;
+  object-position: center;
 }
 
 .preview-loading {
@@ -927,6 +935,10 @@ useHead({
   width: 100%;
   height: 8.5rem;
   margin-bottom: 0.35rem;
+  /* Wide portraits stay centred and fade out where they leave the card. */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 
 /* Reference's skeleton-cycle ramp behind each card image until it loads. */

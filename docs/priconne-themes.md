@@ -75,6 +75,10 @@ pnpm --dir web generate
 
 ![主题库按角色名搜索](images/priconne-web-gallery.webp)
 
+主题库与预览框对特别宽的立绘会保持水平居中，并把越出框外的左右两侧做成渐隐；比框窄的立绘不受影响，/@demo 等实际输出的计数图始终是完整图片：
+
+![宽立绘在卡片框内的渐隐效果](images/priconne-web-wide-portrait.webp)
+
 ![选中合并主题后的预览与角色信息](images/priconne-web-preview.webp)
 
 ![同一批命名主题的计数图](images/priconne-web-counters.webp)
