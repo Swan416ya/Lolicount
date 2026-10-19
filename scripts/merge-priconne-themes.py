@@ -145,19 +145,26 @@ def main():
     deleted = {f"pcr-{model}" for model in exceptions["deleted"]}
     standalone = {f"pcr-{model}" for model in exceptions["standalone"]}
     standalone_batches = set(exceptions.get("standalone_batches", []))
+    dusk_tens = set(exceptions.get("dusk_tens", []))
 
     theme_names = sorted(
         directory.name
         for directory in theme_root.iterdir()
         if directory.is_dir() and directory.name.startswith("pcr-") and len(directory.name) == 10
     )
+    # A suffix tens digit listed in ``dusk_tens`` marks the evening rendering of the
+    # same portrait: same pose and outfit, darker and often without the weapon, so
+    # it ships no theme of its own.
+    dusk = {name for name in theme_names if name.removeprefix("pcr-")[4] in dusk_tens}
+    deleted |= dusk
     missing = sorted(name for name in deleted if name not in theme_names)
     if missing:
         raise SystemExit(f"deletion list names themes that are not shipped: {missing}")
     plan = build_plan(repo, theme_names, names, overrides, deleted, standalone, standalone_batches)
     members = {member for group in plan.values() for member in group}
     print(f"shipped themes: {len(theme_names)}")
-    print(f"deleted by request: {len(deleted)} {sorted(deleted)}")
+    print(f"deleted by request: {len(deleted) - len(dusk)} {sorted(deleted - dusk)}")
+    print(f"deleted as dusk ({sorted(dusk_tens)}): {len(dusk)}")
     print(f"kept out of merging: {sorted(standalone)}")
     print(f"merge groups: {len(plan)} covering {len(members)} portraits")
     print(f"resulting themes: {len(theme_names) - len(deleted) - len(members) + len(plan)}")
