@@ -105,16 +105,13 @@ const groups = computed<ThemeGroup[]>(() => {
   }
   for (const key of gameOptions.value) {
     // Princess Connect lists named characters first and unnamed NPC themes at
-    // the end of the group, then sorts by romanized character name (which puts
-    // every skin of one character side by side) and falls back to the story
-    // batch for themes that have no name.
+    // the end of the group, matching how the portraits are named.
     const items = filteredThemes.value
       .filter((tth) => !consumed.has(tth.name) && (tth.meta?.gameKey ?? 'other') === key)
       .sort((a, b) => {
         if (key !== 'princess-connect') return 0
         const unnamedOrder = Number(a.meta?.unnamed ?? false) - Number(b.meta?.unnamed ?? false)
-        if (unnamedOrder !== 0) return unnamedOrder
-        return (a.meta?.character ?? a.name).localeCompare(b.meta?.character ?? b.name, 'en')
+        return unnamedOrder || a.name.localeCompare(b.name)
       })
     if (items.length > 0) {
       out.push({ key, label: gameLabel(key), hot: false, items })
