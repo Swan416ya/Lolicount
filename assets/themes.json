@@ -2242,9 +2242,9 @@
     },
     {
       "name": "pcr-000415",
-      "frames": 29,
+      "frames": 148,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0004; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0004; 5 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2252,69 +2252,13 @@
         "プリコネ",
         "Story 0004"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000416",
-      "frames": 29,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0004; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0004"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000417",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0004; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0004"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000418",
-      "frames": 28,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0004; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0004"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000419",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0004; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0004"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-000511",
-      "frames": 25,
+      "frames": 50,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0005; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0005; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2322,21 +2266,7 @@
         "プリコネ",
         "Story 0005"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000512",
-      "frames": 25,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0005; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0005"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-000611",
@@ -2368,9 +2298,9 @@
     },
     {
       "name": "pcr-000911",
-      "frames": 31,
+      "frames": 155,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0009; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0009; 5 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2378,69 +2308,13 @@
         "プリコネ",
         "Story 0009"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000913",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0009; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0009"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000914",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0009; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0009"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000915",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0009; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0009"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-000917",
-      "frames": 31,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0009; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0009"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-001011",
-      "frames": 30,
+      "frames": 88,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0010; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0010; 3 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2448,35 +2322,7 @@
         "プリコネ",
         "Story 0010"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-001012",
-      "frames": 28,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0010; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0010"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-001013",
-      "frames": 30,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0010; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0010"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-001031",
@@ -2494,9 +2340,9 @@
     },
     {
       "name": "pcr-001111",
-      "frames": 29,
+      "frames": 57,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0011; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0011; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2504,21 +2350,7 @@
         "プリコネ",
         "Story 0011"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-001112",
-      "frames": 28,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0011; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0011"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-001131",
@@ -2620,9 +2452,9 @@
     },
     {
       "name": "pcr-002514",
-      "frames": 40,
+      "frames": 116,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0025; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0025; 3 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2630,35 +2462,7 @@
         "プリコネ",
         "Story 0025"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-002515",
-      "frames": 38,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0025; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0025"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-002516",
-      "frames": 38,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0025; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0025"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-002611",
@@ -2970,9 +2774,9 @@
     },
     {
       "name": "pcr-005312",
-      "frames": 27,
+      "frames": 52,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0053; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0053; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -2980,27 +2784,13 @@
         "プリコネ",
         "Story 0053"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-005313",
-      "frames": 25,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0053; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0053"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-005411",
-      "frames": 27,
+      "frames": 81,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0054; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0054; 3 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -3008,35 +2798,7 @@
         "プリコネ",
         "Story 0054"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-005412",
-      "frames": 27,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0054; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0054"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-005413",
-      "frames": 27,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0054; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0054"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-005511",
@@ -3064,7 +2826,7 @@
         "プリコネ",
         "Story 0056"
       ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-005711",
@@ -3152,9 +2914,9 @@
     },
     {
       "name": "pcr-006311",
-      "frames": 34,
+      "frames": 68,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0063; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0063; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -3162,21 +2924,7 @@
         "プリコネ",
         "Story 0063"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-006312",
-      "frames": 34,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0063; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0063"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-006411",
@@ -3292,9 +3040,9 @@
     },
     {
       "name": "pcr-007411",
-      "frames": 32,
+      "frames": 64,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0074; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0074; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -3302,21 +3050,7 @@
         "プリコネ",
         "Story 0074"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-007412",
-      "frames": 32,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0074"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-007511",
@@ -3642,9 +3376,9 @@
     },
     {
       "name": "pcr-015011",
-      "frames": 9,
+      "frames": 19,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0150; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 0150; 2 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -3652,21 +3386,7 @@
         "プリコネ",
         "Story 0150"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-015012",
-      "frames": 10,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 0150; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 0150"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-015311",
@@ -6148,9 +5868,9 @@
     },
     {
       "name": "pcr-107411",
-      "frames": 29,
+      "frames": 322,
       "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
+      "description": "Princess Connect! Re:Dive / Story 1074; 7 mutually exclusive story portraits, with expressions selected inside the chosen portrait.",
       "tags": [
         "princess-connect",
         "priconne",
@@ -6158,91 +5878,7 @@
         "プリコネ",
         "Story 1074"
       ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107412",
-      "frames": 49,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107413",
-      "frames": 49,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107414",
-      "frames": 49,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107415",
-      "frames": 49,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107416",
-      "frames": 48,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
-    },
-    {
-      "name": "pcr-107418",
-      "frames": 49,
-      "ext": "webp",
-      "description": "Princess Connect! Re:Dive / Story 1074; static story portrait, independent body, eyes and mouth.",
-      "tags": [
-        "princess-connect",
-        "priconne",
-        "公主连结",
-        "プリコネ",
-        "Story 1074"
-      ],
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "name": "pcr-107511",

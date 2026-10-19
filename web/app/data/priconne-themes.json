@@ -12826,6 +12826,14 @@
       "女性",
       "子供",
       "母亲",
+      "000416",
+      "Story 0004, 16",
+      "000417",
+      "Story 0004, 17",
+      "000418",
+      "Story 0004, 18",
+      "000419",
+      "Story 0004, 19",
       "005614",
       "0056",
       "Story 0056",
@@ -12835,86 +12843,10 @@
     "storyModel": "000415",
     "storyCharacter": "0004",
     "models": [
-      "000415"
-    ]
-  },
-  {
-    "name": "pcr-000416",
-    "character": "Story 0004, 16",
-    "romaji": "",
-    "aliases": [
-      "Story 0004",
-      "0004",
+      "000415",
       "000416",
-      "Story 0004, 16",
-      "女性",
-      "子供",
-      "母亲"
-    ],
-    "unnamed": true,
-    "storyModel": "000416",
-    "storyCharacter": "0004",
-    "models": [
-      "000416"
-    ]
-  },
-  {
-    "name": "pcr-000417",
-    "character": "Story 0004, 17",
-    "romaji": "",
-    "aliases": [
-      "Story 0004",
-      "0004",
       "000417",
-      "Story 0004, 17",
-      "女性",
-      "子供",
-      "母亲"
-    ],
-    "unnamed": true,
-    "storyModel": "000417",
-    "storyCharacter": "0004",
-    "models": [
-      "000417"
-    ]
-  },
-  {
-    "name": "pcr-000418",
-    "character": "Story 0004, 18",
-    "romaji": "",
-    "aliases": [
-      "Story 0004",
-      "0004",
       "000418",
-      "Story 0004, 18",
-      "女性",
-      "子供",
-      "母亲"
-    ],
-    "unnamed": true,
-    "storyModel": "000418",
-    "storyCharacter": "0004",
-    "models": [
-      "000418"
-    ]
-  },
-  {
-    "name": "pcr-000419",
-    "character": "Story 0004, 19",
-    "romaji": "",
-    "aliases": [
-      "Story 0004",
-      "0004",
-      "000419",
-      "Story 0004, 19",
-      "女性",
-      "子供",
-      "母亲"
-    ],
-    "unnamed": true,
-    "storyModel": "000419",
-    "storyCharacter": "0004",
-    "models": [
       "000419"
     ]
   },
@@ -12927,30 +12859,15 @@
       "0005",
       "000511",
       "Story 0005, 11",
-      "村长"
+      "村长",
+      "000512",
+      "Story 0005, 12"
     ],
     "unnamed": true,
     "storyModel": "000511",
     "storyCharacter": "0005",
     "models": [
-      "000511"
-    ]
-  },
-  {
-    "name": "pcr-000512",
-    "character": "Story 0005, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0005",
-      "0005",
-      "000512",
-      "Story 0005, 12",
-      "村长"
-    ],
-    "unnamed": true,
-    "storyModel": "000512",
-    "storyCharacter": "0005",
-    "models": [
+      "000511",
       "000512"
     ]
   },
@@ -13005,84 +12922,24 @@
       "0009",
       "000911",
       "Story 0009, 11",
-      "ギャング１"
+      "ギャング１",
+      "000913",
+      "Story 0009, 13",
+      "000914",
+      "Story 0009, 14",
+      "000915",
+      "Story 0009, 15",
+      "000917",
+      "Story 0009, 17"
     ],
     "unnamed": true,
     "storyModel": "000911",
     "storyCharacter": "0009",
     "models": [
-      "000911"
-    ]
-  },
-  {
-    "name": "pcr-000913",
-    "character": "Story 0009, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 0009",
-      "0009",
+      "000911",
       "000913",
-      "Story 0009, 13",
-      "ギャング１"
-    ],
-    "unnamed": true,
-    "storyModel": "000913",
-    "storyCharacter": "0009",
-    "models": [
-      "000913"
-    ]
-  },
-  {
-    "name": "pcr-000914",
-    "character": "Story 0009, 14",
-    "romaji": "",
-    "aliases": [
-      "Story 0009",
-      "0009",
       "000914",
-      "Story 0009, 14",
-      "ギャング１"
-    ],
-    "unnamed": true,
-    "storyModel": "000914",
-    "storyCharacter": "0009",
-    "models": [
-      "000914"
-    ]
-  },
-  {
-    "name": "pcr-000915",
-    "character": "Story 0009, 15",
-    "romaji": "",
-    "aliases": [
-      "Story 0009",
-      "0009",
       "000915",
-      "Story 0009, 15",
-      "ギャング１"
-    ],
-    "unnamed": true,
-    "storyModel": "000915",
-    "storyCharacter": "0009",
-    "models": [
-      "000915"
-    ]
-  },
-  {
-    "name": "pcr-000917",
-    "character": "Story 0009, 17",
-    "romaji": "",
-    "aliases": [
-      "Story 0009",
-      "0009",
-      "000917",
-      "Story 0009, 17",
-      "ギャング１"
-    ],
-    "unnamed": true,
-    "storyModel": "000917",
-    "storyCharacter": "0009",
-    "models": [
       "000917"
     ]
   },
@@ -13096,50 +12953,18 @@
       "001011",
       "Story 0010, 11",
       "男子2",
-      "年轻男子"
+      "年轻男子",
+      "001012",
+      "Story 0010, 12",
+      "001013",
+      "Story 0010, 13"
     ],
     "unnamed": true,
     "storyModel": "001011",
     "storyCharacter": "0010",
     "models": [
-      "001011"
-    ]
-  },
-  {
-    "name": "pcr-001012",
-    "character": "Story 0010, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0010",
-      "0010",
+      "001011",
       "001012",
-      "Story 0010, 12",
-      "男子2",
-      "年轻男子"
-    ],
-    "unnamed": true,
-    "storyModel": "001012",
-    "storyCharacter": "0010",
-    "models": [
-      "001012"
-    ]
-  },
-  {
-    "name": "pcr-001013",
-    "character": "Story 0010, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 0010",
-      "0010",
-      "001013",
-      "Story 0010, 13",
-      "男子2",
-      "年轻男子"
-    ],
-    "unnamed": true,
-    "storyModel": "001013",
-    "storyCharacter": "0010",
-    "models": [
       "001013"
     ]
   },
@@ -13173,6 +12998,8 @@
       "Story 0011, 11",
       "现场监工",
       "小混混",
+      "001112",
+      "Story 0011, 12",
       "005612",
       "0056",
       "Story 0056",
@@ -13182,25 +13009,7 @@
     "storyModel": "001111",
     "storyCharacter": "0011",
     "models": [
-      "001111"
-    ]
-  },
-  {
-    "name": "pcr-001112",
-    "character": "Story 0011, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0011",
-      "0011",
-      "001112",
-      "Story 0011, 12",
-      "现场监工",
-      "小混混"
-    ],
-    "unnamed": true,
-    "storyModel": "001112",
-    "storyCharacter": "0011",
-    "models": [
+      "001111",
       "001112"
     ]
   },
@@ -13364,46 +13173,18 @@
       "Story 0025",
       "0025",
       "002514",
-      "Story 0025, 14"
+      "Story 0025, 14",
+      "002515",
+      "Story 0025, 15",
+      "002516",
+      "Story 0025, 16"
     ],
     "unnamed": true,
     "storyModel": "002514",
     "storyCharacter": "0025",
     "models": [
-      "002514"
-    ]
-  },
-  {
-    "name": "pcr-002515",
-    "character": "Story 0025, 15",
-    "romaji": "",
-    "aliases": [
-      "Story 0025",
-      "0025",
+      "002514",
       "002515",
-      "Story 0025, 15"
-    ],
-    "unnamed": true,
-    "storyModel": "002515",
-    "storyCharacter": "0025",
-    "models": [
-      "002515"
-    ]
-  },
-  {
-    "name": "pcr-002516",
-    "character": "Story 0025, 16",
-    "romaji": "",
-    "aliases": [
-      "Story 0025",
-      "0025",
-      "002516",
-      "Story 0025, 16"
-    ],
-    "unnamed": true,
-    "storyModel": "002516",
-    "storyCharacter": "0025",
-    "models": [
       "002516"
     ]
   },
@@ -13785,22 +13566,7 @@
       "Story 0053",
       "0053",
       "005312",
-      "Story 0053, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "005312",
-    "storyCharacter": "0053",
-    "models": [
-      "005312"
-    ]
-  },
-  {
-    "name": "pcr-005313",
-    "character": "Story 0053, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 0053",
-      "0053",
+      "Story 0053, 12",
       "005313",
       "Story 0053, 13",
       "192611",
@@ -13809,9 +13575,10 @@
       "Story 1926, 11"
     ],
     "unnamed": true,
-    "storyModel": "005313",
+    "storyModel": "005312",
     "storyCharacter": "0053",
     "models": [
+      "005312",
       "005313"
     ]
   },
@@ -13823,46 +13590,18 @@
       "Story 0054",
       "0054",
       "005411",
-      "Story 0054, 11"
+      "Story 0054, 11",
+      "005412",
+      "Story 0054, 12",
+      "005413",
+      "Story 0054, 13"
     ],
     "unnamed": true,
     "storyModel": "005411",
     "storyCharacter": "0054",
     "models": [
-      "005411"
-    ]
-  },
-  {
-    "name": "pcr-005412",
-    "character": "Story 0054, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0054",
-      "0054",
+      "005411",
       "005412",
-      "Story 0054, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "005412",
-    "storyCharacter": "0054",
-    "models": [
-      "005412"
-    ]
-  },
-  {
-    "name": "pcr-005413",
-    "character": "Story 0054, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 0054",
-      "0054",
-      "005413",
-      "Story 0054, 13"
-    ],
-    "unnamed": true,
-    "storyModel": "005413",
-    "storyCharacter": "0054",
-    "models": [
       "005413"
     ]
   },
@@ -14022,29 +13761,15 @@
       "Story 0063",
       "0063",
       "006311",
-      "Story 0063, 11"
+      "Story 0063, 11",
+      "006312",
+      "Story 0063, 12"
     ],
     "unnamed": true,
     "storyModel": "006311",
     "storyCharacter": "0063",
     "models": [
-      "006311"
-    ]
-  },
-  {
-    "name": "pcr-006312",
-    "character": "Story 0063, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0063",
-      "0063",
-      "006312",
-      "Story 0063, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "006312",
-    "storyCharacter": "0063",
-    "models": [
+      "006311",
       "006312"
     ]
   },
@@ -14214,29 +13939,15 @@
       "Story 0074",
       "0074",
       "007411",
-      "Story 0074, 11"
+      "Story 0074, 11",
+      "007412",
+      "Story 0074, 12"
     ],
     "unnamed": true,
     "storyModel": "007411",
     "storyCharacter": "0074",
     "models": [
-      "007411"
-    ]
-  },
-  {
-    "name": "pcr-007412",
-    "character": "Story 0074, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0074",
-      "0074",
-      "007412",
-      "Story 0074, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "007412",
-    "storyCharacter": "0074",
-    "models": [
+      "007411",
       "007412"
     ]
   },
@@ -14664,29 +14375,15 @@
       "Story 0150",
       "0150",
       "015011",
-      "Story 0150, 11"
+      "Story 0150, 11",
+      "015012",
+      "Story 0150, 12"
     ],
     "unnamed": true,
     "storyModel": "015011",
     "storyCharacter": "0150",
     "models": [
-      "015011"
-    ]
-  },
-  {
-    "name": "pcr-015012",
-    "character": "Story 0150, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 0150",
-      "0150",
-      "015012",
-      "Story 0150, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "015012",
-    "storyCharacter": "0150",
-    "models": [
+      "015011",
       "015012"
     ]
   },
@@ -15471,114 +15168,30 @@
       "Story 1074",
       "1074",
       "107411",
-      "Story 1074, 11"
+      "Story 1074, 11",
+      "107412",
+      "Story 1074, 12",
+      "107413",
+      "Story 1074, 13",
+      "107414",
+      "Story 1074, 14",
+      "107415",
+      "Story 1074, 15",
+      "107416",
+      "Story 1074, 16",
+      "107418",
+      "Story 1074, 18"
     ],
     "unnamed": true,
     "storyModel": "107411",
     "storyCharacter": "1074",
     "models": [
-      "107411"
-    ]
-  },
-  {
-    "name": "pcr-107412",
-    "character": "Story 1074, 12",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
+      "107411",
       "107412",
-      "Story 1074, 12"
-    ],
-    "unnamed": true,
-    "storyModel": "107412",
-    "storyCharacter": "1074",
-    "models": [
-      "107412"
-    ]
-  },
-  {
-    "name": "pcr-107413",
-    "character": "Story 1074, 13",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
       "107413",
-      "Story 1074, 13"
-    ],
-    "unnamed": true,
-    "storyModel": "107413",
-    "storyCharacter": "1074",
-    "models": [
-      "107413"
-    ]
-  },
-  {
-    "name": "pcr-107414",
-    "character": "Story 1074, 14",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
       "107414",
-      "Story 1074, 14"
-    ],
-    "unnamed": true,
-    "storyModel": "107414",
-    "storyCharacter": "1074",
-    "models": [
-      "107414"
-    ]
-  },
-  {
-    "name": "pcr-107415",
-    "character": "Story 1074, 15",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
       "107415",
-      "Story 1074, 15"
-    ],
-    "unnamed": true,
-    "storyModel": "107415",
-    "storyCharacter": "1074",
-    "models": [
-      "107415"
-    ]
-  },
-  {
-    "name": "pcr-107416",
-    "character": "Story 1074, 16",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
       "107416",
-      "Story 1074, 16"
-    ],
-    "unnamed": true,
-    "storyModel": "107416",
-    "storyCharacter": "1074",
-    "models": [
-      "107416"
-    ]
-  },
-  {
-    "name": "pcr-107418",
-    "character": "Story 1074, 18",
-    "romaji": "",
-    "aliases": [
-      "Story 1074",
-      "1074",
-      "107418",
-      "Story 1074, 18"
-    ],
-    "unnamed": true,
-    "storyModel": "107418",
-    "storyCharacter": "1074",
-    "models": [
       "107418"
     ]
   },
