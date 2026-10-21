@@ -90,7 +90,7 @@ func newCounterServer(t *testing.T) *Server {
 	t.Cleanup(buf.Stop)
 
 	cfg := &config.Config{Host: "127.0.0.1", Port: 0, DBInterval: 10, RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000}
-	s := New(cfg, zerolog.Nop(), reg, nil, buf)
+	s := New(cfg, zerolog.Nop(), reg, nil, buf, nil)
 	t.Cleanup(func() {
 		s.ipLimiter.Stop()
 		s.nameLimiter.Stop()
@@ -146,6 +146,47 @@ func TestCounterGetAlias(t *testing.T) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		t.Fatalf("status: %d", resp.StatusCode)
+	}
+}
+
+// TestCounterOpenCORS pins the open CORS header on counter responses.
+// The frontend's download-current-frame feature rasterizes the preview
+// onto a canvas; in dev the site (:3721) and API (:9721) are
+// cross-origin, so without ACAO on the image response the canvas is
+// tainted and export throws a SecurityError.
+func TestCounterOpenCORS(t *testing.T) {
+	s := newCounterServer(t)
+	req := httptest.NewRequest(http.MethodGet, "/@demo?theme=lian", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("status: %d", resp.StatusCode)
+	}
+	if allow := resp.Header.Get("Access-Control-Allow-Origin"); allow != "*" {
+		t.Errorf("Access-Control-Allow-Origin: got %q want *", allow)
+	}
+}
+
+// TestCounterRealNameCacheControl pins the cache header for the real
+// per-view counting path: every real-count response must carry the
+// full no-cache combo, not just bare no-store — GitHub's Fastly edge
+// ignores bare no-store for its own caching decision (observed
+// MISS → HIT within one second) and keeps serving the frozen image
+// until its TTL expires, so the README count stops ticking.
+func TestCounterRealNameCacheControl(t *testing.T) {
+	s := newCounterServer(t)
+	req := httptest.NewRequest(http.MethodGet, "/@real-name-cc?theme=lian", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("status: %d", resp.StatusCode)
+	}
+	if cc := resp.Header.Get("Cache-Control"); cc != realCountCacheControl {
+		t.Errorf("real name Cache-Control: got %q want %q", cc, realCountCacheControl)
 	}
 }
 
@@ -208,8 +249,6 @@ func sub(s, marker string) string {
 	}
 	return s[i:end]
 }
-
-
 
 // TestCounterTextTemplate verifies that the ?text= parameter replaces
 // {n} with the count number and preserves surrounding characters.

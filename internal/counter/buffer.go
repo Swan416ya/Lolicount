@@ -6,6 +6,7 @@ package counter
 
 import (
 	"context"
+	"sort"
 	"sync"
 	"time"
 
@@ -142,6 +143,28 @@ func (b *Buffer) Get(ctx context.Context, name string) (int64, error) {
 		return 0, nil
 	}
 	return c.Num, nil
+}
+
+// Top returns up to n names with the highest counts from a snapshot of
+// the buffer, sorted by count descending then name ascending for stable
+// output. It reads only the in-memory cache — no DB round trip.
+func (b *Buffer) Top(n int) []store.Counter {
+	b.mu.Lock()
+	items := make([]store.Counter, 0, len(b.cache))
+	for name, num := range b.cache {
+		items = append(items, store.Counter{Name: name, Num: num})
+	}
+	b.mu.Unlock()
+	sort.Slice(items, func(i, j int) bool {
+		if items[i].Num != items[j].Num {
+			return items[i].Num > items[j].Num
+		}
+		return items[i].Name < items[j].Name
+	})
+	if n < len(items) {
+		items = items[:n]
+	}
+	return items
 }
 
 // flush snapshots the cache and upserts it to the store. The cache is

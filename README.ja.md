@@ -1,105 +1,79 @@
-![miaoledor](docs/png/githubSocialPreview.png)
+![Lolicount](docs/png/lolicount-s.png)
+
 [English](./README.md) · [中文](./README.zh.md) · **日本語**
 
-### 外部画像ソースをサポートするホームページなどで、お気に入りのキャラクターを表示しよう！
+GitHub README、ブログ、個人サイトに貼れる、キャラクターテーマ付きアクセスカウンター。キャラクターを選び、埋め込みコードをコピーするだけで使えます。静的テーマは、リクエストごとに画像をランダムに選んだり、立ち絵のレイヤーを組み合わせたりできます。
 
-萌え系で着せ替え可能なアクセスカウンター。SVG 画像として出力されます。内蔵テーマをいくつか同梱しており、自作の数字画像や背景をアップロードして独自のスタイルを作ることもできます。README やホームページにリンクを 1 行貼るだけ！
+## 使い方
 
+1. [lolicount.top](https://lolicount.top) を開きます。
+2. カウンター名とテーマを選び、生成ボタンを押します。
+3. Markdown または HTML コードをコピーして、ページに貼り付けます。
 
-表示されるキャラクターはランダムなフレーム選択とランダムなレイヤー合成に対応し、galgame のキャラクター立絵のような`動的合成`に対応しています。
+以下の `my-counter` を自分の名前に置き換えてください。同じ名前のカウンターは、複数のページに貼ってもカウントを共有します。
 
-## 少ない素材で、万の変化 — 最小のストレージで最も豊かな変化を
+**GitHub README / Markdown**
 
-多レイヤーテーマはキャラクターを表情、目、口、顔などの独立レイヤーに分割し、リクエストごとにランダムに合成します。`lian-ren` テーマを例にすると、わずか **71 枚**の画像（lass ×8 + brow ×18 + eye ×18 + mouth ×20 + face ×6）で **311,040 通り**の立絵の組み合わせを生成します——リロードのたびに新しい姿が現れます。
-
-## 高速読み込み
-
-Fiber v3 は [Fasthttp](https://gofiber.io/) を基盤にしており、Fiber チームはこれを Go 最速の HTTP エンジンと紹介しています。[Fiber 公式の TechEmpower ベンチマーク](https://docs.gofiber.io/extra/benchmarks/)では、Plaintext スループットが Fiber v3 約 **1,198.8 万応答/秒**、Express 約 **120.5 万**、JSON シリアライズが Fiber v3 約 **236.3 万応答/秒**、Express 約 **94.97 万** です。
-
-より広い参照として、[TechEmpower Round 23](https://www.techempower.com/benchmarks/#section=data-r23&test=plaintext&hw=ph) は同一物理ハードウェアで、最良の 15 秒 Plaintext 実行による主要フレームワーク比較を示しています：
-
-| フレームワーク | Plaintext RPS |
-|---|---:|
-| ASP.NET Core | 2,753 万 |
-| Fiber v2.52.5 prefork | 1,351 万 |
-| Gin | 164 万 |
-| Spring | 83 万 |
-| Express | 28 万 |
-| Laravel | 2.7 万 |
-| Next.js | 0.2 万 |
-
-Round 23 は Fiber v2.52.5 を使用しているため、この行は Fiber v3 の直接計測ではなく、エコシステム参照として扱ってください。
-
-Lolicount では、この軽量なリクエスト経路に埋め込みテーマ素材と Nuxt SSG フロントエンドを組み合わせます。カウンター SVG はプロセス内で合成されるため、テーマ取得の追加リクエストが不要で、すばやく応答します。
-
-## クイックスタート
-
-### 直接使用
-https://lolicount.top をご覧ください。
-
-### テスト開発実行
-
-ルートの `package.json` は `concurrently` を使い、バックエンド(Go :9721)とフロントエンド(Nuxt :3721)を同時に起動します。macOS / Windows / Linux のクロスプラットフォーム対応です:
-
-```bash
-pnpm install        # concurrently(ルート)とフロントエンド依存をインストール
-pnpm dev            # フロントとバックを同時に起動
+```markdown
+![アクセス数](https://lolicount.top/@my-counter?theme=lian-ren&fsize=16&scale=0.6)
 ```
 
-個別に実行も可能: `pnpm dev:server`(バックのみ)または `pnpm dev:web`(フロントのみ)。
+**Web サイト / HTML**
 
-### サーバーデプロイ
-
-```bash
-docker run -d -p 9721:9721 \
-  -v lolicount-data:/app/data \
-  ghcr.io/miaoledor/lolicount:latest
+```html
+<img src="https://lolicount.top/@my-counter?theme=lian-ren&amp;fsize=16&amp;scale=0.6" alt="アクセス数" />
 ```
 
-`http://localhost:9721/@my-counter` にアクセスしてください。カウントデータは `lolicount-data` ボリューム内の SQLite ファイルに永続化されます。
+**画像 URL**：[サンプルを開く](https://lolicount.top/@my-counter?theme=lian-ren&fsize=16&scale=0.6)。画像 URL を指定できる場所に、そのアドレスを貼り付けることもできます。
 
-CI/CD は GitHub Actions で構成:プッシュ時に `go vet` + テストが自動実行され、`v*` タグのプッシュでフロントエンドのビルド、静的バイナリのコンパイル、Docker イメージの ghcr.io へのプッシュが自動的に行われます。
+GitHub README には SVG テーマを選んでください。E-mote、Spine、Live2D のアニメーションテーマは、サイトで生成される Web ウィジェット用コードを使い、JavaScript が必要です。
 
-## 貢献
+## カスタマイズ
 
-私たちは本当にあなたの助けを必要としています！
+URL パラメーターを変更するか、サイトで調整しながらプレビューできます。
 
-機能の豊富化であれ、テーマの追加であれ、あなたの参加が必要です。
-貢献の`詳細`はこちら:
-| ドキュメント | 内容 |
-|---|---|
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | 貢献の概要 |
-| [docs/contributing-themes.md](./docs/contributing-themes.md) | テーマ貢献ガイド |
-| [docs/contributing-code.md](./docs/contributing-code.md) | 機能貢献ガイド |
+| パラメーター | 用途 | 例 |
+|---|---|---|
+| `theme` | キャラクターテーマ。`random` で SVG テーマをランダムに選択 | `theme=lian-ren` |
+| `scale` | 画像の拡大率。`0.1`～`4`、既定値 `1` | `scale=0.6` |
+| `fsize` | カウント文字のサイズ（px）。`0`～`500`、`0` で既定サイズ | `fsize=16` |
+| `number` | `1`～`999999` の固定値を表示し、加算しない。通常の計数時は省略 | `number=12345` |
 
-## 謝辞
+計数せずに試すには、名前を [`demo`](https://lolicount.top/@demo?theme=lian-ren&fsize=16&scale=0.6) に変更します。既定では `0123456789` を表示し、`number` を指定するとその値を表示します。
 
-- [kun-galgame-forum](https://github.com/KunMoe/kun-galgame-forum)
-- [Moe-Counter](https://github.com/journey-ad/Moe-Counter)
+フォントや文字位置の設定は[パラメーター一覧](./docs/projectDesign.md#接口调用文档)、困ったときは [FAQ](./docs/faq.md) をご覧ください。
 
-## スポンサー
+## セルフホスト
 
-このプロジェクトが好きですか?Lolicount がお役に立ちましたら、[作者にタピオカを一杯おごって](https://github.com/sponsors/miaoledor)ください 🧋
+Docker で起動します。
 
-## 技術スタック
+```sh
+docker run -d --name lolicount --restart unless-stopped -p 9721:9721 -v lolicount-data:/app/data ghcr.io/miaoledor/lolicount:latest
+```
 
-**バックエンド**: Go 1.25+ / Fiber v3 / SQLite
-**パフォーマンス**: Fiber v3 による高速なリクエスト処理で、埋め込み流量でもカウンター SVG をすばやく応答します。
-**フロントエンド**: Vue(Nuxt 4 SSG)/ UnoCSS / GSAP
-**ストレージ**: リクエスト → メモリバッファ → バッチ書き込み → SQLite
-**デプロイ**: シングルバイナリ(embed.FS がテーマ + フロント dist を同梱)
-技術的な詳細は以下のドキュメントでご覧いただけます:
-| ドキュメント | 内容 |
-|---|---|
-| [docs/architecture.md](./docs/architecture.md) | アーキテクチャ、プロジェクト構造、技術選定 |
-| [docs/deployment.md](./docs/deployment.md) | 使用とデプロイ(Win/Mac/Linux) |
-| [docs/projectDesign.md](./docs/projectDesign.md) | プロジェクト設計とインターフェース契約 |
-| [docs/TODOlist.md](./docs/TODOlist.md) | マイルストーンとタスク状態 |
+[localhost:9721](http://localhost:9721) を開くと、カウンターを生成できます。データは `lolicount-data` ボリュームに保存されます。単一インスタンスで運用し、公開ドメインを使う場合は `BASE_URL` に `https://counter.example.com` のような公開 URL を設定してください。
 
-## ライセンス
+Docker Compose、環境設定、バイナリのビルドは[デプロイガイド](./docs/deployment.md)をご覧ください。
 
-本プロジェクトは [AGPL-3.0](./LICENSE) ライセンスの下で公開されています。
+## ローカル開発
 
-本项目基于 [AGPL-3.0](./LICENSE) 协议开源。
+Go 1.25+、Node.js 22+、pnpm 11 を用意し、リポジトリのルートで実行します。
 
-![lolicount](https://lolicount.top/@lolicount?theme=lian-ren&fsize=16&scale=1&unshowf=true)
+```sh
+pnpm install
+pnpm dev
+```
+
+フロントエンドは [localhost:3721](http://localhost:3721)、バックエンドは [127.0.0.1:9721](http://127.0.0.1:9721) で動作します。
+
+## 貢献と支援
+
+- [貢献ガイド](./CONTRIBUTING.md) · [テーマの追加](./docs/contributing-themes.md) · [コードの貢献](./docs/contributing-code.md)
+- [ドキュメント](./docs/index.md) · [アーキテクチャ](./docs/architecture.md) · [ロードマップ](./docs/TODOlist.md)
+- [作者にミルクティーを一杯](https://github.com/sponsors/miaoledor) 🧋
+
+[kun-galgame-forum](https://github.com/KunMoe/kun-galgame-forum) と [Moe-Counter](https://github.com/journey-ad/Moe-Counter) に感謝します。
+
+[AGPL-3.0](./LICENSE) ライセンスで公開しています。
+
+![Lolicount](https://lolicount.top/@lolicount?theme=lian-ren&fsize=16&scale=1&unshowf=true)

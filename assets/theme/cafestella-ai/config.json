@@ -1,6 +1,6 @@
 {
-  "canvasW": 3750,
-  "canvasH": 5313,
+  "canvasW": 1681,
+  "canvasH": 2381,
   "ranges": {
     "lass": {
       "first": 0,
@@ -8,7 +8,7 @@
     },
     "face": {
       "first": 3,
-      "last": 6
+      "last": 5
     }
   }
 }

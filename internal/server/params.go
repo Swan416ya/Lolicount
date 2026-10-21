@@ -11,17 +11,17 @@ import (
 
 // queryParams is the validated query contract for GET /@:name.
 type queryParams struct {
-	Theme    string  `query:"theme"    validate:"omitempty,themename|eq=random"`
-	Number   int64   `query:"number"   validate:"omitempty,gte=0,lte=999999"`
-	FSize    int     `query:"fsize"    validate:"omitempty,gte=0,lte=500"`
-	Scale    float64 `query:"scale"    validate:"omitempty,gte=0.1,lte=4"`
-	UnshowF  bool    `query:"unshowf"`
-	FTheme   string  `query:"ftheme"   validate:"omitempty,themename|eq=random"`
-	X        int     `query:"x"        validate:"omitempty,gte=-500,lte=2000"`
-	Y        int     `query:"y"        validate:"omitempty,gte=-500,lte=2000"`
-	RX       float64 `query:"rx"       validate:"omitempty,gte=0,lte=1"`
-	RY       float64 `query:"ry"       validate:"omitempty,gte=0,lte=1"`
-	Text     string  `query:"text"     validate:"omitempty,max=64"`
+	Theme   string  `query:"theme"    validate:"omitempty,themename|eq=random"`
+	Number  int64   `query:"number"   validate:"omitempty,gte=0,lte=999999"`
+	FSize   int     `query:"fsize"    validate:"omitempty,gte=0,lte=500"`
+	Scale   float64 `query:"scale"    validate:"omitempty,gte=0.1,lte=4"`
+	UnshowF bool    `query:"unshowf"`
+	FTheme  string  `query:"ftheme"   validate:"omitempty,themename|eq=random"`
+	X       int     `query:"x"        validate:"omitempty,gte=-500,lte=2000"`
+	Y       int     `query:"y"        validate:"omitempty,gte=-500,lte=2000"`
+	RX      float64 `query:"rx"       validate:"omitempty,gte=0,lte=1"`
+	RY      float64 `query:"ry"       validate:"omitempty,gte=0,lte=1"`
+	Text    string  `query:"text"     validate:"omitempty,max=64"`
 }
 
 var queryValidator = validator.New()

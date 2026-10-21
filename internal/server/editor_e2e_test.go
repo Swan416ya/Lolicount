@@ -103,8 +103,8 @@ func TestE2ECharacterThemeFlow(t *testing.T) {
 	uri := makeDataURI(pngData)
 
 	req := &EditorRequest{
-		Name:   "test-char-e2e",
-		Canvas: EditorCanvas{Width: 500, Height: 800},
+		Name:    "test-char-e2e",
+		Canvas:  EditorCanvas{Width: 500, Height: 800},
 		Display: &theme.DisplayConfig{Size: 400},
 		Layers: []EditorLayer{
 			{ID: 1, Name: "lass", ZIndex: 0, Images: []EditorImage{
@@ -214,8 +214,8 @@ func TestE2EExportRoundTripLoadable(t *testing.T) {
 	uri := makeDataURI(pngData)
 
 	req := &EditorRequest{
-		Name:   "round-trip-test",
-		Canvas: EditorCanvas{Width: 500, Height: 800},
+		Name:    "round-trip-test",
+		Canvas:  EditorCanvas{Width: 500, Height: 800},
 		Display: &theme.DisplayConfig{Size: 400},
 		Layers: []EditorLayer{
 			{ID: 1, Name: "lass", ZIndex: 0, Images: []EditorImage{

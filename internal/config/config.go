@@ -40,6 +40,15 @@ type Config struct {
 	// slashes are stripped at validation time.
 	BaseURL string `envconfig:"BASE_URL" default:""`
 
+	// PSBDir is the on-disk directory holding the E-mote (PSB) emote
+	// models. Unlike theme images, models are NOT embedded in the binary:
+	// they are large (hundreds of MB) and requested rarely, so each model
+	// file is streamed from disk only when a request asks for it. A
+	// missing or empty directory disables the PSB widget endpoints
+	// gracefully (empty model list, 404 on fetch) rather than failing
+	// startup. Relative paths resolve against the working directory.
+	PSBDir string `envconfig:"PSB_DIR" default:"assets/psb"`
+
 	// AdminKey protects admin-only endpoints (theme review, approve,
 	// reject, delete). Empty = admin endpoints disabled (return 404).
 	AdminKey string `envconfig:"ADMIN_KEY" default:""`

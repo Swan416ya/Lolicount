@@ -14,9 +14,9 @@ import (
 // optional transform (position, scale, rotation). The image source is
 // a data URI (base64) for offline rendering, per AGENTS.md Iron Rule 2.
 type ImageLayer struct {
-	Src       string          // data:<mime>;base64,... or CDN URL
-	Width     int             // original pixel width
-	Height    int             // original pixel height
+	Src       string // data:<mime>;base64,... or CDN URL
+	Width     int    // original pixel width
+	Height    int    // original pixel height
 	Transform imgcore.Transform
 	Z         int
 	IsFixed   bool

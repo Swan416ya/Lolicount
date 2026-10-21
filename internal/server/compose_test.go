@@ -66,9 +66,9 @@ func TestBuildThemeLayersRandomPickScale(t *testing.T) {
 		{srcW, srcH},
 	})
 
-	got, err := buildThemeLayers(base, 0, "123", 50, false, theme.TextStyle{}, theme.TextPos{})
+	got, err := BuildThemeLayers(base, 0, "123", 50, false, theme.TextStyle{}, theme.TextPos{})
 	if err != nil {
-		t.Fatalf("buildThemeLayers: %v", err)
+		t.Fatalf("BuildThemeLayers: %v", err)
 	}
 
 	wantW, wantH := imgutils.ScaledDims(srcW, srcH, imgutils.DefaultDisplaySize)
@@ -88,7 +88,7 @@ func TestBuildThemeLayersRandomPickScale(t *testing.T) {
 }
 
 // TestBuildThemeLayersDoesNotMutateRegistry verifies that calling
-// buildThemeLayers does not mutate the shared registry theme's layer
+// BuildThemeLayers does not mutate the shared registry theme's layer
 // dimensions across repeated calls. This guards against a regression
 // where ImageLayer Width/Height were modified in place.
 func TestBuildThemeLayersDoesNotMutateRegistry(t *testing.T) {
@@ -98,7 +98,7 @@ func TestBuildThemeLayersDoesNotMutateRegistry(t *testing.T) {
 	})
 
 	for i := 0; i < 3; i++ {
-		_, _ = buildThemeLayers(base, 0, "1", 50, false, theme.TextStyle{}, theme.TextPos{})
+		_, _ = BuildThemeLayers(base, 0, "1", 50, false, theme.TextStyle{}, theme.TextPos{})
 	}
 
 	rpl, ok := base.Layers[0].(*render.RandomPickLayer)
@@ -133,9 +133,9 @@ func TestBuildThemeLayersRandomPickCanvasFitsAllFrames(t *testing.T) {
 	}
 	base := makeMultiFrameTheme("test-fit", frames)
 
-	got, err := buildThemeLayers(base, 0, "1", 50, false, theme.TextStyle{}, theme.TextPos{})
+	got, err := BuildThemeLayers(base, 0, "1", 50, false, theme.TextStyle{}, theme.TextPos{})
 	if err != nil {
-		t.Fatalf("buildThemeLayers: %v", err)
+		t.Fatalf("BuildThemeLayers: %v", err)
 	}
 
 	rpl, ok := got.Layers[0].(*render.RandomPickLayer)
@@ -150,5 +150,30 @@ func TestBuildThemeLayersRandomPickCanvasFitsAllFrames(t *testing.T) {
 		if opt.Height > got.BgH {
 			t.Errorf("frame %d: height %d > BgH %d (will be clipped)", i, opt.Height, got.BgH)
 		}
+	}
+}
+
+// TestBuildThemeLayersFrameDimsCanvas pins the lazy-strategy canvas
+// contract: a card theme whose resident assembly holds a single frame
+// must still size the canvas to accommodate EVERY frame's dims carried
+// in FrameDims — otherwise the canvas would shrink/grow as swaps rotate
+// through frames of differing sizes.
+func TestBuildThemeLayersFrameDimsCanvas(t *testing.T) {
+	frames := []struct{ W, H int }{
+		{708, 1242},
+		{660, 1248},
+	}
+	base := makeMultiFrameTheme("frame-dims-test", frames[:1])
+	rpl := base.Layers[0].(*render.RandomPickLayer)
+	rpl.FrameDims = []render.FrameDim{{W: frames[0].W, H: frames[0].H}, {W: frames[1].W, H: frames[1].H}}
+
+	got, err := BuildThemeLayers(base, 0, "1", 50, false, theme.TextStyle{}, theme.TextPos{})
+	if err != nil {
+		t.Fatalf("BuildThemeLayers: %v", err)
+	}
+	// Scaled to a 400px longest edge: the 1242-tall frame gives 228x400,
+	// the 1248-tall one 211x400 — the canvas must fit the 228x400 max.
+	if got.BgW != 228 || got.BgH != 400 {
+		t.Errorf("bg: got %dx%d want 228x400 (max over all FrameDims)", got.BgW, got.BgH)
 	}
 }

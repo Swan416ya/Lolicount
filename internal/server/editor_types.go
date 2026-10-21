@@ -19,11 +19,11 @@ type EditorImage struct {
 // at export time as the manifest entry name and for config.json range
 // grouping.
 type EditorLayer struct {
-	ID       int           `json:"id"`
-	Name     string        `json:"name"`
-	ZIndex   int           `json:"zIndex"`
-	Fixed    bool          `json:"fixed"`
-	Images   []EditorImage `json:"images"`
+	ID     int           `json:"id"`
+	Name   string        `json:"name"`
+	ZIndex int           `json:"zIndex"`
+	Fixed  bool          `json:"fixed"`
+	Images []EditorImage `json:"images"`
 }
 
 // EditorCanvas is the PSD coordinate space for layer placement.
@@ -38,12 +38,12 @@ type EditorCanvas struct {
 // Text layer parameters are sent alongside (text layer is not persisted
 // in the editor — it is per-user preview only).
 type EditorRequest struct {
-	Name    string             `json:"name"`
-	Canvas  EditorCanvas       `json:"canvas"`
+	Name    string               `json:"name"`
+	Canvas  EditorCanvas         `json:"canvas"`
 	Display *theme.DisplayConfig `json:"display,omitempty"`
-	Layers  []EditorLayer      `json:"layers"`
-	Text    string             `json:"text"`       // counter text to preview
-	FSize   int                `json:"fsize"`      // font size (0 = default)
-	Scale   float64            `json:"scale"`      // image scale (0 = 1)
-	UnshowF bool               `json:"unshowf"`    // hide text
+	Layers  []EditorLayer        `json:"layers"`
+	Text    string               `json:"text"`    // counter text to preview
+	FSize   int                  `json:"fsize"`   // font size (0 = default)
+	Scale   float64              `json:"scale"`   // image scale (0 = 1)
+	UnshowF bool                 `json:"unshowf"` // hide text
 }

@@ -41,6 +41,8 @@ scripts/            主题校验 / 生成 / 构建 / 图片优化脚本
 
 ## 开发流程
 
+在仓库根目录运行,workspace 会统一安装根目录和 `web` 的依赖。
+
 ```bash
 pnpm install        # 安装 concurrently + 前端依赖
 pnpm dev            # 同时启动前后端(跨平台 macOS/win/linux)
@@ -110,7 +112,7 @@ Ref: AGENTS.md Iron Rule 5.
 每次改动后检查是否有意外副作用,尤其三处:
 
 - [ ] **限流**:IP 级(429)与 name 级(降级只读)是否仍各自独立
-- [ ] **缓存**:计数 SVG 仍 `no-store`,demo 仍长缓存(铁律 1)
+- [ ] **缓存**:计数 SVG 仍是 no-cache 组合头(`no-store, no-cache, max-age=0, must-revalidate`),demo 仍长缓存(铁律 1)
 - [ ] **存储**:仍是「请求→内存 Buffer→定时批量→SQLite」单一路径(铁律 5)
 
 涉及 `tb_count` schema 变更时,任务结尾必须告诉用户是否需要迁移、跑哪个命令、

@@ -77,7 +77,7 @@ texture.png          贴图
     ├─ 两遍拟合构图:先小比例渲染读回不透明像素框,再 contain-fit 整框填满画布(居中留边距)
     ├─ 关闭 Automator autoFocus/autoHitTest(不做鼠标/眼动跟踪)
     ├─ app.stage.addChild(model);点击画布按序 internalModel.motionManager.startMotion 切换
-    └─ fetch GET /api/count/@name ──► Go 后端:自增计数,返回 JSON(no-store,CORS)
+    └─ fetch GET /api/count/@name ──► Go 后端:自增计数,返回 JSON(no-cache 组合头,CORS)
          └─ 渲染计数文字({n} 模板),画布下方居中 DOM overlay
 ```
 
@@ -88,7 +88,8 @@ texture.png          贴图
   与流式下发字节，渲染全在客户端。
 - **计数语义完全复用** `counter.Buffer`：交互路径的 `/api/count/@name` 与 SVG/PSB/Spine
   路径走同一套 `incrementOrDegrade`（name 级限流降级只读）与 `demo`/`number` 特例。
-- **缓存铁律不变**：真实计数一律 `no-store`；模型文件是构建期固定的
+- **缓存铁律不变**：真实计数一律 `no-store, no-cache, max-age=0, must-revalidate`
+  （裸 `no-store` 挡不住 GitHub camo/Fastly 边缘缓存）；模型文件是构建期固定的
   不可变字节，`max-age=31536000, immutable`。
 
 ## 3. 后端接口（Go / Fiber v3）
@@ -115,7 +116,7 @@ physics\.json|pose3\.json)$`（动作/表情/物理/部件）之一，防路径�
 
 ### 3.3 `GET /api/count/@:name`
 
-与 SVG/PSB/Spine 路径完全一致的计数接口（`no-store`，demo→固定串，number>0→直接
+与 SVG/PSB/Spine 路径完全一致的计数接口（no-cache 组合头，demo→固定串，number>0→直接
 返回，否则 `incrementOrDegrade`），交互页用它取计数值。
 
 ### 3.4 `/api/themes` 集成
@@ -266,7 +267,7 @@ catch-all 直接 serve，后端零改动（仅新增的 `/live2d/models/` 资产
 ```
 
 - `model`：`assets/live2d/` 下的模型目录名（需先放入模型，见 4.1/4.4）；
-- `name`：计数名（`demo` 为固定演示串，真实计数走 `/api/count/@name`，`no-store`）；
+- `name`：计数名（`demo` 为固定演示串，真实计数走 `/api/count/@name`，no-cache 组合头）；
 - `text`：`{n}` 计数文字模板。
 
 需一个能跑 WebGL 的 `<iframe>` 环境（即任何正常浏览器网页；**不适用于** GitHub
@@ -277,7 +278,7 @@ README、Markdown 预览等 `<img>`-only 场景——那些场景没有 WebGL，
 
 | 资源 | Cache-Control | 理由 |
 |---|---|---|
-| `/api/count/@name`（真实计数） | `no-store` | 铁律 1：真实计数绝不缓存 |
+| `/api/count/@name`（真实计数） | `no-store, no-cache, max-age=0, must-revalidate` | 铁律 1：真实计数绝不缓存 |
 | `/api/live2d/models` | `public, max-age=60` | 短缓存，对齐其他 `/api` 列表 |
 | `/live2d/models/:name/:file` | `public, max-age=31536000, immutable` | 构建期嵌入，字节不可变 |
 

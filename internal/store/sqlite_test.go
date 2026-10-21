@@ -113,3 +113,65 @@ func TestGetAll(t *testing.T) {
 		t.Errorf("order wrong: %v", all)
 	}
 }
+
+// TestThemeUsageIsolation pins the theme-usage view contract: reads and
+// writes go to tb_theme_usage and never touch tb_count, and vice versa.
+func TestThemeUsageIsolation(t *testing.T) {
+	r := newTestRepo(t)
+	ctx := context.Background()
+	tu, ok := r.(ThemeUsageSource)
+	if !ok {
+		t.Fatal("sqliteRepo must implement ThemeUsageSource")
+	}
+	view := tu.ThemeUsage()
+
+	if err := view.Set(ctx, "lian-ren", 5); err != nil {
+		t.Fatalf("theme set: %v", err)
+	}
+	if err := view.Set(ctx, "wenders", 9); err != nil {
+		t.Fatalf("theme set: %v", err)
+	}
+
+	// The user counter namespace is untouched.
+	if _, found, _ := r.Get(ctx, "lian-ren"); found {
+		t.Errorf("theme usage leaked into tb_count")
+	}
+	// The theme view reads back its own rows.
+	got, found, err := view.Get(ctx, "lian-ren")
+	if err != nil || !found {
+		t.Fatalf("theme get: found=%v err=%v", found, err)
+	}
+	if got.Num != 5 {
+		t.Errorf("theme num: got %d want 5", got.Num)
+	}
+	all, err := view.GetAll(ctx)
+	if err != nil || len(all) != 2 {
+		t.Fatalf("theme GetAll: len=%d err=%v", len(all), err)
+	}
+	// Counters written to tb_count never appear in the theme view.
+	if err := r.Set(ctx, "some-counter", 1); err != nil {
+		t.Fatalf("counter set: %v", err)
+	}
+	all, err = view.GetAll(ctx)
+	if err != nil || len(all) != 2 {
+		t.Errorf("theme view polluted by tb_count: len=%d err=%v", len(all), err)
+	}
+}
+
+// TestThemeUsageSetMultiAbsolute pins absolute-overwrite semantics on the
+// theme view (same contract as tb_count SetMulti, Iron Rule 5).
+func TestThemeUsageSetMultiAbsolute(t *testing.T) {
+	r := newTestRepo(t)
+	ctx := context.Background()
+	view := r.(ThemeUsageSource).ThemeUsage()
+	if err := view.Set(ctx, "lian-ren", 1); err != nil {
+		t.Fatalf("set: %v", err)
+	}
+	if err := view.SetMulti(ctx, []Counter{{Name: "lian-ren", Num: 7}}); err != nil {
+		t.Fatalf("set multi: %v", err)
+	}
+	got, found, _ := view.Get(ctx, "lian-ren")
+	if !found || got.Num != 7 {
+		t.Errorf("after SetMulti: found=%v num=%d want 7", found, got.Num)
+	}
+}

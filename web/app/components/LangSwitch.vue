@@ -11,18 +11,32 @@ const fullLabels: Record<string, string> = {
   en: 'English',
   jp: '日本語',
 }
+
+// Mobile header space is tight, so the dropdown collapses into a single
+// 40px icon button that cycles the locale (the reference's 文A button).
+const cycleLocale = (): void => {
+  const idx = locales.indexOf(locale.value)
+  setLocale(locales[(idx + 1) % locales.length])
+}
 </script>
 
 <template>
-  <!-- Nav mode: a compact dropdown selector. -->
-  <select
+  <!-- Nav mode: a single locale-cycling icon button at every width,
+       mirroring the reference site's 文A header control. -->
+  <button
     v-if="nav"
-    :value="locale"
-    class="lang-select"
-    @change="setLocale(($event.target as HTMLSelectElement).value as any)"
+    type="button"
+    class="lang-cycle"
+    data-ripple
+    :title="fullLabels[locale]"
+    :aria-label="fullLabels[locale]"
+    @click="cycleLocale"
   >
-    <option v-for="l in locales" :key="l" :value="l">{{ fullLabels[l] }}</option>
-  </select>
+    <svg class="lang-cycle-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <text x="1" y="10.5" font-size="10.5" font-weight="700" fill="currentColor">文</text>
+      <text x="12" y="20" font-size="11.5" font-weight="700" fill="currentColor">A</text>
+    </svg>
+  </button>
 
   <!-- Legacy page-inline mode (kept for backward compatibility). -->
   <div
@@ -43,21 +57,27 @@ const fullLabels: Record<string, string> = {
 </template>
 
 <style scoped>
-.lang-select {
-  height: 2rem;
-  padding: 0 0.5rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #4b5563;
-  background: var(--loli-cream);
-  border: 1px solid var(--loli-pink);
-  border-radius: 0.5rem;
+.lang-cycle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--text-muted);
   cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-.lang-select:focus {
-  outline: none;
-  border-color: var(--loli-pink);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--loli-pink) 40%, transparent);
+
+.lang-cycle:hover {
+  background: var(--loli-selection);
+  color: var(--text-color);
 }
+
+.lang-cycle-icon {
+  font-family: 'helvetica-lt-pro', sans-serif;
+}
+
 </style>

@@ -21,10 +21,10 @@ var SupportedExts = map[string]bool{
 
 // Frame represents one discovered frame file on disk.
 type Frame struct {
-	Idx       int    // numeric index parsed from the filename stem (-1 when the stem is non-numeric and the frame is collected by sort order)
-	Ext       string // original extension (with leading dot)
-	Dir       string // absolute directory of the theme
-	OrigName  string // original basename including extension (used as the rename source)
+	Idx      int    // numeric index parsed from the filename stem (-1 when the stem is non-numeric and the frame is collected by sort order)
+	Ext      string // original extension (with leading dot)
+	Dir      string // absolute directory of the theme
+	OrigName string // original basename including extension (used as the rename source)
 }
 
 // Rename is one file rename operation in a plan.

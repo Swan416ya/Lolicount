@@ -68,6 +68,9 @@ agent铁律-不要修改该文件的任何描述内容,至允许修改当前任�
 - [x] 接入 `go-playground/validator` 校验路由参数
 - [x] 实现 CORS 中间件(仅 `/api/*`)
 - [x] 设置 `Cache-Control: no-store`(非 demo),`demo` 长缓存(铁律 1)
+- [x] AGENTS.md 铁律1 与缓存表同步为 no-cache 组合头(`no-store, no-cache, max-age=0, must-revalidate`,GitHub camo/Fastly 边缘无视裸 no-store;经用户一次性授权修改)
+- [ ] `docs/projectDesign.md` 缓存契约仍写裸 `no-store`(文件禁止修改,待用户同步为 no-cache 组合头)
+- [ ] `docs/projectDesign.md` 接口文档缺 `GET /api/themes/hot`(热门主题,启动/每小时更新)与 `tb_theme_usage` 表(文件禁止修改,待用户同步)
 - [x] 实现 `server/params.go`:`QueryParams` 结构体 + validator 标签 + `applyDefaults()`
 - [x] 验证:压测超限返回 429 / 降级;参数非法返回 400
 
@@ -118,6 +121,7 @@ agent铁律-不要修改该文件的任何描述内容,至允许修改当前任�
 ## M7.5:前端细节增强 
 - [x] 所有的内容都需要在同一个页面
 - [x] 在右下角添加一个跳转到最上的功能
+- [x] 主题画廊选中主题同步到 URL 查询参数(`/themes?theme=名称`),带参进入/刷新可恢复选中,面板切换与软导航(含参数移除回退默认)均保持一致
 
 
 ## M8:CI/CD 与部署
@@ -136,6 +140,7 @@ agent铁律-不要修改该文件的任何描述内容,至允许修改当前任�
 ## M9:功能增强
 - [x] 实现随机图片展示
 - [x] 参考kungal-forum中设置页面莲的样式，实现gal图片立绘渲染
+- [x] 真实计数响应缓存头改为 `no-store, no-cache, max-age=0, must-revalidate`:GitHub camo/Fastly 边缘无视裸 `no-store`(MISS→HIT 实测),导致 README 嵌入计数冻结
 - [x] 将主题分为两种类型
   一种为帧图主题(png0 png1 png2...)，每次请求随机抽帧
   一种为角色立绘主题 例如莲的角色立绘，每次获取该图片都会随机抽取服装和表情等
@@ -279,6 +284,41 @@ agent铁律-不要修改该文件的任何描述内容,至允许修改当前任�
   SPA catch-all 误报导致模型不加载(白屏);改 GET + 校验 JSON manifest
 - [x] **BanG Dream 角色导入**:BD 提取物是**标准 Cubism 2 moc**,`live2d-legacy.min.js`
   官方 Cubism 2 运行时可直接渲染(引擎按 `model.json` 清单自动选 legacy 运行时)
+
+---
+
+## M16:内存策略、界面打磨与主题修正
+
+- [x] 新增公主连结剧情立绘静态主题：保留 1657 套有可见差异且变化数大于 1 的服装并整理为 1406 个主题；有名角色按服装独立，无名 NPC 归并为 205 个互斥套装主题；删除未登场剪影以及其余全部变化数为 1 的主题。支持身体/眼睛/嘴巴组合、来源快照、离线导出、多语言搜索与缩略图。详见 [主题说明](./priconne-themes.md)。
+
+- [x] 关于页重构:按设计稿改为「求 star」卡片 + 项目详情网格;移除页脚与轮播,
+  首页 How to use 下加入同款求 star 卡片,首页主题展示改宝丽来样式
+- [x] 移除顶部导航「主题展示」入口(画廊由 Playground 承担)
+- [x] 主题选择写入路由(`?theme=`),分享链接直达所选主题
+- [x] 主题预览下新增「下载当前帧」:ACAO 头 + `crossorigin` 打通跨域 canvas
+  导出,同步 `toDataURL` 规避 Safari 手势窗口限制
+- [x] Playground 主题按来源分组折叠(默认折叠,搜索/类型筛选时自动展开),
+  移除游戏下拉筛选;新增基于真实使用量的热门主题组(固定 10 个,启动 +
+  每小时重算:`tb_theme_usage` 表 + `GET /api/themes/hot`,第二个
+  `counter.Buffer` 复用铁律 5 批处理语义)
+- [x] **图片内存策略:每槽位常驻一张的懒加载**。启动只构建元数据目录(路径/
+  摆放/文件头尺寸),请求时 `PrepareRender` 换装并返回深拷贝快照;常驻匿名堆
+  ≈0.13 GiB(原全量预加载 ≈0.94 GiB),PSB 保持磁盘流式
+- [x] **多帧主题画布跨换帧稳定**:`RandomPickLayer` 携带全候选帧尺寸元数据
+  (`FrameDims`),画布取所有帧按显示缩放后的最大宽高,随机换帧不再跳变
+- [x] **修正星光咖啡馆七个主题的角色标注**:目录名来自贡献者解包的 xp3 内部
+  目录,与实际立绘不符;按图层名/表情瞳色/官方立绘重正:nova=四季ナツメ,
+  yuna/riona/shuna=明月栞那,ai/rokuro=汐山涼音,ketsie=火打谷愛衣。
+  目录名保持不变,已嵌入计数 URL 不受影响
+- [x] 修复主题搜索框右侧越界:未加载全局 CSS reset,`<input>` 保持 UA
+  content-box,`w-full + px + border` 溢出面板 26px;搜索框加 `box-border`
+- [x] 移除「隐藏字体 (unshowf)」面板开关:行为冻结为原默认(生成链接仍带
+  `unshowf=true`),服务端 `?unshowf=` 参数保留可用
+- [x] 生成按钮烟花动画:重写 StarBurst 为 fixed 全视口烟花(主爆点 + 两个
+  错峰卫星爆点、白闪、重力弧线粒子);节点 setTimeout 兜底清理、排程改定时器,
+  不再依赖 rAF 心跳(旧版被按钮行容器裁剪且冻结标签页会泄漏节点)
+- [x] 画廊静态缩略图管线 `scripts/gen-theme-thumbs-webp.mjs`(修复限流图床
+  卡片图加载失败)与图片无损压缩脚本 `scripts/optimize-images.mjs`
 
 ---
 

@@ -1,0 +1,67 @@
+name: Release assets
+
+# Attach a packaged Docker image to a published GitHub Release, so the
+# release's Assets section carries a ready-to-load tarball alongside the
+# ghcr.io image that release.yml pushes when a v* tag lands.
+#
+# Triggers:
+# - a release is published (automatic);
+# - manual dispatch with a tag name — backfills releases published before
+#   this workflow existed, or re-attaches after a failed run (--clobber).
+#
+# This workflow builds from the released tag rather than pulling the ghcr
+# image, so the asset is produced even when release.yml's tag-push run
+# failed or has not finished yet.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to attach the image to (e.g. v0.4.0)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  docker-asset:
+    name: Package and upload Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve release tag
+        id: tag
+        run: echo "tag=${{ github.event.release.tag_name || inputs.tag }}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.tag.outputs.tag }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Loaded into the local docker store (no registry push): release.yml
+      # already owns the ghcr.io push on tag push.
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: lolicount:${{ steps.tag.outputs.tag }}
+          build-args: |
+            BASE_URL=${{ vars.BASE_URL }}
+
+      - name: Pack image tarball
+        run: |
+          docker save "lolicount:${{ steps.tag.outputs.tag }}" | gzip -9 \
+            > "lolicount-${{ steps.tag.outputs.tag }}-docker-image.tar.gz"
+          ls -lh "lolicount-${{ steps.tag.outputs.tag }}-docker-image.tar.gz"
+
+      - name: Upload to release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          gh release upload "$TAG" \
+            "lolicount-$TAG-docker-image.tar.gz" --clobber

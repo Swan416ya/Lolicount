@@ -75,14 +75,20 @@ func (s *Server) registerFrontend() {
 
 // setFrontendCache applies the cache policy for embedded frontend files.
 // Nuxt build assets under _nuxt/ are content-hashed, so they are safely
-// immutable. Everything else — HTML entry points, widget scripts, public
-// images — must be no-store: embedded files have a zero modification
-// time, so revalidation (no-cache + conditional GET) would always return
-// 304 and keep serving stale bodies after a redeploy.
+// immutable. Theme thumbnails and icons under images/ change only when a
+// theme rebuild swaps their (name-stable) files, so a bounded 24h window
+// is the trade for not re-downloading megabytes of thumbs on every
+// gallery visit. Everything else — HTML entry points, widget scripts —
+// must be no-store: embedded files have a zero modification time, so
+// revalidation (no-cache + conditional GET) would always return 304 and
+// keep serving stale bodies after a redeploy.
 func setFrontendCache(c fiber.Ctx, name string) {
-	if strings.HasPrefix(name, "_nuxt/") {
+	switch {
+	case strings.HasPrefix(name, "_nuxt/"):
 		c.Set("Cache-Control", "public, max-age=31536000, immutable")
-	} else {
+	case strings.HasPrefix(name, "images/"):
+		c.Set("Cache-Control", "public, max-age=86400")
+	default:
 		c.Set("Cache-Control", "no-store")
 	}
 }

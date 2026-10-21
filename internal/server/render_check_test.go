@@ -19,15 +19,15 @@ func TestRenderDimensionsUnified(t *testing.T) {
 	}
 
 	cases := []struct {
-		name    string
-		text    string
-		fsize   int
+		name  string
+		text  string
+		fsize int
 	}{
-		{"lian", "12345", 50},      // multi-frame card
-		{"ao", "12345", 50},        // multi-frame card
-		{"shiroha", "12345", 50},   // multi-frame card
-		{"hinata", "12345", 50},    // character
-		{"lian-ren", "12345", 50},  // character
+		{"lian", "12345", 50},     // multi-frame card
+		{"ao", "12345", 50},       // multi-frame card
+		{"shiroha", "12345", 50},  // multi-frame card
+		{"hinata", "12345", 50},   // character
+		{"lian-ren", "12345", 50}, // character
 	}
 
 	for _, tc := range cases {
@@ -42,9 +42,9 @@ func TestRenderDimensionsUnified(t *testing.T) {
 			}
 
 			pos := theme.TextPos{}
-			th, err := buildThemeLayers(base, 0, tc.text, tc.fsize, false, theme.TextStyle{}, pos)
+			th, err := BuildThemeLayers(base, 0, tc.text, tc.fsize, false, theme.TextStyle{}, pos)
 			if err != nil {
-				t.Fatalf("buildThemeLayers %s: %v", tc.name, err)
+				t.Fatalf("BuildThemeLayers %s: %v", tc.name, err)
 			}
 
 			// BgW/BgH should be the scaled display size (longest edge = 400),

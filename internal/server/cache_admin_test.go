@@ -23,7 +23,7 @@ func multiFrameServer(t *testing.T) *Server {
 		Host: "127.0.0.1", Port: 0, DBInterval: 10,
 		RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000,
 	}
-	s := New(cfg, zerolog.Nop(), reg, nil, nil)
+	s := New(cfg, zerolog.Nop(), reg, nil, nil, nil)
 	t.Cleanup(func() {
 		s.ipLimiter.Stop()
 		s.nameLimiter.Stop()
@@ -32,9 +32,9 @@ func multiFrameServer(t *testing.T) *Server {
 }
 
 // TestDemoMultiFrameNoStore verifies that a demo request against a
-// multi-frame theme gets Cache-Control: no-store. The output changes
-// per request (random frame selection), so long caching would freeze a
-// stale frame in GitHub's image proxy (Iron Rule 1).
+// multi-frame theme gets the realCountCacheControl combo. The output
+// changes per request (random frame selection), so any caching would
+// freeze a stale frame in GitHub's image proxy (Iron Rule 1).
 func TestDemoMultiFrameNoStore(t *testing.T) {
 	s := multiFrameServer(t)
 	req := httptest.NewRequest(http.MethodGet, "/@demo?theme=lian", nil)
@@ -45,8 +45,8 @@ func TestDemoMultiFrameNoStore(t *testing.T) {
 	if resp.StatusCode != http.StatusOK {
 		t.Fatalf("status: %d", resp.StatusCode)
 	}
-	if cc := resp.Header.Get("Cache-Control"); cc != "no-store" {
-		t.Errorf("multi-frame demo Cache-Control: %q want no-store", cc)
+	if cc := resp.Header.Get("Cache-Control"); cc != realCountCacheControl {
+		t.Errorf("multi-frame demo Cache-Control: %q want %q", cc, realCountCacheControl)
 	}
 }
 
@@ -82,7 +82,7 @@ func adminServer(t *testing.T, adminKey string) *Server {
 		RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000,
 		AdminKey: adminKey,
 	}
-	s := New(cfg, zerolog.Nop(), nil, nil, nil)
+	s := New(cfg, zerolog.Nop(), nil, nil, nil, nil)
 	t.Cleanup(func() {
 		s.ipLimiter.Stop()
 		s.nameLimiter.Stop()

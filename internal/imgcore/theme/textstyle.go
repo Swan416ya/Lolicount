@@ -2,7 +2,6 @@ package theme
 
 // TextStyle controls the font-family, color, and weight of a text layer.
 // Empty fields fall back to the render defaults (monospace / #333).
-// 
 type TextStyle struct {
 	Family string `json:"family,omitempty"`
 	Color  string `json:"color,omitempty"`

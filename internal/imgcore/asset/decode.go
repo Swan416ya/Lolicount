@@ -1,7 +1,6 @@
 // Package asset provides the shared asset-loading layer for imgcore:
 // image decoding (file bytes to data URI + pixel dimensions) and theme
 // loading from the embedded assets.FS. Merged and generalized from
-// 
 package asset
 
 import (

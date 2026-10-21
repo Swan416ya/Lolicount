@@ -46,7 +46,7 @@ func (s *Server) editorPreviewHandler(c fiber.Ctx) error {
 // *theme.Theme. All editor layers are assembled into a single
 // GroupLayer with PSD absolute coordinates — this is the unified model
 // for both card (single-layer) and character (multi-layer) themes in
-// the editor. The text layer is appended via buildThemeLayers so text
+// the editor. The text layer is appended via BuildThemeLayers so text
 // positioning and canvas sizing reuse the same logic as the counter
 // render path.
 func buildEditorTheme(req *EditorRequest) (*theme.Theme, error) {
@@ -110,7 +110,7 @@ func buildEditorTheme(req *EditorRequest) (*theme.Theme, error) {
 	if text == "" {
 		text = "0"
 	}
-	return buildThemeLayers(base, req.Scale, text, req.FSize, req.UnshowF,
+	return BuildThemeLayers(base, req.Scale, text, req.FSize, req.UnshowF,
 		theme.TextStyle{}, theme.TextPos{})
 }
 

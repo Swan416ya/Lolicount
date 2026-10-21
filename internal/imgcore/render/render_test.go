@@ -23,9 +23,9 @@ func makeCtx(text string) imgcore.RenderCtx {
 // TestImageLayerRender verifies the basic <image> output.
 func TestImageLayerRender(t *testing.T) {
 	l := &ImageLayer{
-		Src:    "data:image/png;base64,abc",
-		Width:  100,
-		Height: 200,
+		Src:       "data:image/png;base64,abc",
+		Width:     100,
+		Height:    200,
 		Transform: imgcore.DefaultTransform(),
 	}
 	out := l.Render(makeCtx(""))
@@ -191,7 +191,7 @@ func TestGroupLayerRender(t *testing.T) {
 func TestGroupLayerCrop(t *testing.T) {
 	l := &GroupLayer{
 		Parts: []GroupPart{{Src: "data:image/png;base64,x", X: 137, Y: 323, Width: 50, Height: 50}},
-		OutW: 100, OutH: 200,
+		OutW:  100, OutH: 200,
 		VbX: 137, VbY: 323, VbW: 367, VbH: 602,
 		Z: 0,
 	}
@@ -284,8 +284,8 @@ func TestTextLayerRatioPosition(t *testing.T) {
 // TestTextLayerRotation verifies transform attribute is added.
 func TestTextLayerRotation(t *testing.T) {
 	l := &TextLayer{
-		Text:      "rot",
-		FontSize:  16,
+		Text:     "rot",
+		FontSize: 16,
 		Transform: imgcore.Transform{
 			X:        imgcore.FixedRange(0),
 			Y:        imgcore.FixedRange(0),

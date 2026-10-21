@@ -41,7 +41,7 @@ page0.png   纹理页(必需;多页时 page0.png page1.png …)
     ├─ spine.webgl.AssetManager 从 /spine/models/<model>/ 拉 dyn.atlas + dyn.{skel|json}
     │   （纹理页 pageN.png 由图集引用,同目录）
     ├─ 随机选一个动画,SceneRenderer 实时渲染(WebGL canvas)
-    └─ fetch GET /api/count/@name  ──► Go 后端:自增计数,返回 JSON(no-store,CORS)
+    └─ fetch GET /api/count/@name  ──► Go 后端:自增计数,返回 JSON(no-cache 组合头,CORS)
          └─ 渲染计数文字({n} 模板),画布下方居中
 
 免 JS 路径(无脚本,任何 <img> 环境):
@@ -65,7 +65,8 @@ page0.png   纹理页(必需;多页时 page0.png page1.png …)
   渲染全在客户端。
 - **计数语义完全复用** `counter.Buffer`:交互路径的 `/api/count/@name` 与 SVG/PSB
   路径走同一套 `incrementOrDegrade`(name 级限流降级只读)与 `demo`/`number` 特例。
-- **缓存铁律不变**:真实计数一律 `no-store`;模型文件与预渲染 WebP 是构建期固定的
+- **缓存铁律不变**:真实计数一律 `no-store, no-cache, max-age=0, must-revalidate`
+  (裸 `no-store` 挡不住 GitHub camo/Fastly 边缘缓存);模型文件与预渲染 WebP 是构建期固定的
   不可变字节,`max-age=31536000, immutable`。
 
 ## 3. 后端接口（Go / Fiber v3）
@@ -95,7 +96,7 @@ page0.png   纹理页(必需;多页时 page0.png page1.png …)
 
 ### 3.4 `GET /api/count/@:name`
 
-与 SVG/PSB 路径完全一致的计数接口(`no-store`,demo→固定串,number>0→直接返回,
+与 SVG/PSB 路径完全一致的计数接口(no-cache 组合头,demo→固定串,number>0→直接返回,
 否则 `incrementOrDegrade`),交互页用它取计数值。
 
 ### 3.5 路由注册顺序
@@ -219,7 +220,7 @@ FRAMES=30 FPS=12 QV=80 node scripts/render-spine-anim.mjs   # 30帧/12fps/质量
 
 | 资源 | Cache-Control | 理由 |
 |---|---|---|
-| `/api/count/@name`(真实计数) | `no-store` | 铁律 1:真实计数绝不缓存 |
+| `/api/count/@name`(真实计数) | `no-store, no-cache, max-age=0, must-revalidate` | 铁律 1:真实计数绝不缓存 |
 | `/api/spine/models` | `public, max-age=60` | 短缓存,对齐其他 `/api` 列表 |
 | `/spine/models/:name/:file` | `public, max-age=31536000, immutable` | 构建期嵌入,字节不可变 |
 | `/spine/anim/:name/:file` | `public, max-age=31536000, immutable` | 构建期渲染,字节不可变 |

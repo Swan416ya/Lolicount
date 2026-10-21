@@ -224,8 +224,10 @@ const loadModel = async () => {
       const canvas = document.createElement('canvas')
       canvas.width = Math.round(CSS_W * dpr)
       canvas.height = Math.round(CSS_H * dpr)
-      canvas.style.width = `${CSS_W}px`
-      canvas.style.height = `${CSS_H}px`
+      canvas.style.width = '100%'
+      canvas.style.maxWidth = `${CSS_W}px`
+      canvas.style.height = 'auto'
+      canvas.style.aspectRatio = `${CSS_W} / ${CSS_H}`
       sharedCanvas = canvas
       EmotePlayer.createRenderCanvas(canvas.width, canvas.height)
       sharedPlayer = new EmotePlayer(canvas)
@@ -258,7 +260,7 @@ onMounted(loadModel)
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="preview-body">
     <div ref="container" class="flex justify-center"></div>
     <p v-if="countText" class="text-lg font-semibold mt-2">{{ countText }}</p>
     <p v-if="currentMotion" class="text-xs text-gray-500 mt-1">
@@ -270,3 +272,26 @@ onMounted(loadModel)
     <p v-if="errorMsg" class="text-sm text-red-600 mt-4">{{ errorMsg }}</p>
   </div>
 </template>
+
+<style scoped>
+.preview-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.preview-body > div {
+  width: 100%;
+}
+
+.preview-body canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 360px;
+  aspect-ratio: 360 / 520;
+  margin: 0 auto;
+}
+</style>

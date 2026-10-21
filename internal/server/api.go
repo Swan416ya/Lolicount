@@ -30,6 +30,21 @@ func (s *Server) listThemes(c fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{"themes": exposed})
 }
 
+// listHotThemes answers GET /api/themes/hot with the cached top-10 theme
+// names by usage (spec: recomputed at server startup and every hour, so
+// the list may lag live traffic by up to the refresh interval). Falls
+// back to the first registered themes until usage accumulates.
+func (s *Server) listHotThemes(c fiber.Ctx) error {
+	c.Set("Cache-Control", "public, max-age=300")
+	s.hotMu.RLock()
+	hot := s.hotThemes
+	s.hotMu.RUnlock()
+	if hot == nil {
+		hot = []string{}
+	}
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"hot": hot})
+}
+
 // listFThemes answers GET /api/fthemes with the registered font-style
 // theme names.
 func (s *Server) listFThemes(c fiber.Ctx) error {

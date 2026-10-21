@@ -14,7 +14,7 @@ type Canvas struct {
 // DisplayConfig controls the final rendered output size. When set, the
 // composer scales the portrait proportionally so the height equals Size.
 // Crop optionally trims blank canvas margins so only the portrait area
-// is shown. 
+// is shown.
 type DisplayConfig struct {
 	Size int       `json:"size"`
 	Crop *CropRect `json:"crop,omitempty"`

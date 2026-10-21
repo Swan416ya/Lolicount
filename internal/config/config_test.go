@@ -159,7 +159,6 @@ func TestValidatePortBoundaries(t *testing.T) {
 	}
 }
 
-
 // BaseURL defaults to empty (front-end falls back to same-origin).
 func TestBaseURLDefaultEmpty(t *testing.T) {
 	clearEnv(t)

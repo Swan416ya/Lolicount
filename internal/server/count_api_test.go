@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -12,6 +13,7 @@ import (
 
 	"github.com/miaoledor/lolicount/internal/config"
 	"github.com/miaoledor/lolicount/internal/counter"
+	"github.com/miaoledor/lolicount/internal/imgcore/theme"
 	"github.com/miaoledor/lolicount/internal/store"
 )
 
@@ -35,7 +37,7 @@ func newCountTestServer(t *testing.T) *Server {
 	t.Cleanup(buf.Stop)
 
 	cfg := &config.Config{Host: "127.0.0.1", Port: 0, DBInterval: 10, RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000}
-	s := New(cfg, zerolog.Nop(), nil, nil, buf)
+	s := New(cfg, zerolog.Nop(), nil, nil, buf, nil)
 	t.Cleanup(func() {
 		s.ipLimiter.Stop()
 		s.nameLimiter.Stop()
@@ -97,8 +99,8 @@ func TestCountAPIHeadersAndCORS(t *testing.T) {
 	s := newCountTestServer(t)
 	_, resp := getCount(t, s, "/api/count/@cors-test", "https://example.com")
 
-	if cc := resp.Header.Get("Cache-Control"); cc != "no-store" {
-		t.Errorf("Cache-Control: got %q want no-store", cc)
+	if cc := resp.Header.Get("Cache-Control"); cc != realCountCacheControl {
+		t.Errorf("Cache-Control: got %q want %q", cc, realCountCacheControl)
 	}
 	// The /api CORS middleware reflects the caller origin so the emote
 	// widget can fetch the count from third-party pages.
@@ -119,5 +121,88 @@ func TestCountAPIRejectsBadNumber(t *testing.T) {
 	}
 	if resp.StatusCode != http.StatusBadRequest {
 		t.Errorf("status: got %d want %d", resp.StatusCode, http.StatusBadRequest)
+	}
+}
+
+// TestHotThemes pins GET /api/themes/hot: with usage recorded the list is
+// the top-10 names ordered by count; with no usage it falls back to the
+// first registered themes so the category always exists.
+func TestHotThemes(t *testing.T) {
+	repo, err := store.NewSQLite(context.Background(), ":memory:")
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() {
+		if c, ok := repo.(interface{ Close() error }); ok {
+			c.Close()
+		}
+	})
+	themeBuf := counter.New(repo.(store.ThemeUsageSource).ThemeUsage(), zerolog.Nop(), 3600)
+	for i := 0; i < 3; i++ {
+		themeBuf.Incr(context.Background(), "lian-ren")
+	}
+	themeBuf.Incr(context.Background(), "hina")
+
+	reg := &stubRegistry{themes: map[string]*theme.Theme{
+		"lian-ren": makeCardTheme("lian-ren", 2),
+		"hina":     makeCardTheme("hina", 2),
+		"wenders":  makeCardTheme("wenders", 2),
+	}}
+	cfg := &config.Config{Host: "127.0.0.1", Port: 0, DBInterval: 10, RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000}
+	s := New(cfg, zerolog.Nop(), reg, nil, nil, themeBuf)
+	t.Cleanup(func() {
+		s.ipLimiter.Stop()
+		s.nameLimiter.Stop()
+		close(s.hotStop)
+	})
+
+	req := httptest.NewRequest(http.MethodGet, "/api/themes/hot", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("status: got %d want 200", resp.StatusCode)
+	}
+	body, _ := io.ReadAll(resp.Body)
+	want := `{"hot":["lian-ren","hina"]}`
+	if got := strings.TrimSpace(string(body)); got != want {
+		t.Errorf("hot list with usage: got %s want %s", got, want)
+	}
+
+	// Fresh deployment: no usage at all -> alphabetical fallback, capped
+	// at 10.
+	themeBuf2 := counter.New(repo.(store.ThemeUsageSource).ThemeUsage(), zerolog.Nop(), 3600)
+	s2 := New(cfg, zerolog.Nop(), reg, nil, nil, themeBuf2)
+	t.Cleanup(func() {
+		s2.ipLimiter.Stop()
+		s2.nameLimiter.Stop()
+		close(s2.hotStop)
+	})
+	resp2, err := s2.app.Test(httptest.NewRequest(http.MethodGet, "/api/themes/hot", nil))
+	if err != nil {
+		t.Fatalf("app.Test fallback: %v", err)
+	}
+	body2, _ := io.ReadAll(resp2.Body)
+	// The fallback takes the registry's List order (the real registry is
+	// alphabetical; the stub's map iteration is not), so assert the set
+	// and the cap instead of a specific order.
+	var parsed struct {
+		Hot []string `json:"hot"`
+	}
+	if err := json.Unmarshal(body2, &parsed); err != nil {
+		t.Fatalf("parse fallback body: %v", err)
+	}
+	if len(parsed.Hot) != 3 {
+		t.Errorf("fallback len = %d want 3 (%v)", len(parsed.Hot), parsed.Hot)
+	}
+	got := map[string]bool{}
+	for _, n := range parsed.Hot {
+		got[n] = true
+	}
+	for _, want := range []string{"lian-ren", "hina", "wenders"} {
+		if !got[want] {
+			t.Errorf("fallback missing %q: %v", want, parsed.Hot)
+		}
 	}
 }

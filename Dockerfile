@@ -14,8 +14,9 @@ ARG BASE_URL=""
 ENV NUXT_PUBLIC_BASE_URL=$BASE_URL
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@11.25.0 --activate
-COPY web/pnpm-lock.yaml web/package.json web/.npmrc ./web/
-RUN cd web && pnpm install --config.dangerouslyAllowAllBuilds=true
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY web/package.json ./web/
+RUN pnpm --filter web install --frozen-lockfile
 COPY web/ ./web/
 RUN cd web && pnpm generate
 
@@ -37,10 +38,14 @@ FROM alpine:3.20
 RUN apk add --no-cache ca-certificates tzdata
 WORKDIR /app
 COPY --from=backend /out/lolicount /app/lolicount
+# PSB emote models are NOT embedded in the binary — they are streamed from
+# disk per request (PSB_DIR), so the runtime image carries the directory.
+COPY --from=backend /src/assets/psb /app/assets/psb
 RUN mkdir -p /app/data
 VOLUME ["/app/data"]
 EXPOSE 9721
 ENV HOST=0.0.0.0 \
     PORT=9721 \
+    PSB_DIR=/app/assets/psb \
     DB_PATH=/app/data/count.db
 ENTRYPOINT ["/app/lolicount"]

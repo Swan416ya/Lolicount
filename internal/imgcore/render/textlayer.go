@@ -12,7 +12,7 @@ import (
 // TextLayer renders counter text or a static label as a <text> element.
 // When IsCounter is true, the rendered text comes from RenderCtx.CountText
 // (the live counter value). The layer supports pixel/ratio positioning,
-// rotation, and font-style theming. 
+// rotation, and font-style theming.
 type TextLayer struct {
 	Text       string // static text (ignored when IsCounter is true)
 	IsCounter  bool   // bind to RenderCtx.CountText at render time
@@ -84,7 +84,7 @@ func (l *TextLayer) Render(ctx imgcore.RenderCtx) imgcore.LayerOutput {
 			bgH = ctx.CanvasH
 		}
 		textX = int(float64(bgW) * l.Position.RX)
-		textY = int(float64(bgH) * l.Position.RY) + fontSize
+		textY = int(float64(bgH)*l.Position.RY) + fontSize
 		anchor = "start"
 	}
 

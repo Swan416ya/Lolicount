@@ -30,10 +30,12 @@ PSB（Packaged Struct Binary）是 M2 公司 **E-mote 引擎**的角色动画格
   ▼
 widget.js（自研，原生 JS）
   ├─ 动态注入 FreeMoteDriver.js + emoteplayer.js（同源，vendor 自 FreeMote-SDK）
-  ├─ fetch GET /psb/azuki        ──► Go 后端：embed.FS 直接回字节（immutable 长缓存）
+  ├─ fetch GET /psb/azuki        ──► Go 后端：从磁盘 PSB_DIR 流式回字节（immutable 长缓存）
   ├─ EmotePlayer 初始化（WebGL canvas）
   ├─ mainTimelineLabels 随机选一个动作播放 + diffTimelineLabels 叠加身体动作
   └─ fetch GET /api/count/@name  ──► Go 后端：自增计数，返回 JSON（no-store，CORS）
+  ├─ mainTimelineLabels 随机选一个动作播放
+  └─ fetch GET /api/count/@name  ──► Go 后端：自增计数，返回 JSON（no-cache 组合头，CORS）
        └─ 渲染计数文字（{n} 模板），默认画布正下方居中
 ```
 
@@ -44,7 +46,8 @@ widget.js（自研，原生 JS）
 - **计数语义完全复用** `counter.Buffer`：`/api/count/@name` 与 `counterHandler` 走同一
   套 `incrementOrDegrade`（name 级限流降级只读）与 `demo` / `number` 特例，只是把
   「渲染 SVG」换成「返回 JSON」。
-- **缓存铁律不变**：真实计数一律 `no-store`；模型文件是构建期嵌入的不可变字节，
+- **缓存铁律不变**：真实计数一律 `no-store, no-cache, max-age=0, must-revalidate`
+  （裸 `no-store` 挡不住 GitHub camo/Fastly 边缘缓存）；模型文件是构建期嵌入的不可变字节，
   可以 `max-age=31536000, immutable`。
 
 ## 3. 后端接口（Go / Fiber v3）
@@ -59,7 +62,7 @@ widget.js（自研，原生 JS）
 | 真实 name | `incrementOrDegrade`（自增；name 级限流超限降级只读，不 429） |
 | `name=demo` | 不自增，返回固定 `0123456789`（与 SVG 路径特例对齐） |
 | `number>0` | 不自增，直接返回该值 |
-| 响应 | `{"name":"...","num":123}`，`Cache-Control: no-store` |
+| 响应 | `{"name":"...","num":123}`，`Cache-Control: no-store, no-cache, max-age=0, must-revalidate` |
 
 ### 3.2 `GET /api/psb/models`
 
@@ -76,13 +79,16 @@ FreeMoteViewer / Emote_Widget 等工具里使用。同样走名称白名单,
 
 ### 3.4 `GET /psb/:model`
 
-返回 `assets/psb/<model>/` 下模型文件的字节（`model.psb.gz` 优先，其次 `model.psb`）。
-gzip 存储时直接以 `Content-Encoding: gzip` 下发压缩字节（PSB 主要是未压缩 RGBA 纹理，
-gzip 约 8 倍压缩率），浏览器网络层透明解压，挂件驱动收到的仍是 pure PSB 字节：
+流式返回 `PSB_DIR`（默认 `assets/psb`）下 `<model>/` 目录里模型文件的字节
+（`model.psb.gz` 优先，其次 `model.psb`）。模型**不打包进二进制**、不驻留
+进程内存——每次请求直接从磁盘流式读取（`SendStream`），用完即走，只有真正
+被请求的模型才会经历磁盘读。gzip 存储时直接以 `Content-Encoding: gzip`
+下发压缩字节（PSB 主要是未压缩 RGBA 纹理，gzip 约 8 倍压缩率），浏览器网络层
+透明解压，挂件驱动收到的仍是 pure PSB 字节：
 
 - `Content-Type: application/octet-stream`
-- `Cache-Control: public, max-age=31536000, immutable`（内容随构建固定）
-- 模型名做白名单校验（`^[a-z0-9-]+$`，且必须存在于嵌入目录），防路径穿越；
+- `Cache-Control: public, max-age=31536000, immutable`（同一模型目录内容视为固定）
+- 模型名做白名单校验（`^[a-z0-9-]+$`，且必须存在于模型目录），防路径穿越；
   不存在返回 404。
 
 ### 3.4 路由注册顺序
@@ -104,9 +110,10 @@ assets/psb/
     model.psb
 ```
 
-`assets/embed.go` 增加 `//go:embed all:psb`。仓库自带两个示例模型（`azuki`、
-`vanilla`）；新增模型放入对应目录后重启即被 `embed.FS` 打包，没放则模型列表为空、
-前端空态。**请只提交有权分发/展示的模型素材**——模型文件体积大（数 MB～数十 MB）
+模型目录由 `PSB_DIR`（默认 `assets/psb`,相对工作目录）指定,**不经
+`go:embed` 打包**。新增模型放入对应目录后重启(或直接热放入,列表每次请求
+实时扫目录)即可被列出;目录缺失或为空则模型列表为空、前端空态,不影响启动。
+**请只提交有权分发/展示的模型素材**——模型文件体积大（数 MB～数十 MB）
 且多为游戏提取物，版权素材入库前请自行评估。
 
 ### 4.2 模型从哪来 / 如何转换（离线一次性流程）
@@ -181,7 +188,7 @@ assets/psb/
 - **GitHub README：不可行。** GitHub 官方管道会"aggressively"剥离 `<script>`
   等标签（github/markup），任何脚本型嵌入都无法存活；README 场景只能用图片。
   若将来要在 README 里实现"随机动作"，可行路线是离线渲染各动作为
-  animated WebP/GIF 并作为主题帧（现有随机选帧机制 + no-store 即可每次随机）。
+  animated WebP/GIF 并作为主题帧（现有随机选帧机制 + no-cache 组合头即可每次随机）。
 - **允许 raw HTML 的 Markdown 环境：可行。** Hugo（goldmark unsafe）、
   Jekyll、Hexo 等静态站在构建期把 Markdown 里的原始 HTML 原样输出到页面，
   挂件脚本会随文档一起加载执行——把 Playground 生成的挂件代码直接贴进
@@ -192,8 +199,8 @@ assets/psb/
 
 | 资源 | Cache-Control | 理由 |
 |---|---|---|
-| `/api/count/@name`（真实计数） | `no-store` | 铁律 1：真实计数绝不缓存 |
-| `/api/count/@demo` 等 | `no-store` | 与 SVG 路径 demo 特例行为一致（不引入长缓存分支） |
+| `/api/count/@name`（真实计数） | `no-store, no-cache, max-age=0, must-revalidate` | 铁律 1：真实计数绝不缓存 |
+| `/api/count/@demo` 等 | `no-store, no-cache, max-age=0, must-revalidate` | 与 SVG 路径 demo 特例行为一致（不引入长缓存分支） |
 | `/api/psb/models` | `public, max-age=60` | 短缓存，对齐其他 `/api` 列表 |
 | `/psb/:model` | `public, max-age=31536000, immutable` | 构建期嵌入，字节不可变 |
 

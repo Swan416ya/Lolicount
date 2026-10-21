@@ -14,6 +14,10 @@ CREATE TABLE IF NOT EXISTS tb_count (
     name  VARCHAR(32) NOT NULL UNIQUE,
     num   BIGINT      NOT NULL DEFAULT 0
 );
+CREATE TABLE IF NOT EXISTS tb_theme_usage (
+    theme VARCHAR(128) NOT NULL PRIMARY KEY,
+    num   BIGINT       NOT NULL DEFAULT 0
+);
 `
 
 // upsertSQL inserts a row or, on name conflict, overwrites num with the
@@ -22,6 +26,13 @@ CREATE TABLE IF NOT EXISTS tb_count (
 const upsertSQL = `
 INSERT INTO tb_count (name, num) VALUES (?, ?)
 ON CONFLICT(name) DO UPDATE SET num = excluded.num;
+`
+
+// themeUpsertSQL is upsertSQL's counterpart for tb_theme_usage: same
+// absolute-value overwrite semantics, keyed on the theme name.
+const themeUpsertSQL = `
+INSERT INTO tb_theme_usage (theme, num) VALUES (?, ?)
+ON CONFLICT(theme) DO UPDATE SET num = excluded.num;
 `
 
 // sqliteRepo is the sole Repository implementation. It wraps a *sql.DB
@@ -125,6 +136,83 @@ func (r *sqliteRepo) SetMulti(ctx context.Context, items []Counter) error {
 	}
 	if err := tx.Commit(); err != nil {
 		return fmt.Errorf("store: commit: %w", err)
+	}
+	return nil
+}
+
+// ThemeUsage returns a Repository view that redirects every operation to
+// the tb_theme_usage table. A second counter.Buffer can therefore track
+// theme popularity with the exact same batching semantics (Iron Rule 5)
+// without ever touching tb_count.
+func (r *sqliteRepo) ThemeUsage() Repository {
+	return &themeUsageView{r}
+}
+
+// themeUsageView adapts sqliteRepo onto the tb_theme_usage table.
+type themeUsageView struct {
+	r *sqliteRepo
+}
+
+func (v *themeUsageView) Get(ctx context.Context, name string) (Counter, bool, error) {
+	var c Counter
+	err := v.r.db.QueryRowContext(ctx, "SELECT theme, num FROM tb_theme_usage WHERE theme = ?", name).
+		Scan(&c.Name, &c.Num)
+	if err == sql.ErrNoRows {
+		return Counter{}, false, nil
+	}
+	if err != nil {
+		return Counter{}, false, fmt.Errorf("store: theme get %s: %w", name, err)
+	}
+	return c, true, nil
+}
+
+func (v *themeUsageView) GetAll(ctx context.Context) ([]Counter, error) {
+	rows, err := v.r.db.QueryContext(ctx, "SELECT theme, num FROM tb_theme_usage ORDER BY theme")
+	if err != nil {
+		return nil, fmt.Errorf("store: theme get all: %w", err)
+	}
+	defer rows.Close()
+	var out []Counter
+	for rows.Next() {
+		var c Counter
+		if err := rows.Scan(&c.Name, &c.Num); err != nil {
+			return nil, fmt.Errorf("store: theme scan: %w", err)
+		}
+		out = append(out, c)
+	}
+	return out, rows.Err()
+}
+
+func (v *themeUsageView) Set(ctx context.Context, name string, num int64) error {
+	_, err := v.r.db.ExecContext(ctx, themeUpsertSQL, name, num)
+	if err != nil {
+		return fmt.Errorf("store: theme set %s: %w", name, err)
+	}
+	return nil
+}
+
+func (v *themeUsageView) SetMulti(ctx context.Context, items []Counter) error {
+	if len(items) == 0 {
+		return nil
+	}
+	tx, err := v.r.db.BeginTx(ctx, nil)
+	if err != nil {
+		return fmt.Errorf("store: theme begin tx: %w", err)
+	}
+	stmt, err := tx.PrepareContext(ctx, themeUpsertSQL)
+	if err != nil {
+		tx.Rollback()
+		return fmt.Errorf("store: theme prepare upsert: %w", err)
+	}
+	defer stmt.Close()
+	for _, it := range items {
+		if _, err := stmt.ExecContext(ctx, it.Name, it.Num); err != nil {
+			tx.Rollback()
+			return fmt.Errorf("store: theme upsert %s: %w", it.Name, err)
+		}
+	}
+	if err := tx.Commit(); err != nil {
+		return fmt.Errorf("store: theme commit: %w", err)
 	}
 	return nil
 }

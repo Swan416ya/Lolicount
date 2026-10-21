@@ -13,9 +13,9 @@ func makeEditorReq(nLayers int) *EditorRequest {
 	layers := make([]EditorLayer, nLayers)
 	for i := 0; i < nLayers; i++ {
 		layers[i] = EditorLayer{
-			ID:       i + 1,
-			Name: "lass",
-			ZIndex:   i,
+			ID:     i + 1,
+			Name:   "lass",
+			ZIndex: i,
 			Images: []EditorImage{
 				{Src: "data:image/png;base64,AAAA", Left: 0, Top: 0, Width: 100, Height: 200},
 			},
@@ -116,7 +116,7 @@ func TestBuildEditorThemeMultiImageCandidates(t *testing.T) {
 		Canvas: EditorCanvas{Width: 500, Height: 800},
 		Layers: []EditorLayer{
 			{
-				ID:       1,
+				ID:   1,
 				Name: "eye",
 				Images: []EditorImage{
 					{Src: "img1", Left: 10, Top: 20, Width: 100, Height: 50},

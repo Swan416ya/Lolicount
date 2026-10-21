@@ -19,9 +19,9 @@ type Theme struct {
 	// the text area. Text layers use these for ratio positioning so
 	// rx/ry are fractions of the image. When zero, the composer falls
 	// back to Canvas dims.
-	BgW     int
-	BgH     int
-	Layers  []imgcore.Layer
+	BgW    int
+	BgH    int
+	Layers []imgcore.Layer
 }
 
 // FThemeRegistry is the font-style registry interface.

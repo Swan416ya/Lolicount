@@ -4,12 +4,13 @@ import (
 	"io/fs"
 	"net/http"
 	"net/http/httptest"
+	"path"
+	"regexp"
 	"strings"
 	"testing"
 
 	"github.com/miaoledor/lolicount/assets"
 )
-
 
 // distHasIndex reports whether the embedded dist contains index.html.
 // Tests that depend on serving the SSG frontend skip when it is absent
@@ -27,8 +28,6 @@ func distHasIndex() bool {
 	f.Close()
 	return true
 }
-
-
 
 // rewriteBaseUrl replaces the baked baseUrl payload value with the runtime
 // BASE_URL so a single image can be re-pointed at any domain without a
@@ -90,6 +89,77 @@ func TestIndexHTMLRuntimeBaseUrlOverride(t *testing.T) {
 	}
 }
 
+// The home page IS the playground (landing-page swap): it must render
+// the param panel, and the removed showcase button must not resurface.
+// /themes stays alive as a prerendered alias for old shared ?theme=
+// links. The editor quick panel keeps its border-box override — without
+// it the mobile panel overflows by its horizontal padding (no global
+// CSS reset is loaded).
+func TestHomeIsPlayground(t *testing.T) {
+	if !distHasIndex() {
+		t.Skip("assets/dist has no index.html; run `pnpm generate` to test frontend serving")
+	}
+
+	s := newCounterServer(t)
+	req := httptest.NewRequest(http.MethodGet, "/", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("status: %d", resp.StatusCode)
+	}
+	body := readBody(t, resp)
+	if !strings.Contains(body, "loli-tool") {
+		t.Error("home page does not render the playground param panel")
+	}
+	if strings.Contains(body, "showcase-playground-link") {
+		t.Error("home page still renders the removed showcase browse button")
+	}
+
+	aliasReq := httptest.NewRequest(http.MethodGet, "/themes", nil)
+	aliasResp, err := s.app.Test(aliasReq)
+	if err != nil {
+		t.Fatalf("alias app.Test: %v", err)
+	}
+	if !strings.Contains(readBody(t, aliasResp), "loli-tool") {
+		t.Error("/themes alias does not render the playground")
+	}
+
+	dist, err := fs.Sub(assets.DistFS, "dist")
+	if err != nil {
+		t.Fatalf("open dist: %v", err)
+	}
+	if _, err := fs.Stat(dist, "_nuxt"); err != nil {
+		t.Skip("assets/dist has no _nuxt directory; run `pnpm generate` to test built CSS")
+	}
+
+	rule := regexp.MustCompile(`\.quick-panel[^{}]*\{[^}]*box-sizing\s*:\s*border-box`)
+	found := false
+	err = fs.WalkDir(dist, "_nuxt", func(p string, d fs.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if d.IsDir() || path.Ext(p) != ".css" {
+			return nil
+		}
+		css, err := fs.ReadFile(dist, p)
+		if err != nil {
+			return err
+		}
+		if rule.Match(css) {
+			found = true
+		}
+		return nil
+	})
+	if err != nil {
+		t.Fatalf("walk built CSS: %v", err)
+	}
+	if !found {
+		t.Error("built CSS is missing border-box sizing for .quick-panel")
+	}
+}
+
 // Prerendered Nuxt pages are directories in dist (editor/index.html etc.).
 // Both the bare and trailing-slash forms must serve that page's HTML, not
 // the home SPA fallback (which would navigate the client back to "/").
@@ -121,7 +191,8 @@ func TestFrontendServesPrerenderedSubPages(t *testing.T) {
 
 // Hashed _nuxt assets are immutable; HTML entry points must revalidate so
 // a redeploy is picked up instead of serving a stale page that references
-// deleted chunks.
+// deleted chunks; gallery images get a bounded window (they change only
+// with a theme rebuild under a name-stable path).
 func TestFrontendCachePolicy(t *testing.T) {
 	s := newCounterServer(t)
 	req := httptest.NewRequest(http.MethodGet, "/some-spa-route", nil)
@@ -131,5 +202,19 @@ func TestFrontendCachePolicy(t *testing.T) {
 	}
 	if cc := resp.Header.Get("Cache-Control"); cc != "no-store" {
 		t.Errorf("html Cache-Control: got %q want no-store", cc)
+	}
+
+	// A theme thumbnail must carry the bounded image window.
+	thumb := "images/theme-thumbs/cafestella-yuna.webp"
+	if _, err := fs.Stat(assets.DistFS, "dist/"+thumb); err != nil {
+		t.Skipf("assets/dist has no %s; run `pnpm generate` to test frontend serving", thumb)
+	}
+	req = httptest.NewRequest(http.MethodGet, "/"+thumb, nil)
+	resp, err = s.app.Test(req)
+	if err != nil {
+		t.Fatalf("thumb app.Test: %v", err)
+	}
+	if cc := resp.Header.Get("Cache-Control"); cc != "public, max-age=86400" {
+		t.Errorf("thumb Cache-Control: got %q want public, max-age=86400", cc)
 	}
 }

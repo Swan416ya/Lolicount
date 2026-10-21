@@ -190,7 +190,6 @@ func exportCharacterTheme(name string, canvas EditorCanvas, display *theme.Displ
 	var buf bytes.Buffer
 	w := zip.NewWriter(&buf)
 
-
 	layerIDCounter := -1
 	var manifest []manifestEntry
 

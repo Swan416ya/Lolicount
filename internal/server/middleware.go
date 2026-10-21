@@ -74,7 +74,6 @@ func cors() fiber.Handler {
 	}
 }
 
-
 // sanitizeBackslashEscape repairs query strings corrupted by markdown
 // editors (notably milkdown/remark) that escape "&" as "\&" to avoid
 // HTML-entity parsing. The backslash is an illegal URL character:

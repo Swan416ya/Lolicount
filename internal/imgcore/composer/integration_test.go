@@ -40,9 +40,9 @@ func cardThemeWithText(srcW, srcH int, scale float64, text string) *theme.Theme 
 // ScaledDims output exactly, with no re-rounding on non-square frames.
 func TestComposeCardImageDimsMatchScaledDims(t *testing.T) {
 	cases := []struct {
-		name        string
-		srcW, srcH  int
-		scale       float64
+		name       string
+		srcW, srcH int
+		scale      float64
 	}{
 		{"lian-like-non-square", 1320, 1333, 0},
 		{"square", 400, 400, 0},

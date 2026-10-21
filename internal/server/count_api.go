@@ -14,8 +14,8 @@ import (
 // rate limiting degrades read-only, Iron Rule 3), while demo / number>0
 // return fixed values without incrementing. The route is mounted under
 // /api so it inherits the CORS middleware — the widget fetches it
-// cross-origin from third-party pages. Real counts are always no-store
-// (Iron Rule 1).
+// cross-origin from third-party pages. Real counts use the shared
+// realCountCacheControl combo (Iron Rule 1).
 func (s *Server) countHandler(c fiber.Ctx) error {
 	// See counterHandler: clone the param so it never aliases a reused
 	// fasthttp buffer when it reaches the buffer/store layer.
@@ -58,7 +58,7 @@ func (s *Server) countHandler(c fiber.Ctx) error {
 		}
 	}
 
-	c.Set("Cache-Control", "no-store")
+	c.Set("Cache-Control", realCountCacheControl)
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"name": name,
 		"num":  count,

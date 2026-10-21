@@ -229,6 +229,8 @@ go run ./cmd/fix-theme             # 实际重命名,使序号连续从 0 开始
 
 ## 主题清单
 
-`assets/themes.json` 由 `scripts/gen-themes-json.js` 自动生成,记录卡片主题
-的名称、帧数、扩展名与 meta 字段。前端与 API 消费该清单展示主题列表。
+`assets/themes.json` 由 `scripts/gen-themes-json.js` 自动生成,记录所有内置
+主题的名称、图片数量、扩展名与 meta 字段。单图层主题统计根目录帧图,
+多图层主题统计 `ren/` 目录下的图层图。运行时 `/api/themes` 由
+`ThemeRegistry` 直接生成,清单主要供构建与主题工具使用。
 **不要手动编辑** `themes.json`,改主题后重跑生成脚本。

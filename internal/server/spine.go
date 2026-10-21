@@ -36,8 +36,8 @@ var spineFileNameRe = regexp.MustCompile(`^dyn\.(skel|json|atlas|png|jpg)$|^page
 // Content-Type the browser needs to load them via XHR. The skeleton binary is
 // opaque bytes; the atlas and JSON are text; pages are PNG.
 var spineContentTypes = map[string]string{
-	".skel": "application/octet-stream",
-	".json": "application/json",
+	".skel":  "application/octet-stream",
+	".json":  "application/json",
 	".atlas": "text/plain; charset=utf-8",
 	".png":   "image/png",
 	".jpg":   "image/jpeg",

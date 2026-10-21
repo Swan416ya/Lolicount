@@ -1,30 +1,30 @@
 [
   {
     "name": "placeholder",
-    "left": 0,
-    "top": 0,
-    "width": 0,
-    "height": 0,
+    "left": 1,
+    "top": 1,
+    "width": 1,
+    "height": 1,
     "visible": 1,
     "layer_id": 0,
     "group_layer_id": 0
   },
   {
     "name": "lass_1",
-    "left": 610,
-    "top": 264,
-    "width": 780,
-    "height": 3471,
+    "left": 281,
+    "top": 122,
+    "width": 360,
+    "height": 1600,
     "visible": 1,
     "layer_id": 1,
     "group_layer_id": 1
   },
   {
     "name": "lass_2",
-    "left": 422,
-    "top": 267,
-    "width": 1156,
-    "height": 3466,
+    "left": 195,
+    "top": 123,
+    "width": 533,
+    "height": 1598,
     "visible": 1,
     "layer_id": 2,
     "group_layer_id": 2

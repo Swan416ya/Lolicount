@@ -20,7 +20,7 @@ import (
 	"github.com/miaoledor/lolicount/internal/imgcore/theme"
 )
 
-// buildThemeLayers takes a loaded *theme.Theme (from the registry) and
+// BuildThemeLayers takes a loaded *theme.Theme (from the registry) and
 // produces a renderable theme with the text layer appended. Scale is
 // applied to image dimensions for single-image (ImageLayer) themes and
 // multi-frame (RandomPickLayer) themes. Character (GroupLayer) themes
@@ -30,11 +30,14 @@ import (
 // This function does NOT mutate the registry's shared *theme.Theme — it
 // builds fresh layers so concurrent requests and repeated calls see
 // consistent dimensions.
-func buildThemeLayers(base *theme.Theme, scale float64, text string,
+//
+// Exported so cmd/gen-theme-thumbs can pre-render identical gallery
+// thumbnails without a running server.
+func BuildThemeLayers(base *theme.Theme, scale float64, text string,
 	fontSize int, unshowFont bool, style theme.TextStyle, pos theme.TextPos) (*theme.Theme, error) {
 
 	if base == nil {
-		return nil, fmt.Errorf("buildThemeLayers: nil theme")
+		return nil, fmt.Errorf("BuildThemeLayers: nil theme")
 	}
 
 	s := scaleOrOne(scale)
@@ -54,11 +57,12 @@ func buildThemeLayers(base *theme.Theme, scale float64, text string,
 			layers = append(layers, &cp)
 			bgW, bgH = imgW, imgH
 		case *render.RandomPickLayer:
-			// Scale every option to the display size. Because frames in a
-			// multi-frame theme can have different aspect ratios, the
-			// scaled dimensions vary per frame. The canvas must
-			// accommodate the largest frame so no frame is clipped — use
-			// the max scaled width and height across all options.
+			// Scale every option to the display size and take the max.
+			// Under the lazy one-image-per-slot strategy Options holds
+			// only the resident frame, so FrameDims (every candidate's
+			// dims) is folded in as well — the canvas must accommodate
+			// the largest frame so no frame is clipped and the aspect
+			// ratio stays stable as swaps rotate through frames.
 			scaledOpts := make([]render.ImageOption, len(l.Options))
 			var maxW, maxH int
 			for i, opt := range l.Options {
@@ -75,9 +79,19 @@ func buildThemeLayers(base *theme.Theme, scale float64, text string,
 					maxH = imgH
 				}
 			}
+			for _, d := range l.FrameDims {
+				imgW, imgH := imgutils.ScaledDims(d.W, d.H, display)
+				if imgW > maxW {
+					maxW = imgW
+				}
+				if imgH > maxH {
+					maxH = imgH
+				}
+			}
 			layers = append(layers, &render.RandomPickLayer{
 				Category:  l.Category,
 				Options:   scaledOpts,
+				FrameDims: l.FrameDims,
 				Transform: imgcore.DefaultTransform(),
 				Z:         l.Z,
 				IsFixed:   l.IsFixed,
@@ -126,18 +140,29 @@ func scaleOrOne(scale float64) float64 {
 
 // compose renders any theme (card or character) via the unified
 // composer. The theme is fetched from the registry, the text layer is
-// appended, and the result is composed into SVG. The PRNG seed is
-// salted with a per-request random number so multi-frame themes show a
-// different frame/combination on each request.
+// appended, and the result is composed into SVG. When the registry is a
+// lazy RenderPreparer (the one-image-per-slot strategy), each render
+// first swaps in ONE freshly loaded slot candidate and works on a
+// private snapshot — consecutive requests each evolve one part while
+// concurrent renders stay isolated. The PRNG seed is salted with a
+// per-request random number so the text-layer randomness differs per
+// request.
 func (s *Server) compose(entry composer.ThemeEntry, q *queryParams, text string,
 	style theme.TextStyle) (string, error) {
 	base, ok := s.themes.Get(entry.Name)
 	if !ok {
 		return "", fmt.Errorf("theme %q not found", entry.Name)
 	}
+	if rp, ok := s.themes.(composer.RenderPreparer); ok {
+		snapshot, err := rp.PrepareRender(entry.Name)
+		if err != nil {
+			return "", err
+		}
+		base = snapshot
+	}
 
 	pos := theme.TextPos{X: q.X, Y: q.Y, RX: q.RX, RY: q.RY}
-	t, err := buildThemeLayers(base, q.Scale, text, q.FSize, q.UnshowF, style, pos)
+	t, err := BuildThemeLayers(base, q.Scale, text, q.FSize, q.UnshowF, style, pos)
 	if err != nil {
 		return "", err
 	}

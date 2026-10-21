@@ -395,6 +395,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+
 .canvas-wrapper {
   display: flex;
   flex-direction: column;
@@ -407,22 +408,10 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 1rem;
   padding: 0.375rem 0.75rem;
-  background: var(--bg-card, #1e1e1e);
-  border-bottom: 1px solid var(--border-color, #333);
+  background: var(--loli-cream);
+  border-bottom: 1px solid var(--loli-border);
   flex-shrink: 0;
 }
-
-.canvas-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  cursor: pointer;
-  font-size: 0.75rem;
-  color: var(--text-muted, #999);
-  user-select: none;
-}
-
-.canvas-toggle input { cursor: pointer; }
 
 .canvas-dims {
   font-size: 0.6875rem;
@@ -438,12 +427,14 @@ onBeforeUnmount(() => {
   justify-content: center;
   padding: 2rem;
   position: relative;
-  background-color: #e8e8e8;
+  /* Soft checkerboard (transparency) from palette tokens, so the
+     pattern follows day/night mode. */
+  background-color: var(--loli-checker-bg);
   background-image:
-    linear-gradient(45deg, #d0d0d0 25%, transparent 25%),
-    linear-gradient(-45deg, #d0d0d0 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #d0d0d0 75%),
-    linear-gradient(-45deg, transparent 75%, #d0d0d0 75%);
+    linear-gradient(45deg, var(--loli-checker-sq) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--loli-checker-sq) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--loli-checker-sq) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--loli-checker-sq) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0;
 }
@@ -464,7 +455,7 @@ onBeforeUnmount(() => {
 .canvas-inside-shadow {
   position: absolute;
   inset: 0;
-  box-shadow: inset 0 0 12px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 12px 3px rgba(76, 79, 105, 0.12);
   z-index: 2;
   pointer-events: none;
 }
@@ -473,8 +464,8 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  background: var(--bg-card);
+  box-shadow: 0 10px 30px rgba(76, 79, 105, 0.18);
 }
 
 .canvas-svg-container :deep(svg) {
@@ -501,7 +492,7 @@ onBeforeUnmount(() => {
   left: 0;
   pointer-events: none;
   z-index: 15;
-  box-shadow: 0 0 0 9999px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--loli-surface) 60%, transparent);
 }
 
 /* Grid overlay: rendered above everything so canvas bounds and guide
@@ -524,15 +515,17 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.875rem;
 }
 
 .canvas-empty p {
   margin: 0;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.85rem;
+  box-shadow: 0 10px 30px rgba(76, 79, 105, 0.1);
 }
 
 .canvas-loading {
@@ -544,7 +537,7 @@ onBeforeUnmount(() => {
 .canvas-spinner {
   width: 24px;
   height: 24px;
-  border: 3px solid var(--border-color);
+  border: 3px solid var(--loli-border);
   border-top-color: var(--loli-pink);
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
@@ -553,11 +546,11 @@ onBeforeUnmount(() => {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .canvas-error {
-  color: #ef4444;
+  color: #d20f39;
   font-size: 0.8125rem;
   padding: 1rem;
-  background: rgba(239, 68, 68, 0.1);
-  border-radius: 6px;
+  background: rgba(210, 15, 57, 0.08);
+  border-radius: 0.5rem;
 }
 
 /* Zoom controls */
@@ -569,9 +562,10 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 2px;
   padding: 4px;
-  background: var(--bg-card, #1e1e1e);
-  border: 1px solid var(--border-color, #333);
-  border-radius: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--loli-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(76, 79, 105, 0.15);
   z-index: 10;
 }
 
@@ -582,34 +576,34 @@ onBeforeUnmount(() => {
   width: 28px;
   height: 28px;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: transparent;
-  color: var(--text-color, #eee);
+  color: var(--text-color);
   cursor: pointer;
   padding: 0;
 }
 
 .zoom-btn:hover {
-  background: var(--bg-btn, #2a2a2a);
+  background: var(--loli-selection);
   color: var(--loli-pink);
 }
 
 .zoom-label {
   font-size: 0.6875rem;
   font-family: monospace;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   min-width: 36px;
   text-align: center;
 }
 
 .zoom-reset {
-  border-left: 1px solid var(--border-color, #333);
+  border-left: 1px solid var(--loli-border);
   margin-left: 2px;
   padding-left: 2px;
 }
 
 .zoom-eye {
-  border-left: 1px solid var(--border-color, #333);
+  border-left: 1px solid var(--loli-border);
   margin-left: 2px;
   padding-left: 2px;
 }
@@ -645,7 +639,7 @@ onBeforeUnmount(() => {
 }
 
 .drag-box:hover {
-  border-color: rgba(107, 114, 128, 0.6);
+  border-color: rgba(108, 111, 133, 0.5);
 }
 
 .drag-box-selected {
@@ -657,7 +651,7 @@ onBeforeUnmount(() => {
 }
 
 .drag-box-dragging .drag-box-img {
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 4px 8px rgba(76, 79, 105, 0.25));
 }
 
 .drag-box-img {
@@ -676,9 +670,9 @@ onBeforeUnmount(() => {
   font-size: 0.625rem;
   font-family: monospace;
   color: var(--loli-pink);
-  background: rgba(255, 255, 255, 0.85);
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
   padding: 0 4px;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   white-space: nowrap;
   pointer-events: none;
 }

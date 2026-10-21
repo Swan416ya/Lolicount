@@ -90,7 +90,7 @@ type cropRect struct {
 }
 
 type displayJSON struct {
-	Size int      `json:"size"`
+	Size int       `json:"size"`
 	Crop *cropRect `json:"crop"`
 }
 

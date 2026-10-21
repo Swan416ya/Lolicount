@@ -12,6 +12,7 @@ Embedded static resources, packed into the Go binary via `go:embed` (see
 - `f-theme/<name>.json` — built-in font-style themes (counter text
   family/color/weight)
 - `img/` — static images for README/frontend (logo, screenshots)
-- `themes.json` — CI-generated theme manifest (consumed by the frontend)
+- `themes.json` — CI-generated manifest for all built-in themes; the
+  runtime API lists themes from ThemeRegistry
 - `dist/` — pre-built Nuxt SSG frontend (copied in at build time; only
   `.gitkeep` is tracked)

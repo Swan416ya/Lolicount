@@ -39,7 +39,8 @@ Nuxt 4 SSG,主题图与前端 dist 通过 `embed.FS` 打包进同一个 Go 二�
 3. `counter.Buffer.Incr` 在内存 map 自增;同时 `nameLimiter` 做 name 级
    限流,超限则**降级只读**(返回当前值但不 +1,铁律 3)。
 4. `composer.Compose` 合成所有图层(底图 + 计数文字)
-   生成 SVG,设 `Cache-Control: no-store`(铁律 1),返回 `image/svg+xml`。
+   生成 SVG,设 `Cache-Control: no-store, no-cache, max-age=0, must-revalidate`
+   (铁律 1),返回 `image/svg+xml`。
 6. `counter.Buffer` 内的 `time.Ticker` 按 `DB_INTERVAL` 秒触发 `flush()`,
    批量 upsert 到 SQLite。
 
@@ -70,6 +71,23 @@ CREATE TABLE IF NOT EXISTS tb_count (
 `name` 的 `UNIQUE` 约束自带唯一索引,是 upsert 触发条件,并保证并发
 upsert 同一 name 不会产生重复行。业务从不按 `num` 查询,无需额外索引。
 
+### `tb_theme_usage` 表(主题热度统计)
+
+```sql
+CREATE TABLE IF NOT EXISTS tb_theme_usage (
+    theme VARCHAR(128) NOT NULL PRIMARY KEY,
+    num   BIGINT       NOT NULL DEFAULT 0
+);
+```
+
+主题使用量的持久化,数据源是真实计数渲染(每次 `/@:name?theme=X` 渲染
++1;demo / number 渲染不计)。实现上完全复用 `counter.Buffer` 的批处理
+语义:第二个 Buffer 实例通过 `store.Repository` 的 `ThemeUsage()` 视图
+把读写隔离到本表,绝不混入 `tb_count` 的用户计数命名空间。热门主题列表
+(`GET /api/themes/hot`,固定 10 个)按规格在**启动时与每小时**从使用量
+缓存重算;无使用量时回退为注册表前 10 个主题。前端 Playground 以可折叠
+分组展示:热门组置顶,其余按来源游戏分组、默认折叠。
+
 ## 渲染模型
 
 渲染核心在 `internal/imgcore`,server 只调 `composer.Compose`。所有主题
@@ -83,6 +101,8 @@ upsert 同一 name 不会产生重复行。业务从不按 `num` 查询,无需�
   (`ren/*.webp`),每次请求随机组合分层。所有主题统一随机抽帧(已移除 `mode` 参数)。
 - 图层类型:`ImageLayer`、`RandomPickLayer`、`GroupLayer`、`TextLayer`,
   均实现 `imgcore.Layer` 接口。
+- **画布稳定**:`RandomPickLayer` 携带全部候选帧的尺寸元数据(`FrameDims`),
+  画布取所有帧按显示缩放后的最大宽高,随机换帧不跳变。
 - 帧图 base64 内嵌成 data URI `<image>`(离线可用)。
 
 ### 文字风格主题(f-theme)
@@ -94,6 +114,41 @@ upsert 同一 name 不会产生重复行。业务从不按 `num` 查询,无需�
 
 `composer.Compose` 合并所有图层:viewBox = `max(bg宽, 文字宽) × (bg高 + 文字高)`,
 底图水平居中,文字默认在图片正下方居中。
+
+## 图片内存策略与占用
+
+**策略:每槽位常驻一张(One Image Per Slot)的懒加载。** 编译期
+`go:embed` 全量打包不变,但运行时**不再**把所有候选图解码为 base64 常驻堆:
+
+- **启动**:`asset.LoadThemeCatalogs` 为每个主题构建元数据目录
+  (`ThemeCatalog`)——全部候选只记录文件路径、摆放坐标与文件头尺寸
+  (`image.DecodeConfig`,不解码像素、不保留字节);随后
+  `AssembleTheme` 为**每个槽位只加载一张**候选(随机槽位的选择由主题名
+  播种,同一资产树组装结果确定,画廊缩略图因此稳定),得到可渲染的
+  常驻主题。启动 < 1s,加载耗时集中在文件头读取。
+- **请求**(`composer.RenderPreparer.PrepareRender`):换入**一个**槽位
+  ——从目录随机选一个多候选槽、`asset.DecodeImage` 从内嵌树按需加载
+  该候选(字节仅在此时进堆)、替换常驻主题中的部件,随后返回**深拷贝
+  快照**供本次渲染;并发渲染互不干扰。换装失败保留原部件(渲染不中
+  断)。连续请求逐请求演化一个部件,随机性由注册表 PRNG 与请求种子
+  共同保证。
+- **只读消费者**(主题多帧判定、画廊缩略图生成)走 `Get()`,拿到的
+  是常驻组装,不得修改。
+
+### 实测占用(2026-09-30,284 主题 / 8294 张图)
+
+| 项目 | 懒加载(当前) | 旧全量预加载(对照) |
+|---|---|---|
+| 常驻堆(匿名内存) | **≈ 0.13 GiB**(gctrace goal 132 MB) | ≈ 0.94 GiB(base64 × 4/3) |
+| 稳定态 RSS | ≈ 0.85 GiB(实测 869 MiB) | 1.1–2.2 GiB 区间 |
+| 二进制体积 | ≈ 760 MiB | ≈ 760 MiB(PSB 已移出) |
+| 主题加载耗时 | < 1 s | < 1 s |
+| 渲染正确性 | SVG 结构与旧策略逐字节同构 | — |
+
+RSS 中高于堆的部分是启动读文件头时触页的内嵌 rodata(~700 MB,文件后
+备、内核可随时回收),属软占用——匿名堆才是容器内存的硬约束。若未来
+需要进一步压 RSS,可把文件头读取改为按需(`fs.Stat` 无法拿尺寸,需自
+解析 webp/PNG 头字节,避免 `ReadFile` 全文件触页)。
 
 ## 限流(铁律 3)
 
@@ -107,13 +162,14 @@ upsert 同一 name 不会产生重复行。业务从不按 `num` 查询,无需�
 
 | 资源 | Cache-Control | 理由 |
 |---|---|---|
-| 计数器 SVG(非 demo) | `no-store` | 计数实时,GitHub 代理场景必需 |
+| 计数器 SVG(非 demo) | `no-store, no-cache, max-age=0, must-revalidate` | 计数实时;GitHub 的 camo/Fastly 边缘无视裸 `no-store`,必须靠 `no-cache`/`max-age=0` 强制回源 |
 | `demo` 主题(单帧/`number`) | `max-age=31536000` | 固定值且确定,长缓存 |
-| `demo` 主题(多帧) | `no-store` | 每次随机选帧,不可长缓存 |
+| `demo` 主题(多帧) | `no-store, no-cache, max-age=0, must-revalidate` | 每次随机选帧,不可长缓存 |
 | `/api/*` 列表 | `public, max-age=60` | 短缓存,平衡新鲜度与压力 |
 
 GitHub 图片代理会缓存,任何给真实计数 SVG 加 `max-age` 的"优化"都会
-让计数永久卡死。
+让计数永久卡死;裸 `no-store` 也挡不住其边缘缓存(实测 MISS→HIT),
+真实计数必须带完整的 no-cache 组合头。
 
 ## 上传通道安全(铁律 4)
 

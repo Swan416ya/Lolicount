@@ -47,7 +47,7 @@ const src = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="preview-body">
     <div class="flex justify-center">
       <iframe
         v-if="src"
@@ -55,7 +55,7 @@ const src = computed(() => {
         :width="CSS_W"
         :height="CSS_H"
         :title="model"
-        class="border-0 bg-transparent"
+        class="preview-frame border-0 bg-transparent"
         style="max-width: 100%"
         loading="lazy"
         allow="autoplay"
@@ -67,3 +67,26 @@ const src = computed(() => {
     </p>
   </div>
 </template>
+
+<style scoped>
+.preview-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.preview-body > div {
+  width: 100%;
+}
+
+.preview-frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 360px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+}
+</style>

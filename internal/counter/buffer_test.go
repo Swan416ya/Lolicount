@@ -217,3 +217,30 @@ func TestCapacityDegradeReadOnly(t *testing.T) {
 	}
 }
 
+// TestTop pins the hot-list query: highest counts first, name-ascending
+// tiebreak for stability, and the n limit applied.
+func TestTop(t *testing.T) {
+	repo := newMemRepo()
+	buf := New(repo, zerolog.Nop(), 3600)
+	for i := 0; i < 3; i++ {
+		buf.Incr(context.Background(), "hot")
+	}
+	buf.Incr(context.Background(), "mid")
+	buf.Incr(context.Background(), "mid")
+	buf.Incr(context.Background(), "low")
+
+	top := buf.Top(2)
+	if len(top) != 2 {
+		t.Fatalf("len = %d want 2", len(top))
+	}
+	if top[0].Name != "hot" || top[0].Num != 3 {
+		t.Errorf("top[0]: got %s/%d want hot/3", top[0].Name, top[0].Num)
+	}
+	if top[1].Name != "mid" || top[1].Num != 2 {
+		t.Errorf("top[1]: got %s/%d want mid/2", top[1].Name, top[1].Num)
+	}
+	// n larger than the cache returns everything.
+	if all := buf.Top(100); len(all) != 3 {
+		t.Errorf("Top(100) len = %d want 3", len(all))
+	}
+}

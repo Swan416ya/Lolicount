@@ -6,9 +6,15 @@ import (
 	"io"
 	"net/http"
 	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 	"testing/fstest"
+
+	"github.com/rs/zerolog"
+
+	"github.com/miaoledor/lolicount/internal/config"
 )
 
 // newPsbTestServer returns a server whose embedded psb tree is replaced
@@ -22,6 +28,77 @@ func newPsbTestServer(t *testing.T, models fstest.MapFS) *Server {
 		s.psbFS = models
 	}
 	return s
+}
+
+// TestPsbDirLoadedFromDisk pins the on-disk loading contract: New wires
+// psbFS from cfg.PSB_DIR, so model files are streamed from disk only when
+// a request asks for them — the binary does not embed them.
+func TestPsbDirLoadedFromDisk(t *testing.T) {
+	dir := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(dir, "disk-model"), 0o755); err != nil {
+		t.Fatalf("mkdir: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(dir, "disk-model", "model.psb"), []byte("from-disk"), 0o644); err != nil {
+		t.Fatalf("write model: %v", err)
+	}
+
+	cfg := &config.Config{
+		Host: "127.0.0.1", Port: 0, DBInterval: 10, PSBDir: dir,
+		RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000,
+	}
+	s := New(cfg, zerolog.Nop(), nil, nil, nil, nil)
+	t.Cleanup(func() {
+		s.ipLimiter.Stop()
+		s.nameLimiter.Stop()
+	})
+
+	req := httptest.NewRequest(http.MethodGet, "/api/psb/models", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test models: %v", err)
+	}
+	body, _ := io.ReadAll(resp.Body)
+	if !strings.Contains(string(body), `"disk-model"`) {
+		t.Errorf("disk model missing from list: %s", body)
+	}
+
+	req = httptest.NewRequest(http.MethodGet, "/psb/disk-model", nil)
+	resp, err = s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test fetch: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("fetch status: got %d want 200", resp.StatusCode)
+	}
+	body, _ = io.ReadAll(resp.Body)
+	if string(body) != "from-disk" {
+		t.Errorf("streamed body: got %q want from-disk", string(body))
+	}
+}
+
+// TestPsbDirMissingDisablesEndpoints verifies that a missing PSB_DIR
+// degrades to an empty model list instead of failing startup.
+func TestPsbDirMissingDisablesEndpoints(t *testing.T) {
+	cfg := &config.Config{
+		Host: "127.0.0.1", Port: 0, DBInterval: 10,
+		PSBDir:            filepath.Join(t.TempDir(), "not-there"),
+		RateLimitIPPerSec: 10000, RateLimitIPPerMin: 100000, RateLimitNamePerSec: 10000,
+	}
+	s := New(cfg, zerolog.Nop(), nil, nil, nil, nil)
+	t.Cleanup(func() {
+		s.ipLimiter.Stop()
+		s.nameLimiter.Stop()
+	})
+
+	req := httptest.NewRequest(http.MethodGet, "/api/psb/models", nil)
+	resp, err := s.app.Test(req)
+	if err != nil {
+		t.Fatalf("app.Test: %v", err)
+	}
+	body, _ := io.ReadAll(resp.Body)
+	if got, want := string(body), `{"models":[]}`; got != want {
+		t.Errorf("missing dir models: got %s want %s", got, want)
+	}
 }
 
 func TestListPsbModels(t *testing.T) {

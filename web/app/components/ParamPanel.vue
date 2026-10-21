@@ -198,21 +198,6 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
             />
           </td>
         </tr>
-        <tr v-if="panelMode !== 'quick'">
-          <td><code>unshowf</code></td>
-          <td>{{ t('param.unshowf') }}</td>
-          <td>
-            <input
-              :id="'loli-unshowf'"
-              type="checkbox"
-              role="switch"
-              :checked="state.unshowf"
-              @change="update({ unshowf: ($event.target as HTMLInputElement).checked })"
-              class="loli-switch-input"
-            />
-            <label :for="'loli-unshowf'" class="loli-switch-label"><span>ON</span><span>OFF</span></label>
-          </td>
-        </tr>
 
         <tr v-if="panelMode === 'expert'">
           <td colspan="3" class="loli-unusual-caption">{{ t('tool.unusual') }}</td>
@@ -248,7 +233,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   align-items: center;
   border: 2px solid var(--loli-pink);
   border-radius: 0.5rem;
-  background: #fff;
+  background: var(--bg-card);
   overflow: hidden;
   transition: border-color 0.2s;
 }
@@ -277,7 +262,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   box-sizing: border-box;
 }
 .loli-name-input::placeholder {
-  color: #c4b0bb;
+  color: var(--loli-hint);
 }
 @keyframes loli-shake {
   0%, 100% { transform: translateX(0); }
@@ -289,7 +274,7 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.625rem;
-  border-bottom: 1px solid #e5d4dc;
+  border-bottom: 1px solid var(--loli-border);
   background: var(--loli-cream);
 }
 .loli-mode-btn {
@@ -297,20 +282,20 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
   border-radius: 0.375rem;
   border: 1px solid transparent;
   font-size: 0.8rem;
-  color: #6b7280;
+  color: var(--text-muted);
   background: transparent;
   transition: all 0.2s;
   cursor: pointer;
 }
 .loli-mode-btn.is-active {
   border-color: var(--loli-pink);
-  background: #fff;
+  background: var(--bg-card);
   color: var(--loli-pink);
   font-weight: 600;
 }
 .loli-mode-sep {
   font-size: 0.7rem;
-  color: #c4b0bb;
+  color: var(--loli-hint);
   user-select: none;
 }
 .loli-tool-table {
@@ -323,14 +308,14 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-tool-table td {
   text-align: left;
   padding: 0.5rem 0.625rem;
-  border-bottom: 1px solid #f0e3e8;
+  border-bottom: 1px solid var(--loli-border);
   vertical-align: middle;
   word-break: break-word;
 }
 .loli-tool-table th {
   font-weight: 600;
-  color: #6b7280;
-  border-bottom: 1px solid #e5d4dc;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--loli-border);
   background: var(--loli-cream);
 }
 .loli-tool-table td code {
@@ -341,11 +326,11 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-input {
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid #e5d4dc;
+  border: 1px solid var(--loli-border);
   border-radius: 0.375rem;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-  background: #fff;
+  background: var(--bg-card);
 }
 .loli-input:focus {
   outline: none;
@@ -355,63 +340,27 @@ const sanitizeFloat = (v: string) => v.replace(/[^0-9.]/g, '')
 .loli-cell-hint {
   margin: 0.25rem 0 0;
   font-size: 0.7rem;
-  color: #9ca3af;
-}
-.loli-cell-hint-row {
-  font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--loli-hint);
 }
 .loli-unusual-caption {
   font-weight: 600;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--text-muted);
   padding-top: 0.75rem;
-  border-bottom: 2px solid #e5d4dc;
+  border-bottom: 2px solid var(--loli-border);
 }
-/* Switch toggle, mirroring Moe-Counter's role=switch style. */
-.loli-switch-input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.loli-switch-label {
-  position: relative;
-  display: inline-block;
-  width: 3.6em;
-  height: 1.8em;
-  border-radius: 1.8em;
-  background: #9ca3af;
-  cursor: pointer;
-  transition: background 0.3s;
-  user-select: none;
-}
-.loli-switch-label::after {
-  content: "";
-  position: absolute;
-  top: 0.1em;
-  left: 0.1em;
-  width: 1.6em;
-  height: 1.6em;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s;
-}
-.loli-switch-label > span {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 12.5%;
-  font-size: 10px;
-  font-weight: bold;
-  color: #fff;
-}
-.loli-switch-input:checked + .loli-switch-label {
-  background: var(--loli-pink);
-}
-.loli-switch-input:checked + .loli-switch-label::after {
-  transform: translateX(1.8em);
+
+/* Mobile: bigger touch targets, and 16px control text — iOS Safari
+ * auto-zooms the viewport when a focused control's font-size is under
+ * 16px. */
+@media (max-width: 767px) {
+  .loli-mode-btn {
+    min-height: 36px;
+  }
+  .loli-input {
+    min-height: 38px;
+    font-size: 16px;
+    padding: 0.375rem 0.625rem;
+  }
 }
 </style>

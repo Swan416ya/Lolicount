@@ -17,6 +17,21 @@ function frameIndex(stem) {
   return Number.isInteger(n) && n >= 0 ? n : -1;
 }
 
+const countNumericImages = (files) => {
+  let count = 0;
+  let ext = '';
+  for (const file of files) {
+    const dot = file.lastIndexOf('.');
+    if (dot < 0) continue;
+    const extension = file.slice(dot).toLowerCase();
+    if (!SUPPORTED.has(extension)) continue;
+    if (frameIndex(file.slice(0, dot)) < 0) continue;
+    count++;
+    if (!ext) ext = extension.replace('.', '');
+  }
+  return { count, ext };
+};
+
 async function loadMeta(dir) {
   const metaPath = join(THEME_PATH, dir, 'meta.json');
   try {
@@ -36,22 +51,15 @@ const dirs = await readdir(THEME_PATH, { withFileTypes: true });
 for (const d of dirs) {
   if (!d.isDirectory()) continue;
   const files = await readdir(join(THEME_PATH, d.name));
-  let count = 0;
-  let ext = '';
-  for (const f of files) {
-    const e = f.slice(f.lastIndexOf('.')).toLowerCase();
-    if (!SUPPORTED.has(e)) continue;
-    const stem = f.slice(0, f.lastIndexOf('.'));
-    if (frameIndex(stem) < 0) continue;
-    count++;
-    if (!ext) ext = e;
-  }
+  const imageDir = files.includes('ren.json') ? join(THEME_PATH, d.name, 'ren') : join(THEME_PATH, d.name);
+  const imageFiles = await readdir(imageDir);
+  const { count, ext } = countNumericImages(imageFiles);
   if (count === 0) continue;
   const meta = await loadMeta(d.name);
   themes.push({
     name: d.name,
     frames: count,
-    ext: ext.replace('.', ''),
+    ext,
     ...meta,
   });
 }

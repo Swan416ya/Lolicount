@@ -6,13 +6,19 @@
 
 ### 计数为什么不增长 / 卡在同一个数字?
 
-最常见原因:计数器 SVG 被某层缓存加了 `max-age`。Lolicount 对非 `demo` 的
-计数 SVG 一律返回 `Cache-Control: no-store`(铁律 1),但 GitHub 图片代理、
-CDN 或浏览器扩展可能仍缓存。排查:
+最常见原因:计数器 SVG 被某层缓存命中后不再回源。Lolicount 对非 `demo` 的
+计数 SVG 返回 `Cache-Control: no-store, no-cache, max-age=0, must-revalidate`
+(铁律 1)。注意只有裸 `no-store` 是不够的:GitHub 的图片代理链路
+(camo + Fastly 边缘)会无视裸 `no-store` 直接在边缘缓存对象(x-cache 会从
+MISS 变 HIT),但会遵守 `no-cache` / `max-age=0` 强制回源。排查:
 
 - 确认请求 URL 不是 `demo`(demo 固定返回 `0123456789`,不计数)。
-- 直接 `curl -I https://lolicount.top/@your-name` 检查 `Cache-Control` 是否为 `no-store`。
-- 若走了自有 CDN,确认其未对 `image/svg+xml` 强制加长缓存。
+- 直接 `curl -sI https://lolicount.top/@your-name` 检查 `Cache-Control`
+  是否包含 `no-store, no-cache, max-age=0`。
+- 在 GitHub README 上观察边缘缓存:`curl -sI <camo 图片地址>` 看响应里的
+  `x-cache` 字段,`HIT` 表示该次请求未回源(计数不增长),`MISS` 表示已回源。
+- 若走了自有 CDN,确认其未对 `image/svg+xml` 强制加长缓存,且未剥离
+  `no-cache` / `max-age=0` 指令。
 
 ### 同一个 name 被刷量怎么办?
 
@@ -53,6 +59,18 @@ v0.2.3 起 lolicount 在 counter 路由前加 `sanitizeBackslashEscape` 中间�
 
 `number` 用于**预览**:指定数字直接展示,不落库、不 +1。真实计数走 `/@:name`
 正常流程。`demo` 是保留 name,固定返回 `0123456789`,也不落库。
+
+### 生成的计数器为什么不显示数字?
+
+Playground 生成的链接默认带 `unshowf=true`(隐藏计数文字,只展示主题画面)。
+需要显示数字时,把链接里的 `unshowf=true` 改成 `unshowf=false`,或直接删掉
+这个参数。Playground 界面已不提供该开关,但 URL 参数始终可用。
+
+### 主题画廊怎么分享某个主题的链接?
+
+在主题画廊(`/themes`)点击任意主题卡片后,选中态会同步到地址栏
+`/themes?theme=<主题名>`;直接打开该链接(或刷新)会恢复该主题的预览与
+选中状态。参数非法或缺省时回退默认主题,URL 保持干净。
 
 ## 部署
 

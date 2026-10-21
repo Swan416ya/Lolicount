@@ -52,6 +52,8 @@ npm install -g pnpm
 根目录 `package.json` 用 `concurrently` 同时启动后端(Go :9721)和前端
 (Nuxt :3721),脚本本身跨平台,无需为不同系统改命令:
 
+根目录的 pnpm workspace 包含 `web`,执行一次 `pnpm install` 即可安装开发工具和前端依赖。
+
 ```bash
 git clone https://github.com/miaoledor/Lolicount.git
 cd Lolicount
@@ -155,6 +157,17 @@ go build -o lolicount.exe ./cmd/server
 
 访问 `http://localhost:9721/@my-counter`。
 
+> **内存要求**:内置主题图在启动时全量预加载为 base64 常驻堆,实测稳定态
+> RSS ≈ 1.1 GiB 起(内嵌 rodata 触页计入的部分随内核回收浮动)、启动峰值
+> ≈ 1.5 GiB。生产环境建议预留 **≥ 2 GiB 内存**;详细构成与估算方法见
+> [架构文档「图片内存策略与占用」](./architecture.md#图片内存策略与占用)。
+>
+> **E-mote(PSB)模型目录**:模型文件不打包进二进制(444 MB,避免常驻内存),
+> 由 `PSB_DIR`(默认 `assets/psb`,相对工作目录)从磁盘按需流式读取。源码
+> 部署保持在仓库目录下运行即可;Docker 镜像已在 `/app/assets/psb` 自带
+> (可用 `PSB_DIR` 指向挂载卷替换)。目录缺失时挂件端点优雅降级为空列表,
+> 不影响启动。
+
 ### 交叉编译
 
 `modernc.org/sqlite` 是纯 Go,免 CGO,因此可交叉编译:
@@ -184,6 +197,14 @@ docker run -d -p 9721:9721 \
   -e BASE_URL=https://lolicount.top \
   ghcr.io/miaoledor/lolicount:latest
 ```
+
+镜像有两个自动来源(`.github/workflows/`):
+
+- **ghcr.io**:推送 `v*` tag 时 `release.yml` 构建并推送
+  `ghcr.io/miaoledor/lolicount:<version>`(另带 `latest` 与主/次版本 tag);
+- **Release Assets**:发布 Release 时 `release-assets.yml` 构建镜像并打包为
+  `lolicount-<tag>-docker-image.tar.gz` 挂到该 Release 的 Assets,`docker load`
+  即可离线导入;发布后才想补挂,在 Actions 手动触发该 workflow 并填 tag。
 
 **docker compose**:在 `docker-compose.yml` 的 `environment` 设 `BASE_URL`,
 或导出环境变量:

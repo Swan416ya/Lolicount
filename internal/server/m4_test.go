@@ -40,7 +40,7 @@ func m4Server(t *testing.T, ipSec, ipMin, nameSec int) *Server {
 		Host: "127.0.0.1", Port: 0, DBInterval: 10,
 		RateLimitIPPerSec: ipSec, RateLimitIPPerMin: ipMin, RateLimitNamePerSec: nameSec,
 	}
-	s := New(cfg, zerolog.Nop(), reg, nil, buf)
+	s := New(cfg, zerolog.Nop(), reg, nil, buf, nil)
 	t.Cleanup(func() {
 		s.ipLimiter.Stop()
 		s.nameLimiter.Stop()
@@ -88,7 +88,8 @@ func TestNameLimitDegradesReadOnly(t *testing.T) {
 	}
 }
 
-// TestDemoLongCache: demo gets max-age=31536000, real counter no-store.
+// TestDemoLongCache: demo gets max-age=31536000, real counter the
+// realCountCacheControl no-cache combo.
 func TestDemoLongCache(t *testing.T) {
 	s := m4Server(t, 1000, 100000, 1000)
 	demo := httptest.NewRequest(http.MethodGet, "/@demo?theme=lian", nil)
@@ -98,8 +99,8 @@ func TestDemoLongCache(t *testing.T) {
 	}
 	real := httptest.NewRequest(http.MethodGet, "/@realcache?theme=lian", nil)
 	rresp, _ := s.app.Test(real)
-	if cc := rresp.Header.Get("Cache-Control"); cc != "no-store" {
-		t.Errorf("real counter Cache-Control: %q want no-store", cc)
+	if cc := rresp.Header.Get("Cache-Control"); cc != realCountCacheControl {
+		t.Errorf("real counter Cache-Control: %q want %q", cc, realCountCacheControl)
 	}
 }
 
@@ -120,14 +121,18 @@ func TestCORSSetsHeadersOnAPI(t *testing.T) {
 	}
 }
 
-// TestNoCORSOnCounter: counter SVG paths must NOT carry CORS headers.
-func TestNoCORSOnCounter(t *testing.T) {
+// TestCounterOpenCORSWithOrigin: counter SVG responses carry a plain
+// wildcard ACAO (not origin reflection) even when the request sends an
+// Origin header. Counters are public images; the frontend's
+// download-current-frame feature needs CORS to rasterize the dev-mode
+// cross-origin preview without tainting the canvas.
+func TestCounterOpenCORSWithOrigin(t *testing.T) {
 	s := m4Server(t, 1000, 100000, 1000)
 	req := httptest.NewRequest(http.MethodGet, "/@nocors?theme=lian", nil)
 	req.Header.Set("Origin", "https://example.com")
 	resp, _ := s.app.Test(req)
-	if ao := resp.Header.Get("Access-Control-Allow-Origin"); ao != "" {
-		t.Errorf("counter SVG must not have CORS, got ACAO=%q", ao)
+	if ao := resp.Header.Get("Access-Control-Allow-Origin"); ao != "*" {
+		t.Errorf("counter SVG ACAO: got %q want *", ao)
 	}
 }
 

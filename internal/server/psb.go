@@ -1,7 +1,10 @@
-// Package server psb.go serves the embedded E-mote (PSB) models consumed
+// Package server psb.go serves the on-disk E-mote (PSB) models consumed
 // by the emote widget (docs/emote-widget.md). Models are NOT imgcore
 // themes: they are raw bytes rendered client-side by the WebGL driver, so
-// they only need to be listed and streamed.
+// they only need to be listed and streamed. Model files are NOT embedded
+// in the binary and are never held in process memory — every request
+// streams the file straight from disk (PSB_DIR), so a model's bytes are
+// only read when someone actually asks for it.
 package server
 
 import (
@@ -41,12 +44,12 @@ func (s *Server) listPsbModels(c fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{"models": names})
 }
 
-// psbModelHandler answers GET /psb/:model with the model bytes. The bytes
-// are fixed at build time (embed.FS), so the response is immutable.
-// Swapping a model's contents therefore requires a new directory name (or
-// clients will keep the stale copy for the cache lifetime). CORS is open:
-// the bytes are public and the dev Nuxt server (and any tooling) loads
-// them cross-origin via XHR.
+// psbModelHandler answers GET /psb/:model with the model file streamed
+// from disk. The bytes are fixed for a given model directory, so the
+// response is immutable — swapping a model's contents therefore requires
+// a new directory name (or clients will keep the stale copy for the cache
+// lifetime). CORS is open: the bytes are public and the dev Nuxt server
+// (and any tooling) loads them cross-origin via XHR.
 func (s *Server) psbModelHandler(c fiber.Ctx) error {
 	name := c.Params("model")
 	if !psbModelNameRe.MatchString(name) {
@@ -59,21 +62,23 @@ func (s *Server) psbModelHandler(c fiber.Ctx) error {
 	if file == "" {
 		return fiber.NewError(fiber.StatusNotFound, "model not found")
 	}
-	data, err := fs.ReadFile(s.psbFS, name+"/"+file)
+	f, size, err := openModelFile(s.psbFS, name, file)
 	if err != nil {
 		return fiber.NewError(fiber.StatusNotFound, "model not found")
 	}
+	// No manual Close: fasthttp closes the body stream (it implements
+	// io.Closer) after the response body is fully written.
 	c.Set("Content-Type", "application/octet-stream")
 	c.Set("Cache-Control", "public, max-age=31536000, immutable")
 	c.Set("Access-Control-Allow-Origin", "*")
 	if file == psbModelGzFile {
 		c.Set("Content-Encoding", "gzip")
 	}
-	return c.Status(fiber.StatusOK).Send(data)
+	return c.Status(fiber.StatusOK).SendStream(f, size)
 }
 
 // psbModelDownload answers GET /api/psb/:model/download with the stored
-// model file delivered as a download attachment. Unlike GET /psb/:model
+// model file streamed as a download attachment. Unlike GET /psb/:model
 // (which streams gzip with Content-Encoding so the widget transparently
 // decodes it), the file is delivered as-is — it lands on disk as a real
 // <model>.psb.gz (or .psb) usable in FreeMoteViewer / Emote_Widget.
@@ -89,19 +94,36 @@ func (s *Server) psbModelDownload(c fiber.Ctx) error {
 	if file == "" {
 		return fiber.NewError(fiber.StatusNotFound, "model not found")
 	}
-	data, err := fs.ReadFile(s.psbFS, name+"/"+file)
+	f, size, err := openModelFile(s.psbFS, name, file)
 	if err != nil {
 		return fiber.NewError(fiber.StatusNotFound, "model not found")
 	}
+	// No manual Close — fasthttp closes the stream after writing (see
+	// psbModelHandler).
 	if file == psbModelGzFile {
 		c.Set("Content-Type", "application/gzip")
 	} else {
 		c.Set("Content-Type", "application/octet-stream")
 	}
 	c.Set("Content-Disposition", fmt.Sprintf("attachment; filename=%q", name+"-"+file))
-	// Same rationale as /psb/:model: embedded bytes are fixed per build.
+	// Same rationale as /psb/:model: a model directory's bytes are fixed.
 	c.Set("Cache-Control", "public, max-age=31536000, immutable")
-	return c.Status(fiber.StatusOK).Send(data)
+	return c.Status(fiber.StatusOK).SendStream(f, size)
+}
+
+// openModelFile opens <model>/<file> under the psb tree and returns the
+// file (an io.Reader for streaming) plus its size for Content-Length.
+func openModelFile(psbFS fs.FS, model, file string) (fs.File, int, error) {
+	f, err := psbFS.Open(model + "/" + file)
+	if err != nil {
+		return nil, 0, err
+	}
+	info, err := f.Stat()
+	if err != nil || info.IsDir() {
+		f.Close()
+		return nil, 0, fmt.Errorf("stat model file: %w", err)
+	}
+	return f, int(info.Size()), nil
 }
 
 // psbModelFileFor returns the model file name present in the model

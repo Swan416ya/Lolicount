@@ -5,11 +5,11 @@
 // A Live2D model is a directory whose entry point is a Cubism model settings
 // file. Two flavors are supported, and the engine auto-detects which:
 //
-//  - Cubism 3: model3.json / <name>.model3.json referencing a .moc3 binary.
-//  - Cubism 2 (legacy): model.json / <name>.model.json referencing a .moc
-//    binary. This is the format BanG Dream! and other game-extracted models
-//    ship, and the one the bundled live2d-legacy.min.js (the official Cubism 2
-//    Web runtime) renders directly.
+//   - Cubism 3: model3.json / <name>.model3.json referencing a .moc3 binary.
+//   - Cubism 2 (legacy): model.json / <name>.model.json referencing a .moc
+//     binary. This is the format BanG Dream! and other game-extracted models
+//     ship, and the one the bundled live2d-legacy.min.js (the official Cubism 2
+//     Web runtime) renders directly.
 //
 // Both flavors reference, by relative path: the moc binary, one or more
 // textures (.png/.jpg), and optionally physics, pose, motions (.mtn) and
@@ -64,15 +64,15 @@ var live2dFileNameRe = regexp.MustCompile(
 // Content-Type the browser needs to load them via XHR. The moc binary is
 // opaque bytes; JSON manifests/motions are text; textures are PNG/JPEG.
 var live2dContentTypes = map[string]string{
-	".json":  "application/json",
-	".moc3":  "application/octet-stream",
-	".moc":   "application/octet-stream",
-	".mtn":   "application/octet-stream",
-	".png":   "image/png",
-	".jpg":   "image/jpeg",
-	".jpeg":  "image/jpeg",
-	".webp":  "image/webp",
-	".gif":   "image/gif",
+	".json": "application/json",
+	".moc3": "application/octet-stream",
+	".moc":  "application/octet-stream",
+	".mtn":  "application/octet-stream",
+	".png":  "image/png",
+	".jpg":  "image/jpeg",
+	".jpeg": "image/jpeg",
+	".webp": "image/webp",
+	".gif":  "image/gif",
 }
 
 // listLive2DModels answers GET /api/live2d/models with the embedded Live2D
@@ -162,4 +162,3 @@ func live2dHasManifest(fsys fs.FS, name string) bool {
 	}
 	return false
 }
-

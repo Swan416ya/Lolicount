@@ -1,6 +1,7 @@
 package imgutils
 
 import "testing"
+
 func TestDisplaySize(t *testing.T) {
 	if DisplaySize(0) != DefaultDisplaySize {
 		t.Errorf("scale=0 should use default %d", DefaultDisplaySize)

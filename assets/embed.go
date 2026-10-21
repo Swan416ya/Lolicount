@@ -9,11 +9,14 @@ import "embed"
 // FS exposes the embedded asset trees. All themes — both single-layer
 // (frame) and multi-layer (character) — live under the unified
 // assets/theme/ tree and are loaded into the ThemeRegistry at startup.
+// The E-mote (PSB) emote models are intentionally NOT embedded: they are
+// large (hundreds of MB) and rarely requested, so they are streamed from
+// the on-disk PSB_DIR per request instead (internal/server/psb.go).
 // "all:" is used so files with a leading underscore (e.g. _start.gif,
 // _end.gif) are included — without it go:embed skips files whose names
 // begin with _ or .
 //
-//go:embed all:theme all:f-theme all:img all:psb all:spine all:live2d README.md
+//go:embed all:theme all:f-theme all:img all:spine all:live2d README.md
 var FS embed.FS
 
 // DistFS holds the pre-built Nuxt SSG frontend. At build time the

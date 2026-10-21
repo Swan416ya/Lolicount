@@ -132,7 +132,7 @@ func TestAPIThemesListSpineAndLive2DModels(t *testing.T) {
 		"kalts/dyn.atlas": &fstest.MapFile{Data: []byte("a")},
 	}
 	s.live2dFS = fstest.MapFS{
-		"archchan/model3.json":  &fstest.MapFile{Data: []byte("{}")},
+		"archchan/model3.json":   &fstest.MapFile{Data: []byte("{}")},
 		"archchan/archchan.moc3": &fstest.MapFile{Data: []byte("m")},
 	}
 

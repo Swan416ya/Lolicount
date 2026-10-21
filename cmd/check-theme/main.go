@@ -41,10 +41,10 @@ import (
 )
 
 const (
-	maxFileBytes    = 4 * 1024 * 1024 // 4 MiB per frame
-	maxFrameSide    = 2048            // max width or height in pixels (frame themes)
-	maxCharLayerSide = 4096           // character themes have full-body layers that are naturally larger
-	reservedNames   = "demo random"
+	maxFileBytes     = 4 * 1024 * 1024 // 4 MiB per frame
+	maxFrameSide     = 2048            // max width or height in pixels (frame themes)
+	maxCharLayerSide = 4096            // character themes have full-body layers that are naturally larger
+	reservedNames    = "demo random"
 )
 
 var supportedExts = map[string]bool{

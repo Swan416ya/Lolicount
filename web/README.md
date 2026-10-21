@@ -1,75 +1,19 @@
-# Nuxt Minimal Starter
+# Lolicount Web
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Nuxt 4 SSG frontend for Lolicount.
 
-## Setup
+## Commands
 
-Make sure to install dependencies:
+Run these commands from the repository root. The workspace installs both the development tools and frontend dependencies together.
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+pnpm --dir web dev
+pnpm --dir web generate
 ```
 
-## Development Server
+`dev` runs Nuxt on port 3721 and expects the Go API on port 9721. `generate` writes the production static site to `web/.output/public`.
 
-Start the development server on `http://localhost:3000`:
+## Deployment
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The generated site is synchronized into `assets/dist/` and embedded into the Go binary. Run the backend build from the repository root after regenerating the frontend.

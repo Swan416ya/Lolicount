@@ -12,11 +12,11 @@ import (
 
 	"github.com/miaoledor/lolicount/internal/config"
 	"github.com/miaoledor/lolicount/internal/counter"
-	
+	"github.com/miaoledor/lolicount/internal/store"
+
+	"github.com/miaoledor/lolicount/internal/imgcore/composer"
 	"github.com/miaoledor/lolicount/internal/logger"
 	"github.com/miaoledor/lolicount/internal/server"
-	"github.com/miaoledor/lolicount/internal/store"
-	"github.com/miaoledor/lolicount/internal/imgcore/composer"
 )
 
 func main() {
@@ -83,7 +83,17 @@ func main() {
 		log.Info().Msg("no built-in f-themes loaded; ?ftheme= unavailable until one is added")
 	}
 
-	srv := server.New(cfg, log, themes, fthemes, buf)
+	// Theme usage tracker: feeds the hot-themes list (GET /api/themes/hot,
+	// refreshed at startup and hourly). Same batching semantics as the
+	// counter buffer, isolated in tb_theme_usage via the store's theme
+	// view so the user counter namespace is never mixed with theme names.
+	themeBuf := counter.New(repo.(store.ThemeUsageSource).ThemeUsage(), log, cfg.DBInterval)
+	if err := themeBuf.Start(context.Background()); err != nil {
+		log.Fatal().Err(err).Msg("failed to start theme usage buffer")
+	}
+	defer themeBuf.Stop()
+
+	srv := server.New(cfg, log, themes, fthemes, buf, themeBuf)
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)

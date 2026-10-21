@@ -54,6 +54,13 @@ export const useApi = () => {
     return data.fthemes ?? []
   }
 
+  // Hot themes: top-10 names by usage, recomputed server-side at startup
+  // and hourly. Non-critical — callers should tolerate failures (empty).
+  const fetchHotThemes = async (): Promise<string[]> => {
+    const data = await $fetch<{ hot: string[] }>(`${base}/api/themes/hot`)
+    return data.hot ?? []
+  }
+
   const fetchConfig = async () => {
     try {
       const data = await $fetch<{ baseUrl: string }>(`${base}/api/config`)
@@ -78,18 +85,12 @@ export const useApi = () => {
     if (params.rx !== undefined) q.set('rx', String(params.rx))
     if (params.ry !== undefined) q.set('ry', String(params.ry))
     if (params.text) q.set('text', params.text)
-      const qs = q.toString()
+    const qs = q.toString()
     // Prefer the explicit origin (public domain) when provided and non-empty;
     // otherwise use the same-origin apiBase for live preview.
     const root = origin && origin.length > 0 ? origin : base
     return `${root}/@${encodeURIComponent(params.name)}${qs ? `?${qs}` : ''}`
   }
 
-  const buildEmbedFormats = (url: string, name: string) => ({
-    svg: url,
-    img: `<img src="${url}" alt="${name}" />`,
-    markdown: `![${name}](${url})`,
-  })
-
-  return { fetchThemes, fetchFThemes, fetchConfig, buildCounterUrl, buildEmbedFormats, publicBase }
+  return { fetchThemes, fetchFThemes, fetchHotThemes, fetchConfig, buildCounterUrl, publicBase }
 }

@@ -1,22 +1,209 @@
-:root,
-[data-theme='gray'] {
-  --loli-pink: #6b7280;
-  --loli-cream: #f3f4f6;
-  --accent: #6b7280;
-  --bg-card: #ffffff;
-  --bg-btn: #f3f4f6;
-  --border-color: #e0e0e0;
-  --text-color: #1f1f1f;
-  --text-muted: #888;
+/*
+ * Self-hosted Typekit fonts (chanfoo, licensed/authorized):
+ * droog (display, weight 900) and helvetica-lt-pro (body 300/400/700).
+ */
+@font-face {
+  font-family: 'droog';
+  src: url('/fonts/droog-900.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
 }
 
-[data-theme='pink'] {
-  --loli-pink: #e91e63;
-  --loli-cream: #fff5f7;
-  --accent: #e91e63;
+@font-face {
+  font-family: 'helvetica-lt-pro';
+  src: url('/fonts/helvetica-lt-pro-300.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'helvetica-lt-pro';
+  src: url('/fonts/helvetica-lt-pro-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'helvetica-lt-pro';
+  src: url('/fonts/helvetica-lt-pro-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/*
+ * Token model: a single fixed accent (chanfoo's gray/lavender scheme),
+ * orthogonal to day/night (data-mode=dark, absent for light). The light
+ * block defines the full Catppuccin Latte palette; the dark block
+ * overrides it with Catppuccin Mocha, matching chanfoo's light/dark
+ * schemes.
+ */
+:root {
+  /* Catppuccin Latte neutrals, matching chanfoo's light scheme. */
+  --loli-crust: #dce0e8;
+  --loli-surface: #eff1f5;
+  --loli-cream: #e6e9ef;
+  --loli-border: #ccd0da;
+  --loli-selection: rgba(124, 127, 147, 0.21);
+  --text-color: #4c4f69;
+  --text-muted: #6c6f85;
   --bg-card: #ffffff;
-  --bg-btn: #fff5f7;
-  --border-color: #f0d0d8;
-  --text-color: #1f1f1f;
-  --text-muted: #999;
+  --bg-btn: #e6e9ef;
+  --border-color: #ccd0da;
+  --loli-hint: #c4b0bb;
+  --url-color: #1e66f5;
+
+  /* Takeover-menu tiles and ghost icons (reference surface/overlay grays). */
+  --loli-tile: #ccd0da;
+  --loli-tile-hover: #bcc0cc;
+  --loli-ghost: #7c7f93;
+  --loli-ghost-touch: #9ca0b0;
+
+  --loli-pink: #7287fd;
+  --accent: #7287fd;
+  --accent-strong: #4c4f69;
+  --accent-soft: rgba(114, 135, 253, 0.16);
+
+  /* The three token grays the hero / footer letters cycle through. */
+  --token-body: #4c4f69;
+  --token-subtext-0: #6c6f85;
+  --token-subtext-1: #5c5f77;
+
+  /* Transparency checkerboard behind the editor canvas. */
+  --loli-checker-bg: #eef1f6;
+  --loli-checker-sq: #e2e6ee;
+
+  --frame-gutter: 8px;
+  --frame-radius: 24px;
+
+  /* Skeleton ramp (reference's --skeleton-0..3, Catppuccin Latte grays). */
+  --skeleton-0: rgb(204, 208, 218);
+  --skeleton-1: rgb(188, 192, 204);
+  --skeleton-2: rgb(172, 176, 190);
+  --skeleton-3: rgb(156, 160, 176);
+}
+
+/* Dark mode (day/night): Catppuccin Mocha neutrals, matching chanfoo's
+   dark scheme, on top of the light gray accent. */
+html[data-mode='dark'] {
+  color-scheme: dark;
+  --loli-crust: #11111b;
+  --loli-surface: #1e1e2e;
+  --loli-cream: #181825;
+  --loli-border: #313244;
+  --loli-selection: rgba(147, 153, 178, 0.21);
+  --text-color: #cdd6f4;
+  --text-muted: #a6adc8;
+  --bg-card: #313244;
+  --bg-btn: #181825;
+  --border-color: #313244;
+  --loli-hint: #7f849c;
+  --url-color: #89b4fa;
+
+  --loli-pink: #b4befe;
+  --accent: #b4befe;
+  --accent-strong: #cdd6f4;
+  --accent-soft: rgba(180, 190, 254, 0.16);
+
+  --token-body: #cdd6f4;
+  --token-subtext-0: #a6adc8;
+  --token-subtext-1: #bac2de;
+
+  --loli-checker-bg: #181825;
+  --loli-checker-sq: #313244;
+
+  /* Takeover-menu tiles and ghost icons, dark scheme. */
+  --loli-tile: #313244;
+  --loli-tile-hover: #585b70;
+  --loli-ghost: #7f849c;
+  --loli-ghost-touch: #585b70;
+
+  --skeleton-0: #313244;
+  --skeleton-1: #45475a;
+  --skeleton-2: #585b70;
+  --skeleton-3: #6c7086;
+}
+
+/* Registered so the takeover tile's --nav-tile-bg interpolates on hover
+   (the reference fades its tile background and bottom gradient together). */
+@property --nav-tile-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+/* Reference's skeleton-cycle: the four grays rotate while images load. */
+@keyframes skeleton-cycle {
+  0%, 100% { background-color: var(--skeleton-0); }
+  25% { background-color: var(--skeleton-1); }
+  50% { background-color: var(--skeleton-2); }
+  75% { background-color: var(--skeleton-3); }
+}
+
+html {
+  background: var(--loli-crust);
+  scroll-behavior: auto;
+}
+
+body {
+  /* No global CSS reset is loaded, so zero the UA body margin explicitly:
+     the app frame's own 8px gutter margin must be the only offset, or
+     the bezel ring doubles to 16px and the fixed frame mask (at 8px)
+     no longer aligns with the frame edges. */
+  margin: 0;
+  font-family: 'helvetica-lt-pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  background: var(--loli-crust);
+  color: var(--text-color);
+  cursor: url('/images/cursor.png') 8 6, auto;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+[role='button'] {
+  cursor: url('/images/cursor.png') 8 6, pointer;
+}
+
+/* The reference swaps to a dark cursor glyph in the dark scheme. */
+html[data-mode='dark'] body {
+  cursor: url('/images/cursor-dark.png') 8 6, auto;
+}
+
+html[data-mode='dark'] button,
+html[data-mode='dark'] a,
+html[data-mode='dark'] input,
+html[data-mode='dark'] select,
+html[data-mode='dark'] textarea,
+html[data-mode='dark'] [role='button'] {
+  cursor: url('/images/cursor-dark.png') 8 6, pointer;
+}
+
+.droog {
+  font-family: 'droog', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+}
+
+/* Physics-spawned glyphs transition their token color like the reference. */
+.fade-color {
+  transition: color 0.4s ease;
+}
+
+/* Theme-switch fade: while .theme-fade is set on <html> (see
+   useTheme), every surface transitions its colors over 300ms, mirroring
+   the reference's --fade-color/--fade-bg mechanism. */
+html.theme-fade body,
+html.theme-fade body * {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+
+::selection {
+  background-color: var(--text-color);
+  color: var(--loli-surface);
 }

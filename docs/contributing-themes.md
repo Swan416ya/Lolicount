@@ -4,6 +4,8 @@
 
 Lolicount 的图片主题统一为图层栈模型,按素材组织方式分两种。请按对应格式准备素材。
 
+公主连结剧情立绘的素材来源、分层导出和复现步骤见 [公主连结主题说明](./priconne-themes.md)。
+
 ## 1. 单图层主题(原卡片,frame)
 
 每个主题是一个目录,内含若干**帧图片**,文件名即帧索引:
@@ -240,13 +242,15 @@ pnpm convert:webp:check
 go run ./cmd/check-theme
 node scripts/validate-theme-meta.js
 node scripts/gen-themes-json.js
+go run ./cmd/gen-theme-thumbs
 ```
 
 - `pnpm fix-theme:dry`:预览卡片主题帧序号是否连续(`0..n-1`),不改动文件;若有不连续会以非零退出码提示
 - `pnpm fix-theme`:执行修复,把不连续的帧图重命名为 `0..n-1`(立绘主题自动跳过)
 - `cmd/check-theme`:校验目录名、帧完整性、格式与尺寸
 - `scripts/validate-theme-meta.js`:校验 `meta.json` schema
-- `scripts/gen-themes-json.js`:校验 `assets/themes.json` 已同步
+- `scripts/gen-themes-json.js`:重新生成 `assets/themes.json`,提交前确认变更只包含预期主题
+- `go run ./cmd/gen-theme-thumbs`:重新生成主题画廊静态缩略图源(`web/public/images/theme-thumbs/*.svg`);新增/删除主题后必须重跑,否则画廊卡片图会缺失或残留孤儿文件。生成后接着跑 `node scripts/gen-theme-thumbs-webp.mjs` 把 SVG 压缩成卡片尺寸的 WebP(前端引用的是 `.webp`,转换成功后 SVG 源会被删除,仓库不保留)
 
 提交主题前建议一并跑 `pnpm convert:webp:check` 确认图片已转为 WebP
 (详见下文「图片转 WebP」),以及 `pnpm optimize:images:check` 确认保留的
@@ -345,15 +349,24 @@ node scripts/gen-themes-json.js       # 重新生成 themes.json(更新扩展名
 
 ## 图片无损优化
 
-内置主题图经 `embed.FS` 打包进二进制,PNG 体积直接影响最终产物大小。
-`scripts/optimize-images.mjs` 封装 [oxipng](https://github.com/shssoichiro/oxipng)
-(预编译二进制,经 `oxipng-bin` npm 包分发,无需系统依赖),对
-`assets/theme/**/*.png` 做**严格无损**压缩
-——只重写 DEFLATE 压缩流与 PNG filter 策略,不改动任何像素,适合对已优化的
-PNG 再挤出 10–20% 体积。
+仓库内的 PNG 体积影响二进制产物大小(SVG 站点资源)与仓库克隆体积(文档图)。
+`scripts/optimize-images.mjs` 封装 [oxipng](https://github.com/shssoichiro/oxipng),
+对以下目录的 PNG 做**严格无损**压缩——只重写 DEFLATE 压缩流与 PNG filter 策略,
+不改动任何像素:
+
+- `assets/theme/**/*.png`(内置主题,经 `embed.FS` 打包进二进制;当前已全部转为 WebP,留作新增 PNG 帧时兜底)
+- `assets/live2d/**/*.png`(Live2D 模型纹理,打包进二进制)
+- `web/public/images/**/*.png`(SSG 静态资源)
+- `docs/png/*.png`(README/文档配图,影响仓库体积)
+
+oxipng 优先使用 `oxipng-bin` 自带的预编译二进制;若与当前机器架构不兼容
+(如 x86_64 二进制跑在 arm64 上),自动回退到 PATH 里的系统安装,并自动兼容
+9.0 前后的 `--pretend`/`--dry-run` 参数名。
 
 > 不要用 sharp / imagemin 的有损减色(`palette: true`)优化主题图:会改变
 > 像素,破坏主题视觉一致性。oxipng 是唯一保证像素逐字节不变的无损方案。
+> 内置主题图已全部是有损 WebP(convert-webp.mjs 转换),WebP 没有再无损
+> 压缩的手段,不在本脚本范围内。
 
 ### 两个命令
 

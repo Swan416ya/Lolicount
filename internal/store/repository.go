@@ -28,3 +28,11 @@ type Repository interface {
 	// owns the current count and pushes its snapshot here.
 	SetMulti(ctx context.Context, items []Counter) error
 }
+
+// ThemeUsageSource is implemented by repositories that can expose a
+// theme-usage scoped view of themselves (same Repository contract,
+// backed by tb_theme_usage instead of tb_count), letting a second
+// counter.Buffer track theme popularity without mixing tables.
+type ThemeUsageSource interface {
+	ThemeUsage() Repository
+}

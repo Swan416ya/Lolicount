@@ -49,6 +49,7 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
+
 .layer-panel {
   display: flex;
   flex-direction: column;
@@ -60,7 +61,7 @@ const { t } = useI18n()
   align-items: center;
   justify-content: space-between;
   padding-bottom: 0.375rem;
-  border-bottom: 1px solid var(--border-color, #333);
+  border-bottom: 1px solid var(--loli-border);
 }
 
 .layer-panel-title {
@@ -68,22 +69,22 @@ const { t } = useI18n()
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
 }
 
 .layer-add-btn {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.625rem;
   border: 1px solid var(--loli-pink);
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: transparent;
   color: var(--loli-pink);
   cursor: pointer;
   font-size: 0.6875rem;
-  font-weight: 600;
-  transition: all 0.15s;
+  font-weight: 650;
+  transition: background-color 0.15s, color 0.15s;
 }
 
 .layer-add-btn:hover {
@@ -98,7 +99,7 @@ const { t } = useI18n()
 }
 
 .layer-empty {
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.75rem;
   text-align: center;
   padding: 1rem;

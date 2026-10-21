@@ -80,6 +80,7 @@ const toggleCollapse = () => {
 </template>
 
 <style scoped>
+
 .text-controls {
   display: flex;
   flex-direction: column;
@@ -94,7 +95,7 @@ const toggleCollapse = () => {
   padding: 0.25rem 0;
   border: none;
   background: transparent;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -136,18 +137,24 @@ const toggleCollapse = () => {
 
 .control-label {
   font-size: 0.6875rem;
-  color: var(--text-muted, #999);
+  color: var(--text-muted);
 }
 
 .control-input {
   width: 100%;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--border-color, #444);
-  border-radius: 4px;
-  background: #fff;
-  color: #111;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid var(--loli-border);
+  border-radius: 0.5rem;
+  background: var(--bg-card);
+  color: var(--text-color);
   font-size: 0.8125rem;
   box-sizing: border-box;
+}
+
+.control-input:focus {
+  outline: none;
+  border-color: var(--loli-pink);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .control-checkbox {
@@ -155,12 +162,13 @@ const toggleCollapse = () => {
   align-items: center;
   gap: 0.375rem;
   font-size: 0.75rem;
-  color: var(--text-color, #eee);
+  color: var(--text-color);
   cursor: pointer;
   user-select: none;
 }
 
 .control-checkbox input {
   cursor: pointer;
+  accent-color: var(--loli-pink);
 }
 </style>
