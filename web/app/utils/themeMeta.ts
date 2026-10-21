@@ -710,6 +710,14 @@ export const themeMeta: ThemeMeta[] = [
   },
 
   {
+    name: "akesaka",
+    kind: "emote",
+    gameKey: "chunithm",
+    character: "明坂芹菜",
+    romaji: "akesaka serina",
+    aliases: ["明坂芹菜", "明坂 芹菜", "serina", "芹菜"],
+  },
+  {
     name: "azuki",
     kind: "emote",
     gameKey: "nekopara",
